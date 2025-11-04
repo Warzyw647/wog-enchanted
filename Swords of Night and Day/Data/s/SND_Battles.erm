@@ -1,0 +1,126 @@
+ZVSE
+
+* SND_Battles, JHV, May 2011, updated Aug 27 for Chain Lightning messages
+
+* uses FU138, flags 201-204
+!#IF:V201/1 V202/1 V203/1 V204/1;
+
+!#EA35:B7/1/112/19/100/100/100/100/100/100/100/100/100/100/100; Chain Lightning before attack
+!#EA35:B8/1/119/65/1/1/1/1/1/1/1/1/1/1/1; Immunity to Hostile Air
+!#EA6:B8/1/119/65/1/1/1/1/1/1/1/1/1/1/1; Immunity to Hostile Air
+!#EA7:B9/1/119/65/1/1/1/1/1/1/1/1/1/1/1; Immunity to Hostile Air
+!#EA174:B12/1/119/65/1/1/1/1/1/1/1/1/1/1/1; Immunity to Hostile Air
+
+!?MR1; spell damage/resistance trigger, final
+!!MR:M?v1 S?v2; monster type, spell #
+!!FU&v2<>19:E; exit if not Chain L
+!!VRy-1:S-1;
+!!BG:N?y-1;
+!!VRy-2:S-1;
+!!BMy-1&y-1>=0:T?y-2;
+!!VRy-1:S1; Chain Lightning cast by Jalery
+!!VRy-1&y-2<>34/y-2<>35/y-2<>136:S0; Chain Lightning cast by somebody else, which shouldn't happen on this map.
+!!HE27&y-1<>0:A2/79/d/?y-2; Orb of Air equipped
+; If Chain Lightning has been cast, but not by Jalery, it's probably interference between end-of-turn cast-before-attack Summon Elemental and Jalery's ability to cast-before-attack Chain Lightning when Jalery is the first one to move in the new turn.
+; BG0 doesn't seem to catch the wrong cast, so there seems to be no easy way to prevent the animation, but the damage and log message can be replaced.
+!!MR&v1<>152/y-1=1/y-2<1:F600; [D600--no effect on battle message, try MR0--D600 has no effect there too]
+!!MR&v1<>152/y-1=1/y-2>0:F900; Orb of Firmament/Moon Seed
+!!MR&v1=152/y-1=1/y-2<1:F6; 1% of damage to Lord of Thunder
+!!MR&v1=152/y-1=1/y-2>0:F9; LoT, Air Orb
+!!MR&y-1=0:F0; Negate damage of wrong cast
+!!VRz10&v1<>152/y-1=1/y-2<1:S^The High Mage spell does 600 damage to the enemy.^;
+!!VRz10&v1<>152/y-1=1/y-2>0:S^The High Mage spell does 900 damage to the enemy.^;
+!!VRz10&v1=152/y-1=1/y-2<1:S^The High Mage spell does 6 damage to the enemy.^;
+!!VRz10&v1=152/y-1=1/y-2>0:S^The High Mage spell does 9 damage to the enemy.^;
+!!VRz10&y-1=0:S^Leora quietly (for a god) laughs at a joke she just remembered.^;
+!!BU:Mz10;
+* eliminate message "The %s does %d damage." ("The Chain Lightning does 220")
+!!UN:Cv30/2/8192; replace "Th" = 54 68 = 26708 with " " = 20 00 = 8192
+
+!?BG1&1000;
+!!UN:Cv30/2/26708; restore "Th"
+
+* 1st battle: prayers
+
+!?BG0&1000/201;
+!!BG:N?v1; stack
+!!BMv1:T?v2;
+!!FU&v2<>35:E;
+!!IF:Q1/21/35/1^Leora, thank you for your gifts.  In this desperate struggle, we ask that you stint not your power, but use it on each of us, in turn.^;
+!!IF:V201/0;
+
+!?BG0&1000/202;
+!!BG:N?v1; stack
+!!BMv1:T?v2;
+!!FU&v2<>174:E;
+!!IF:Q1/21/174/1^Leora, if it be thy will, shield us to reduce the power of the foe's strikes.^;
+!!IF:V202/0;
+
+!?BG0&1000/203;
+!!BG:N?v1; stack
+!!BMv1:T?v2;
+!!FU&v2<>7:E;
+!!IF:Q1/21/7/1^Leora, we ask for your Blessing, that if we die, it will be in glory.^;
+!!IF:V203/0;
+
+!?BG0&1000/204;
+!!BG:N?v1; stack
+!!BMv1:T?v2;
+!!FU&v2<>7:E;
+!!IF:Q1/21/7/1^Leora, if you can, we ask you to heal our wounds that we may fight to the last.^;
+!!IF:V204/0;
+
+* casting for each stack per round
+
+!?BA0&1000;
+!!VRy-1:S0 T20;
+!!DO301/0/y-1/1:P; randomize battles
+
+!?FU301; battle randomizer
+!!VRy1:R100;
+
+!?BG0&1000;
+!!BG:A?v1;
+!!FU&v1=1:E;
+!!BH0:N?v1;
+!!BH1:N?v2;
+!!BH0|v1=18/v1=27:M0; Jenova, Gem - Leora can cast again after each action of any of her troops
+!!BH1|v2=18/v2=27:M0;
+
+start add
+!?BG1&1000/v51=0;
+!!BH0:N?v1;
+!!BH1:N?v2;
+!!BH0|v1=18/v1=27:M0; 80% difficulty - Leora can cast spells again immediately after previous cast
+!!BH1|v2=18/v2=27:M0;
+end add
+
+!?BA1&1000;
+!!BH0:N?v1; left hero
+!!BH1:N?v2; right hero
+!!FU&v1<>27/v2<>27:E; exit if not Leora (Gem)
+!!HE27:O?v3;
+!!FU&v3<>3:E; exit if Gem lost
+!!DO138/0/6/1&v1=27:P;
+!!DO138/21/27/1&v2=27:P;
+!!FU86:P0;
+!!FU|190/194/195/196/197:E; exit if in Arena or at Bull
+!!OB998:T?v3; get object at battle
+!!FU&v3<>33/v3<>219/v3<>54:E; exit if not at Garrison or Neutral Band
+!!FU86&v3<>54:P2; Garrison gives 2 EP
+!!FU&v3<>54:E;
+!!OB998:U?v3; Some neutral monster bands give more EP, moved from other places
+!!FU86&v3=61:P3; Wraiths - 3 EP (1 moved from SND_Arena)
+!!FU86&v3=152:P5; Lord of Thunder 5 EP, (moved from SND_Passes)
+!!FU86&v3<>61/v3<>152/v1475=0:P2; Other monsters on the map, outside of Arena, give 2 EP
+
+!?FU138; x16=stack
+!!BMx16:T?y1 N?y2 O?y3;
+!!FU&y1<>6/y1<>7/y1<>174/y1<>34/y1<>35/y1<>136|y2>0/y3<0:E;
+!!VRy4:Sx16+1*-1;
+!!EAy4:E?y5/2/d/d;
+!!HE27:C0/y3/y1/1/y5/2;
+!!IF|y1=6/y1=7/y1=174:Q1/21/128/1^{Leora}:  Vames was badly wounded, but I have healed him!^;
+!!IF|y1=34/y1=35/y1=136:Q1/21/128/1^{Leora}:  Jalery was badly wounded, but I have healed him!^;
+!!UN:R1;
+

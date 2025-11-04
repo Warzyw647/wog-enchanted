@@ -1,0 +1,292 @@
+ZVSE
+
+; SND_Training, JHV, June 2011
+
+; uses v201-v202, v1476 (exp.), z497-z498
+
+!#VRv201:S6; Vames Cr Type
+!#VRv202:S34; Jalery Cr Type
+!#VRz497:S^Warrior Training Center^;
+!#OB2/6/0:SH497;
+!#VRz498:S^Mage Training Center^;
+!#OB10/4/0:SH498;
+
+!?OB2/6/0; Warriors N=5
+!!PO998:N?v1;
+!!FU&v1<5:E;
+!!VRz10:S^There is little left that I can do to improve your skills
+but I can increase your deflection ability slightly more.
+After this you will have surpassed all who have trained here!^;
+!!VRz10&v1476<135:S^You need at least 135 Experience to progress
+further in the arts of war.  Then you will exceed all others!^;
+!!VRz10&v1>5:S^I can teach you no more.  I hope you will pass on
+to others what I have taught you and more.^;
+!!VRz12:S^Warrior Training Center^;
+!!VRz13:S^..\Data\WarTrn.gif^;
+!!IF:D34/z10/0/z12/z13 ;
+!!IF:F34/0/0/0/0/0;
+!!IF:E99/34;
+!!FU|v1476<135/v1>5:E;
+!!EAv201:F76/-1/?v1; v1=line for ability 76/-1, or empty line if none, -1 if no free lines
+!!EAv201&v1>-1:Bv1/1/76/74/50/70/70/70/70/85/85/85/85/85/100;  70/85/100% chance to deflect 75% of damage
+!!EAv202:F76/-1/?v1; v1=line for ability 76/-1, or empty line if none, -1 if no free lines
+!!EAv202&v1>-1:Bv1/1/76/74/50/70/70/70/70/85/85/85/85/85/100;  70/85/100% chance to deflect 75% of damage
+!!PO2/6/0:N6;
+
+!?OB2/6/0; Warriors N=4
+!!PO998:N?v1;
+!!FU&v1<>4:E;
+!!VRz10:S^It is time that Vames becomes an Elite Warrior
+and I can improve your deflection skills further.  In recognition
+of your efforts I award you Boots of Speed!^;
+!!VRz10&v1476<100:S^You need at least 100 Experience to progress
+further in the arts of war.  Patience, warriors!^;
+!!VRz12:S^Warrior Training Center^;
+!!VRz13:S^..\Data\WarTrn.gif^;
+!!IF:D34/z10/0/z12/z13 ;
+!!IF:F34/0/0/0/0/0;
+!!IF:E99/34;
+!!FU&v1476<100:E;
+!!VRz357:S^Vames, Elite Warrior^;
+!!UN:G1/174/0/357;
+!!UN:G1/174/1/357;
+!!EA174:O7;
+!!VRv201:S174; Vames Cr Type
+!!HE27:C0/0/-1/0 C0/1/174/1 C0/2/v202/1 C0/3/-1/0 C0/4/-1/0 C0/5/-1/0 C0/6/-1/0;
+!!HE27:A4/98; Boots
+!!EAv201:F76/-1/?v1; v1=line for ability 76/-1, or empty line if none, -1 if no free lines
+!!EAv201&v1>-1:Bv1/1/76/49/50/50/50/50/50/60/60/60/60/60/70;  50/60/70% chance to deflect 50% of damage
+!!EAv202:F76/-1/?v1; v1=line for ability 76/-1, or empty line if none, -1 if no free lines
+!!EAv202&v1>-1:Bv1/1/76/49/50/50/50/50/50/60/60/60/60/60/70;  50/60/70% chance to deflect 50% of damage
+!!PO2/6/0:N5;
+
+!?OB2/6/0; Warriors N=3
+!!PO998:N?v1; 3-4th visit, >3-later visits
+!!FU&v1<>3:E;
+!!VRz10:S^Your deflection skills will improve even more
+now that you have more endurance and agility.^;
+!!VRz10&v1476<75:S^You need at least 75 Experience to progress
+further in the arts of war.  Patience, students!^;
+!!VRz12:S^Warrior Training Center^;
+!!VRz13:S^..\Data\WarTrn.gif^;
+!!IF:D34/z10/0/z12/z13 ;
+!!IF:F34/0/0/0/0/0;
+!!IF:E99/34;
+!!FU&v1476<75:E;
+!!EAv201:F76/-1/?v1; v1=line for ability 76/-1, or empty line if none, -1 if no free lines
+!!EAv201&v1>-1:Bv1/1/76/29/40/40/40/40/40/50/50/50/50/50/60;  40/50/60% chance to deflect 30% of damage
+!!EAv202:F76/-1/?v1; v1=line for ability 76/-1, or empty line if none, -1 if no free lines
+!!EAv202&v1>-1:Bv1/1/76/29/40/40/40/40/40/50/50/50/50/50/60;  40/50/60% chance to deflect 30% of damage
+!!PO2/6/0:N4;
+
+!?OB2/6/0; Warriors N=2
+!!PO998:N?v1; 2-3rd visit, >2-later visits
+!!FU&v1<>2:E;
+!!VRz10:S^It is time that Vames learns the double-strike
+techique and becomes a Senior Warrior.  Also, I can now
+improve your deflection skills a little.  In recognition
+of your efforts I award you Equestrian Gloves!^;
+!!VRz10&v1476<50:S^You need at least 50 Experience to progress
+further in the arts of war.  Patience, grasshoppers!^;
+!!VRz12:S^Warrior Training Center^;
+!!VRz13:S^..\Data\WarTrn.gif^;
+!!IF:D34/z10/0/z12/z13 ;
+!!IF:F34/0/0/0/0/0;
+!!IF:E99/34;
+!!FU&v1476<50:E;
+!!VRz357:S^Vames, Senior Warrior^;
+!!EA7:O6;
+!!VRv201:S7; Vames Cr Type
+!!HE27:C0/0/-1/0 C0/1/7/1 C0/2/v202/1 C0/3/-1/0 C0/4/-1/0 C0/5/-1/0 C0/6/-1/0;
+!!HE27:A4/70; Gloves
+!!EAv201:F76/-1/?v1; v1=line for ability 76/-1, or empty line if none, -1 if no free lines
+!!EAv201&v1>-1:Bv1/1/76/19/25/25/25/25/25/35/35/35/35/35/45;  25/35/45% chance to deflect 20% of damage
+!!EAv202:F76/-1/?v1; v1=line for ability 76/-1, or empty line if none, -1 if no free lines
+!!EAv202&v1>-1:Bv1/1/76/19/25/25/25/25/25/35/35/35/35/35/45;  25/35/45% chance to deflect 20% of damage
+!!PO2/6/0:N3;
+
+!?OB2/6/0; Warriors N=1
+!!PO998:N?v1; 1-2nd visit, >1-later visits
+!!FU&v1<>1:E;
+!!VRz10:S^I see the scars of battle on you and the spirits of war
+tell me you have fought well!  It is time you learned to
+deflect blows.  Keep your balance, hold until the last second,
+then move!  Practice this and I will teach you more.^;
+!!VRz10&v1476<30:S^You have not yet practiced enough to progess
+further in the arts of war.  You need 30 Experience.
+Patience, grasshoppers!^;
+!!VRz12:S^Warrior Training Center^;
+!!VRz13:S^..\Data\WarTrn.gif^;
+!!IF:D34/z10/0/z12/z13 ;
+!!IF:F34/0/0/0/0/0;
+!!IF:E99/34;
+!!FU&v1476<30:E;
+!!EA6:F76/-1/?v1; v1=line for ability 76/-1, or empty line if none, -1 if no free lines
+!!EA6&v1>-1:Bv1/1/76/14/20/20/20/20/20/30/30/30/30/30/40;  20/30/40% chance to deflect 15% of damage
+!!EA34:F76/-1/?v1; v1=line for ability 76/-1, or empty line if none, -1 if no free lines
+!!EA34&v1>-1:Bv1/1/76/14/20/20/20/20/20/30/30/30/30/30/40;  20/30/40% chance to deflect 15% of damage
+!!PO2/6/0:N2;
+
+!?OB2/6/0; Warriors
+!!PO998:N?v1; 0-1st visit, >0-later visits
+!!FU&v1>0:E;
+!!VRz10:S^All our trained and fit warriors and cadre mages
+went with Lord Morrolan!  There are none left with which to
+spar and practice.  You will have to get battle experience
+the hard way - in quests and in the Arena!^;
+!!VRz12:S^Warrior Training Center^;
+!!VRz13:S^..\Data\WarTrn.gif^;
+!!IF:D34/z10/0/z12/z13 ;
+!!IF:F34/0/0/0/0/0;
+!!IF:E99/34;
+!!UN:S91/36/0/3/10;
+!!VRz10:S^Nor can we outfit you since our Armory is depleted
+and we cannot spare elite equipment for beginners.  Perhaps
+some of the farmers have some weapons which they might loan
+or trade you in exchange for labor.^;
+!!VRz12:S^Warrior Training Center^;
+!!VRz13:S^..\Data\WarTrn.gif^;
+!!IF:D34/z10/0/z12/z13 ;
+!!IF:F34/0/0/0/0/0;
+!!IF:E99/34;
+!!UN:S26/31/0/3/4;
+!!UN:S67/13/0/3/4;
+!!VRz10:S^When you have gained battle experience you may return
+for evaluation.  When we judge you have the necessary strength,
+endurance, and agility, at about 30 Experience, we will begin
+to teach you how to deflect some blows, and strike faster.^;
+!!VRz12:S^Warrior Training Center^;
+!!VRz13:S^..\Data\WarTrn.gif^;
+!!IF:D34/z10/0/z12/z13 ;
+!!IF:F34/0/0/0/0/0;
+!!IF:E99/34;
+!!PO2/6/0:N1;
+
+!?OB10/4/0; Mages N=4-5
+!!PO998:N?v2;
+!!FU&v2<4:E;
+!!VRz10:S^You are ready to learn my most dangerous spell.
+If you ever learn one of more power, please return and
+teach me!  You have earned the cape of a High Master!^;
+!!VRz10&v1476<125:S^You need at least 125 Experience to master my most
+difficult spell.  It is too dangerous for all but the best!^;
+!!VRz10&v2>4:S^I have taught you all I know of the Art.  My master Fnord
+knew more - but his wisdom is lost to us.^;
+!!VRz12:S^Mage Training Center^;
+!!VRz13:S^..\Data\WizTrn.gif^;
+!!IF:D34/z10/0/z12/z13 ;
+!!IF:F34/0/0/0/0/0;
+!!IF:E99/34;
+!!FU|v2>4/v1476<125:E;
+!!HE27:A4/99; Cape of V
+!!EAv202:F112/-1/?v1; v1=line for ability 112/-1, or empty line if none, -1 if no free lines
+!!EAv202&v1>-1:Bv1/1/112/19/100/100/100/100/100/100/100/100/100/100/100; Chain Lightning before attack
+!!EAv201:F119/-1/?v1; v1=line for ability 119/-1, or empty line if none, -1 if no free lines
+!!EAv201:Bv1/1/119/65/1/1/1/1/1/1/1/1/1/1/1; Immunity to Hostile Air
+!!EAv202:F119/-1/?v1; v1=line for ability 119/-1, or empty line if none, -1 if no free lines
+!!EAv202:Bv1/1/119/65/1/1/1/1/1/1/1/1/1/1/1; Immunity to Hostile Air
+!!PO10/4/0:N5;
+
+!?OB10/4/0; Mages N=3
+!!PO998:N?v1; 3-4th visit, >3-later visits
+!!FU&v1<>3:E;
+!!VRz10:S^You now have the power and control to manage
+a more dangerous spell!^;
+!!VRz10&v1476<90:S^You need at least 90 Experience to progress
+further in the arcane arts.  Patience, magister!^;
+!!VRz12:S^Mage Training Center^;
+!!VRz13:S^..\Data\WizTrn.gif^;
+!!IF:D34/z10/0/z12/z13 ;
+!!IF:F34/0/0/0/0/0;
+!!IF:E99/34;
+!!FU&v1476<90:E;
+!!EAv202:F112/-1/?v1; v1=line for ability 112/-1, or empty line if none, -1 if no free lines
+!!EAv202&v1>-1:Bv1/1/112/57/100/100/100/100/100/100/100/100/100/100/100; Titan's Lightning before attack
+!!PO10/4/0:N4;
+
+!?OB10/4/0; Mages N=2
+!!PO998:N?v1; 2-3rd visit, >2-later visits
+!!FU&v1<>2:E;
+!!VRz10:S^It is time to reward your progress with a more powerful
+spell and make you a High Mage (although a junior one).
+In recognition of your efforts I award you
+the Necklace of Swiftness!^;
+!!VRz10&v1476<60:S^You need at least 60 Experience to progress
+further in arcane arts.  Patience, padawan!^;
+!!VRz12:S^Mage Training Center^;
+!!VRz13:S^..\Data\WizTrn.gif^;
+!!IF:D34/z10/0/z12/z13 ;
+!!IF:F34/0/0/0/0/0;
+!!IF:E99/34;
+!!FU&v1476<60:E;
+!!VRz358:S^Jalery the High Mage^;
+!!EA35:O34;
+!!VRv202:S35; Jalery Cr Type
+!!HE27:C0/0/-1/0 C0/1/v201/1 C0/2/35/1 C0/3/-1/0 C0/4/-1/0 C0/5/-1/0 C0/6/-1/0;
+!!HE27:A4/97; Necklace
+!!EAv202:F112/-1/?v1; v1=line for ability 112/-1, or empty line if none, -1 if no free lines
+!!EAv202&v1>-1:Bv1/1/112/17/100/100/100/100/100/100/100/100/100/100/100; Lightning before attack
+!!PO10/4/0:N3;
+
+!?OB10/4/0; Mages N=1
+!!PO998:N?v1; 1-2nd visit, >1-later visits
+!!FU&v1<>1:E;
+!!VRz10:S^Leora tells me you have invoked her wisely.  I think
+it is time for you to learn to invoke battle spirits as well.
+Be sure that you also do so wisely!  I will give you a simple
+spell against evil.  Practice this and I will teach you more.^;
+!!VRz10&v1476<35:S^You have not yet gained enough experience
+to progress in the arcane arts.  Patience, young Jalery!^;
+!!VRz12:S^Mage Training Center^;
+!!VRz13:S^..\Data\WizTrn.gif^;
+!!IF:D34/z10/0/z12/z13 ;
+!!IF:F34/0/0/0/0/0;
+!!IF:E99/34;
+!!FU&v1476<35:E;
+!!EA34:F112/-1/?v1; v1=line for ability 112/-1, or empty line if none, -1 if no free lines
+!!EA34&v1>-1:Bv1/1/112/15/100/100/100/100/100/100/100/100/100/100/100; Magic Arrow before attack
+!!PO10/4/0:N2;
+
+!?OB10/4/0; Mages
+!!PO998:N?v1;  0-1st visit, >0-later visits
+!!FU&v1>0:E;
+!!VRz10:S^Alas, all our high-level and fit mages went with Lord Morrolan!
+There are none left with the strength to simulate arcane
+battles so that you may practice in safety.  You will have to
+practice and refine your techniques in the Arena!^;
+!!VRz12:S^Mage Training Center^;
+!!VRz13:S^..\Data\WizTrn.gif^;
+!!IF:D34/z10/0/z12/z13 ;
+!!IF:F34/0/0/0/0/0;
+!!IF:E99/34;
+!!VRz10:S^When you have gained enough experience to master more
+difficult spells, return and we will teach them to you.
+At about 35 Experience, you should be able to concentrate
+enough to fight and cast damage spells at the same time.^;
+!!VRz12:S^Mage Training Center^;
+!!VRz13:S^..\Data\WizTrn.gif^;
+!!IF:D34/z10/0/z12/z13 ;
+!!IF:F34/0/0/0/0/0;
+!!IF:E99/34;
+!!PO10/4/0:N1;
+
+!?OB10/4/0; Mage-->Enchanter
+!!HE27:A2/69/?v1/d; v1=# of Tim's Rings
+!!FU|v1<1/v202<>35:E;
+!!VRz10:S^Tim the Enchanter left instructions to induct any High Mage
+who bears his ring into the noble order of Enchanters.
+I see that you have the ring.  Therefore by the powers invested
+in me, yada, yada, I herby proclaim you Enchanter!^;
+!!VRz12:S^Mage Training Center^;
+!!VRz13:S^..\Data\WizTrn.gif^;
+!!IF:D34/z10/0/z12/z13 ;
+!!IF:F34/0/0/0/0/0;
+!!IF:E99/34;
+!!VRz358:S^Jalery the Enchanter^;
+!!VRv202:S136; Jalery Cr Type
+!!HE27:C0/0/-1/0 C0/1/v201/1 C0/2/v202/1 C0/3/-1/0 C0/4/-1/0 C0/5/-1/0 C0/6/-1/0;
+; Enchanters:
+!!EA136:O35; set Enchanter's abilities to High Mage's
+!!EA136:F119/-1/?v1; v1=line for ability 119/-1, or empty line if none, -1 if no free lines
+!!EA136&v1>-1:Bv1/1/119/53/1/1/1/1/1/1/1/1/1/1/1; Immunity to all hostile spells
+

@@ -1,0 +1,157 @@
+ZVSE
+
+* SND_SpellHotkeys, JHV, Jan., 2013  [5-9, P]
+
+* uses v37, v2220-v2222, f650
+!#IF:V650/0;
+
+!?FU77006; next turn--battle stack has been selected
+!!SN:X?v2220/?v2221;  side, stack of side (0-20)
+!!VRv2221&v2220=1:+21;
+
+* From Era II Manual Index (New Events) (Battle Screen - 4662240)
+*'5'-'9' = 53-57, P=80
+
+!?FU77003&v37>-1; keystroke, v37 is round number
+!!SN:X?y1; y1 — key code
+!!FU&y1<53:E; exit, if the keycode is <5
+!!FU&y1>57/y1<>80:E; exit if keycode >9 and not P
+!!SN:L^Era.dll^/?y2; get address of Era library in y2
+!!SN:Ay2/^GetGameState^/?y3; y3 — address of function GetGameState
+!!SN:Ey3/1/?y4; y4 — ID of parent dialog, y5 — ID of current dialog
+!!FU&y5<>4662240:E; exit if not in battle screen
+!!BA:Hv2220/?v2222; get active Hero if any
+!!FU&v2222=-2:E; exit if none
+!!BHv2220:M?v1; v1=0 if casting enabled
+!!FU&v1=1:E;
+!!if&y1=53:; 5 Quicksand
+ !!HEv2222:M10/?y6; check if HE knows spell
+ !!FU&y6=0:E;
+ !!HEv2222:I?y7/1 S17/?y8; check mana, Earth skill
+ !!SS10:Cy8/?y9; get spell mana cost (ignore Mage reductions, Pegasi increases)
+ !!FU&y7<y9:E;
+ !!BHv2220:C10/50/y8/0;
+ !!FU&v51>0:E; On 80% difficulty, allow casting again immediately
+ !!BHv2220|v2222=16/v2222=18/v2222=27:M0; Mephela(test only), Jenova, Gem
+ !!FU:E;
+!!en:;
+!!if&y1=54:; 6 Cure
+ !!HEv2222:M37/?y6; check if HE knows spell
+ !!FU&y6=0:E;
+ !!HEv2222:I?y7/1 S16/?y8; check mana, Water skill
+ !!SS37:Cy8/?y9; get spell mana cost (ignore Mage reductions, Pegasi increases)
+ !!FU&y7<y9:E;
+ !!BMv2221:P?y10;
+ !!BHv2220:C37/y10/y8/0;
+ !!FU&v51>0:E;
+ !!BHv2220|v2222=16/v2222=18/v2222=27:M0; Mephela(test only), Jenova, Gem
+ !!FU:E;
+!!en:;
+!!if&y1=55:; 7 Bless
+ !!HEv2222:M41/?y6; check if HE knows spell
+ !!FU&y6=0:E;
+ !!HEv2222:I?y7/1 S16/?y8; check mana, Water skill
+ !!SS41:Cy8/?y9; get spell mana cost (ignore Mage reductions, Pegasi increases)
+ !!FU&y7<y9:E;
+ !!BMv2221:P?y10;
+ !!BHv2220:C41/y10/y8/0;
+ !!FU&v51>0:E;
+ !!BHv2220|v2222=16/v2222=18/v2222=27:M0; Mephela(test only), Jenova, Gem
+ !!FU:E;
+!!en:;
+!!if&y1=56:; 8 Shield
+ !!HEv2222:M27/?y6; check if HE knows spell
+ !!FU&y6=0:E;
+ !!HEv2222:I?y7/1 S17/?y8; check mana, Earth skill
+ !!SS27:Cy8/?y9; get spell mana cost (ignore Mage reductions, Pegasi increases)
+ !!FU&y7<y9:E;
+ !!BMv2221:P?y10;
+ !!BHv2220:C27/y10/y8/0;
+ !!FU&v51>0:E;
+ !!BHv2220|v2222=16/v2222=18/v2222=27:M0; Mephela(test only), Jenova, Gem
+ !!FU:E;
+!!en:;
+!!if&y1=57:; 9 Haste
+ !!HEv2222:M53/?y6; check if HE knows spell
+ !!FU&y6=0:E;
+ !!HEv2222:I?y7/1 S15/?y8; check mana, Air skill
+ !!SS53:Cy8/?y9; get spell mana cost (ignore Mage reductions, Pegasi increases)
+ !!FU&y7<y9:E;
+ !!BMv2221:P?y10;
+ !!BHv2220:C53/y10/y8/0;
+ !!FU&v51>0:E;
+ !!BHv2220|v2222=16/v2222=18/v2222=27:M0; Mephela(test only), Jenova, Gem
+ !!FU:E;
+!!en:;
+!!if&y1=80:; P Precision
+ !!BMv2221:F?y11;
+ !!VRy11:&4; check for shooter
+ !!FU&y11=0:E;
+ !!HEv2222:M44/?y6; check if HE knows spell
+ !!FU&y6=0:E;
+ !!HEv2222:I?y7/1 S15/?y8; check mana, Air skill
+ !!SS44:Cy8/?y9; get spell mana cost (ignore Mage reductions, Pegasi increases)
+ !!FU&y7<y9:E;
+ !!BMv2221:P?y10;
+ !!BHv2220:C44/y10/y8/0;
+ !!FU&v51>0:E;
+ !!BHv2220|v2222=16/v2222=18/v2222=27:M0; Mephela(test only), Jenova, Gem
+ !!FU:E;
+!!en:;
+
+!?CM4; RMB on BF Cast Spell
+!!CM:I?v1 F?v2;
+!!FU|v1<>2008/v2<>512:E; exit if not RMB on CS
+!!CM:R0;
+start replace
+!!IF&v51>0:M^Right-click the Cast Spell button at the bottom of the Combat Screen to re-read this information.
+
+{Spell Hotkeys:}
+5 = Quicksand
+6 = Cure
+7 = Bless
+8 = Shield
+9 = Haste
+P = Precision
+
+Requirements: Leora must know the spell and have enough mana to cast it (the check is made before the Mages' discount). Trying to cast on an invalid target will just waste mana. Non-mass spells are cast on the current (high-lighted) creature. Precision must be cast on a shooter. Leora can cast once {per} {action} of any of her stacks, not just once per turn like other heroes. Waiting or Defending also count as an action. If any of these requirements is missing, the hotkeys will not respond.^;
+!!IF&v51=0:M^Right-click the Cast Spell button at the bottom of the Combat Screen to re-read this information.
+
+{Spell Hotkeys:}
+5 = Quicksand
+6 = Cure
+7 = Bless
+8 = Shield
+9 = Haste
+P = Precision
+
+Requirements: Leora must know the spell and have enough mana to cast it (the check is made before the Mages' discount). Trying to cast on an invalid target will just waste mana. Non-mass spells are cast on the current (high-lighted) creature. Precision must be cast on a shooter. Leora can cast spells {as} {often} {as} {she} {wants}, not just once per turn like other heroes. Waiting or Defending also count as an action. If any of these requirements is missing, the hotkeys will not respond.^;
+end replace
+
+!?BA0&1000/-650; first-time hotkey notice
+!!IF:V650/1;
+start replace (previously was only 1st message with no condition on v51)
+!!IF&v51>0:M^Right-click the Cast Spell button at the bottom of the Combat Screen to re-read this information.
+
+{Spell Hotkeys:}
+5 = Quicksand
+6 = Cure
+7 = Bless
+8 = Shield
+9 = Haste
+P = Precision
+
+Requirements: Leora must know the spell and have enough mana to cast it (the check is made before the Mages' discount). Trying to cast on an invalid target will just waste mana. Non-mass spells are cast on the current (high-lighted) creature. Precision must be cast on a shooter. Leora can cast once {per} {action} of any of her stacks, not just once per turn like other heroes. Waiting or Defending also count as an action. If any of these requirements is missing, the hotkeys will not respond.^;
+!!IF&v51=0:M^Right-click the Cast Spell button at the bottom of the Combat Screen to re-read this information.
+
+{Spell Hotkeys:}
+5 = Quicksand
+6 = Cure
+7 = Bless
+8 = Shield
+9 = Haste
+P = Precision
+
+Requirements: Leora must know the spell and have enough mana to cast it (the check is made before the Mages' discount). Trying to cast on an invalid target will just waste mana. Non-mass spells are cast on the current (high-lighted) creature. Precision must be cast on a shooter. Leora can cast spells {as} {often} {as} {she} {wants}, not just once per turn like other heroes. Waiting or Defending also count as an action. If any of these requirements is missing, the hotkeys will not respond.^;
+end replace
+

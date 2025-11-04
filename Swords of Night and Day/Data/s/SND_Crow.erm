@@ -1,0 +1,95 @@
+ZVSE
+
+** SND_Crow, JHV, May 2011
+* Crow battle for "The Swords of Night and Day"
+
+* uses v46, z309-z312
+
+* crow
+!#TR33/10/0:T8/43/0/0/0/0/-64/d; crowL
+!#TR34/10/0:T8/44/0/0/0/0/-64/d; crowR
+!#PO34/11/0:N1; flag for Crow battle
+
+!#VRz309:S^Crow^;
+!#VRz310:S^Witch^;
+!#VRz311:S^Witches^;
+!#UN:G1/193/0/310;
+!#UN:G1/193/1/311;
+!#MA:P193/200;
+!#MA:X193/?i;
+!#VRi:&-5; remove shoot
+!#MA:X193/i;
+!#OB18/4/0:S; Thatched Hut
+!#OB33/10/0:SH309; (ZOBJ045 modified)
+!#OB34/10/0:SH309; (ZOBJ045 modified)
+!#OB34/11/0:SH309; (ZOBJ045 modified)
+!#VRz312:S^Vames the Newt^;
+!#UN:G1/106/0/312;
+!#UN:G1/106/1/312;
+
+!?OB18/4/0; Thatched Hut
+!!PO34/11/0:N?v1; crow code (1,6,15)
+!!PO998:N?v2; hut code (0,1)
+!!IF&v2=1:Q1/21/139/1^Thank you for helping us!  Maybe one day you will be as famous as Lord Morrolan!^;
+!!FU&v2=1:E;
+!!IF&v1=1:Q1/21/139/1^Lord Morrolan should never have left!  Now we hardly dare go out of our home lest the Wraiths come to carry us away, and a giant crow is eating our corn!  Get rid of it for us and we will give you our grandfather's old bow, which he used to protect us before the Wraiths took him.^;
+!!UN&v1=1:S33/10/0/3/3; show crow
+!!IF&v1=6:Q1/21/139/1^The crow is on the east side of our cornfield.  Please get rid of it!^;
+!!PO34/11/0&v1=1:N6;
+!!IF&v1=15:Q1/21/139/8/91/1^A witch?  No wonder it scared us!  Here, take our grandfather's bow.  He fought in the Goblin Wars with it, and would have carried it with Lord Morrolan, but he was too old.  You can use it better than we can.^;
+!!PO998&v1=15:N1;
+!!HE-1&v1=15:A4/91;
+
+!?OB34/11/0; magic well 2 49/1 ZOBJ045 = crow
+!!PO998:N?v1; crow code
+!!IF&v1=1:M^Here is the hugest crow which Jalery and Vames have ever seen!  They wonder how it got so big?^;
+!!FU&v1=1:E;
+!!HE-1:N?v46;
+!!VRy2:S3; 0 - no promotions, 1 - Vames got promotions, 2 - Jalery got promotions, 3 - both got promotions
+!!VRy1:S0;
+!!HE-1:C0/0/?y1/d; check each slot, does Leora have a Swordman and does she have Mage? can find a free function number and turn into function later
+!!VRy2&y1=6:-1; Vames not promoted
+!!VRy2&y1=34:-2; Jalery not promoted
+!!VRy1:S0;
+!!HE-1:C0/1/?y1/d; check each slot, does Leora have a Swordman and does she have Mage? can find a free function number and turn into function later
+!!VRy2&y1=6:-1; Vames not promoted
+!!VRy2&y1=34:-2; Jalery not promoted
+!!VRy1:S0;
+!!HE-1:C0/2/?y1/d; check each slot, does Leora have a Swordman and does she have Mage? can find a free function number and turn into function later
+!!VRy2&y1=6:-1; Vames not promoted
+!!VRy2&y1=34:-2; Jalery not promoted
+!!VRy1:S0;
+!!HE-1:C0/3/?y1/d; check each slot, does Leora have a Swordman and does she have Mage? can find a free function number and turn into function later
+!!VRy2&y1=6:-1; Vames not promoted
+!!VRy2&y1=34:-2; Jalery not promoted
+!!VRy1:S0;
+!!HE-1:C0/4/?y1/d; check each slot, does Leora have a Swordman and does she have Mage? can find a free function number and turn into function later
+!!VRy2&y1=6:-1; Vames not promoted
+!!VRy2&y1=34:-2; Jalery not promoted
+!!VRy1:S0;
+!!HE-1:C0/5/?y1/d; check each slot, does Leora have a Swordman and does she have Mage? can find a free function number and turn into function later
+!!VRy2&y1=6:-1; Vames not promoted
+!!VRy2&y1=34:-2; Jalery not promoted
+!!VRy1:S0;
+!!HE-1:C0/6/?y1/d; check each slot, does Leora have a Swordman and does she have Mage? can find a free function number and turn into function later
+!!VRy2&y1=6:-1; Vames not promoted
+!!VRy2&y1=34:-2; Jalery not promoted
+!!HE-1&y2=0:C0/0/-1/0 C0/1/106/1 C0/2/34/1 C0/3/-1/0 C0/4/-1/0 C0/5/-1/0 C0/6/-1/0;
+!!IF&y2=0:Q1/21/106/1^That's not a crow, it's a Witch!  She turned me into a newt!^;
+!!IF&y2=1:Q1/21/106/1^That's not a crow, it's a Witch!  She tried to turn me into a newt, but with my training I resisted it!^;
+!!IF&y2=2:Q1/21/106/1^That's not a crow, it's a Witch!  She tried to turn me into a newt, but with Jalery's help I resisted it!^;
+!!IF&y2=3:Q1/21/106/1^That's not a crow, it's a Witch!  She tried to turn me into a newt, but with my training and Jalery's help I resisted it!^;
+!!HE-1:Tv998/v999/v1000/193/1;
+!!HEv46:O?v3;
+!!FU&v3<0:E;
+!!FU86:P1; incr. exp.
+!!TR33/10/0:T2/50/d/d/d/d/d/0;
+!!TR34/10/0:T2/51/d/d/d/d/d/0;
+!!UN:O33/10/0/1;
+!!UN:O34/10/0/1;
+!!UN:O34/11/0/1;
+!!PO34/11/0:N15;
+!!HEv46&y2=0:C0/0/-1/0 C0/1/6/1 C0/2/34/1 C0/3/-1/0 C0/4/-1/0 C0/5/-1/0 C0/6/-1/0;
+!!IF&y2=0:Q1/21/6/1^I got better!^; Vames had been turned into a Newt
+!!IF&y2>0:Q1/21/6/1^Shall we burn her?^; Vames had resisted being turned into a Newt
+

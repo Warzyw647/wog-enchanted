@@ -1,0 +1,287 @@
+ZVSE
+
+** SND_LightningMaze, JHV, May 2011
+
+** Adapted from NM_MarshMaze for "New Magic" Map, which was adapted from MazeDrawV4 of "Labyrinth 2".
+** Draws "perfect mazes" == there is one and only only path between any two
+** cells (rooms) of the maze.
+
+* uses FU629 & FU120-FU131
+* uses z189 and flag 191
+** v-variable usage (during maze generation, v1001-v1060 reused for L-Maze cell x/y)
+** (v1-v5 temporary use)
+** v6 = current room (v46) row # (RR)
+** v7 = current room (v46) column # (RC)
+** v8 = current room (v46) x
+** v9 = current room (v46) y
+** v46=room number, 0 to 59 (maze contains 60 "rooms")
+** v47=next unvisited room #
+** v53-v54= x/y loc. before last step, for HE27=Gem (Leora)
+** v60-v69 used to pick from among 4 possible passageways per room
+** v60 = number of unused passageways left in "deck"
+** v61-v64 = "deck" of unused passageway #'s (0-3, initially)
+** v65-v68 = passageway numbers for current room
+** v69 = current selected passageway # (to be opened)
+** v1001-v1060 table of visited (1) -- unvisited (0) room codes (Later, L-maze x/y)
+** v1076-v1079 look-up table for 2-power vs. bit #
+!#VRv1076:C1/2/4/8;
+** v1185-v1188 table of bit-values for same wall of next room by wall bit #
+!#VRv1185:C4/8/1/2;
+** v1189-v1192: table of column (x) offsets to next room after opening P0-P3
+!#VRv1189:C1/0/-1/0; add 1 to RC (v46) after opening P0
+** v1193-v1196: table of row (y) offsets to next room after opening P0-P3
+!#VRv1193:C0/-1/0/1; add 1 to RR (v46) after opening P3
+** v1360-v1419 = stack of visited rooms (put v46 on stack after opening a wall)
+** v1359 = stack counter
+!#VRv1359:S-1;
+** v1357 = x-coordinate of room 0 (for PO:V door storage - use x=1, y=1 here)
+** v1358 = y-coordinate of room 0
+** v1430-v1431 from SND_Compass to save coordinates of the last entered room
+** uses v4610-v4670 as connectivity deck
+
+!#VRz189:S^Warp Field^;
+!#UN:A106/9/189; (Pendant of Negativity)
+
+!?FU120;  function to initialize "deck" of passage #'s (note x16 is DO counter)
+!!VRy1:S61+x16;  y1->61+x16 (v61->v64)  (x16=0->3)
+!!VRvy1:Sx16;      v(61+i)=i, for i=0->3
+
+!?FU121; function to deal one random passageway # from deck w/o replacement
+!!VRv60:-1; reduce # of cards left in deck by 1 (starts @ 4-->3)
+!!FU&v60<0:E; give up if no passageways left to try
+!!VRy1:S0 Rv60; y1=random # from [0,v60]
+!!VRy2:S61+y1; y2=61+y1
+!!VRv69:Svy2;  v69=v(61+y1)= passageway # picked
+!!VRy4:S61+v60; y4 = v-index of current last card in deck
+!!VRvy2:Svy4; replace card y1 with last card
+
+** check for unvisited room next if this wall opened
+
+** v1189-v1192: table of column offsets to next room after opening P0-P3
+!!VRy1:S1189+v69; index to column offset
+!!VRy2:Svy1+v7; new column
+!!IF:V1/0;
+!!IF|y2<0/y2>5:V1/1; set flag 1 if new column # outside maze
+** v1193-v1196: table of row offsets to next room after opening P0-P3
+!!VRy1:S1193+v69; index to row offset
+!!VRy3:Svy1+v6; new row
+!!IF:V2/0;
+!!IF|y3<0/y3>9:V2/1; set flag 2 if new row # outside maze
+!!VRv47:Sy3*6+y2;
+** check whether next room visited
+!!VRy1:S1001+v47; index to visit codes
+!!VRy6:S0;
+!!VRy6&-1/-2:Svy1; v47 room code (1=visited)
+** if legal room not visited, use this passage
+!!VRvy1&y6=0/-1/-2:S1; set room v47 to visited
+!!FU121|1/2/y6=1:P; try again if room v47 illegal or already visited
+
+!?FU122; stack placer
+** v46 = current room number
+** v1359 = stack counter
+** v[1360+v1359] = last stack entry
+!!VRv1359:+1;
+!!VRy1:S1360+v1359;
+!!VRvy1:Sv46;
+
+!?FU123; stack popper
+** v46 = current room number
+** v1359 = stack counter
+** v[1360+v1359] = last stack entry
+!!VRy1:S1360+v1359;
+!!VRv46:Svy1;
+!!VRv1359:-1;
+
+!?FU124; open passageway to room @ (xLHS,yTOP)=(x1,x2)
+!!FU121:P; select a passage # to be opened (-->v69)
+!!FU&v60<0:E; give up if no passageways were left to try
+** get LE coordinates from tables and turn off LE to open passage
+!!VRy1:S1189+v69; index to LE x-offset
+!!VRy2:S1193+v69; index to LE y-offset
+!!VRy3:Sx1+vy1; LE x
+!!VRy4:Sx2+vy2; LE y
+!!POy3/y4/0:V0/1; open passage
+** put current room # in stack
+!!FU122:P;
+** set next room # that passage leads to
+!!VRv46:Sv47;
+
+!?FU125; put passageway randomly in current maze room to unvisited adjacent room
+** (x0,y0) at upper left square of maze = (v1357,v1358)
+** (x,y) at upper left square of room = (x0+RCol*2,y0+RRow*2)
+** v46 = room #, 0 to 59
+** calculate 4 corner #'s (indexes to corner bit-flag table) based on v46
+!!VRv6:Sv46:6; room row # (RR)
+!!VRv7:Sv46%6; room column # (RC)
+
+!!VRy3:Sv7*2+v1357;  y3= x-coord. of left edge of room
+!!VRy4:Sv6*2+v1358;  y4= y-coord. of top edge of room
+!!DO120/0/3/1:P; start with fresh "deck" of passage #'s
+!!VRv60:S4; set total passages in "deck"
+!!FU124:Py3/y4;
+** v60<0 on return from FU124 if no closed passageway found
+!!FU123&v60<0:P; call stack popper if no closed pw found
+!!FU125&v60<0:P; and try again with previous room from stack
+
+!?FU126; stack loop, (v1357,v1358)= (x,y) of room zero
+** call Fu125 to check for closed wall in current room (to open)
+!!FU125:P;
+
+!?FU130; function to deal one card from "deck" of L-cells
+* x16= V-cell #
+!!VRv4610:-1; reduce # of cards left in deck by 1 (starts @ 56-->55)
+!!VRy1:S0 Rv4610; y1=random # from [0,56-i]
+!!VRy2:S4611+y1; y2=4611+y1
+!!VRy3:Svy2;  y3=v(4611+y1)= L-cell # picked for V-cell x16
+!!VRy4:S4611+v4610; y4 = v-index of current last card in deck
+!!VRvy2:Svy4; replace card y1 with last card
+* store L-cell y3 (0-55) for V-cell x16 (4-5 & 54-55 skipped in DO)
+!!VRy5:S1001+y3; index to L-cell 100*y+x
+!!VRy6:Svy5%100; x
+!!VRy7:Svy5:100; y
+!!VRy8:Sx16+1; V-cell # +1 (So 0 is o/s maze)
+!!POy6/y7/1:Hy8;
+!!VRy13:Sx16%6; V-cell row # (0-5)
+!!VRy14:Sx16:6; V-cell col # (0-9)
+!!VRy15:Sy13*2+v1357; V-cell x
+!!VRy16:Sy14*2+v1358; V-cell y
+!!POy15/y16/0:Hy3;
+
+!?FU131;  function to initialize deck (note x16 is DO-loop counter)
+!!VRy1:S4611+x16;  y1->4611+x16 (4611-4670)
+!!VRvy1:Sx16;      v(4611+i)=i, for i=0-59
+
+!?PI; make random maze for 10x6 block then set connectivity of L-Maze randomly
+*  [first give Leora (Gem) Basic Archery, Exp Scouting Adv Earth and Basic Tactics--Hidden]
+!!HE27:S1/1 S3/3 S17/2 S19/1 Ed1;
+* also remove all resources from Green--N.G. crashes--try in Day1Day2--OK
+*!OW:R3/0/0 R3/1/0 R3/2/0 R3/3/0 R3/4/0 R3/5/0 R3/6/0;
+* also set Treasure Chests in Imhotep's Tomb:
+!!VRv10:S1 T8; TC # which has Gem
+!!VRv1:C117/111/128/105/99/116/134/123/140; TC x's
+!!VRv11:C42/48/48/54/60/60/54/60/60; TC y's
+!!DO629/1/9/1:P;
+!!VRv1357:C1/1; set upper left room loc. of 10x6 Virtual maze (room zero)
+* V-maze first room is at 1/1/0 with doors at 2/1, 1/0, 0/1, & 1/2.
+* door open (1) or closed (0) status stored in PO:N
+!!VRv46:S54; set entrance room number to lower left corner, col 0, row 9
+!!VRv6:S9; entrance room row number
+!!VRv7:S0; entrance column no.
+!!VRv8:Sv7*2+v1357; room x (virtual)
+!!VRv9:Sv6*2+v1358; room y
+!!VRv1:S1001+v46; index to visit-code table
+!!VRvv1:S1; set room to visited
+!!VRv10:Sv9+1; BOT PO y
+!!POv8/v10/0:V0/1; set BOT to open
+!!PO3/20/0:V0/1; Open BOt of room 55 also
+!!PO9/0/0:V0/1; Open TOP of rooms 4 & 5 also
+!!PO11/0/0:V0/1;
+!!VRv1359:S-1; set stack counter to -1
+!!DO126/1/59/1:P; call FU126 with room 0 upper left cordinates in (v1357,v1358)
+** note need N*M-1 calls for NxM maze
+
+* table of 1000*y+x for 60 L-maze cells, v1001-v1060 (exits at 57-60)
+!!VRv1001:C6082/8460/8462/6084/8262/8264/8266/8064/8066/8068;
+!!VRv1011:C8070/7864/7866/7868/7870/7872/7874/7664/7666/7668;
+!!VRv1021:C7670/7672/7674/7676/7466/7468/7470/7472/7474/7266;
+!!VRv1031:C7268/7270/7272/7274/7276/7068/7070/7072/7074/7076;
+!!VRv1041:C7078/7080/6870/6872/6874/6876/6878/6880/6674/6676;
+!!VRv1051:C6678/6476/6478/6480/6280/6282/8660/8464/5884/5886;
+
+!!DO131/0/55/1:P; initialize deck of cell #'s
+!!VRv4610:S56; # of undealt cards
+!!DO130/0/3/1:P; shuffle/deal 1st 56 cells (last 4 fixed--exits)
+!!DO130/6/53/1:P; skipped 4 & 5
+!!DO130/56/59/1:P; skipped 54 & 55
+!!PO60/86/1:H55; (54+1)(V#+1)
+!!PO64/84/1:H56;
+!!PO84/58/1:H5;
+!!PO86/58/1:H6;
+!!PO9/1/0:H58;  (L#)
+!!PO11/1/0:H59;
+!!PO1/19/0:H56;
+!!PO3/19/0:H57;
+
+!?HM27&191; Generator sets 191
+!!HE27:P?v53/?v54/d; save start of each step in U/G
+
+!?OB49/1&191; Magic Well in U/G
+!!FU128:P;
+
+!?OB12/0&191; Campfire in U/G
+!!HE27:P?v53/?v54/d; can't step onto campfire
+!!FU128:P;
+
+!?FU128;
+!!OBv998/v999/v1000:S;
+!!FU&v1000=0:E;
+!!FU129&v998=72/v999=72:P;
+!!FU&v998=72/v999=72:E;
+!!POv53/v54/1:H?v2; get previous V-cell if any
+*!IF:M^53=%V53/%V54, POH=%V2^;
+!!FU127&v2=255:P; bounce back if O/S maze (H initialized to 255?)
+!!FU&v2=255:E;
+!!VRv2:-1; V-# +1 was stored
+!!VRv3:Sv2%6; old V-cell col # (0-5)
+!!VRv4:Sv2:6; old V-cell row # (0-9)
+!!VRv5:Sv3*2+v1357; old V-cell x
+!!VRv6:Sv4*2+v1358; old V-cell y
+!!VRv7:Sv998-v53; move dx
+!!VRv8:Sv999-v54; move dy
+!!VRv1:Sv5+v7; x loc. of V-cell wall
+!!VRv2:Sv6+v8; y loc. of V-cell wall
+!!POv1/v2/0:V0/?v9; wall code (0-closed)
+!!VRv1430:Sv3; Save coordinates within the Maze for display with the magical Compass
+!!VRv1431:Sv4;
+*!IF:M^Current (0-5,0-9) Virtual Cell = (%V3,%V4)^;
+!!FU127&v9=0:P; bounce back if wall closed
+!!FU&v9=0:E;
+!!VRv1:Sv1+v7; x loc. of next V-cell
+!!VRv2:Sv2+v8; y loc. of next V-cell
+!!VRv3:Sv3+v7; col of next V-cell
+!!VRv4:Sv4+v8; row of next V-cell
+!!POv1/v2/0:H?v9; L-cell #
+!!VRv1430:Sv3; Save coordinates within the Maze for display with the magical Compass
+!!VRv1431:Sv4;
+*!IF:M^New (0-5,0-9) Virtual Cell = (%V3,%V4)^;
+!!VRv3:Sv9+1001; index to 100*y+x
+!!VRv53:Svv3%100; L-x
+!!VRv54:Svv3:100; L-y
+!!HE27:Pv53/v54/v1000; go to new L-cell
+!!UN:Lv53/v54/v1000/25;
+!!HE27:Wd50; give more movement while in maze
+!!HE27:W?y5;
+!!HE27&y5>15000:W15000; limit maximum movement "windup"
+
+!?FU127;
+!!HE27:O6; chg to Teal
+!!HE27:Pv53/v54/v1000; return to previous loc.
+!!HE27:O3; return to Green
+!!OW:A3/27; reset active Hero
+!!UN:R1; Will redraw remove ghost?  (No, it didn't.)
+!!UN:Lv53/v54/v1000/25;
+!!UN:R6/500;
+* Now it works well.  No teleport sound, no double image, and the delay is not noticable.
+!!HE27:Wd200; give more movement while in maze
+
+!?FU129; campfire disguised as Pendant of Negativity
+!!IF:Q1/8/106/2^This is the center of an intense field.  Space is warped so strongly here that a wormhole has opened to another plane.  Will you pass through the wormhole?^;
+!!FU&-1:E;
+!!HE-1:P99/82/0;
+!!IF:V191/0;
+
+!?SN; sound trigger (1sr was &191 only, now general)
+!!SN:S?z-10; store a sound file name
+!!VRi:S0;
+!!VRz-9:S^Expernce.wav^;
+!!VRz-8:S^Faerie.wav^;
+!!VRz-7:S^ZQUIET.WAV^; nothing just silence
+!!SN|z-10=z-9/z-10=z-8:Sz-7; stifle
+
+!?FU629; x16=TC #, v1-v9=TC x's. v11-v19=TC y's, v10=# for Gem
+!!VRy1:Svx16; x
+!!VRy2:Sx16+10;
+!!VRy3:Svy2; y
+!!CHy1/y3/1:S0 B1; 500 gold
+!!CHy1/y3/1&x16=v10:S1 A63; Gem
+

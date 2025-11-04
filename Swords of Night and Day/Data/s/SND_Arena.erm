@@ -1,0 +1,734 @@
+ZVSE
+
+; SND_Arena for Swords of Night and Day, JHV, June 2011
+; added Chimera and Shifter code Jan. 2013 - see their used lists at end
+; added Wraiths to map and added experience after battles with them August 2021
+
+; uses v24-v25, v38-v39, v46-v47, v49, v60-v69, v73-v77, v203, v1076-v1092, v1185-v1196,
+; v1266-v1269, v1424-v1425, v1460-v1477, v1501-v1540, z141-z144, FU75-FU86, FU97, Flags 194-197 & 199
+
+; Note: FU120, FU122, & FU123 re-used from SND_LightningMaze
+; uses f375 from SND_GnomeAnnagrams (Update, Aug. 2021)
+
+!#IF:V194/0 V195/0 V196/0 V197/0 V199/0;
+
+!#VRz401:S^Arena Gladiator Gate^;
+!#OB91/46/0:SH401;
+!#PO91/46/0:N1;
+!#VRz142:S^Arena Gladiator Exit^;
+!#OB91/43/0:SH142;
+!#PO91/43/0:N1;
+!#VRz143:S^Winged Warrior^;
+!#VRz144:S^Winged Warriors^;
+!#UN:G1/12/0/143 G1/12/1/144; rename Angel
+!#VRv1424:S0; EP gained from side Beast fights
+!#VRv1425:S0; EP gained from central Beast fights
+
+; Gladiator properties
+!#MA:P79/400 S79/6; Minotaur King
+!#EA90:B5/1/83/43/0/0/0/0/0/0/0/1/1/1/1; Ogre Speed bonuses
+!#EA90:F119/-1/?v1; y4=line for ability 119/any, or empty line if none, -1 if no free lines
+!#EA90:Bv1/1/119/83/0/0/0/0/1/1/1/1/1/1/1; Ogre Slow immunity, will be overwritten by direct spell damage immunity, which looks for the 1st line with immunity
+!#VRv1:+1; Leave room for direct spell damage immunity
+!#EA90:Bv1/1/119/83/0/0/0/0/1/1/1/1/1/1/1; Ogre Slow immunity
+; Spartacus flags
+!#MA:X183/?v1;
+!#VRv1:&-5 &-3 |16 |32768; remove shoot, remove fly, add alive, add attack twice
+!#MA:A183/20 D193/20 E183/d5 M193/d5 P183/150 S183/9 X183/v1;
+; Humungous flags
+!#MA:X180/?v1;
+!#VRv1:&-5 &-3 |16; remove shoot, remove fly, add alive
+!#MA:E180/d10 M180/d10 P180/300 S180/d2 X180/v1;
+!#MA:E40/d-15 M40/d-15 P40/275 E41/d-30 M41/d-30 P41/350; Giganticus & Titanicus HP
+; Titanicus flags
+!#MA:X41/?v1;
+!#VRv1:&-5; remove shoot
+!#MA:X41/v1;
+; Red Dragon properties for Arena
+!#MA:E82/30 M82/20 P82/120 S82/10; 20-30 damage, 120 HP, spd 10
+
+!#VRv203:S0; # of Angel kills
+; v1076-v1092 look-up table for 2-power vs. bit #
+!#VRv1076:C1/2/4/8/16/32/64/128/256/512/1024/2048/4098;
+!#VRv1089:C8192/16384/32768/65536;
+; v1185-v1188 table of bit-values for same wall of next room by wall bit #
+!#VRv1185:C4/8/1/2;
+; v1189-v1192: table of column (x) offsets to next room after opening P0-P3
+!#VRv1189:C1/0/-1/0; add 1 to RC (v46) after opening P0
+; v1193-v1196: table of row (y) offsets to next room after opening P0-P3
+!#VRv1193:C0/-1/0/1; add 1 to RR (v46) after opening P3
+; v1266-v1269 table of hex offsets for P0-P3 passageways
+!#VRv1266:C1/-17/-1/17;
+; v1360-v1419 = stack of visited rooms (put v46 on stack after opening a wall)
+; v1359 = stack counter
+!#VRv1359:S-1;
+!#VRv1472:C0/0/0/0; Minotaur/Gauntlet/Ladder/beast-kill battle counters
+!#VRv1476:S0; Jalery/Vames experience points:  promotions at 50 & 100?
+
+!?OB91/46/0;
+!!HE-1:A2/157/?v5/?v1; v1=# equipped
+!!HE-1:A2/128/?v5/?v2; v2=# equipped
+!!HE-1:A2/49/?v5/?v3;  Klingon Badge
+!!HE-1:A2/108/?v5/?v4; Klingon Pendant
+!!IF|v1>0/v2>0/v3>0/v4>0:M^You may not wear magic swords or Klingon artifacts to battle in the Arena, sirs!^;
+!!FU|v1>0/v2>0/v3>0/v4>0:E;
+!!VRz1:S^Minimus^;
+!!VRz2:S^Brutus^;
+!!VRz3:S^Humungus^;
+!!VRz4:S^Giganticus^;
+!!VRz5:S^Titanicus^;
+!!VRz6:S^Maximus^;
+!!VRz7:S^Spartacus^;
+!!VRz8:S^Spartacus^;
+!!VRv38&v1474<7:Sv1474+1;
+!!VRv38&v1474>6:S8;
+!!VRz141:Szv38; Gladiator Ladder opponent
+
+!!VRz1:S^../Data/ArenaSwd.gif^;
+!!VRz2:S^../Data/Arena.jpg^;
+!!VRz3:S^../Data/ArenaSwd.gif^;
+!!VRz5:S^Arena Gladiator Gate - Today is a good day to die!^;
+!!VRz6:S^Wild beasts in the Arena^;
+!!VRz7:S^The Gauntlet of Grond^;
+!!VRz8:S^The Minotaur of Minos^;
+!!VRz9:S^The Gladiator Ladder:  %Z141^;
+!!VRz10:S^What will you face?^;
+!!IF:D5/5//10/1/2/3/0/0/0/0/0/6/7/8/9;
+!!VRz-6:S^Face exotic beasts for random resources and Experience Points.^;
+!!VRz-7:S^Pass through the Gauntlet for +1 D and 2 EP.^;
+!!VRz-8:S^Fight the Minotaur in the Labyrinth for +1 A and 5 EP.^;
+!!VRz-9:S^Fight your way to the top for 0-3 A/D and 2-8 EP.^;
+!!IF:F5/-6/-7/-8/-9/1;
+!!IF:E39/5; v39 1-4 or -1 for Cancel
+!!IF&v39=2/v1473=6:M^Sorry, our holodeck is closed for maintenance after some kiddos overused it.^;
+!!FU&v39=2/v1473=6:E; Max 6 Gauntlet fights
+!!IF&v39=3/v1472=8:M^Sorry, all our Minotaurs are on a strike ever since they've heard of cows! It has nothing to do with the whooping they got in the Labyrinths, promise!^;
+!!FU&v39=3/v1472=8:E; Max 8 Minotaur fights
+!!IF&v39=4/v1474=10:M^Wait, where are you going? Give our Gladiators a break, you've already bested our best! Even beat up poor Spartacus four times...^;
+!!FU&v39=4/v1474=10:E; Max 10 Gladiator Ladder fights
+!!FU&v39=-1:E;
+!!IF:M^The contest will begin soon.  You may pray to your gods for aid, but no direct damage spells are allowed in the Arena - mages must fight with their staffs only.  Good luck!^;
+!!FU84&v39=1:P;
+!!FU81&v39=2:P;
+!!FU80&v39=3:P;
+!!FU83&v39=4:P;
+
+; update experience
+!?FU86; x1=amount of exp to add, v1476=total exp, HE27=Hero
+!!VRv1476:+x1;
+!!if&375/x1>0:;
+!!VRv1476:+x1; dbl exp.
+!!IF:V375/0;
+!!en:;
+!!VRy1:Sv1476+100000000;
+!!HE27:Ey1; set Gem/Leora's exp to show mage/warrior exp
+; add towns for EP=150, 160, etc.
+; requires that maximum delta-EP (X1) <21, otherwise a town could be skipped
+!!FU&v1476<150:E;
+!!VRy2:Sv1476-150:10; y2=town #, 0 to 32
+!!FU&y2>32:E;
+!!VRy5:S0;
+!!VRy5:Sy2; Add the previous town as well to make sure it wasn't skipped
+!!VRy5&y2>0:-1;
+!!VRy3:Sy5:7*6+2; previous town x
+!!VRy4:Sy5%7*4+89; town y
+!!CAy3/y4/1:O3;
+!!FU&y2=0:E; If Leora has 150-159 EP, there is no previous bonus town, so no need to give the first bonus town again
+!!VRy3:Sy2:7*6+2; town x
+!!VRy4:Sy2%7*4+89; town y
+!!CAy3/y4/1:O3; (may already be Green, e.g. v1476-->150-->152)
+
+; give foes immunity to Jalery's mage spell
+!?FU85; x16=enemy stack
+!!BMx16:N?y1 T?y2;
+!!FU&y1<1:E; exit if no creature in stack
+!!VRy1:Sx16+1*-1;
+!!EAy1:Oy2; attempt to fix Ogre glitch in Gauntlet
+!!EAy1:F119/-1/?y4; y4=line for ability 119/any, or empty line if none, -1 if no free lines
+!!EAy1&y4>-1:By4/1/119/68/1/1/1/1/1/1/1/1/1/1/1;  immunity to direct spell damage [DOESN'T WORK on Titan LB]
+!!EAy1&y4>-1/v202<>34:By4/1/119/65/1/1/1/1/1/1/1/1/1/1/1;  immunity to hostile air (works for TLB)
+
+!?FU84; Fight wild beasts in Arena, v1475=kills
+!!IF:M^Ladies and Gentlemen, today the team of Jalery and Vames will face exotic beasts from far lands!  Their reward will depend on their bravery (cowards are not allowed to leave without making a kill)!^;
+!!VRv1475:S0;
+!!VRv73:C91/31; NPC loc.
+!!VRv77:S0; step counter for NPC
+*!MW:Pv73/v74/0/12/?v75; place wandering monster (Angel) # v75 @ v73/v74/0--can't use MO:B w/this
+!!VRv1:C12/81/125; Angel, Chimera, Shifter
+!!VRv4:S1 R2;
+!!UN:Iv73/v74/0/54/vv4; place Angel (or ...)
+!!MW:Mv73/v74/0/?v75; convert cr  @ v73/v74/0 to wandering monster # v75
+!!MWv75:A3/1/0/0/1/1/0/0 A2/27/0/0 A4/20; call MW0 b4 attack, search for Gem
+!!MOv73/v74/0/1:B6/3000 G1 M1 R10/1 U1; 3000G reward, 1 monster, message text=Timed Event 1, savage, can't flee
+
+!!VRv1:C73/92/48/47/4/194; beast 1 CR#'s
+!!VRv38:S1 T5;
+!!VRv24:Svv38;
+!!UN:I86/36/0/54/v24;
+!!VRv1:S0 R5; random resource (not gold or mithril)
+!!VRv2:S3 R3; amount
+!!MO86/36/0/1:Bv1/v2 G1 R10/1 U1;
+
+!!VRv1:C80/24/38/108/82; beast 2 CR#'s
+!!VRv46:S1 R4;
+!!VRv25:Svv46;
+!!UN:I96/36/0/54/v25;
+!!VRv1:S0 R5; random resource (not gold or mithril)
+!!VRv2:S4 R4; amount
+!!MO96/36/0/1:Bv1/v2 G1 R10/1 U1;
+!!HE-1:N?v46 O?v47; reuse v46 & v47 for Hero # and Owner #
+!!HE-1:A2/6/d/?v49; chk for Tent
+!!HE-1&v49>0:A-6; remove Tent
+!!IF:V197/1 V199/1; set flags for beast battles
+!!VRv76:C0/0;
+!!HE-1:P91/41/0; put Hero in Arena
+!!UN:S91/36/0/3/7;
+
+!?OB91/43/0;
+!!IF&v1475<1/v1424<10:M^You may not leave the Arena without a kill!^;
+!!IF&v1475<1/v1424>=10:M^You may not leave the Arena without a kill!
+Lesser beasts no longer count!
+You've killed too many of them!
+The crowd wants more blood!^;
+!!FU&v1475<1:E;
+!!HEv46&v49>0:A4/6; restore Tent
+!!MWv75&197:A1/?v73/?v74/?v1; check Angel's loc.
+!!UN&197:Ov73/v74/v1; try to delete Angel
+!!UN:O86/36/0; try to delete beast 1
+!!UN:O96/36/0; try to delete beast 2
+!!IF:V197/0 V199/0;
+; give reward:
+!!FU86:Pv1475; increment experience
+!!VRz10:S^../Data/cheers.wav^;
+!!SN:Pz10;
+!!IF&v1475>1:M^Congratulations!  You have each gained %V1475 Experience Points.  Your experience totals are:  %V1476.^;
+!!IF&v1475=1:M^Congratulations!  You have each gained 1 Experience Point.  Your experience totals are:  %V1476.^;
+!!VRv1475:S0; clear EP gained in arena on exit, it's already given
+!!HEv46:P91/46/0;
+
+!?HM-1&197; quest hero about to move, next location = v998/v999/v1000
+!!HE-1:Wd200;
+!!HE-1:W?v1;
+!!HE-1&v1>20000:W20000; limit max movement "windup"
+; move Monster one step also 1/2 of time
+!!VRv77:+1;
+!!VRv1:Sv77%2;
+!!FU&v1=0:E;
+; collision check
+!!VRv1:Sv998-v73;
+!!VRv2:Sv999-v74;
+!!FU&v1=0/v2=0:E;
+!!VRv3:Sv1;
+!!VRv3&v1<0:*-1;
+!!VRv1&v1<>0:Sv1:v3;
+!!VRv4:Sv2;
+!!VRv4&v2<0:*-1;
+!!VRv2&v2<>0:Sv2:v4;
+!!VRv3:Sv73+v1; trial loc.s, check for too close to walls
+!!VRv4:Sv74+v2;
+!!VRv1:Sv3-91*v1; dx2
+!!VRv2:Sv4-36*v2+v1; dy2+dx2
+!!FU&v2>=36:E;
+!!VRv73:Cv3/v4;
+!!MWv75:A1/v73/v74/v1000; move NPC
+
+!?BA0&199;
+!!BA:B^SndArena.pcx^;
+
+!?BF&199;
+!!DO85/21/24/1:P; give foes immunity to Jalery's mage spell
+!!BF:C;
+!!VRv76:S1; flag for 2nd BF
+!!BM21:T?v1;
+!!FU&v1<>v24:E; exit if not beast 1
+!!VRv1:C6/1/2/3/2/2; no. of beast 1 CR's
+!!BM21:Bvv38 Nvv38;
+
+!?BF&199/v76=1;
+!!BM0:T?v1;
+!!BM21:N?v2;
+!!VRv3:Sv1476:2:v2; exp/2/#-of-Cr -- add to HP
+!!VRv4:Sv1476:10; exp/10 -- add to damage
+!!VRv2|v1=7/v1=35:*2;
+!!VRv2|v1=174/v1=136:*3;
+!!BM21:Bv2 Nv2;
+!!VRv2:Sv203*2;
+!!VRv2&v2>10:S10;
+!!EA-22:Ev2/12/d/d; give all Arena Cr's Exp Level = 2*# of Angel kills
+!!BM21:Hdv3 U1/dv4 U2/dv4; changing HP/Damage w/bonuses, so must be after EA:E
+
+!?BA1&199;
+!!VRv1475:+1; (won't matter if Leora/Gem defeated)
+!!BM21:T?v1;
+!!HEv46:O?v2;
+!!VRy-1:S0;
+!!VRy-1|v1=12/v1=81/v1=125/v1=23/v1=63/v1=159:S1; fight vs central monster, include checks for possibility of Chimera nature not reset on death when it dies from retaliation
+!!IF|y-1=1/v2<0:V197/0;
+!!VRv1475&y-1=0/v1424>=10:-1; Max 10 EP from side beasts
+!!VRv1475&y-1=1/v1425<25:+4; 5 EP for WM up to 5 kills, then 1 EP
+!!VRv1424&y-1=0/v1424<10:+1; count EP gained from side monsters
+!!VRv1425&y-1=1/v1425<25:+5; count EP gained from central monsters
+!!VRv1425&y-1=1/v1425>=25:+1; count EP gained from central monsters
+!!VRv203&y-1=1:+1; # of WM kills
+
+!?FU83; Gladiator ladder, fight # v1474 (v38=#+1, limited to 8), opponent name z141
+!!IF:M^Ladies and Gentlemen, today the team of Jalery and Vames will face the mighty %Z141!  Whose blood will stain the sand?  Ave atque vale!^;
+!!VRv1:C144/91/180/40/41/11/183/183; opponent CR#'s
+!!VRv24:Svv38;
+!!UN:G1/v24/0/z141;
+!!UN:G1/v24/1/z141;
+!!VRv1:C3/4/1/1/1/3/4/6; no. of opponent CR's
+!!VRv25:Svv38;
+!!HE-1:N?v46 O?v47; reuse v46 & v47 for Hero # and Owner #
+!!HE-1:A2/6/d/?v49; chk for Tent
+!!HE-1&v49>0:A-6; remove Tent
+!!IF:V196/1; set flag for Gladiator battle
+!!HE63:O5/1; set Xarfax (Ares) to Red temporarily for battle
+!!HE-1:T91/35/0/v24/1; battle in Arena (sand)
+!!HEv46:O?v1;
+!!FU&v1<>v47:E;
+!!HEv46&v49>0:A4/6; restore Tent
+!!UN:G1/v24/0/0; restore default names
+!!UN:G1/v24/1/0;
+; give reward:
+!!VRv1:Sv38:2; A=(battle-# +1)/2
+!!VRv2:Sv1474:2; D=battle-#/2
+!!VRv3:Sv1474+2; EP=Battle-# +2
+!!VRv1&v1>3:S3; Max 3 attack, 3 defense, 8 EP
+!!VRv2&v2>3:S3;
+!!VRv3&v3>8:S8;
+!!FU86:Pv3; increment experience
+!!HEv46:Fdv1/dv2/d/d;
+!!HE63:Fdv2/dv1/d/d; give Ares/Xarfax the opposite improvements
+!!VRz10:S^../Data/cheers.wav^;
+!!SN:Pz10;
+!!IF:M^Congratulations!  For defeating %Z141, you have each gained +%V1 Attack skill, +%V2 Defense skill, and another %V3 Experience Points.  Your experience totals are:  %V1476.^;
+!!SN&v1474=6:Pz10;
+!!IF&v1474=6:M^You have reached the top of the Gladiator ladder, and earned our grand prize, the Sharpshooter's Bow!^;
+!!HEv46&v1474=6:A4/137;
+!!HE63&v1474>=6:Fd10/d10/d2/d2; improve Ares/Xarfax for every battle at top of ladder
+!!VRv1474:+1; increment battle counter, not limited by &v1474<7
+
+!?BA0&196;
+!!BA:H1/63;
+!!BA:B^SndArena.pcx^;
+
+!?BF&196;
+!!BF:C;
+!!BM21:Bv25 Nv25;
+!!DO85/21/21/1:P; give foes immunity to Jalery's mage spell
+
+!?BA1&196;
+!!IF:V196/0;
+
+!?FU81; Gauntlet
+!!UN:V?y1/?y2/?y3/?y4/?y5/?y6/?v1477; v1477=Cheat Flag prior to battle
+!!IF:M^{Grond the Klingon:}
+Welcome to the Ascension Ceremony.  You must stand in front of each of the Altars - if you survive!^;
+!!HE-1:N?v46 O?v47; reuse v46 & v47 for Hero # and Owner #
+!!HE-1:A2/6/d/?v49; chk for Tent
+!!HE-1&v49>0:A-6; remove Tent
+!!HE-1:M10/0 R0/-3; remove QS, Morale bonuses
+!!IF:V195/1; set flag for Gauntlet battle
+!!HE111:O5/1 R0/-1; set Saurag to Red temporarily for battle, lower his morale
+!!HE-1:T140/4/1/90/1; battle with 1 Ogre in underground
+!!HEv46:O?v1;
+!!FU&v1<>v47:E;
+!!UN:C6919480/4/?v1; JHV--eliminate CF due to BU:V
+!!VRv1:+128668;
+!!UN&v1477=0:Cv1/4/0;
+!!HEv46&v49>0:A4/6; restore Tent
+!!HE-1:M10/1; restore QS
+!!VRv1473:+1; increment battle counter
+; give reward:
+!!FU86:P2; increment experience
+!!HEv46:Fd/d1/d/d;
+!!VRz10:S^../Data/cheers.wav^;
+!!SN:Pz10;
+!!IF:M^Congratulations!  You have each gained +1 Defense skill and another 2 Experience Points.  Your experience totals are:  %V1476.^;
+!!SN&v1473=3:Pz10;
+!!IF&v1473=3:M^For performing three successful Ascension Ceremonies, I award you the Klingon Badge of Courage and +2 extra Defense!^;
+!!HEv46&v1473=3:Fd/d2/d/d;
+!!HEv46&v1473=3:A4/49;
+!!SN&v1473=6:Pz10;
+!!IF&v1473=6:M^For performing six successful Ascension Ceremonies, I award you the Klingon Pendant of Courage and +4 extra Defense!^;
+!!HEv46&v1473=6:Fd/d4/d/d;
+!!HEv46&v1473=6:A4/108;
+
+!?BA0&195;
+!!BA:H1/111;
+
+!?BF&195;
+!!BM21:Hd10 P2 S4;
+!!BF:M2730/5460/5460/10920/10920/32768/10920/10920/5460/5460/2730/61;
+!!BF:O63/83 O63/117;
+!!BM0:P86;
+!!BM1:N?v1;
+!!BM1&v1>0:P87;
+!!BU:S90/1/172/1/-1/0;
+!!BU:S90/1/4/1/-1/0;
+!!BU:S90/1/174/1/-1/0;
+!!BU:S90/1/24/1/-1/0;
+!!BU:S90/1/160/1/-1/0;
+!!BU:S90/1/26/1/-1/0;
+!!BU:S90/1/162/1/-1/0;
+!!BU:S90/1/28/1/-1/0;
+!!BU:S90/1/164/1/-1/0;
+; Ogre experience - must set before adjusting (HP+bonuses) & (Damage+bonuses)
+!!BM0:T?v2;
+*!VRv3:S0; give Ogres level 0, 3, or 6 exp based on player's creature 0's type - changed later to based on Grond fights count
+*!VRv3|v2=7/v2=35:S3;
+*!VRv3|v2=174/v2=136:S6;
+!!VRv3:Sv1473; on 100% difficulty and below give Ogres experience level 0-1-2-3-4-5 on Grond level 1-2-3-4-5-6
+!!VRv3&v51>2:*2; on 160% difficulty and above give Ogres experience level 0-2-4-6-8-10 on Grond level 1-2-3-4-5-6
+!!EA-22:Ev3/12/d/d;
+!!EA-23:Ev3/12/d/d;
+!!EA-24:Ev3/12/d/d;
+!!EA-25:Ev3/12/d/d;
+!!EA-26:Ev3/12/d/d;
+!!EA-27:Ev3/12/d/d;
+!!EA-28:Ev3/12/d/d;
+!!EA-29:Ev3/12/d/d;
+!!EA-30:Ev3/12/d/d;
+!!EA-31:Ev3/12/d/d;
+!!DO85/21/30/1:P; give foes immunity to Jalery's mage spell (must come b4 EA:E?)
+; No, still N.G.--summoned ogres get A/D/../S bonuses wiped out--get B119/68 tho)
+; But moving to end after setting Ogres to Level 1 instead of zero doesn't work--
+; immunity gone again.  Try setting immunity first, w/L1:  same result as L0.
+; Back to L0, try resetting EA lines with EA:O in FU85.
+; now set additional bonuses per location
+!!BM22:Hd10;
+!!VRv1:Sv1473*2;
+!!BM21:U2/dv1 U1/dv1;
+!!BM22:U2/dv1 U1/dv1;
+!!BM23:Hd15 Sd-2 U2/dv1 U1/dv1;
+!!BM24:Hd15 Sd-2 U2/dv1 U1/dv1;
+!!BM25:Hd20 Sd-3 U2/dv1 U1/dv1 U2/d2 U1/d2;
+!!BM26:Hd20 Sd-3 U2/dv1 U1/dv1 U2/d3 U1/d2;
+!!BM27:Hd25 Sd-3 U2/dv1 U1/dv1 U2/d3 U1/d3;
+!!BM28:Hd25 Sd-3 U2/dv1 U1/dv1 U2/d4 U1/d3;
+!!BM29:Hd30 Sd-3 U2/dv1 U1/dv1 U2/d4 U1/d4;
+!!BM30:Hd30 Sd-3 U2/dv1 U1/dv1 U2/d5 U1/d5;
+; Quicksand
+!!BH1:Q0/90/0;
+!!BH1:Q0/92/0;
+!!BH1:Q0/94/0;
+!!BH1:Q0/96/0;
+!!BH1:Q0/98/0;
+; Barriers
+!!BF:O61/41 O61/43 O61/45 O61/143 O61/145 O61/147;
+
+
+!?BR&195/v997>0;
+!!VRv1:Sv1473+1*2;
+!!DO82/21/30/1:Pv1; increase Ogre HP by (#-of-battles+1)*2 each round
+
+!?BR&195/v997=1;
+!!BH1:C64/41/3/0 C64/143/3/0;
+
+!?BR&195/v997=2;
+!!BH1:C64/43/3/0 C64/145/3/0;
+
+!?BR&195/v997=3;
+!!BH1:C64/45/3/0 C64/147/3/0;
+
+!?FU82; x16=stack, x1=HP increase
+!!BMx16:N?y1;
+!!FU&y1<1:E;
+!!BMx16:Hdx1;
+
+!?BG1&195;
+!!BU:E83/?v1; note Cross placed at 83 actually appears on 84
+!!BU:E117/?v2;
+!!FU|v1<0/v2<0/v1>3/v2>3:E;
+!!IF:M^You made it!^;
+!!BU:V1; Causes "Cheated" to be set
+*!BA:D1; try disabling battle instead (doesn't work here)
+*!DO97/21/30/1:P; kill all Ogres
+
+*?FU97; x16=stack
+*!BMx16:N?y1 P?y2;
+*!BM0&y1>0:C57/y2/3/3/1; TLB
+
+!?BA1&195
+!!IF:V195/0;
+
+!?FU80; set up BF maze and start battle
+; v1460-v1471: table of BF:M codes, row 0, row 1, ..., row 11
+!!VRv1460:C64572/21844/65534/21844/65534/21844/65534/21844/65534/21844/64572;
+!!VRv46:S16; set starting room number to mid left side, col 0, row 2
+!!VRv6:S2; entrance room row number
+!!VRv7:S0; entrance column no.
+!!VRv8:Sv6*17+v7*2+18; BF hex = 18+34*row+2*col
+!!DO75/1501/1540/1:P0; fill v1501-v1540 w/0
+!!VRv1517:S1; set room 16 to visited
+!!VRv1359:S-1; set stack counter to -1
+!!DO76/1/39/1:P; note need N*M-1 calls for NxM maze w/1 room already visited
+!!HE-1:N?v46 O?v47; reuse v46 & v47 for Hero # and Owner #
+!!HE-1:A2/6/d/?v49; chk for Tent
+!!HE-1&v49>0:A-6; remove Tent
+!!IF:V194/1; set flag for labyrinth battle
+!!HE93:O5/1 R/-1; set Deemer to Red temporarily for battle, reduce his Morale
+!!HE-1:T140/4/1/79/1; battle with 1 Minotaur King in underground
+!!HEv46:O?v1;
+!!FU&v1<>v47:E;
+!!HEv46&v49>0:A4/6; restore Tent
+!!VRv1472:+1; increment battle counter
+; give reward:
+!!FU86:P5; increment experience
+!!HEv46:Fd1/d/d/d;
+!!VRz10:S^../Data/cheers.wav^;
+!!SN:Pz10;
+!!IF:M^Congratulations!  You have each gained +1 Attack skill and another 5 Experience Points.  Your experience totals are:  %V1476.^;
+!!SN&v1472=4:Pz10;
+!!IF&v1472=4:M^For defeating the Minotaur four times, I award you an extra +3 Attack skill!^;
+!!HEv46&v1472=4:Fd3/d/d/d;
+!!SN&v1472=8:Pz10;
+!!IF&v1472=8:M^For defeating the Minotaur eight times, you have won the most valuable artifact which Minos' artificer Daedalus has created:  the Rainbow Shield of Blocking!^;
+!!HEv46&v1472=8:A4/47;
+!!HE93&v1472>2:Fd2/d2/d1/d1;
+
+!?BA0&194;
+!!BA:H1/93;
+
+!?BF&194;
+!!BF:Mv1460/v1461/v1462/v1463/v1464/v1465/v1466/v1467/v1468/v1469/v1470;
+!!BM0:P52;
+!!BM1:N?v1;
+!!BM1&v1>0:P120;
+!!VRv1:Sv1472+3;
+!!VRv1&v1>10:S10;
+!!EA-22:Ev1/12/d/d; give MK level 3-10 exp
+; give Minotaur 1st Aid Tents
+!!BU:S147/1/7/1/-1/0;
+!!BU:S147/1/9/1/-1/0;
+!!BU:S147/1/177/1/-1/0;
+!!BU:S147/1/179/1/-1/0;
+!!DO85/21/30/1:P; give foes immunity to Jalery's mage spell
+; improve Minotaur if stack 0 promoted
+!!BM0:T?v2;
+!!FU|v2=6/v2=34:E;
+!!VRv3:S0;
+!!VRv3|v2=7/v2=35:S1;
+!!VRv3|v2=174/v2=136:S2;
+!!BM21:Adv3 Adv3 Ddv3 Ddv3 Sdv3;
+
+!?BA1&194
+!!IF:V194/0;
+
+!?FU75; x16=v-index, x1=value
+!!VRvx16:Sx1;
+
+!?FU76; stack loop, (v1357,v1358)= (x,y) of room zero
+; call FU77 to check for closed wall in current room (to open)
+!!FU77:P;
+
+!?FU77; put passageway randomly in current maze room to unvisited adjacent room
+; v46 = room #, 0 to 39
+; calculate 4 corner #'s (indexes to corner bit-flag table) based on v46
+!!VRv6:Sv46:8; room row # (RR)
+!!VRv7:Sv46%8; room column # (RC)
+!!VRv8:Sv6*17+v7*2+18; BF hex = 18+34*row+2*col
+!!DO120/0/3/1:P; start with fresh "deck" of passage #'s
+!!VRv60:S4; set total passages in "deck"
+!!FU78:P;
+; v60<0 on return from FU78 if no closed passageway found
+!!FU123&v60<0:P; call stack popper if no closed pw found
+!!FU77&v60<0:P; and try again with previous room from stack
+
+
+!?FU78; open passageway to adjacent room
+!!FU79:P; select a passage # to be opened (-->v69)
+!!FU&v60<0:E; give up if no passageways were left to try
+!!VRy1:S1266+v69; index to passageway offset
+!!VRy8:Sv8+vy1; passageway hex
+!!VRy2:Sy8:17; word #
+!!VRy3:Sy8%17; bit number in word
+!!VRy4:S1076+y3; index to v1076 bit-values table
+!!VRy5:Svy4+1*-1; &-value to remove obstacle
+!!VRy6:S1460+y2; index to v1460 table of BF:M obstacle bit flags
+*!IF:M^current hex=%V8, passage hex=%Y8, word=%Y2, bit=%Y3 &=%Y5^;
+!!VRvy6:&y5;
+; put current room # in stack
+!!FU122:P;
+; set next room # that passage leads to
+!!VRv46:Sv47; v47 set in FU79
+
+!?FU79; function to deal one random passageway # from deck w/o replacement
+!!VRv60:-1; reduce # of cards left in deck by 1 (starts @ 4-->3)
+!!FU&v60<0:E; give up if no passageways left to try
+!!VRy1:S0 Rv60; y1=random # from [0,v60]
+!!VRy2:S61+y1; y2=61+y1
+!!VRv69:Svy2;  v69=v(61+y1)= passageway # picked
+!!VRy4:S61+v60; y4 = v-index of current last card in deck
+!!VRvy2:Svy4; replace card y1 with last card
+
+; check for unvisited room next if this wall opened
+
+; v1189-v1192: table of column offsets to next room after opening P0-P3
+!!VRy1:S1189+v69; index to column offset
+!!VRy2:Svy1+v7; new column
+!!IF:V1/0;
+!!IF|y2<0/y2>7:V1/1; set flag 1 if new column # outside maze
+; v1193-v1196: table of row offsets to next room after opening P0-P3
+!!VRy1:S1193+v69; index to row offset
+!!VRy3:Svy1+v6; new row
+!!IF:V2/0;
+!!IF|y3<0/y3>4:V2/1; set flag 2 if new row # outside maze
+!!VRv47:Sy3*8+y2;
+; check whether next room visited
+!!VRy1:S1501+v47; index to visit codes
+!!VRy6:S0;
+!!VRy6&-1/-2:Svy1; v47 room code (1=visited)
+; if legal room not visited, use this passage
+!!VRvy1&y6=0/-1/-2:S1; set room v47 to visited
+!!FU79|1/2/y6=1:P; try again if room v47 illegal or already visited
+
+; SND_ChimeraTest, JHV, Jan., 2013
+; Arena Chimera battle for "The Swords of Night and Day"
+
+; uses z328-z332, flags 175 & 179, reuses v52 from Bull
+
+!#VRz328:S^Chimera^;
+!#VRz329:S^Chimeras^;
+!#VRz330:S^Dendroid^;
+!#VRz331:S^Vampire^;
+!#VRz332:S^Ghost^;
+!#UN:G1/81/0/328; (Scorpicore)
+!#UN:G1/81/1/329;
+!#MA:X81/?v1;
+!#VRv1:|131072; [Add No Morale]
+!#MA:X81/v1 A81/d4 D81/d4 E81/40 M81/20 P81/150 S81/9;
+
+!?BF&1000;
+!!BM21:T?v1;
+!!FU&v1<>81:E; exit if not Scorpicores
+!!IF:V175/1;
+!!VRv52:S1;
+!!UN:G1/23/0/328 G1/23/1/329;
+!!UN:G1/63/0/328 G1/63/1/329;
+!!UN:G1/159/0/328 G1/159/1/329;
+
+!?BR&175;
+!!VRv37:Sv997; save round count (v997 gets changed after BR trigger)
+
+!?BG0&175/v37>-1; reset nature at end of Chimera's turn (better than BR)
+!!BG:N?v1; stack
+!!FU&v1<21:E; exit if not Chimera
+!!IF:V179/1;
+
+!?BG1&179;
+!!IF:V179/0;
+!!VRv52:S1 R2;
+!!VRv1:C23/63/159;
+!!BM21:Tvv52;
+
+!?MF1&175;
+!!MF:F?y1 N?y2; y1=damage, y2=stack
+!!FU&y2<>21:E; case: Chimera dies only (so far)
+!!BMy2:H?y3 N?y4 L?y5;
+!!VRy6:Sy3*y4-y5; remaining HP
+!!FU&y1<y6:E;
+!!BM21:T81; restore type
+
+!?MF1&175;
+!!MF:F?y1 N?y2; y1=damage, y2=stack
+!!FU&y2<>0:E; case: stk 0 alive, stk 1 dead
+!!BM1:N?y10;
+!!FU&y10>0:E;
+!!BMy2:H?y3 N?y4 L?y5;
+!!VRy6:Sy3*y4-y5; remaining HP
+!!FU&y1<y6:E;
+!!BM21:T81; restore type
+
+!?MF1&175;
+!!MF:F?y1 N?y2; y1=damage, y2=stack
+!!FU&y2<>1:E; case: stk 1 alive, stk 0 dead
+!!BM0:N?y10;
+!!FU&y10>0:E;
+!!BMy2:H?y3 N?y4 L?y5;
+!!VRy6:Sy3*y4-y5; remaining HP
+!!FU&y1<y6:E;
+!!BM21:T81; restore type
+
+!?MM0&175; trigger for mouse hint text
+!!MM:M?z9;
+!!VRy1:Sv52+329; index to z330-z332
+!!VRz8:Szy1;
+!!VRz10:S^%Z9 (Chimera nature {%Z8})^;
+!!MM:Mz10;
+
+!?BA1&175;
+!!IF:V175/0 V179/0;
+!!UN:G1/23/0/0 G1/23/1/0;
+!!UN:G1/63/0/0 G1/63/1/0;
+!!UN:G1/159/0/0 G1/159/1/0;
+
+; SND_ShifterTest, JHV, Jan., 2013
+; Arena Shifter battle for "The Swords of Night and Day"
+
+; uses v70, FU99, z333-z335, flags 176-177, reuses v52 from Bull
+
+!#VRz333:S^Elemental Shifter^;
+!#VRz334:S^Elemental Shifters^;
+!#UN:G1/125/0/333; (Magma Elemental)
+!#UN:G1/125/1/334;
+!#MA:N125/16; shots=16
+!#UN:C7994368/1/9;
+!#UN:C7994176/1/8;
+!#MA:X125/?i;
+!#VRi:|4; add shooting [NOTE: crashes if shooter not set before battle][or if |4096 added here]
+!#MA:X125/i A125/d8 D125/d8 P125/180 M125/24 E125/36 S125/8;
+
+!?FU6000;
+!!VRx3&x1=1/x2<2:S16;
+!!VRx3&x1=1/x2>197:S16;
+!!FU|x2<2/x2>197:E;
+!!UN:C4446879/4/?y10;
+!!UN:C4446867/1/?y11;
+!!VRy10&y11=254:-2;
+!!VRy10&y11=-2:-2;
+!!VRx2:+y10;
+!!UN&x1=0:Cx2/1/x3;
+!!UN&x1=1:Cx2/1/?x3;
+
+!#FU6000:P0/125/1; monk shot
+!#EA125:F102/115/?v4; v4=line for ability 102/115, or empty line if none, -1 if no free lines
+!#EA125&v4>-1:Bv4/1/102/115/1/1/1/1/1/1/1/1/1/1/1;  shoot while foe adjacent (may prevent 4925B7 crash)
+
+!?GM0;
+!!FU6000:P0/125/1; restore shooting Magma after Load
+
+!?BF&1000;
+!!BM21:T?v1;
+!!FU&v1<>125:E; exit if not Magmas
+!!IF:V176/1;
+!!VRv52:S4;
+!!VRz335:S^Shooting^;
+
+!?BR&176;
+!!VRv37:Sv997; save round count (v997 gets changed after BR trigger)
+
+!?BG0&176/v37>-1; reset mode at end of Shifter's turn (better than BR)
+!!BG:N?v1; stack
+!!FU&v1<21:E; exit if not Shifter
+!!IF:V177/1;
+
+!?BG1&177;
+!!IF:V177/0;
+!!VRv52:S0 R2*2; 0,2,4 (X-codes)
+!!BM21:F?y3;
+!!VRz335:S^Melee^;
+!!VRy3:&-7 |v52; eliminate fly (2) & shoot (4), add current shift
+!!BM21:Fy3;
+!!VRz335&v52=2:S^Fly^;
+!!VRz335&v52=4:S^Shoot^;
+
+!?MM0&176; trigger for mouse hint text
+!!MM:M?z9;
+!!VRz10:S^%Z9 (Shifter mode: {%Z335})^;
+!!MM:Mz10;
+
+!?BA1&176;
+!!IF:V176/0 V177/0;
+

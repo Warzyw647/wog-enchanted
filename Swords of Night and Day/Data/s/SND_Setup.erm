@@ -1,0 +1,202 @@
+ZVSE
+
+; WoG options and setup for Swords of Night and Day
+; uses v51, v7103-v7104, z186-z188, z320-z325, z355-z358, z388, z394-z395, z420-z429, z492, z499, and FU70
+
+!#UN:K1/1 M1; [Disable Monster bonuses, spawning and plagues]
+!#UN:J4/32768; 8x standard WoG AI Thinking Radius
+!#UN:P1/1; [(Arrow) Tower Experience: 0-WoG, 1-SoD]
+!#UN:P2/1; [Leave Creatures on Map: 0-WoG, 1-SoD]
+!#UN:P3/1; [Commanders are disabled]
+!#UN:P4/1; [Players can not demolish towns]
+!#UN:P5/0; [Don't wogify]
+!#UN:P6/1; [Heroes don't start with Commanders]
+!#UN:P900/1; [Stack experience enabled]
+!#UN:P902/0; [Dropping artifacts on map disabled]
+!#UN:P906/1; [Disable gaining of stack exp. in battles--yes]
+
+!#VRv46:S27;
+
+!#UN:J2/?v51; Selected game difficulty 0-4
+
+; give Leora (Gem) Basic Archery and Basic Tactics as hidden skills
+; [Moved to PI in L-Maze script]
+
+!#VRz420:S^Turtle^;
+!#HT40/213:T420;
+!#VRz421:S^Tortoise^;
+!#HT144/205:T421;
+!#VRz422:S^Sheep^;
+!#HT139/159:T422;
+!#VRz423:S^Black Rhino^;
+!#HT139/186:T423;
+!#VRz424:S^Gnome Hut (unvisited)^;
+!#HT139/172:P0/424;
+!#VRz425:S^Gnome Hut (visited)^;
+!#HT139/172:P1/425 P2/425 P3/425 P4/425 P5/425 P6/425;
+!#VRz426:S^Bird^;
+!#HT141/149:T426;
+!#HT141/160:T426;
+!#HT141/161:T426;
+!#HT141/113:T426;
+!#HT141/114:T426;
+!#HT141/112:T426;
+!#HT139/0:T426;
+!#VRz427:S^Fox^;
+!#HT141/195:T427;
+!#VRz428:S^Bilby^;
+!#HT141/196:T428;
+!#VRz429:S^Crow^;
+!#HT45/232:T429;
+!#HT141/150:T429;
+
+; Wells 49/1 and Campfires used as special scripted objects
+!#VRz388:S^Well^;
+!#HT49/0:T388; standard well
+!#VRz394:S^^; blank hint text unless over-ridden
+!#HT49/1:T394; well type 2 (invisible due to DEF change)
+!#HT12/0:T394; campfire
+
+!#VRz492:S^Bug Nest^;
+!#HT17/63:T492; Crystal Cavern-->Bug Nest
+!#VRz499:S^Fountain^;
+!#HT63/2:T499;
+
+; Cows and herder
+!#VRz186:S^Cow^;
+!#VRz187:S^Cows^;
+!#UN:G1/102/0/186;
+!#UN:G1/102/1/187;
+!#VRz188:S^Horde of cows?  Of course I've horde of cows!^;
+!#OB21/18/0:SH188;
+
+; Ancient Behemoths --> Megathon
+
+!#VRz320:S^Megathon^;
+!#VRz321:S^Megathons^;
+!#UN:G1/97/0/320;
+!#UN:G1/97/1/321;
+!#MA:E97/1800; [Damage High]
+!#MA:M97/400; [Damage Low]
+!#MA:P97/9000; HP
+!#MA:X97/?v7103;
+!#VRv7103:|131072; [Add No Morale]
+!#MA:X97/v7103;
+
+; Soldiers and Mages at start
+!#VRz322:S^Warrior^;
+!#VRz323:S^Warriors^;
+!#UN:G1/6/0/322;
+!#UN:G1/6/1/323;
+!#VRz324:S^Senior Warrior^;
+!#VRz325:S^Senior Warriors^;
+!#UN:G1/7/0/324;
+!#UN:G1/7/1/325;
+!#MA:P7/40;
+!#VRz355:S^Elite Warrior^;
+!#VRz356:S^Lord Morrolan^;
+!#UN:G1/174/0/355;
+!#UN:G1/174/1/356;
+!#VRz357:S^High Mage^;
+!#VRz358:S^High Mages^;
+!#UN:G1/35/0/357;
+!#UN:G1/35/1/358;
+* Paladin flags
+!#MA:X174/?v7104;
+!#VRv7104:&-5 &-3 |16 |32768; remove shoot, remove fly, add alive, add attack twice
+!#MA:A174/12 D174/14 E174/12 M174/8 P174/50 S174/7 X174/v7104;
+
+!?FU70; x16=coordinate index, x1=TR type, x2=TR min subtype, x3=TR max subtype, x4=lvl
+!!VRy1:Sx16+20; y-loc. index (to v21-v40)
+!!VRy2:Sx3-x2;
+!!VRy3:Sx2+Ry2;
+!!TRvx16/vy1/x4:Tx1/y3/d/d/d/d/d/d;
+
+; dirt patches
+!#VRv1:C16/17/14/14/19/19/16/17;
+!#VRv9:C28/29/26/26/31/31/28/29;
+!#VRv21:C44/44/46/47/46/47/49/49;
+!#VRv29:C44/44/46/47/46/47/49/49;
+!#DO70/1/16/1:P0/23/23/1;
+; swamp grass patches
+!#VRv1:C43/44/45/46/47/48/49/50;
+!#VRv9:C43/44/45/46/47/48/49/50;
+!#VRv21:C1/1/1/1/1/1/1/1;
+!#VRv29:C2/2/2/2/2/2/2/2;
+!#DO70/1/16/1:P2/51/52/0;
+!#VRv1:C47/48/49/50/51;
+!#VRv21:C16/16/16/16/16;
+!#DO70/1/5/1:P2/51/52/0;
+; garden butterflies & grass
+!#TR10/50/0:T8/33/0/0/0/0/-64/1 V8; butterfly 1 top LHS
+!#TR11/50/0:T8/33/0/0/0/0/-63/1 V8; butterfly 1 top RHS
+!#TR10/51/0:T8/34/0/0/0/0/-64/1 V8; butterfly 1 bot LHS
+!#TR11/51/0:T8/34/0/0/0/0/-63/1 V8; butterfly 1 bot RHS
+!#TR22/47/0:T8/35/0/0/0/0/-64/1 V8; butterfly 2 top LHS
+!#TR23/47/0:T8/35/0/0/0/0/-63/1 V8; butterfly 2 top RHS
+!#TR22/48/0:T8/36/0/0/0/0/-64/1 V8; butterfly 2 bot LHS
+!#TR23/48/0:T8/36/0/0/0/0/-63/1 V8; butterfly 2 bot RHS
+!#TR1/59/0:T8/37/0/0/0/0/-64/1 V8; butterfly 3 top LHS
+!#TR2/59/0:T8/37/0/0/0/0/-63/1 V8; butterfly 3 top RHS
+!#TR1/60/0:T8/38/0/0/0/0/-64/1 V8; butterfly 3 bot LHS
+!#TR2/60/0:T8/38/0/0/0/0/-63/1 V8; butterfly 3 bot RHS
+!#TR12/65/0:T8/39/0/0/0/0/-64/1 V8; butterfly 4 top LHS
+!#TR13/65/0:T8/39/0/0/0/0/-63/1 V8; butterfly 4 top RHS
+!#TR12/66/0:T8/40/0/0/0/0/-64/1 V8; butterfly 4 bot LHS
+!#TR13/66/0:T8/40/0/0/0/0/-63/1 V8; butterfly 4 bot RHS
+!#VRv1:C3/6/7/8/9/10/12/13/12/13;
+!#VRv21:C71/70/70/70/70/70/71/74/80/73;
+!#DO70/1/10/1:P2/51/52/0;
+!#VRv1:C17/18/19/20/16/17/18/19/20/21/15/16/21/22;
+!#VRv21:C62/62/62/62/63/63/63/63/63/63/64/64/64/64;
+!#DO70/1/14/1:P2/51/52/0;
+!#VRv1:C15/22/15/22/15/16/21/22/16/17/20/21/17/18/20;
+!#VRv21:C65/65/66/66/67/67/67/67/68/68/68/68/69/69/69;
+!#DO70/1/15/1:P2/51/52/0;
+!#VRv1:C1/2/3/4/0/0/0/0/5/5/5/5/1/2/3/4;
+!#VRv21:C80/80/80/80/81/82/83/84/81/82/83/84/85/85/85/85;
+!#DO70/1/16/1:P2/51/52/0;
+!#TR11/83/0:T8/41/0/0/0/0/-64/1 V8; butterfly 5 top LHS
+!#TR12/83/0:T8/41/0/0/0/0/-63/1 V8; butterfly 5 top RHS
+!#TR11/84/0:T8/42/0/0/0/0/-64/1 V8; butterfly 5 bot LHS
+!#TR12/84/0:T8/42/0/0/0/0/-63/1 V8; butterfly 5 bot RHS
+; lava heads
+!#VRv1:C82/83/87/88/94/95/100/101/102/103/104/105/117/118/127/128;
+!#VRv21:C128/128/123/123/120/120/118/118/114/114/108/108/110/110/108/108;
+!#DO70/1/16/1:P7/17/17/0;
+; Arena lava
+!#VRv1:C87/88/89/90/91/92/93/94/95;
+!#VRv21:C42/42/42/42/42/42/42/42/42;
+!#DO70/1/9/1:P7/52/57/0;
+!#VRv1:C90/91/92/90/91/92/90/91/92/90/91/92/90/91/92;
+!#VRv21:C43/43/43/44/44/44/45/45/45/46/46/46/47/47/47;
+!#DO70/1/15/1:P7/52/57/0;
+; turbine exhaust
+!#VRv1:C89/90/89/90/89/90;
+!#VRv21:C83/83/82/82/81/81;
+!#DO70/1/6/1:P7/60/63/0;
+; smelter lava bricks
+!#VRv1:C130/135/130/135/130/135/130/135/130/135/127/128/137/138;
+!#VRv21:C57/57/58/58/59/59/60/60/61/61/64/64/64/64;
+!#DO70/1/14/1:P7/52/57/0;
+!#VRv1:C131/134/131/134/131/134/131/134/131/134/131/134;
+!#VRv21:C57/57/58/58/59/59/60/60/61/61/62/62;
+!#DO70/1/12/1:P0/21/24/0;
+!#VRv1:C127/128/137/138/127/128/137/138/127/128/137/138;
+!#VRv21:C65/65/65/65/66/66/66/66/67/67/67/67;
+!#DO70/1/12/1:P7/52/57/0;
+!#VRv1:C127/128/137/138/127/128/137/138/127/128/137/138;
+!#VRv21:C68/68/68/68/69/69/69/69/70/70/70/70;
+!#DO70/1/12/1:P7/52/57/0;
+!#VRv1:C127/128/129/130/131/132/133/134/135/136/137/138;
+!#VRv21:C71/71/71/71/71/71/71/71/71/71/71/71;
+!#DO70/1/12/1:P7/52/57/0;
+!#VRv1:C127/128/129/130/131/132/133/134/135/136/137/138;
+!#VRv21:C72/72/72/72/72/72/72/72/72/72/72/72;
+!#DO70/1/12/1:P7/52/57/0;
+; ice hole lava
+!#VRv1:C113/114/115/116/120/121/122/116/116/116/120/120/120/117/118/119;
+!#VRv21:C136/136/136/136/136/136/136/137/138/139/137/138/139/139/139/139;
+!#DO70/1/16/1:P7/52/57/1;
+
+

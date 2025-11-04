@@ -1,0 +1,128 @@
+ZVSE
+
+** Day1Day2 for Swords of Night and Day
+* uses FU139-FU140
+
+!?TM2&v2392=1/v2395=3; Day 1, Green
+!!HE18:F10/10/7/7 I70; Leora stats on day 1
+!!HE75:F10/10/11/11 I110; Devoron's stats on day 1
+!!HE18:W0; freeze Leora/Jenova
+!!OW:R3/0/0 R3/1/0 R3/2/0 R3/3/0 R3/4/0 R3/5/0 R3/6/0; remove all Green's res.
+!!IF:M^{Dramatis Personae}:
+
+{Devoron}, Red God of Destruction, who troubles the weary world with Megathon.
+
+{Megathon} the Beast, whose hunger cannot be sated until he devours all living souls.
+
+{Leora}, Green Goddess of Life, who guides and aids the people of {Woodshire}. Leora may cast multiple spells per battle round.
+
+{Jalery}, a junior mage, and {Vames}, a young, untested warrior.
+
+{Lord} {Morrolan}, once known as the Bold, now remembered as the Doomed.
+
+{Knu} {Knu} the Sorceror, who knows all - as he himself will tell you.
+
+{Silver} {Rune}, the enchanted river.  Long ago, the great wizard Fnord cast a mighty spell on Silver Rune, so that sunlight or moonlight reflected off its runic ripples is death to evil creatures.  Henceforth, only on moonless nights can Megathon send his Wraiths north of the river, to bring him living souls upon which to feed.
+
+{Helios}, Orange God of the Sun, whose Sun Warriors guard the {Golden} {Sword} {of} {Day}.
+
+{Selena}, Blue Goddess of the Moon, whose Moon Warriors guard the {Black} {Sword} {of} {Night}.
+
+And a reclusive semi-retired Enchanter, whom some call {Tim}.^;
+!!IF:Q1/21/174/1^The journey has been long and hard, but finally we have reached the lair of the Beast.  The nightly attacks of the Wraiths have weakened us - only two of the High Mages are left and our Artifacts are essentially gone.  Can we defeat the Beast?  We must - if not we, who?  Leora watches over us and we will not fail her!  Tomorrow we will end the terror or die.^;
+!!VRz356:S^Elite Warriors^;
+!!AI:S75/0/1/138/136/0/5000000/1; set Nimbus/Devoron to attack
+!!HE75:S12/2; reset N/D Nec. skill to Adv. so Cloak w/produce Wigts
+*!UN:C6919480/4/?y1; causes crash--I think
+*!SN:E5008544/2/y1;
+
+!?TM2&v2392=1/v2395=0; Day 1, Red
+!!UN:I138/135/0/79/6; lure Devoron out w/gold
+* make Silver Rune visible
+!!DO139/0/134/1:P; x=0 to 134
+
+!?FU139; x16=x
+!!DO140/13/118/1:Px16; y=13-118
+
+!?FU140; x1=x, x16=y
+!!VRy2:Sx1*-99+18447;
+!!VRy3:Sx16*143;
+!!FU&y3>y2:E;
+!!VRy4:Sx1*-99+12441;
+!!FU&y3<y4:E;
+!!TRx1/x16/0:T?y1/d/d/d/d/d/d/d;
+!!FU&y1<>8:E;
+!!TRx1/x16/0:V8;
+
+!?TM2&v2392=2/v2395=3; Day 2
+!!IF:V201/0 V202/0 V203/0 V204/0; no more battle prayers
+!!HE27:P4/8/0; Leora--> Gem
+!!HE27:O3; Green
+!!HE27:C0/0/-1/0 C0/1/6/1 C0/2/34/1;
+!!VRy-1:Sv51*-2+10;
+!!VRy-2:Sy-1*10;
+!!HE27:Fy-1/y-1/y-1/y-1 Iy-2; Tone down Leora's starting stats when she's with V&J, 10/8/6/4/2 based on selected difficulty
+!!VRy-1:Sv51*5+11;
+!!VRy-2:Sy-1*10;
+!!HE75:Fy-1/y-1/y-1/y-1 Iy-2; Boost Devoron's stats after first fight, 11/16/21/26/31 based on selected difficulty
+** Leora--> Cr 128
+!!VRz356:S^Leora, Goddess of Life^;
+!!UN:G1/128/1/356;
+** Warrior and Mage/Enchanter at Day 2
+!!MA&v51=4:P34/d-20 P35/d-20 P136/d-20 P6/d-20 P7/d-20 P174/d-20 P106/d-20; on 200% difficulty -20 starting HP on Jalery, Vames and Newt Vames, give back 2 HP elsewhere for every solved Ann-agram
+!!MA&v51=4:M34/d-5 M35/d-5 M136/d-5 M6/d-5 M7/d-5 M174/d-5 M106/d-5; on 200% difficulty -5 damage low on Jalery, Vames and Newt Vames, give back 1 damage elsewhere for every solved Gnome Hut riddle
+!!MA&v51=4:E34/d-5 E35/d-5 E136/d-5 E6/d-5 E7/d-5 E174/d-5 E106/d-5; on 200% difficulty -5 damage high on Jalery, Vames and Newt Vames, give back 1 damage elsewhere for every solved Gnome Hut riddle
+!!MA&v51=3:P34/d-15 P35/d-15 P136/d-15 P6/d-15 P7/d-15 P174/d-15 P106/d-15; 160% only -15 HP
+!!MA&v51=3:M34/d-4 M35/d-4 M136/d-4 M6/d-4 M7/d-4 M174/d-4 M106/d-4; 160% only -4 damage
+!!MA&v51=3:E34/d-4 E35/d-4 E136/d-4 E6/d-4 E7/d-4 E174/d-4 E106/d-4; 160% only -4 damage
+!!MA&v51=2:P34/d-10 P35/d-10 P136/d-10 P6/d-10 P7/d-10 P174/d-10 P106/d-10; 130% only -10 HP
+!!MA&v51=2:M34/d-3 M35/d-3 M136/d-3 M6/d-3 M7/d-3 M174/d-3 M106/d-3; 130% only -3 damage
+!!MA&v51=2:E34/d-3 E35/d-3 E136/d-3 E6/d-3 E7/d-3 E174/d-3 E106/d-3; 130% only -3 damage
+!!MA&v51=1:P34/d-5 P35/d-5 P136/d-5 P6/d-5 P7/d-5 P174/d-5 P106/d-5; 100% only -5 HP
+!!MA&v51=1:M34/d-2 M35/d-2 M136/d-2 M6/d-2 M7/d-2 M174/d-2 M106/d-2; 100% only -2 damage
+!!MA&v51=1:E34/d-2 E35/d-2 E136/d-2 E6/d-2 E7/d-2 E174/d-2 E106/d-2; 100% only -2 damage
+!!MA&v51=0:M34/d-1 M35/d-1 M136/d-1 M6/d-1 M7/d-1 M174/d-1 M106/d-1; 80% only -1 damage
+!!MA&v51=0:E34/d-1 E35/d-1 E136/d-1 E6/d-1 E7/d-1 E174/d-1 E106/d-1; 80% only -1 damage
+!!VRz357:S^Vames the Warrior^;
+!!UN:G1/6/0/357;
+!!UN:G1/6/1/357;
+!!UN:G1/7/0/357;
+!!UN:G1/7/1/357;
+!!UN:G1/174/0/357;
+!!EA6:B8/0/119/65/1/1/1/1/1/1/1/1/1/1/1; Remove Immunity to Hostile Air
+!!EA6:B9/1/104/97/10/10/10/10/10/30/30/30/30/30/50; add Anc. Beh. Hatred
+!!EA6:B10/1/104/61/10/10/10/10/10/20/20/20/20/20/30; add Wraith Hatred
+!!VRz358:S^Jalery the Mage^; --> High Mage --> Enchanter
+!!UN:G1/34/0/358;
+!!UN:G1/34/1/358;
+!!UN:G1/35/0/358;
+!!UN:G1/35/1/358;
+!!UN:G1/136/0/358;
+!!UN:G1/136/1/358;
+!!EA34:B7/1/104/97/10/10/10/10/10/30/30/30/30/30/50; add Anc. Beh. Hatred
+!!EA34:B8/1/104/61/10/10/10/10/10/20/20/20/20/20/30; add Wraith Hatred
+* Skeleton Warrior for SND_Tomb
+!!MA:E57/10; [Damage High]
+!!MA:M57/4; [Damage Low]
+!!MA:A57/12 D57/12 P57/40 S57/7; Attack, Defense, HP, Speed
+!!EA57:F114/-1/?y-1; y-1=line for ability 114/any, or empty line if none, -1 if no free lines
+!!EA57&y-1>-1:By-1/1/114/90/10/10/10/10/10/10/10/10/10/10/10; 90% chance to regenerate 10 HP
+** put Megathon back in his lair
+!!HE75:P138/134/0 M35/1; Devoron/Nimbus-->Bethlehem, give Dispel
+!!HE75:U138/134/0; patrol radius zero
+**
+!!UN:L5/6/0/100;
+!!IF:Q1/21/128/1^{Leora}:  Hear me, my children!  Lord Morrolan and his men fought bravely, but could not defeat the Beast.  You two are the last hope!^;
+!!IF:Q1/21/34/1^{Jalery}:  But Lady Goddess, if Lord Morrolan, with his great warriors and High Mages, has failed, what can we do?  We were left behind because we have barely begun our training!^;
+!!IF:Q1/21/6/1^{Vames}:  Lord Morrolan and his men must be avenged!  Is it not said, that with the Swords of Night and Day, one warrior could defeat an army?^;
+!!IF:Q1/21/34/1^{Jalery}:  Yes, in ancient legends, but where these magical swords can be found the legends do not say!^;
+!!IF:Q1/21/128/1^{Leora}:  I will help you as much as I can, but you will have to prove yourselves worthy.  First, finish your training in warfare.  Then seek Knu Knu the Sorceror in the northeast mountains near the headwaters of Silver Rune.^;
+!!IF:L^Right click the horse icon to display Leora's current movement.^;
+
+!?TM2&v2392>1/v2395=3; Day >1, Green
+!!VRy1:S0; just in case
+!!VRy1&v1476>149:Sv1476-150:10+1; # of bonus Towns
+!!VRy1&y1>33:S33;
+!!VRy1:*500+3950*-1;
+!!OW:R3/6/dy1; reduce gold to 500/day
+

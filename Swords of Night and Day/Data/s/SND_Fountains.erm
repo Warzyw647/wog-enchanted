@@ -1,0 +1,93 @@
+ZVSE
+
+* SND_Fountains for The Swords of Night and Day, JHV, May 2011
+
+* uses v46, v1429 from SND_Garden (and indirectly FU652-FU653), z200, z240, z488-z491
+
+!#MA:E114/20 M114/10 E123/20 M123/10; improve Fire & Ice Elementals
+!#EA114:F115/29/?y-1; Fire Elementals, find creature experience line with Fire Shield Enchanted bonus
+!#EA114:F0/?y-2; make sure it's not the same as first free line (meaning they do have the bonus)
+!#EA114&y-1<>y-2:By-1/d/d/d/d/d/d/d/d/d/d/d/d/d/?y-3; Check bonus value at ACE level
+!#EA114&y-1<>y-2:By-1/d/d/d/y-3/y-3/y-3/y-3/y-3/y-3/y-3/y-3/y-3/y-3/y-3; Copy to all levels, giving Fire Elementals always full Fire Shield Enchantment
+!#VRz488:S^Fire Water^;
+!#VRz489:S^{Fire Water}
+Can be used to grow a Sun Seed.^;
+!#UN:A127/9/488 A127/10/489; chg name of Vial of D Blood
+!#VRz490:S^Ice Water^;
+!#VRz491:S^{Ice Water}
+Produces 1 Mercury per day and can be used to grow a Moon Seed.^;
+!#UN:A111/9/490 A111/10/491; chg name of Vial of D Blood
+
+!#VRz200:S^Fountain of Fire^;
+!#OB79/6/1:H200;
+!#OB79/7/1:H200;
+!#OB78/2/1:H200;
+!#OB78/3/1:H200;
+!#OB78/4/1:H200;
+!#OB78/5/1:H200;
+!#OB78/6/1:H200;
+!#OB78/7/1:H200;
+!#OB77/4/1:H200;
+!#OB77/5/1:H200;
+!#OB77/6/1:H200;
+!#OB77/7/1:SH200;
+!#OB76/6/1:H200;
+!#OB76/7/1:SH200;
+!#VRz240:S^Fountain of Ice^;
+!#OB48/135/1:H240;
+!#OB49/135/1:H240;
+!#OB50/135/1:H240;
+!#OB51/135/1:H240;
+!#OB52/135/1:H240;
+!#OB47/134/1:H240;
+!#OB48/134/1:H240;
+!#OB49/134/1:SH240;
+!#OB50/134/1:H240;
+!#OB51/134/1:H240;
+!#OB52/134/1:H240;
+!#OB48/133/1:H240;
+!#OB49/133/1:H240;
+!#OB50/133/1:H240;
+!#OB51/133/1:H240;
+!#OB49/132/1:H240;
+!#OB50/132/1:H240;
+
+
+!?OB77/7/1; Fire Fountain
+!!PO998:N?v1; 0=not visited, 1=completed
+!!FU&v1<>0:E;
+!!IF:Q1/21/114/1^As you try to fill a flask with fire water, Fire Elementals rise up!
+"You can't have our bath water!"^;
+!!HE-1:N?v46;
+!!VRv1429:S3;
+!!VRy-1:Sv51+1;
+!!VRy-2:S210*y-1:5;
+!!HE-1:Tv998/v999/v1000/114/y-2; 210 Elementals on 200%, then 42 less for each difficulty level below 200%
+!!VRv1429:S0;
+!!HEv46:O?v1;
+!!FU&v1<0:E;
+!!IF:Q1/8/127/1^You fill a flask with fire water.^;
+!!HEv46:A4/127;
+!!FU86:P5; inc. exp.
+!!PO77/7/1:N1;
+!!VRz200:S^Fountain of Fire (completed)^;
+
+!?OB49/134/1; Ice Fountain
+!!PO998:N?v1; 0=not visited, 1=completed
+!!FU&v1<>0:E;
+!!IF:Q1/21/123/1^As you try to fill a flask with ice water, Ice Elementals rise up!
+"It's not nice to take our ice!"^;
+!!HE-1:N?v46;
+!!VRv1429:S4;
+!!VRy-1:Sv51+1;
+!!VRy-2:S210*y-1:5;
+!!HE-1:Tv998/v999/v1000/123/y-2; 210 Elementals on 200%, then 42 less for each difficulty level below 200%
+!!VRv1429:S0;
+!!HEv46:O?v1;
+!!FU&v1<0:E;
+!!IF:Q1/8/111/1^You fill a flask with ice water.^;
+!!HEv46:A4/111;
+!!FU86:P5; inc. exp.
+!!PO49/134/1:N1;
+!!VRz240:S^Fountain of Ice (completed)^;
+

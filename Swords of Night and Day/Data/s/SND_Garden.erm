@@ -1,0 +1,147 @@
+ZVSE
+
+** SND_Garden, JHV, May 2011
+* Garden of the Moon and Sun for "The Swords of Night and Day"
+
+* uses v46, v96-v98, v1429, z300-z305, z481-z487, z493, FU652-FU653
+
+!#VRz300:S^Butterfly^;
+!#OB11/51/0:SH300; (ZOBJ045 modified)
+!#OB10/51/0:SH300;
+!#OB11/50/0:SH300;
+!#OB10/50/0:SH300;
+!#OB23/48/0:SH300;
+!#OB22/48/0:SH300;
+!#OB23/47/0:SH300;
+!#OB22/47/0:SH300;
+!#VRz301:S^Butterfly^;
+!#OB2/60/0:SH301;
+!#OB1/60/0:SH301;
+!#OB2/59/0:SH301;
+!#OB1/59/0:SH301;
+!#VRz302:S^Butterfly^;
+!#OB13/66/0:SH302;
+!#OB12/66/0:SH302;
+!#OB13/65/0:SH302;
+!#OB12/65/0:SH302;
+!#VRz303:S^Sun Seed^;
+!#OB15/50/0:SH303;
+!#OB16/50/0:SH303;
+!#OB14/51/0:SH303;
+!#OB15/51/0:SH303;
+!#OB16/51/0:SH303;
+!#OB17/51/0:SH303;
+!#OB14/52/0:SH303;
+!#OB15/52/0:SH303;
+!#OB16/52/0:SH303;
+!#OB17/52/0:SH303;
+!#OB15/53/0:SH303;
+!#OB16/53/0:SH303;
+!#PO15/50/0:N3;
+!#PO16/50/0:N3;
+!#PO14/51/0:N3;
+!#PO15/51/0:N3;
+!#PO16/51/0:N3;
+!#PO17/51/0:N3;
+!#PO14/52/0:N3;
+!#PO15/52/0:N3;
+!#PO16/52/0:N3;
+!#PO17/52/0:N3;
+!#PO15/53/0:N3;
+!#PO16/53/0:N3;
+!#VRz304:S^Moon Seed^;
+!#OB26/54/0:SH304;
+!#OB27/54/0:SH304;
+!#OB26/55/0:SH304;
+!#OB27/55/0:SH304;
+!#PO26/54/0:N4;
+!#PO27/54/0:N4;
+!#PO26/55/0:N4;
+!#PO27/55/0:N4;
+!#VRz305:S^Butterfly^;
+!#OB12/84/0:SH305;
+!#OB11/84/0:SH305;
+!#OB12/83/0:SH305;
+!#OB11/83/0:SH305;
+!#VRz481:S^Sun Bee^;
+!#VRz482:S^Sun Bees^;
+!#UN:G1/118/0/481 G1/118/1/482; rename Pixies
+!#MA:E118/20 M118/10 P118/15 S118/9 U118/-2;
+!#VRz483:S^Moon Bee^;
+!#VRz484:S^Moon Bees^;
+!#UN:G1/119/0/483 G1/119/1/484; rename Sprites
+!#MA:E119/15 M119/10 P119/15;
+!#VRz493:S^Sun Seed^;
+!#VRz485:S^{Sun Seed}
+Increases the damage of Fire spells by 50%.^;
+!#UN:A81/9/493 A81/10/485; chg name of Orb of F
+!#VRz486:S^Moon Seed^;
+!#VRz487:S^{Moon Seed}
+Increases the damage of Air spells by 50%.^;
+!#UN:A79/9/486 A79/10/487; chg name of Orb of A
+!#VRv1429:S0; Which of the Garden fights is active, Sun Bees, Moon Bees, none
+
+!?OB12/0; Sun Seed Campfire, N=3
+!!PO998:N?v1;
+!!FU&v1<>3:E;
+!!VRv96:Cv998/v999/v1000;
+!!HE-1:N?v46;
+!!IF:M^Swarms of Sun Bees attack!^;
+!!VRv1429:S1;
+!!VRy-1:Sv51+1;
+!!VRy-2:S490*y-1:5;
+!!HE-1:Tv998/v999/v1000/118/y-2; 490 Bees on 200%, then 98 less for each difficulty level below 200%
+!!VRv1429:S0;
+!!HEv46:O?v2;
+!!FU&v2<0:E;
+!!POv96/v97/v98:N15;
+!!UN:Ov96/v97/v98/1;
+!!FU86:P2; inc. exp.
+!!HEv46:A4/81; give Sun Seed
+!!UN:R1;
+
+!?OB12/0; Moon Seed Campfire, N=4
+!!PO998:N?v1;
+!!FU&v1<>4:E;
+!!HE-1:N?v46;
+!!VRv96:Cv998/v999/v1000;
+!!IF:M^Swarms of Moon Bees attack!^;
+!!VRv1429:S2;
+!!VRy-1:Sv51+1;
+!!VRy-2:S490*y-1:5;
+!!HE-1:Tv998/v999/v1000/119/y-2; 490 Bees on 200%, then 98 less for each difficulty level below 200%
+!!VRv1429:S0;
+!!HEv46:O?v2;
+!!FU&v2<0:E;
+!!POv96/v97/v98:N15;
+!!UN:Ov96/v97/v98/1;
+!!FU86:P2; inc. exp.
+!!HEv46:A4/79; give Moon Seed
+!!UN:R1;
+
+!?BF&v1429<>0;
+!!VRy-1:Sv51+1*2; creature experience level 10 on 200% difficulty, 2 levels less for each difficulty level below it
+!!DO652/21/41/1:Py-1; creature experience for all Bees, Elementals in Fountains, Moon and Sun Guards in the fights for the Swords and Megathon's band in the finale
+!!FU&v1429>4:E; No random banners in Sword fights and Megathon final fight, just the ACE level, as they don't do much there, just create confusion
+!!DO653/21/41/1:P; random Warlords Banners for all Bees and Elementals in Fountains
+
+!?FU652; Set x16th stack's experience level to ACE, if there is a monster with this number in the battlefield
+!!BMx16:B?y1;
+!!FU&y1<=0:E;
+!!VRy2:S-1*x16-1;
+!!EAy2:Ex1/12/d/d;
+
+!?FU653; Give x16th stack a random Warlords Banner
+!!BMx16:B?y1;
+!!FU&y1<=0:E;
+!!VRy2:S-1*x16-1;
+!!VRy3:S0;
+!!VRy3:R8;
+!!EAy2:R156/y3;
+
+** show all of map after Grail Built
+!?TH1; leave Town Hall
+!!CA5/6/0:B3/26; Grail Built? --> F1
+!!UN&1:S72/72/0/3/104;
+!!UN&1:S72/72/1/3/104;
+

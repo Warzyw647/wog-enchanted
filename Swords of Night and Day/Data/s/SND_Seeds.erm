@@ -1,0 +1,77 @@
+ZVSE
+
+; SND_Seeds, JHV, June 2011
+; Sun and Moon Seeds for "The Swords of Night and Day"
+
+; uses z479-z480
+
+!#MA:U114/-2; eliminate Fire Elemental upgrades
+!#VRz479:S^Fire Hole^;
+!#OB23/44/1:SH479;
+!#VRz480:S^Ice Hole^;
+!#OB118/137/1:SH480;
+
+!?OB23/44/1; Fire Hole
+!!PO998:N?v1; 0=not visited, 1=seeded, waiting fire water, 2=completed
+!!FU&v1<>0:E;
+!!HE-1:A2/81/?v1/d; # of Sun Seeds
+!!FU&v1<1:E;
+!!IF:Q1^Will you plant a Sun Seed here?^;
+!!FU&-1:E;
+!!HE-1:A-81;
+!!UN:O23/44/1;
+!!UN:I23/44/1/5/81;
+!!PO23/44/1:N1;
+!!UN:R1;
+
+!?OB23/44/1; Fire Hole
+!!PO998:N?v1; 0=not visited, 1=seeded, waiting fire water, 2=completed
+!!FU&v1<>1:E;
+!!IF:Q1/8/127/1^You will need Fire Water to make the seed grow.^;
+!!HE-1:A2/127/?v1/d; # of Fire Waters
+!!FU&v1<1:E;
+!!IF:Q1^Will you water the Seed?^;
+!!FU&-1:E;
+!!HE-1:A-127;
+!!VRv1:C23/23/23/23/23/23/23;
+!!VRv21:C43/42/41/40/39/38/37;
+!!DO70/1/7/1:P6/50/55/1;
+!!UN:I23/44/1/226/0;
+!!UN:I23/40/1/226/0;
+!!UN:I24/44/1/226/0;
+!!UN:I24/40/1/226/0;
+!!PO23/44/1:N2;
+!!UN:R1;
+
+!?OB118/137/1; Ice Hole
+!!PO998:N?v1; 0=not visited, 1=seeded, waiting ice water, 2=completed
+!!FU&v1<>0:E;
+!!HE-1:A2/79/?v1/d; # of Moon Seeds
+!!FU&v1<1:E;
+!!IF:Q1^Will you plant a Moon Seed here?^;
+!!FU&-1:E;
+!!HE-1:A-79;
+!!UN:O118/137/1;
+!!UN:I118/137/1/5/79;
+!!PO118/137/1:N1;
+!!UN:R1;
+
+!?OB118/137/1; Ice Hole
+!!PO998:N?v1; 0=not visited, 1=seeded, waiting fire water, 2=completed
+!!FU&v1<>1:E;
+!!IF:Q1/8/111/1^You will need Ice Water to make the seed grow.^;
+!!HE-1:A2/111/?v1/d; # of ice Waters
+!!FU&v1<1:E;
+!!IF:Q1^Will you water the Seed?^;
+!!FU&-1:E;
+!!HE-1:A-111;
+!!VRv1:C118/118/118/118/118/118/118;
+!!VRv21:C136/135/134/133/132/131/130;
+!!DO70/1/7/1:P7/50/55/1;
+!!UN:I118/137/1/229/0;
+!!UN:I118/133/1/229/0;
+!!UN:I119/137/1/229/0;
+!!UN:I119/133/1/229/0;
+!!PO118/137/1:N2;
+!!UN:R1;
+

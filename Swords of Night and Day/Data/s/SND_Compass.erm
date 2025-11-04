@@ -1,0 +1,37 @@
+ZVSE
+
+; If Leora has the Quantum Compass, right click on Sleep/Wake hero button displays the last visited room in the Lightning Maze
+; The price for the Compass is 3 months added to the final score time
+; Uses v1430-v1432, z359
+
+!#VRv1430:S0; x coordinate in the maze
+!#VRv1431:S0; y coordinate in the maze
+!#VRv1432:S0; 1 - Compass active, 0 - Inactive
+!#VRz359:S^Compass Shop^;
+!#HT63/6:T359;
+
+!?CM0;
+!!CM:I?y-1;
+!!FU&y-1<>6:E;
+!!FU&v1432=0:E;
+!!VRy-1:Sv1430;
+!!VRy-2:Sv1431;
+!!IF:L^Last visited room: (%Y-1, %Y-2)^;
+
+109/81 type 63/6
+!?OB109/81/0;
+!!IF&v1432>0:M^No refunds on any compasses, go away!^;
+!!FU&v1432>0:E;
+!!IF:Q1/21/54/8/85/2^I sell Quantum Compasses. Do you want one?
+Without it, you will get lost the second you step into a warp hole!
+The price? Not much. Just three months of your life.
+(It will be added to your time at the end of your journey)
+But don't worry about it, it's really a bargain!^;
+!!VRv1432&1:S1;
+!!IF&1:Q1/21/54/8/6/1^There you go!
+Right click the Tent icon to use your new Quantum Compass!
+And don't worry about the price...^;
+!!IF&-1:Q1/21/54/1^When you change your mind, you know where to find me.
+Come back soon!^;
+!!VRz359&v1432>0:S^Compass Shop (visited)^;
+

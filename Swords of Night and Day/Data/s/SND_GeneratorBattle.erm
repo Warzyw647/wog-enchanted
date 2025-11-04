@@ -1,0 +1,245 @@
+ZVSE
+
+; SND_GeneratorBattle, JHV, Feb. 2013, based on:
+; TestBeamHead, JHV, Feb. 2013
+; XFiles setup includes Damage Address for Chain TLB
+
+!?PI; set up XFiles dll (XFiles.dll in EraPlugins)
+; Load dll and get ID
+!!VRz1:S^XFiles.dll^; store dll name
+!!SN:Lz1/?v37; now v37 holds dll ID [IMPORTANT: never use ?v1 in SN]
+!!IF&v37<1:M^Error - the XFiles DLL was not found!  XFile functions won't work.^;
+; get CaptureScreen Addresses
+!!VRz1:S^CaptureScreen^; store function name
+!!SN:Av37/z1/?v41; (assuming that v37 holds dll ID) get CaptureScreen function address to v41
+!!VRz1:S^DrawBmp^; store function name
+!!SN:Av37/z1/?v42; get DrawBmp function address to v42
+!!VRz1:S^SaveMask^; store function name
+!!SN:Av37/z1/?v40; get SaveMask function address to v40
+!!VRz1:S^SaveCaptMask^; store function name
+!!SN:Av37/z1/?v43; get SaveCaptMask address to v43
+!!VRz1:S^PlayOnce^; store function name
+!!SN:Av37/z1/?v34; get PlayOnce function address to v34
+!!VRz1:S^PlayLoop^; store function name
+!!SN:Av37/z1/?v35; get PlayLoop function address to v35
+!!VRz1:S^StopPlay^; store function name
+!!SN:Av37/z1/?v36; get StopPlay function address to v36
+; Find the address of "The %s does %d damage." battle scroll message from GENRLTXT.TXT
+; uses v30 to save address of string
+!!UN:C6970820/4/?v2; read address at 6A5DC4
+!!VRv2:+44; 2Ch offset 0
+!!UN:Cv2/4/?v30;
+!!VRv30:+16530; offset 1 to first string of GENRLTXT, plus offset to damage string
+!!UN:Cv30/2/?v4; first two bytes "Th" = 54 68 = 6854h = 26708
+!!IF&v4<>26708:M^Error - GENRLTXT message not found. Era version not supported.^;
+!!VRv30&v4<>26708:S-1;
+!!UN:V?v8/?v9; WoG/ERM or WoG/Era
+!!IF&v9>2469:M^Warning: Era version > 2.46 detected. Memory addresses used in this map are different for some different Era versions, and have not been tested above 2.41, so some scripts may not work.^;
+!!VRv325:S196884; Hint Text address offset 3 for WoG and Era below Era 2.41
+!!VRv325&v9>2400:S196924; Hint Text address offset 3 for Era 2.41
+
+!?GM0; set up XFiles dll after program restart and map reload
+; Load dll and get ID
+!!VRz1:S^XFiles.dll^; store dll name
+!!SN:Lz1/?v37; now v37 holds dll ID
+!!IF&v37<1:M^Error - the XFiles DLL was not found!  XFile functions won't work.^;
+; get CaptureScreen Addresses
+!!VRz1:S^CaptureScreen^; store function name
+!!SN:Av37/z1/?v41; (assuming that v37 holds dll ID) get CaptureScreen function address to v41
+!!VRz1:S^DrawBmp^; store function name
+!!SN:Av37/z1/?v42; get DrawBmp function address to v42
+!!VRz1:S^SaveMask^; store function name
+!!SN:Av37/z1/?v40; get SaveMask function address to v40
+!!VRz1:S^SaveCaptMask^; store function name
+!!SN:Av37/z1/?v43; get SaveCaptMask address to v43
+; Find the address of "The %s does %d damage." battle scroll message from GENRLTXT.TXT
+; uses v30 to save address of string
+!!UN:C6970820/4/?v2; read address at 6A5DC4
+!!VRv2:+44; 2Ch offset 0
+!!UN:Cv2/4/?v30;
+!!VRv30:+16530; offset 1 to first string of GENRLTXT, plus offset to damage string
+!!UN:Cv30/2/?v4; first two bytes "Th" = 54 68 = 6854h = 26708
+!!IF&v4<>26708:M^Error - GENRLTXT message not found. Era version not supported.^;
+!!VRv30&v4<>26708:S-1;
+!!UN:V?v8/?v9; WoG/ERM or WoG/Era
+!!VRv325:S196884; Hint Text address offset 3 for WoG and Era below Era 2.41
+!!VRv325&v9>2400:S196924; Hint Text address offset 3 Era 2.41
+
+; uses v1337-v1339, f612-613, FU7030-FU7031, FU7051-FU7054
+
+!?BA0&v998=99/v999=82/v1000=0;
+!!IF:M^The Bugs have set off the automated defense system, but must have glitched its circuits! It is firing randomly--beware!^;
+!!BA:B^SNDGENSC.pcx^;
+; change ObBhS14b.def to BeamHd.def
+!!SN:L^Era.dll^/?y1; y1=handle
+!!SN:Ay1/^RedirectFile^/?y2; y2=FU address
+!!SN:Ey2/1/^ObBhS14b.def^/^BeamHd.def^;
+
+!?BA1&v998=99/v999=82/v1000=0;
+!!IF:V612/0;
+; undo redirect
+!!SN:L^Era.dll^/?y1; y1=handle
+!!SN:Ay1/^RedirectFile^/?y2; y2=FU address
+!!SN:Ey2/1/^OBLVS03.def^/^^;
+
+!?BF&v998=99/v999=82/v1000=0;
+!!BF:C;                                         R
+!!BF:O60/46; h46 = lower left hex of obstacle  R R
+!!BF:O60/148;
+!!BM21:P83;
+!!BM22:N?v1;
+!!BM22&v1>0:P151;
+!!BM23:N?v1;
+!!BM23&v1>0:P32;
+!!BM24:N?v1;
+!!BM24&v1>0:P100;
+!!BM25:N?v1;
+!!BM25&v1>0:P15;
+!!BM26:N?v1;
+!!BM26&v1>0:P185;
+!!BM27:N?v1;
+!!BM27&v1>0:P156;
+
+!?BG0&v998=99/v999=82/v1000=0;
+!!BG:N?v1337; stack
+!!FU&v1337<21:E;
+!!IF:V612/1;
+
+!?FU77006&612;
+; Decision on what stack will move now.
+; SN:X Parameters (2): Side (0 - left, 1 - right) / Stack number (0-20)
+!!SN:X?y1/?y2;
+!!VRv1338:Sy2;
+!!VRv1338&y1=1:+21;
+
+!?BG1&612;
+!!BU:C?y1;
+!!IF&y1=1:V612/0;
+
+!?BG1&612; end of RHS stack turn
+!!IF:V612/0;
+!!BMv1337:N?v1;
+!!FU&v1<1:E; dead stack can't cast
+!!IF:V613/1;
+; h=17r+t, where r=row (0 @ top, 10 @ bottom) & t=column (0 @ LHS, 16 @ RHS)
+; or r=h:17, t=h%17
+; measure x--> and y (down) from top left corner of screen, in units of pixels
+
+;            (0)         (1)         (hex # is at tip of hex)
+;          *     *     *     *
+*       o           o           o
+*       *           *           *
+*      (17)        (18)        (19)
+*    *     *     *     *     *
+*  o          o           o
+*  *          *           *
+*  o         (34)        (35)
+*    *     *     *     *
+*       o           o
+
+* location of hex 0:  (58,85)
+* x-distance from (0) to (18) = 22, y-distance = 42 )overall hgt 53)
+
+* for even r, x=44t+58, for odd r, x=44(t-1/2)+58 = 44t+36; y=42r+85
+* center of hex: y--+27--> 42r+112
+!!FU7030:P599/168; fire top head
+* top covers r0-r6, c1-c10
+!!VRv1:S0 R6; select random row
+!!VRv2:S1 R9; select random col
+!!FU7051:P599/168/v1/v2/0; calc. and fire beam
+!!FU7030:P599/420; fire bottom head
+* bottom covers r4-r10, c1-c10
+!!VRv1:S4 R6; select random row
+!!VRv2:S1 R9; select random col
+!!FU7051:P599/420/v1/v2/1; calc. and fire beam
+!!IF:V613/0;
+
+!?FU7030; fire beam from x1/x2
+!!VRy1:Sx1-35;
+!!VRy2:Sx2-40;
+!!VRz1:S^Mods/Swords of Night and Day/Data/BeamFire.bmp^;
+!!VRz2:S^Mask.bmp^;
+!!SN:Ev40/1/z1/z2/y1/y2/87/90; call SaveMask(left=y1,top=y2,width=87,height=90)
+!!SN:Ev42/1/z2/y1/y2/87/90/100/0; call DrawBmp(left=y1,top=y2,width=87,height=90,Delay=100 millisec.,IfKey=0)
+!!VRz1:S^phaser.82m^;
+!!SN:Pz1;
+
+!?FU7051; x1=beam center start x, x2=bcs y, x3=target row, x4=target col (tc), x5=head # (0-1)
+!!VRy1:Sx3*17+x4; target hex
+* for even r, x=44tc+58, for odd r, x=44(tc-1/2)+58 = 44tc+36; y=42r+112
+!!VRe-50:S1:2; e-50=0.5 for rounding
+!!VRe-1:Sx1; x0 (head, beam center)
+!!VRe-2:Sx2; y0
+!!VRy2:Sx3%2; odd row, 1 even 0
+!!VRe-3:Sx4*44+36;
+!!VRe-3&y2<1:+22; xT (target hex)
+!!VRe-4:Sx3*42+112; yT
+!!VRe-8:Se-3-e-1; dx
+!!VRe-9:Se-4-e-2; dy
+!!VRe-10:Se-8*e-8; dx*dx
+!!VRe-11:Se-9*e-9; dy*dy
+!!VRe-12:Se-10+e-11; L^2
+!!FU7053:P; get e-5=sqrt(e-12)=L
+!!VRe-16:Se-5:4+e-50; N=# of beam moves to target(dL=4 pixels)
+!!VRy16:Se-16; N
+*!IF:M^xT=%E-3, yT=%E-4, dx=%E-8, dy=%E-9, L2=%E-12, L=%E-5, N=%Y16^;
+!!VRe-13:Se-8:y16; dx/N
+!!VRe-14:Se-9:y16; dy/N
+!!DO7052/0/y16/1:P-1/-2/-13/-14/-50; draw beam N+1 times
+!!BMv1337:C21/y1/2/2/0; cast Fire Ball (30+20 Dm)
+!!FU&x5=0:E;
+!!BMv1338:N?y6 P?y7;
+!!BMv1338&y6>-1:Py7; high-light active stack--but make sure it isn't killed via MR1
+!!UN:C6919200/4/?v2; (Bersy's code to redraw shadow grid, UN:C + SN:E)
+!!SN:E4797616/2/v2/0/1;
+
+!?MR1&613; stack about to take magical damage
+!!MR:F?v1; corrected damage
+!!UN:C8683268/1/?v2; v2 = target stack number for Era 1.8 w/stk exp enabled
+!!BMv1338:H?v4 N?v5 L?v6; v1338 from FU77006&612
+!!VRv7:Sv4*v5-v6; total HP
+!!VRv8:Sv7-2;
+!!MR&v2=v1338/v1>v8:Fv8;
+
+!?FU7052; plot beam trajectory
+* ex1=x0, ex2=y0, ex3=dx/N, ex4=dy/N, ex5=0.5
+* x = x0 +x16*dx/L
+!!VRe1:Sex3*x16+ex1+ex5;
+!!VRy1:Se1-10;
+* y = y0 +x16*dy/L
+!!VRe2:Sex4*x16+ex2+ex5;
+!!VRy2:Se2-10;
+!!VRy3:Sx16%2;
+!!VRz1:S^Mods/Swords of Night and Day/Data/BeamBal%Y3.bmp^;
+!!SN:Ev40/1/z1/z2/y1/y2/19/19; call SaveMask(left=y1,top=y2,width=19,height=19)
+!!SN:Ev42/1/z2/y1/y2/19/19/0/0; call DrawBmp(left=y1,top=y2,width=19,height=19,Delay=0 millisec.,IfKey=0)
+
+
+!?FU7053; e-5=sqrt(e-12)
+!!VRe-5:S0;
+!!VRy1:Se-12;
+!!FU&y1<1:E;
+** chose initial guesses, e-5 & e-6 (g1 & g2):
+!!VRe-5:Se-12 :8; e-5=e-12/8
+!!VRe-5&e-12>128::2; if(nn>128) e-5=e-5/2;
+!!VRe-5&e-12>512::2; if(nn>512) e-5=e-5/2;
+!!VRe-5&e-12>2048::2; if(nn>2048) e-5=e-5/2;
+!!VRe-5&e-12>8192::2; if(nn>8192) e-5=e-5/2;
+!!VRe-5&e-12>32768::2; if(nn>32768) e-5=e-5/2;
+!!VRe-5&e-12>131072::2; if(nn>131072) e-5=e-5/2;
+!!VRe-7:Se-5:2 +e-12; e-7=(nn+e-5/2)
+!!VRe-6:Se-7:e-5; e-6=(nn+e-5/2)/e-5; //guess 2
+!!FU7054:P; recursive soln
+!!VRe-5:+e-6 :2;
+
+!?FU7054; recursive soln for sqrt=e-5=sqrt(e-12)
+!!VRe-5:+e-6 :2; g1=(g1+g2+1)/2
+!!VRe-7:Se-5 :2 +e-12; e-7=(nn+e-5/2)
+!!VRe-6:Se-7 :e-5; e-6=(nn+e-5/2)/e-5; //guess 2
+!!VRe-7:Se-6-e-5;
+** done if abs(g2-g1) <= tol
+*!VRy3:S1000*e-7; N.G.
+!!VRe-7:*1000;
+!!VRy3:Se-7;
+!!FU7054|y3>2/y3<-2:P; otherwise continue
+

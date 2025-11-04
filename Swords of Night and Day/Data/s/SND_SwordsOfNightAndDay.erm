@@ -1,0 +1,269 @@
+ZVSE
+
+** SND_SwordsOfNightAndDay, JHV, May 2011
+* uses v46, v48, v1429 from SND_Garden (and indirectly FU652-FU653) v7095-v7102, z306, z384-z387, z447, FU71, FU73, FU74, Flags 185-188
+
+!#VRz384:S^Golden Sword of Day^;
+!#VRz385:S^{Golden Sword of Day}
++3 A, +3 D, +3 P +6 K, Armageddon immunity, summons a Sun Warrior.  In combination with the Sword of Night, gives Jalery and Vames multiple attacks.^;
+!#UN:A128/9/384;
+!#UN:A128/10/385;
+!#VRz386:S^Black Sword of Night^;
+!#VRz387:S^{Black Sword of Night}
++3 A & D, allows retaliation against no-retaliation creatures, summons a Moon Guard.  In combination with the Sword of Day, gives Jalery and Vames multiple attacks.^;
+!#UN:A157/9/386;
+!#UN:A157/10/387;
+!#VRz306:S^Sun Warrior^;
+!#UN:G1/164/0/306;
+!#MA:S164/10 P164/400 X164/?v1;
+*#VRv1:|4194304; "summoned", added later, after battles for the swords - they will leave corpses behind in that fight, but summoned Air/Fire Elementals will have the correct creature experience
+*#MA:X164/v1;
+!#EA164:F119/-1/?v4; v4=line for ability 119/any, or empty line if none, -1 if no free lines
+!#EA164&v4>-1:Bv4/1/119/65/1/1/1/1/1/1/1/1/1/1/1;  immunity to hostile air (works for TLB)
+!#VRz447:S^Moon Guard^;
+!#UN:G1/166/0/447;
+!#MA:S166/10 P166/400; X166/?v1;
+*#VRv1:|4194304; "summoned"
+*#MA:X166/v1;
+!#EA166:F119/-1/?v4; v4=line for ability 119/any, or empty line if none, -1 if no free lines
+!#EA166&v4>-1:Bv4/1/119/65/1/1/1/1/1/1/1/1/1/1/1;  immunity to hostile air (works for TLB)
+!#OB23/23/1:S;
+!#OB118/117/1:S;
+
+!?AE1&v998=128; equip AB (Golden Sword of Day)
+*!HE-1:M26/0; remove Armageddon spell (doesn't work)
+!!IF:V185/1; remove Armageddon on next left-click
+!!FU&199:E; swords not allowed in Arena
+!!HE-1:A2/157/?y-2/?y-1; y-1=# equipped
+!!VRy-1:+1;
+!!IF&y-1>1:V186/1;
+!!DO71/0/6/1:Py-1; give troops 1 or 2 swords (exp.)
+
+** remove Armageddon spell
+* Left-click in Hero Screen
+!?CM2&185;
+!!HE-1:M26/0; remove Armageddon spell
+!!IF:V185/0;
+* Left-click on Adventure Screen
+!?CM5&185;
+!!HE-1:M26/0; remove Armageddon spell
+!!IF:V185/0;
+
+!?AE1&v998=157/-199; equip CSoR (Black Sword of Night)(not in Arena)
+!!HE-1:Fd3/d1/d/d; +3A +1D as well as built-in +2D
+!!HE-1:A2/128/?y-2/?y-1; y-1=# equipped
+!!VRy-1:+1;
+!!IF&y-1>1:V186/1;
+!!DO71/0/6/1:Py-1; give troops 1 or 2 swords (exp.)
+
+!?AE0|v998=128/v998=157; remove a sword
+!!HE-1&v998=157:Fd-3/d-1/d/d;
+!!IF:V186/0;
+!!HE-1:A2/128/?y-3/?y-1; y-1=# AB equipped
+!!HE-1:A2/157/?y-3/?y-2; y-2=# CSoR equipped
+*!VRy-3:Sy-1+y-2; (doesn't work--sword that triggered this not removed yet)
+!!VRy-4&v998=157:Sy-1;
+!!VRy-4&v998=128:Sy-2;
+!!DO71/0/6/1:Py-4; give troops 0 or 1 swords (exp.)
+
+!?FU71; x16=troop slot, x1=# of swords equipped
+!!HE-1:C0/x16/?y1/?y2;
+!!FU|y1<0/y2<1:E; exit if no creature in slot
+!!VRy3:Sx1*5; exp. level
+!!HE-1:C0/x16/d/d/y3/12;
+
+*-*-* multiple attacks per round & summon Sun and/or Moon Warriors
+!?BA0&1000;
+!!BA:H0/?v7101; attacker
+!!BA:H1/?v7102; defender (-2 none)
+!!VRv7095:C-1/16/3/-1/16/3; stack/bit-flags/count, 16 is dummy flag
+!!VRv48:S0;
+!!IF:V187/0 V188/0;
+!!FU&v7101<>27/v7102<>27:E;
+!!HE27:A2/128/?y-3/?y-1; y-1=# AB equipped
+!!HE27:A2/157/?y-3/?y-2; y-2=# CSoR equipped
+!!VRv48:Sy-1+y-2*5;
+!!VRv48&v7102=27:+1; if Swords equipped, v48=10 for attacker, 11 for defender
+!!VRv7101:C-1/-1;
+!!DO73/0/6/1:P; Vames Cr T -> v7101, Jalery -> v7102
+!!FU|v7101=-1/v7102=-1:E; (interference with Mummy battle)
+!!FU&v48<5:E; otherwise crow battle interfered with
+!!HE27:C0/0/-1/0;
+!!HE27&y-1>0:C0/0/164/1/v48/12;
+!!HE27:C0/1/v7101/1/v48/12;
+!!HE27:C0/2/v7102/1/v48/12;
+!!HE27&y-2>0:C0/3/166/1/v48/12;
+
+!?FU73; x16=troop
+!!HE27:C0/x16/?y1/?y2;
+!!FU&y2<1:E;
+!!VRv7101|y1=6/y1=7/y1=174:Sy1;
+!!VRv7102|y1=34/y1=35/y1=136:Sy1;
+
+!?BF&1000/v48>0; must reset EA:B & exp., bollixed by summonings
+!!DO74/0/4/1|v48=5/v48=10:P;
+!!DO74/21/24/1|v48=6/v48=11:P;
+
+!?FU74; x16=stack, v48=exp. level
+!!BMx16:T?y1 N?y2;
+!!FU|y1<0/y2=0:E;
+!!VRy2:Sx16+1*-1;
+!!EAy2:Oy1;
+!!EAy2:Ev48/12/d/d;
+
+!?BG0&186/1000;
+!!BG:N?v1; stack #
+!!FU|v1=v7095/v1=v7098/v7097>0/v7100>0:E;
+!!VRv7097:S2; reset turn counters
+!!VRv7100:S2;
+
+!?BG0&187;
+!!BG:N?v1; stack #
+!!FU|v1=v7095/v7097<1:E;
+* restore flags for Vames (must restore AFTER BG1 of his turn)
+!!BMv7095&v7095>0:N?v1;
+!!BMv7095&v7095>0/v1>0:Fv7096;
+!!VRv7097:-1;
+!!IF:V187/0;
+
+!?BG0&1000/186; save bit-flags for Vames
+!!BG:N?v1; stack #
+!!BMv1:F?v2 T?v3; type
+!!FU&v3<>6/v3<>7/v3<>174:E;
+!!VRv2:&-16777217; erase had-morale
+!!VRv7095:Cv1/v2;
+
+!?BG1&1000/186; set flag for Vames
+!!BG:N?v1; stack #
+!!BMv1:F?v2 T?v3; type
+!!FU&v3<>6/v3<>7/v3<>174:E;
+!!IF:V187/1;
+
+!?BG0&188;
+!!BG:N?v1; stack #
+!!FU|v1=v7098/v7100<1:E;
+* restore flags for Jalery (must restore AFTER BG1 of his turn)
+!!BMv7098&v7098>0:N?v1;
+!!BMv7098&v7098>0/v1>0:Fv7099;
+!!VRv7100:-1;
+!!IF:V188/0;
+
+!?BG0&1000/186; save bit-flags for Jalery
+!!BG:N?v1; stack #
+!!BMv1:F?v2 T?v3; type
+!!FU&v3<>34/v3<>35/v3<>136:E;
+!!VRv2:&-16777217; erase had-morale
+!!VRv7098:Cv1/v2;
+!?BG1&1000/186; set flag for Jalery
+!!BG:N?v1; stack #
+!!BMv1:F?v2 T?v3; type
+!!FU&v3<>34/v3<>35/v3<>136:E;
+!!IF:V188/1;
+
+!?OB23/23/1;
+!!PO998:N?v1; 0-not visited, 1-visited
+!!FU&v1>0:E;
+!!VRz10:S^The Sword of Day is only for the worthy!
+Your cause is just but you must prove yourselves.
+Are you ready to face my Sun Warriors?^;
+!!VRz12:S^Helios the Sun God^;
+!!VRz13:S^..\Data\Helios.gif^;
+!!IF:D34/z10/0/z12/z13;
+!!IF:F34/0/0/0/0/1;
+!!IF:E97/34;
+!!FU&v97<1:E;
+!!HE-1:N?v46;
+!!VRv1429:S5;
+!!HE-1:Tv998/v999/v1000/164/6;
+!!VRv1429:S0;
+!!MA:M114/4 E114/6; Restore Fire Elementals original stats for when player will summon them with the Sun Warrior
+!!MA:X164/?v1;
+!!VRv1:|4194304; Make Sun Warriors always "summoned" for later
+!!MA:X164/v1;
+!!HEv46:O?v1;
+!!FU&v1<0:E;
+!!VRz10:S^You have passed the test!  Once again the Sword of Day
+will cast its weight on the Scales of Justice, in mortal hands.
+One of my Sun Warriors will accompany you in battle, to return
+the Sword to me if you fall.  Show me brave deeds!^;
+!!VRz12:S^Helios the Sun God^;
+!!VRz13:S^..\Data\Helios.gif^;
+!!IF:D34/z10/0/z12/z13 ;
+!!IF:F34/0/0/0/0/0;
+!!IF:E97/34;
+!!HEv46:A4/128;
+!!FU86:P10;
+!!PO23/23/1:N1;
+
+
+!?OB118/117/1;
+!!PO998:N?v1; 0-not visited, 1-visited
+!!FU&v1>0:E;
+!!VRz10:S^The Sword of Night has slept too long!
+I will be glad to see it borne by worthy heroes
+ - but are you such?
+Will you face my Moon Guards in proof?^;
+!!VRz12:S^Selena the Moon Goodess^;
+!!VRz13:S^..\Data\MoonGdss.gif^;
+!!IF:D34/z10/0/z12/z13 ;
+!!IF:F34/0/0/0/0/1;
+!!IF:E97/34;
+!!FU&v97<1:E;
+!!HE-1:N?v46;
+!!VRv1429:S6;
+; Check V's and J's creature type
+!!HE-1:C0/0/?y-1/d;
+!!VRy-2|y-1=6/y-1=7/y-1=174:Sy-1;
+!!VRy-3|y-1=34/y-1=35/y-1=136:Sy-1;
+!!HE-1:C0/1/?y-1/d;
+!!VRy-2|y-1=6/y-1=7/y-1=174:Sy-1;
+!!VRy-3|y-1=34/y-1=35/y-1=136:Sy-1;
+!!HE-1:C0/2/?y-1/d;
+!!VRy-2|y-1=6/y-1=7/y-1=174:Sy-1;
+!!VRy-3|y-1=34/y-1=35/y-1=136:Sy-1;
+!!HE-1:C0/3/?y-1/d;
+!!VRy-2|y-1=6/y-1=7/y-1=174:Sy-1;
+!!VRy-3|y-1=34/y-1=35/y-1=136:Sy-1;
+!!HE-1:C0/4/?y-1/d;
+!!VRy-2|y-1=6/y-1=7/y-1=174:Sy-1;
+!!VRy-3|y-1=34/y-1=35/y-1=136:Sy-1;
+!!HE-1:C0/5/?y-1/d;
+!!VRy-2|y-1=6/y-1=7/y-1=174:Sy-1;
+!!VRy-3|y-1=34/y-1=35/y-1=136:Sy-1;
+!!HE-1:C0/6/?y-1/d;
+!!VRy-2|y-1=6/y-1=7/y-1=174:Sy-1;
+!!VRy-3|y-1=34/y-1=35/y-1=136:Sy-1;
+; Check if V&J have Air Immunity
+!!EAy-2&y-2>0:F119/65/?y-4;
+!!EAy-3&y-3>0:F119/65/?y-5;
+!!EAy-2&y-4>0:By-4/?y-6/d/d/?y-8/d/d/d/d/d/d/d/d/d/d;
+!!EAy-3&y-5>0:By-5/?y-7/d/d/?y-9/d/d/d/d/d/d/d/d/d/d;
+!!VRy-6:*y-8;
+!!VRy-7:*y-9;
+!!IF|y-6>0/y-7>0:Q1/20/50/1^Selena's supreme control over Air temporarily negates your Air immunity!^;
+; Take away Air Immunity from V&J if they have it
+!!EAy-2&y-6>0:By-4/0/d/d/0/0/0/0/0/0/0/0/0/0/0;
+!!EAy-3&y-7>0:By-5/0/d/d/0/0/0/0/0/0/0/0/0/0/0;
+!!HE-1:Tv998/v999/v1000/166/6;
+; Restore Air Immune to V&J if they had it
+!!EAy-2&y-6>0:By-4/1/d/d/1/1/1/1/1/1/1/1/1/1/1/1;
+!!EAy-3&y-7>0:By-5/1/d/d/1/1/1/1/1/1/1/1/1/1/1/1;
+!!VRv1429:S0;
+!!MA:X166/?v1;
+!!VRv1:|4194304; Make Moon Guards always "summoned" for later
+!!MA:X166/v1;
+!!HEv46:O?v1;
+!!FU&v1<0:E;
+!!VRz10:S^I see that you will carry the Sword of Night
+and carve bold deeds with it on the stone of Destiny!
+Fear nothing!  One of my Moon Guards will follow you
+into battle to retrieve the Sword if it falls from your hands.^;
+!!VRz12:S^Selena the Moon Goodess^;
+!!VRz13:S^..\Data\MoonGdss.gif^;
+!!IF:D34/z10/0/z12/z13 ;
+!!IF:F34/0/0/0/0/0;
+!!IF:E97/34;
+!!HEv46:A4/157;
+!!FU86:P10;
+!!PO118/117/1:N1;
+

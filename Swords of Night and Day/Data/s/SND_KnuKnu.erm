@@ -1,0 +1,311 @@
+ZVSE
+
+; SND_KnuKnu, JHV, June 2011
+
+; uses v46, v96-v99, z478, FU87-FU94, flag 206
+; uses flag 3 temporarily (don't change w/i this script)
+; v1076-v1092 look-up table for 2-power vs. bit # is in SND_Arena
+
+!#IF:V206/1; Sierpinski Gasket not found
+
+!#VRz478:S^Knu Knu's Sorcerous Abode^;
+!#OB112/6/0:SH478;
+
+!?OB112/6/0; Knuie
+!!PO998:N?v1; 0=not visited, 1-n=waiting questions 1-n
+!!FU&v1<>0:E;
+!!VRz10:S^Oh, you're here already?  Qubit told me you would come
+but I've been busy so the place is rather a mess.  Qubit?
+That's my quantum computer.  It can explore the past and future
+via alternate time-lines to answer any question you have!^;
+!!VRz12:S^Knu Knu the Sorceror^;
+!!VRz13:S^..\Data\KnuKnu.gif^;
+!!IF:D34/z10/0/z12/z13 ;
+!!IF:F34/0/0/0/0/0;
+!!IF:E99/34;
+!!VRz10:S^But the information itself can change the probablities so
+Qubit can't be too explicit.  Sometimes the journey is more
+important than the destination and all he can do is try to
+set you on the right path.  The rest is up to you!^;
+!!IF:D34/z10/0/z12/z13 ;
+!!IF:F34/0/0/0/0/0;
+!!IF:E99/34;
+!!VRz10:S^Also, it takes a lot of energy and resources to explore
+alternate time-lines you know!  You'll have to bring them to us.
+We've already done a lot of work to determine what answers you
+need most and in what order.^;
+!!IF:D34/z10/0/z12/z13 ;
+!!IF:F34/0/0/0/0/0;
+!!IF:E99/34;
+!!PO998:N1;
+
+!?OB112/6/0; More Knu
+!!PO998:N?v98; 0=not visited, 1-n=waiting next question
+!!FU&v98=0:E;
+!!VRz-3:S^^; v99=2
+!!VRz-4:S^^; v99=4
+!!VRz-5:S^^; v99=8
+!!VRz-6:S^^; v99=16
+!!VRz-7:S^^; v99=32
+!!VRz-8:S^^; v99=64
+!!VRz-9:S^^; v99=128
+!!VRz-10:S^^; v99=256
+** set up radio-button (G1) dialog box: radio-buttons/use v99 for results/initial state
+** /z# has header/z# has 1st item description/etc.
+!!VRz-1:S^Qubit can answer:^;
+!!VRz-2:S^How can we defeat Megathon? (10 wood)^; v99=1 FU88
+!!VRz-3&v98=2:S^Where are the swords? (10 mercury)^; v99=2  FU89
+!!VRz-4&v98=3:S^How can we go there? (10 ore)^; v99=4  FU90
+!!VRz-5&v98=4:S^Who has the swords? (10 sulfur)^; v99=8  FU91
+!!VRz-6&v98=5:S^How can we reach them? (10 crystal)^; v99=16  FU92
+!!VRz-7&v98=6:S^Where are the seeds? (10 gems)^; v99=32  FU93
+!!VRz-8&v98=7:S^How can the Portals be activated? (15 wood)^; v99=64 FU94
+*!VRz-9&v98=8:S^How can the Portals be activated? (15 mercury)^; v99=128 FU95
+!!VRz-2&v98>1:S^How can we defeat Megathon?^; v99=1 FU88
+!!VRz-3&v98>2:S^Where are the swords?^; v99=2  FU89
+!!VRz-4&v98>3:S^How can we go there?^; v99=4  FU90
+!!VRz-5&v98>4:S^Who has the swords?^; v99=8  FU91
+!!VRz-6&v98>5:S^How can we reach them?^; v99=16  FU92
+!!VRz-7&v98>6:S^Where are the seeds?^; v99=32  FU93
+!!VRz-8&v98>7:S^How can the Portals be activated?^; v99=64 FU94
+!!VRz-10&206:S^Knu Knu asks: have you seen a Sierpinski Gasket?^; v99=256 FU87
+!!VRz2:S^Cancel^; v99=512
+!!IF:G1/99/0/-1/-2/-3/-4/-5/-6/-7/-8/-9/-10/2;  (G0 would be check list)
+!!FU&v99=512:E;
+!!FU87&v99=256:P; verify Gasket, reset F206 if so
+!!FU&v99=256:E;
+!!IF:V3/0; assume Q already paid for
+!!VRv1:Sv98+1075; index to power of 2
+!!VRv2:Svv1; power of 2 for (v98 = current unpaid Q)
+!!IF&v2=v99:V3/1; set F3 if selected Q is unpaid
+!!VRv1:Sv98-1%6; resource type
+!!VRv2:Sv98-1:6*5+10; amount required
+!!OW:R-1/v1/?v3;
+!!IF&v3<v2/3:Q1/v1/v2/1^I'm sorry, you don't have enough of what Qubit needs.^;
+!!FU&v3<v2/3:E;
+!!VRv2:*-1;
+!!OW&3:R-1/v1/dv2;
+!!VRv98&3:+1;
+!!PO998&3:Nv98;
+!!FU88&v99=1:P;
+!!FU89&v99=2:P;
+!!FU90&v99=4:P;
+!!FU91&v99=8:P;
+!!FU92&v99=16:P;
+!!FU93&v99=32:P;
+!!FU94&v99=64:P;
+
+!?FU87; verify Gasket, reset F206 if so
+!!VRz10:S^I need a new Sierpinski Gasket or at least an approximation.
+If you find one in your travels I would be most grateful!
+Have you seen one?^;
+!!VRz12:S^Knu Knu the Sorceror^;
+!!VRz13:S^..\Data\KnuKnu.gif^;
+!!IF:D34/z10/0/z12/z13 ;
+!!IF:F34/0/0/0/0/1;
+!!IF:E97/34;
+!!FU&v97<1:E;
+!!VRz10:S^That's wonderful news and I will reward you but first
+I must verify that what you saw is an actual Sierpinski Gasket.
+So I must ask you a series of questions - okay?^;
+!!VRz12:S^Knu Knu the Sorceror^;
+!!VRz13:S^..\Data\KnuKnu.gif^;
+!!IF:D34/z10/0/z12/z13 ;
+!!IF:F34/0/0/0/0/1;
+!!IF:E97/34;
+!!FU&v97<1:E;
+!!VRz-1:S^Where did you see the Gasket?^;
+!!VRz-2:S^North of Silver Rune^; v96=1
+!!VRz-3:S^South of Silver Rune^; v96=2
+!!VRz-4:S^Xanadu Day^; v96=4
+!!VRz-5:S^Xanadu Night^; v96=8
+!!VRz-6:S^^; v96=16
+!!VRz-7:S^^; v96=32
+!!VRz-8:S^^; v96=64
+!!VRz-9:S^^; v96=128
+!!VRz-10:S^^; v96=256
+!!VRz2:S^Cancel^; v96=512
+!!IF:G1/96/0/-1/-2/-3/-4/-5/-6/-7/-8/-9/-10/2;  (G0 would be check list)
+!!FU&v96=512:E;
+!!VRy1&v96=1:S1;
+!!VRy1&v96=2:S2;
+!!VRy1&v96=4:S3;
+!!VRy1&v96=8:S157;
+!!VRz-1:S^At what Clock Hour was it from the center of the land?^;
+!!VRz-2:S^12^; v96=1
+!!VRz-3:S^1^; v96=2
+!!VRz-4:S^2^; v96=4
+!!VRz-5:S^3^; v96=8
+!!VRz-6:S^4^; v96=16
+!!VRz-7:S^5^; v96=32
+!!VRz-8:S^6^; v96=64
+!!VRz-9:S^7^; v96=128
+!!VRz-10:S^8^; v96=256
+!!VRz2:S^9^; v96=512
+!!VRz3:S^10^; v96=1024
+!!VRz4:S^11^; v96=2048
+!!IF:G1/96/0/-1/-2/-3/-4/-5/-6/-7/-8/-9/-10/2/3/4;  (G0 would be check list)
+!!VRy2&v96=1:S5;
+!!VRy2&v96=2:S7;
+!!VRy2&v96=4:S11;
+!!VRy2&v96=8:S13;
+!!VRy2&v96=16:S17;
+!!VRy2&v96=32:S19;
+!!VRy2&v96=64:S23;
+!!VRy2&v96=128:S29;
+!!VRy2&v96=256:S31;
+!!VRy2&v96=512:S37;
+!!VRy2&v96=1024:S41;
+!!VRy2&v96=2048:S43;
+!!VRz-1:S^Of what material is it made?^;
+!!VRz-2:S^Water^; v96=1
+!!VRz-3:S^Fire^; v96=2
+!!VRz-4:S^Ice^; v96=4
+!!VRz-5:S^Mud^; v96=8
+!!VRz-6:S^Rock^; v96=16
+!!VRz-7:S^Vegetation^; v96=32
+!!VRz-8:S^^; v96=64
+!!VRz-9:S^^; v96=128
+!!VRz-10:S^^; v96=256
+!!VRz2:S^^; v96=512
+!!VRz3:S^^; v96=1024
+!!VRz4:S^Cancel^; v96=2048
+!!IF:G1/96/0/-1/-2/-3/-4/-5/-6/-7/-8/-9/-10/2/3/4;  (G0 would be check list)
+!!FU&v96=2048:E;
+!!VRy3&v96=1:S47;
+!!VRy3&v96=2:S53;
+!!VRy3&v96=4:S59;
+!!VRy3&v96=8:S61;
+!!VRy3&v96=16:S67;
+!!VRy3&v96=32:S71;
+!!VRz-1:S^What kind of terrain is it on?^;
+!!VRz-2:S^Dirt^; v96=1
+!!VRz-3:S^Sand^; v96=2
+!!VRz-4:S^Grass^; v96=4
+!!VRz-5:S^Swamp^; v96=8
+!!VRz-6:S^Rough^; v96=16
+!!VRz-7:S^Subterranean^; v96=32
+!!VRz-8:S^Lava^; v96=64
+!!VRz-9:S^Water^; v96=128
+!!VRz-10:S^^; v96=256
+!!VRz2:S^^; v96=512
+!!VRz3:S^^; v96=1024
+!!VRz4:S^Cancel^; v96=2048
+!!IF:G1/96/0/-1/-2/-3/-4/-5/-6/-7/-8/-9/-10/2/3/4;  (G0 would be check list)
+!!FU&v96=2048:E;
+!!VRy4&v96=1:S73;
+!!VRy4&v96=2:S79;
+!!VRy4&v96=4:S83;
+!!VRy4&v96=8:S89;
+!!VRy4&v96=16:S91;
+!!VRy4&v96=32:S97;
+!!VRy4&v96=64:S101;
+!!VRy4&v96=128:S103;
+!!VRz-1:S^What is its general shape?^;
+!!VRz-2:S^Circle^; v96=1
+!!VRz-3:S^Triangle^; v96=2
+!!VRz-4:S^Square^; v96=4
+!!VRz-5:S^Diamond^; v96=8
+!!VRz-6:S^Star^; v96=16
+!!VRz-7:S^^; v96=32
+!!VRz-8:S^^; v96=64
+!!VRz-9:S^^; v96=128
+!!VRz-10:S^^; v96=256
+!!VRz2:S^^; v96=512
+!!VRz3:S^^; v96=1024
+!!VRz4:S^Cancel^; v96=2048
+!!IF:G1/96/0/-1/-2/-3/-4/-5/-6/-7/-8/-9/-10/2/3/4;  (G0 would be check list)
+!!FU&v96=2048:E;
+!!VRy5&v96=1:S107;
+!!VRy5&v96=2:S109;
+!!VRy5&v96=4:S111;
+!!VRy5&v96=8:S113;
+!!VRy5&v96=16:S117;
+!!VRz-1:S^What is in its center?^;
+!!VRz-2:S^Empty Terrain^; v96=1
+!!VRz-3:S^A Volcano^; v96=2
+!!VRz-4:S^The Crown of Ra^; v96=4
+!!VRz-5:S^The Scepter of Osiris^; v96=8
+!!VRz-6:S^The Eye of Horus^; v96=16
+!!VRz-7:S^The Book of Thoth^; v96=32
+!!VRz-8:S^The Gate of Anubis^; v96=64
+!!VRz-9:S^^; v96=128
+!!VRz-10:S^^; v96=256
+!!VRz2:S^^; v96=512
+!!VRz3:S^^; v96=1024
+!!VRz4:S^Cancel^; v96=2048
+!!IF:G1/96/0/-1/-2/-3/-4/-5/-6/-7/-8/-9/-10/2/3/4;  (G0 would be check list)
+!!FU&v96=2048:E;
+!!VRy6&v96=1:S123;
+!!VRy6&v96=2:S127;
+!!VRy6&v96=4:S131;
+!!VRy6&v96=8:S137;
+!!VRy6&v96=16:S139;
+!!VRy6&v96=32:S149;
+!!VRy6&v96=64:S151;
+!!VRe1:Sy1*y2*y3*y4*y5*y6;
+!!VRy7:Sy1+y2+y3+y4+y5+y6;
+!!VRe2:Se1:y7:256;
+!!VRy8:Se2;
+!!IF:M^My calculations give the number %Y8.^;
+!!IF&y8<>1184341:M^I am sorry, that is not the correct number, so what you saw is not a Sierpinski Gasket.^;
+!!FU&y8<>1184341:E;
+!!IF:V206/0;
+!!IF:M^Yes!  That is the correct number!  I will reward you with +5 Attributes and 10 Experience Points!^;
+!!HE-1:Fd5/d5/d5/d5 N?v46;
+!!HE27:S23/3; also give Leora/Gem Expert Armorer
+!!FU86:P10; increment experience
+
+!?FU88;
+!!IF:M^Many are the minions which Megathon has mustered,
+Yet with but two swords shall his supremacy be sundered.^;
+
+!?FU89;
+!!IF:M^West of the Moon and East of the Sun,
+There the quantum tunnels run.
+In Xanadu are Swords of rare device,
+Past domes of fire and caves of ice.^;
+!!UN:S72/72/1/3/21; show L-maze
+!!UN:S78/7/1/3/4; show fire dome
+!!UN:S49/134/1/3/3; show ice cave
+
+!?FU90;
+!!IF:M^Where electricity is made,
+a quantum warp is laid.
+The path is strangely twisted
+so despair must be resisted.^;
+!!UN:S99/82/0/3/3; show Generator
+;UN:S72/72/1/3/5; show Lightning Maze Center (already shown)
+
+!?FU91;
+!!IF:M^The Lord of the Sun the Golden Sword keeps.
+The Black Sword guards where the Moon Lady sleeps.^;
+!!UN:S23/22/1/3/18; show Sun
+!!UN:S118/117/1/3/17; show Moon
+
+!?FU92;
+!!IF:M^Place a fiery seed in a fiery hole.
+Water it with fire, and it will grow.
+Put a cloudy seed in a hole of rime.
+Water it with ice, and it will climb.^;
+!!UN:S23/46/1/3/4; show Fire Hole
+!!UN:S118/139/1/3/4; show Ice Hole
+
+!?FU93;
+!!IF:M^In the Garden of the Moon and Sun,
+Where the Portals used to run,
+There are flowers of great fame,
+Including those which gave its name.^;
+!!UN:S15/52/0/3/3; show Sun Flower
+!!UN:S26/55/0/3/5; show Moon Flower
+
+!?FU94;
+!!IF:M^To power the Portals, blades must spin.
+The wheels that have stopped must now turn again.
+
+A chariot of fire needs a charioteer.
+A Portal without power needs an engineer.
+
+So if runes you know, go to the 'no',
+And ask of the dweller his magic to show.^;
+

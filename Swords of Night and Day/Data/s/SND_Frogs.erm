@@ -1,0 +1,101 @@
+ZVSE
+
+** SND_Frogs, JHV, May 2011
+* Frog battles for "The Swords of Night and Day"
+
+* uses v46, z177-z180, FU72
+
+** frogs
+!#TR45/8/0:T8/45/0/0/0/0/-64/d; frogblu
+!#TR46/6/0:T8/46/0/0/0/0/-64/d; frogred
+!#TR45/5/0:T8/47/0/0/0/0/-64/d; frogylw
+!#TR47/4/0:T8/47/0/0/0/0/-63/d; frogylw
+!#TR46/3/0:T8/45/0/0/0/0/-64/d; frogblu
+!#TR47/3/0:T8/46/0/0/0/0/-63/d; frogred
+!#PO44/8/0:N2; flag for frog battle
+!#PO45/6/0:N2; flag for frog battle
+!#PO46/4/0:N2; flag for frog battle
+
+!#VRz177:S^Poison Frog^;
+!#UN:G1/107/0/177; Poison Frog
+!#UN:G1/107/1/177;
+!#MA:E107/d5 P107/100;
+!#EA107:B7/1/99/71/100/100/100/100/100/100/100/100/100/100/100;  Poison
+!#OB45/8/0:SH177; (ZOBJ045 modified) blue frog
+!#OB44/8/0:SH177;
+!#OB46/6/0:SH177; red frog
+!#OB45/6/0:SH177;
+!#OB45/5/0:SH177; yellow frog
+!#OB47/4/0:SH177; yellow frog
+!#OB46/4/0:SH177;
+!#OB46/3/0:SH177; blue
+!#OB47/3/0:SH177; red
+!#VRz178:S^Farmhouse^;
+!#OB68/14/0:SH178;
+!#VRz179:S^Poisoned Arrows^;
+!#VRz180:S^{Poisoned Arrows}
+These arrows increase your Archery skill by 15% and carry poison.^;
+!#UN:A62/9/179;
+!#UN:A62/10/180;
+
+!?OB68/14/0; Farmhouse
+!!PO46/4/0:N?v1; crow code (2,7,15)
+!!PO998:N?v2; hut code (0,1)
+!!IF&v2=1:Q1/21/139/1^Thanks for your help!  We hope the arrows will be useful against Megathon and his creatures.^;
+!!FU&v2=1:E;
+!!IF&v1=2:Q1/21/139/1^Some mutant frogs in the old swamp have turned poisonous, and we worry that they might get into our rice paddies.  If you will kill them and bring them to us (wrapped in leaves), we will make some poisoned arrows for you!^;
+!!UN&v1=2:S48/8/0/3/6; show swamp
+!!IF&v1=7:Q1/21/139/1^The swamp is just west of here.  Please get rid of all the frogs, so they don't breed more.^;
+!!PO44/8/0&v1=2:N7;
+!!PO45/6/0&v1=2:N7;
+!!PO46/4/0&v1=2:N7;
+!!IF&v1=15:Q1/21/139/8/62/1^That was a brave deed!  Here are the arrows we promised you.^;
+!!PO998&v1=15:N1;
+!!HE-1&v1=15:A4/62;
+
+!?AE1&v998=62; equip Arrows
+!!DO72/0/6/1:P0; give shooter troops Poison
+!?AE0&v998=62; unequip Arrows
+!!DO72/0/6/1:P1; remove Poison from shooter troops
+
+!?FU72; x16=troop slot, x1=1 add Poison, 0 remove Poison
+!!HE-1:C0/x16/?y1/?y2;
+!!FU|y1<0/y2<1:E; exit if no creature in slot
+!!MA:Xy1/?y3;
+!!VRy3:&4; check for shooter
+!!FU&y3=0:E; exit if not shooter
+!!EAy1:F99/71/?y4; y4=line for ability 99/71, or empty line if none, -1 if no free lines
+!!EAy1&y4>-1:By4/1/99/71/100/100/100/100/100/100/100/100/100/100/100;  Poison
+!!EAy1&y4>-1/x1>0:By4/0/99/71/100/100/100/100/100/100/100/100/100/100/100;  disable Poison
+
+!?OB49/1; magic well 2 ZOBJ045 = frog
+!!FU&v1000=1:E; don't do U/G Maze triggers here
+!!PO998:N?v1;
+!!FU&v1<>2/v1<>7:E;
+!!IF&v1=2:M^Here is a huge frog, which can change its skin color!  Instead of blending in, it has turned a poisonous-looking blue, perhaps as a warning.^;
+!!FU&v1=2:E;
+!!HE-1:N?v46;
+!!HE-1:Tv998/v999/v1000/107/1;
+!!HEv46:O?v3;
+!!FU&v3<0:E;
+!!FU86:P1; inc. exp.
+!!PO998:N15;
+!!VRv1:Sv998+1;
+!!UN:Ov998/v999/v1000/1;
+!!UN:Ov1/v999/v1000/1;
+!!TRv1/v999/v1000:T4/63/d/d/d/d/d/d P1; swamp
+* Frogs at y=8, 6, & 4
+!!FU&v999>6:E;
+!!VRv2:Sv999-1;
+!!UN:Ov998/v2/v1000/1;
+!!TRv998/v2/v1000:T4/63/d/d/d/d/d/d P1; swamp
+!!FU&v999>4:E;
+!!UN:Ov1/v2/v1000/1;
+!!TRv1/v2/v1000:T4/63/d/d/d/d/d/d P1; swamp
+
+!?BA0&v998=45/v999=6/v1000=0;
+!!BA:M1/0/107/1 M1/1/107/1;
+
+!?BA0&v998=46/v999=4/v1000=0;
+!!BA:M1/0/107/1 M1/1/107/1 M1/2/107/1;
+

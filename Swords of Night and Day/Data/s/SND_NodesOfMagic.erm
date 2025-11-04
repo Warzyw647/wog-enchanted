@@ -1,0 +1,47 @@
+ZVSE
+
+; SND_NodesOfMagic, JHV, August 28, 2021
+
+* Uses z375-z378, Objects 63/75-63/78
+
+!#VRz375:S^Attack Node^;
+!#HT63/75:T375;
+!#VRz376:S^Defense Node^;
+!#HT63/76:T376;
+!#VRz377:S^Power Node^;
+!#HT63/77:T377;
+!#VRz378:S^Knowledge^;
+!#HT63/78:T378;
+
+!?OB63/75; Attack Node
+!!VRy1:S T99%2+3; 3-5
+!!VRz2:S^ANTIMAGK.WAV^;
+!!SN:Pz2;
+!!IF:Q1/31/y1/1^Lieing frozen in the snow is a crystallized node of pure magic! It is an Attack Node!^;
+!!HE-1:Fdy1/d/d/d;
+!!UN:Ov998/v999/v1000;
+
+!?OB63/76; Defense Node
+!!VRy1:S T99%2+3; 3-5
+!!VRz2:S^ANTIMAGK.WAV^;
+!!SN:Pz2;
+!!IF:Q1/32/y1/1^Lieing frozen in the snow is a crystallized node of pure magic! It is a Defense Node!^;
+!!HE-1:Fd/dy1/d/d;
+!!UN:Ov998/v999/v1000;
+
+!?OB63/77; Power Node
+!!VRy1:S T99%2+3; 3-5
+!!VRz2:S^ANTIMAGK.WAV^;
+!!SN:Pz2;
+!!IF:Q1/33/y1/1^Lieing frozen in the snow is a crystallized node of pure magic! It is an Node of Power!^;
+!!HE-1:Fd/d/dy1/d;
+!!UN:Ov998/v999/v1000;
+
+!?OB63/78; Knowledge Node
+!!VRy1:S T99%2+3; 3-5
+!!VRz2:S^ANTIMAGK.WAV^;
+!!SN:Pz2;
+!!IF:Q1/34/y1/1^Lieing frozen in the snow is a crystallized node of pure magic! It is an Node of Knowledge!^;
+!!HE-1:Fd/d/d/dy1;
+!!UN:Ov998/v999/v1000;
+
