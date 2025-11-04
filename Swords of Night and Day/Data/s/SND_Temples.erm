@@ -1,0 +1,35 @@
+ZVSE
+
+** SND_Temples, Temples of the Sun and Moon for The Swords of Night and Day, JHV, July 2011
+
+* uses v58-v59, z317-z318, FU630
+
+!#VRv58:C150/150; exp points for next bonus, Sun & Moon Temples
+
+* Sun and Moon Temples
+!#VRz317:S^Temple of the Sun^;
+!#OB27/60/1:SH317;
+
+!?OB27/60/1; Sun Temple
+!!IF:M^Welcome to the Temple of the Sun!^;
+!!IF&v1476<v58:M^Unfortunately you do not have enough experience to absorb more of the power of the Sun.  Good day.^;
+!!FU&v1476<v58:E;
+!!FU630:P58;
+
+!#VRz318:S^Temple of the Moon^;
+!#OB100/85/1:SH318;
+
+!?OB100/85/1; Moon Temple
+!!IF:M^Welcome to the Temple of the Moon!^;
+!!IF&v1476<v59:M^Unfortunately you do not have enough experience to absorb more of the power of the Moon.  Good day.^;
+!!FU&v1476<v59:E;
+!!FU630:P59;
+
+!?FU630; v1476=exp, vx1=exp for bonus, x1=58 for Sun, 59 for Moon
+!!HE27&x1=58:Fd1/d/d/d;
+!!HE27&x1=59:Fd/d1/d/d;
+!!VRvx1:+25;
+!!IF&x1=58:Q1/31/1/1^The Sun God has given you +1 Attack.  You need %V58 experience for the next bonus.^;
+!!IF&x1=59:Q1/32/1/1^The Moon Goddess has given you +1 Defense.  You need %V59 experience for the next bonus.^;
+!!FU630&v1476>=vx1:Px1;
+

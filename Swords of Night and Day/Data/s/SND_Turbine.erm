@@ -1,0 +1,216 @@
+ZVSE
+
+** SND_Turbine, JHV, May 2011
+* Turbomachinery for "The Swords of Night and Day"
+
+* uses z396-z399, z407-z409, z440-z443, z445-z446, z464-z466, flag 198
+* reuses v46-v47 temporarily (during battle)
+
+!#IF:V198/1; flag to place Exhaust Plume object only once
+
+* disable OB49/1 triggers for turbomachinery
+!#PO56/123/0:N1; blue button (on)
+!#PO65/123/0:N1; brown button (off)
+!#PO99/82/0:N1; Generator
+!#PO58/107/0:N1; fuel tank
+
+* Crystal Dragons --> Bugs
+!#VRz464:S^Bug^;
+!#VRz465:S^Bugs^;
+!#UN:G1/133/0/464;
+!#UN:G1/133/1/465;
+!#MA:E133/40; [Damage High]
+!#MA:M133/20; [Damage Low]
+!#MA:X133/?i;
+!#VRi: |131072; add no morale penalty
+!#MA:A133/15 D133/15 P133/200 S133/8 X133/i; Attack, Defense, HP, Spd
+
+!#VRz396:S^Start Up Button^;
+!#OB56/123/0:SH396; (ZOBJ045 modified)
+!#OB55/123/0:SH396;
+!#OB56/122/0:SH396;
+!#OB55/122/0:SH396;
+!#VRz397:S^Shut Down Button^;
+!#OB65/123/0:SH397;
+!#OB64/123/0:SH397;
+!#OB65/122/0:SH397;
+!#OB64/122/0:SH397;
+!#VRz398:S^Compressor Stage 1^;
+!#OB65/116/0:SH398;
+!#OB64/116/0:SH398;
+!#OB65/115/0:SH398;
+!#OB64/115/0:SH398;
+!#VRz399:S^Compressor Stage 2^;
+!#OB67/114/0:SH399;
+!#OB66/114/0:SH399;
+!#OB67/113/0:SH399;
+!#OB66/113/0:SH399;
+!#VRz407:S^HP Turbine Stage 1^;
+!#OB72/109/0:SH407;
+!#OB71/109/0:SH407;
+!#OB72/108/0:SH407;
+!#OB71/108/0:SH407;
+!#VRz408:S^HP Turbine Stage 2^;
+!#OB74/107/0:SH408;
+!#OB73/107/0:SH408;
+!#OB74/106/0:SH408;
+!#OB73/106/0:SH408;
+!#VRz409:S^HP Turbine Stage 3^;
+!#OB76/105/0:SH409;
+!#OB75/105/0:SH409;
+!#OB76/104/0:SH409;
+!#OB75/104/0:SH409;
+!#VRz440:S^IP Turbine Stage 1^;
+!#OB78/103/0:SH440;
+!#OB77/103/0:SH440;
+!#OB78/102/0:SH440;
+!#OB77/102/0:SH440;
+!#VRz441:S^IP Turbine Stage 2^;
+!#OB80/101/0:SH441;
+!#OB79/101/0:SH441;
+!#OB80/100/0:SH441;
+!#OB79/100/0:SH441;
+!#VRz442:S^LP Turbine Stage^;
+!#OB90/91/0:SH442;
+!#OB89/91/0:SH442;
+!#OB90/90/0:SH442;
+!#OB89/90/0:SH442;
+!#VRz443:S^Exhaust Stack^;
+!#OB90/83/0:SH443;
+!#OB89/83/0:SH443;
+!#OB90/82/0:SH443;
+!#OB89/82/0:SH443;
+!#VRz445:S^Generator^;
+!#OB99/82/0:SH445;
+!#OB98/82/0:SH445;
+!#OB99/81/0:SH445;
+!#OB98/81/0:SH445;
+!#OB99/84/0:SH445;
+!#OB98/84/0:SH445;
+!#OB99/83/0:SH445;
+!#OB98/83/0:SH445;
+!#OB99/80/0:SH445;
+!#OB98/80/0:SH445;
+!#OB99/79/0:SH445;
+!#OB98/79/0:SH445;
+!#OB97/84/0:SH445;
+!#OB96/84/0:SH445;
+!#OB97/83/0:SH445;
+!#OB96/83/0:SH445;
+!#OB97/82/0:SH445;
+!#OB96/82/0:SH445;
+!#OB97/81/0:SH445;
+!#OB96/81/0:SH445;
+!#OB101/80/0:SH445;
+!#OB100/80/0:SH445;
+!#OB101/79/0:SH445;
+!#OB100/79/0:SH445;
+!#OB101/82/0:SH445;
+!#OB100/82/0:SH445;
+!#OB101/81/0:SH445;
+!#OB100/81/0:SH445;
+!#VRz446:S^Fuel Tank^;
+!#OB58/107/0:SH446;
+!#OB57/107/0:SH446;
+!#OB58/106/0:SH446;
+!#OB57/106/0:SH446;
+!#OB59/105/0:SH446;
+!#OB58/105/0:SH446;
+!#OB59/104/0:SH446;
+!#OB58/104/0:SH446;
+!#OB61/105/0:SH446;
+!#OB60/105/0:SH446;
+!#OB61/104/0:SH446;
+!#OB60/104/0:SH446;
+!#OB61/103/0:SH446;
+!#OB60/103/0:SH446;
+!#OB61/102/0:SH446;
+!#OB60/102/0:SH446;
+!#OB63/103/0:SH446;
+!#OB62/103/0:SH446;
+!#OB63/102/0:SH446;
+!#OB62/102/0:SH446;
+!#OB63/101/0:SH446;
+!#OB62/101/0:SH446;
+!#OB63/100/0:SH446;
+!#OB62/100/0:SH446;
+
+!?OB58/107/0; magic well 2 ZOBJ045 - fuel tank (empty)
+!!PO998:N?v1; 1=empty, 3=not empty
+!!FU&v1<>1:E;
+!!IF:M^The fuel gauge is low.  There is not enough fuel to start the turbine.^;
+!!HE-1:A2/64/?v1/d; v1=number of Electrum flasks the hero has
+!!FU&v1<1:E;
+!!IF:Q1/8/64/2^Will you pour a flask of Electrum into the fuel tank?^;
+!!FU&-1:E;
+!!HE-1:A3/64/1/1; delete one flask
+!!PO998:N3;
+!!IF:M^The fuel gauge goes up!^;
+
+!?OB58/107/0; fuel tank (not empty)
+!!PO998:N?v1; 1=empty, 3=not empty
+!!FU&v1<>3:E;
+!!IF:M^The fuel gauge shows enough fuel to start the turbine.^;
+
+!?OB99/82/0; Generator
+!!PO56/123/0:N?v1; check Blue Button
+!!IF&v1=3:M^The Generator is running!  You must stop the turbine in order to inspect it.^;
+!!FU&v1=3:E;
+!!PO998:N?v47; 1=bugged, 3=debugged
+!!IF&v47=1:Q1/21/133/2^The Generator is full of strange, large bugs!  Are you sure you want to go in there?^;
+!!FU&v47=1/-1:E;
+!!HE-1:N?v46;
+!!HE-1&v47=1:Tv998/v999/v1000/133/6;
+!!HEv46:O?v3;
+!!FU&v3<0:E;
+!!FU86:P5;
+!!PO998:N3;
+!!IF:Q1/8/106/2^A random crossing of the plasma lances of the automated defense system has interacted with the intense electro-magnetic field of the generator to produce a Chris Warp Hole to another plane.  Will you pass through?^;
+!!FU&-1:E;
+!!IF:V191/1;
+!!HE-1:P72/72/1;
+
+!?OB56/123/0; magic well 2 ZOBJ045 - blue button
+!!PO998:N?v1; 1=off, 3=on
+!!IF&v1=3:M^The turbine is already running.^;
+!!FU&v1=3:E;
+!!PO58/107/0:N?v2; fuel tank, 1=empty, 3=not empty
+!!PO99/82/0:N?v3; generator, 1=bugged, 3=debugged
+!!VRz1:S^../Data/TurboMch.bmp^;
+!!IF:B7/1/0;
+!!IF|v2=1/v3=1:P7;
+!!IF|v2=1/v3=1:M^The turbine will not start, for some reason.^;
+!!FU|v2=1/v3=1:E;
+!!VRz2:S^../Data/Powerup.wav^;
+!!SN:Pz2;
+!!VRz1:S^../Data/TurboMch.gif^;
+!!IF:B8/1/0;
+!!IF:P8;
+!!IF:M^The turbine has started up!^;
+!!PO56/123/0:N3; 1=off, 3=on
+!!IF:V193/1; activate portals
+!!VRz395:S^Portal (Active)^; chgd to Inactive at Brown Button
+!!UN&198:I90/81/0/229/0; exhaust plume
+!!VRz466:S^Exhaust Plume^;
+!!OB90/81/0&198:H466;
+!!OB89/81/0&198:H466;
+!!OB90/80/0&198:H466;
+!!OB89/80/0&198:H466;
+!!OB90/79/0&198:H466;
+!!IF:V198/0;
+
+!?OB65/123/0; magic well 2 ZOBJ045 - brown button
+!!PO56/123/0:N?v1; 1=off, 3=on
+!!IF&v1=1:M^The turbine is already shut down.^;
+!!FU&v1=1:E;
+!!PO56/123/0:N1; 1=off, 3=on
+!!PO58/107/0:N1; 1=empty, 3=full
+!!PO99/82/0:N1; generator, 1=bugged, 3=debugged
+!!VRz2:S^../Data/shutoff.wav^;
+!!SN:Pz2;
+!!IF:M^The turbine and generator are shutting down.^;
+!!VRz395:S^Portal (Inactive)^; chgd to Active at Blue Button
+!!IF:V193/0; deactivate portals
+*!UN:O90/81/0/1; remove exhaust plume--no, can't remove a terrain overlay
+!!VRz466:S^Exhaust Plume (dissipating)^;  so just change hint text
+

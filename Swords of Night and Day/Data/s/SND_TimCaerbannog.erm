@@ -1,0 +1,129 @@
+ZVSE
+
+** SND_TimCaerbannog, JHV, June 2011
+* Tim the Enchanter and the Killer Rabbit of Caerbannog for "The Swords of Night and Day"
+
+* z467-z468, z473-z475
+* reuses v46-v47 temporarily (during battle)
+
+!#VRz467:S^House of Tim^;
+!#OB48/59/0:SH467;
+!#VRz468:S^Cave of Caerbannog^;
+!#OB41/60/0:SH468;
+!#VRz473:S^Killer Rabbit^;
+!#VRz474:S^Killer Rabbits^;
+!#UN:G1/96/0/473 G1/96/1/474; rename Behemoth
+!#MA:P96/2500 S96/8; HP, Spd
+!#VRz475:S^Tim's Ring of the Wayfarer^;
+!#UN:A69/9/475; chg name of Ring of W
+
+!?OB48/59/0; Tim's House
+!!PO998:N?v1; 0=not visited, 1=waiting rabbit's bane, 2=completed
+!!FU&v1<>0:E;
+!!VRz10:S^Welcome, travelers.  What brings a warrior and a cadre-mage to
+my humble house, on the shimmering shores of Silver Rune?
+My name?  Well, some call me ... Tim.^;
+!!VRz12:S^Tim the Enchanter^;
+!!VRz13:S^..\Data\SND_Tim1.jpg^;
+!!IF:D33/z10/0/z12/z13 ;
+!!IF:F33/0/0/0/0/0;
+!!IF:E99/33;
+!!VRz10:S^You want my help, so you can restore power to the Portals, and
+seek your doom against Megathon?  You seem little more than children!
+You should leave here and quickly!  There is a killer rabbit nearby,
+a foul, cruel rodent with nasty teeth and a viscious streak.^;
+!!VRz12:S^Tim the Enchanter^;
+!!VRz13:S^..\Data\SND_Tim1.jpg^;
+!!IF:D33/z10/0/z12/z13 ;
+!!IF:F33/0/0/0/0/0;
+!!IF:E99/33;
+!!PO998:N1;
+!!UN:S41/60/0/3/4; show Caerbannog
+
+!?OB48/59/0; Tim's House
+!!PO998:N?v1; 0=not visited, 1=waiting rabbit's bane, 2=completed
+!!PO41/60/0:N?v2; Cave: 0=not visited, 1=completed
+!!FU|v1<>1/v2<>1:E;
+!!VRz10:S^You have defeated the Killer Rabbit of Caerbannog?  Right, then!
+I will not hinder your quest - mad as it seems!  The Portals' power
+comes from a turbine, which I, Tim, D.M.T. (Deus Machina Turbinorum)
+designed!  Unfortunately, it is south of the Dead Zone.^;
+!!VRz12:S^Tim the Enchanter^;
+!!VRz13:S^..\Data\SND_Tim1.jpg^;
+!!IF:D33/z10/0/z12/z13 ;
+!!IF:F33/0/0/0/0/0;
+!!IF:E99/33;
+!!UN:S61/118/0/3/8; show compressor and buttons
+!!UN:S76/104/0/3/9; show HPIP
+!!VRz10:S^So ever since Megathon and his creatures took over the Southlands,
+no one has been able to get to the machine for service and refueling.
+I heard Lord Morrolan's expedition planned to dig a tunnel under the
+Dead Zone.  Perhaps you could use that.^;
+!!VRz12:S^Tim the Enchanter^;
+!!VRz13:S^..\Data\SND_Tim1.jpg^;
+!!IF:D33/z10/0/z12/z13 ;
+!!IF:F33/0/0/0/0/0;
+!!IF:E99/33;
+!!VRz10:S^Fuel?  It will run on almost anything.  A few tons of coal, 10
+barrels of oil - but the most powerful fuel is Electrum.  A single liter
+of Electrum would be enough to start the turbine.  We had a smelter set
+up, but it is probable no longer operational.  You might ask - no.^;
+!!VRz12:S^Tim the Enchanter^;
+!!VRz13:S^..\Data\SND_Tim1.jpg^;
+!!IF:D33/z10/0/z12/z13 ;
+!!IF:F33/0/0/0/0/0;
+!!IF:E99/33;
+!!UN:S60/104/0/3/5; show fuel tank
+!!VRz10:S^I was going to say, the Storm Giants, but to reach them you would
+have to traverse the Perilous Passes of the Stone Men!  And even then
+the Storm Giants might not give you any.  They drink it for the energy
+they need to generate lightning.^;
+!!VRz12:S^Tim the Enchanter^;
+!!VRz13:S^..\Data\SND_Tim1.jpg^;
+!!IF:D33/z10/0/z12/z13 ;
+!!IF:F33/0/0/0/0/0;
+!!IF:E99/33;
+!!UN:S96/115/0/3/6; show Passes
+!!VRz10:S^Then there is the problem of the Generator.  Everytime we shut down
+we had to clear the Generator of bugs before we could start up again.
+Circuit problems?  No, bugs - giant bugs from another dimension.  How
+they get in is a mystery, but the intense electrical field attracts them.^;
+!!VRz12:S^Tim the Enchanter^;
+!!VRz13:S^..\Data\SND_Tim1.jpg^;
+!!IF:D33/z10/0/z12/z13 ;
+!!IF:F33/0/0/0/0/0;
+!!IF:E99/33;
+!!UN:S99/82/0/3/5; show generator
+!!VRz10:S^Good luck!  Here, take my ring.  It will help you, and when you
+have enough experience under your belt, it will authorize the Guild to
+make you an Enchanter, like me!  (You'll have to find your own
+Enchanter's Hat, though.  Mine isn't for sale.)^;
+!!VRz12:S^Tim the Enchanter^;
+!!VRz13:S^..\Data\SND_Tim1.jpg^;
+!!IF:D33/z10/0/z12/z13 ;
+!!IF:F33/0/0/0/0/0;
+!!IF:E99/33;
+!!PO998:N2;
+!!HE-1:A4/69;
+!!VRz467:S^House of Tim (completed)^;
+
+!?OB41/60/0; Caerbannog
+!!PO998:N?v1; 0=not visited, 1=completed
+!!PO48/59/0:N?v2; Tim: 0=not visited, 1=waiting
+!!FU&v1<>0:E;
+!!IF&v2=0:M^The gleaming red eyes and the litter of bones suggest that it would not be wise to enter the Cave of Caerbannog!^;
+!!FU&v2=0:E;
+!!IF:M^It is the Killer Rabbit of Caerbannog!  Run away!^;
+!!HE-1:N?v46; reuse v46 for Hero #
+!!HE-1:Tv998/v999/v1000/96/1; battle Killer Rabbit
+!!HEv46:O?v1;
+!!FU&v1<0:E;
+!!FU86:P5;
+!!PO41/60/0:N1;
+!!VRz468:S^Cave of Caerbannog (completed)^;
+
+!?OB41/60/0; Caerbannog
+!!PO998:N?v1; 0=not visited, 1=completed
+!!FU&v1<>1:E;
+!!IF:M^Curious - its eyes continue to gleam even after it is dead.  Must be a trick of the light.^;
+

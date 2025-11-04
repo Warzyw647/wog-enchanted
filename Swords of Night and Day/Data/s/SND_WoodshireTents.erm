@@ -1,0 +1,36 @@
+ZVSE
+
+* SND_WoodshireTents, JHV, Jan. 2013
+
+** [Mouse click in Town Screen is Trigger]
+!?CM1;
+!!CA-1:T?y3; [Town type: y3 - Woodshire is the only Castle/0 on the map]
+!!FU&y3<>0:E;
+!!CM:F?y1 I?y2; get click flag and click iconic location
+!!FU|y1<>512/y2<>14:E; [Exit if Marketplace isn't clicked with RMB]
+!!CM:R0;
+!!IF:Q1/22/14/1^{Marketplace}
+In the Marketplace, you can buy and sell resources. You can also buy a First Aid Tent for 200 gold, if you don't have a Tent and have the gold.^;
+
+!?CM1;
+!!CA-1:T?y3; [Town type: y3 - Woodshire is the only Castle/0 on the map]
+!!FU&y3<>0:E;
+!!CM:F?y1 I?y2; get click flag and click iconic location
+!!FU|y1<>0/y2<>14:E; [Exit if Marketplace isn't clicked with LMB]
+!!CA-1:H1/?y3; visiting Hero
+!!FU&y3<>27:E; exit if Gem not in the building
+!!HE27:A2/6/d/?y4; chk for Tent (6)
+!!FU&y4>0:E; exit if Gem has Tent
+!!OW:R3/6/?y5;
+!!FU&y5<200:E;
+!!IF:Q1/8/6/6/200/2^Do you want to buy a First Aid Tent for 200 gold?^;
+!!FU&-1:E;
+!!HE27:A4/6;
+!!OW:R3/6/d-200;
+
+* Hint Text trigger: Display new hint text for Marketplace (14)
+!?MM1;
+!!CM:I?y1; [Mouse location: y1
+!!VRz-1:S^Marketplace - First Aid Tents on sale!^;
+!!CM&y1=14:Mz-1;
+

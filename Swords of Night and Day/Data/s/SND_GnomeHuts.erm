@@ -1,0 +1,136 @@
+ZVSE
+
+; SND_GnomeHuts, JHV, March 10, 2023
+
+; Gnome Hut hint text in Setup
+; PO87/6/1:N used for next Gnome number
+
+!#PO87/6/1:N1;
+
+!?OB139/172&1000;
+!!PO998:N?y1; this Hut loc. (N0 unvistied, N1-N6 visited)
+!!PO87/6/1:N?y2;
+!!VRz1:S^Gnorbert^;
+!!VRz2:S^Gned^;
+!!VRz3:S^Gnick^;
+!!VRz4:S^Gnate^;
+!!VRz5:S^Gnorm^;
+!!VRz6:S^Gniles^;
+!!if&y1>0:;
+!!VRz7:Szy1;
+!!IF:M^No one answers your knock. Gnome %Z7 must be out and about.^;
+!!FU:E;
+!!el:; unvisted, use y2 for next name
+!!VRz7:Szy2;
+!!VRz10:S^..\data\GNOME3.WAV^; external WAVE or 82M file
+!!SN:Pz10; Play it
+!!VRz-4:S^Greetings and well-come to ye!
+I've just thought of a clever trivia question
+which I would like to stump someone with!
+If you can guess the answer I'll give you
+a gift! Will you try?^;
+!!VRz-5:S^Gnome %Z7^;
+!!VRz-6:S^..\Data\Gnome.gif^;
+!!IF:D48/z-4/0/z-5/z-6/0/0/0/z-5/0/0/0/0/0/0/0;
+!!IF:F48/0/0/0/0/1;
+!!IF:E2/48;
+!!VRz-4:S^Well if ye've no time for trivia
+ye'd best be on your way.
+Good day to you then.^;
+*!IF:D49/z-4/0/z-5/z-6/0/0/0/z-5/0/0/0/0/0/0/0;
+*!IF:F49/0/0/0/0/1;
+*!IF&v2=-1:E3/49;
+!!IF&v2=-1:M1/-4; No point in yes/no question at this point and the player has just seen the Gnome's face
+!!FU&v2=-1:E; Cancel, didn't see question, so don't take away this chance
+
+!!PO998:Ny2; (one chance only per Gnome)
+!!PO87/6/1:Nd1;
+
+!!VRz1:S^Who was the Captain of the Submarine
+which was called The Gnautilus?^;
+!!VRz2:S^Who was the the physician, astrologer,
+and seer who wrote a book of predictions?^;
+!!VRz3:S^Who deduced from falling apples that
+there is a force which draws things
+towards the center of the Earth?^;
+!!VRz4:S^What Prince of Atlantis,
+with winged feet, said of water
+that in its icy embrace
+there was almost nothing
+which he could not do?^;
+!!VRz5:S^What is the only direction you can go
+at the South Pole?^;
+!!VRz6:S^What sea beast has the feature
+which has been mistaken for a unicorn horn?^;
+!!VRz-1:Szy2;
+!!VRz1:S^Gnemo^;
+!!VRz2:S^Gnostradamus^;
+!!VRz3:S^Gnewton^;
+!!VRz4:S^Gnamor^;
+!!VRz5:S^Gnorth^;
+!!VRz6:S^Gnarwhale^;
+!!VRz8:Szy2;
+!!VRz-2:S^Answer: (one word, capitalized)^; -->z1
+!!VRz-3:S^Options:^;
+!!VRz-4:S^..\Data\Gnome.gif^;
+!!VRz-8:S^../Data/SeerHwsL.gif^;
+!!VRz-9:S^../Data/SeerHwsR.gif^;
+!!VRz-5:S^Gnome %Z7^;
+!!VRz-6:S^I have typed my answer.^; v1=1
+!!VRz-7:S^I Give up.^; v1=2
+!!IF:D50/-1/-2/-3/-4/0/0/0/0/-5/0/0/-6/-7/0/0; [Set up custom dialogue box]
+!!IF:F50/0/0/0/0/0;
+!!IF:E9/50; [Display Custom Dialogue] selected option 1-4 in v9
+!!VRz2:S^Gnarwhal^;
+!!VRz1&z1=z2:Sz6; Make Gnome Gniles accept both Gnarwhal and Gnarwhale
+  !!if&v9=1/z1=z8:;
+!!VRz2:S^FORTUNE.WAV^;
+!!SN:Pz2;
+!!VRy4:S20 T40; spell pts
+!!VRy5:S300 T700; movement pts
+!!VRz4:S^+%Y5 Travel^;
+!!VRz5:S^+%Y5 Movement Points today.^;
+!!UN:A98/9/4 A98/10/5;
+!!IF:Q1/35/y4/8/98/7^Correct! You may have either of these as a reward. Pick one.^;
+!!UN:A98/9/0 A98/10/0;
+!!HE-1&1:Idy4;
+!!HE-1&-1:Wdy5 W?y6 Gy6;
+!!VRz2:S^chime_up.wav^;
+!!SN:Pz2;
+; Gnomes offer Tea for +1 damage or liquor for -1 damage
+; Gnome 1, Nepali tea for +1 damage, warns against liquor
+!!IF&y2=1:Q1/12/1/2^As you depart, the gnome offers each of you a cup of {Gnepali tea} and tells you to never accept {alcohol} from gnomes. Will you drink the {tea}?^;
+!!IF&y2=1/1:Q1/11/1/1^Invigorating! (+1 min and max damage)^;
+!!MA&y2=1/1:M34/d+1 M35/d+1 M136/d+1 M6/d+1 M7/d+1 M174/d+1 M106/d+1; +1 damage low on Jalery, Vames and Newt Vames
+!!MA&y2=1/1:E34/d+1 E35/d+1 E136/d+1 E6/d+1 E7/d+1 E174/d+1 E106/d+1; +1 damage high on Jalery, Vames and Newt Vames
+; Gnome 2, Nepal tea, +1 damage if accepted
+!!IF&y2=2:Q1/12/1/2^As you depart, the gnome offers each of you a cup of something he calls {Gnepal}. Will you drink it?^;
+!!IF&y2=2/1:Q1/11/1/1^Invigorating! (+1 min and max damage)^;
+!!MA&y2=2/1:M34/d+1 M35/d+1 M136/d+1 M6/d+1 M7/d+1 M174/d+1 M106/d+1; +1 damage low on Jalery, Vames and Newt Vames
+!!MA&y2=2/1:E34/d+1 E35/d+1 E136/d+1 E6/d+1 E7/d+1 E174/d+1 E106/d+1; +1 damage high on Jalery, Vames and Newt Vames
+; Gnome 3, Nilgiri tea, +1 damage if accepted
+!!IF&y2=3:Q1/12/1/2^As you depart, the gnome offers each of you a cup of something he calls {Gnilgiri}. Will you drink it?^;
+!!IF&y2=3/1:Q1/11/1/1^Invigorating! (+1 min and max damage)^;
+!!MA&y2=3/1:M34/d+1 M35/d+1 M136/d+1 M6/d+1 M7/d+1 M174/d+1 M106/d+1; +1 damage low on Jalery, Vames and Newt Vames
+!!MA&y2=3/1:E34/d+1 E35/d+1 E136/d+1 E6/d+1 E7/d+1 E174/d+1 E106/d+1; +1 damage high on Jalery, Vames and Newt Vames
+; Gnome 4, Negroni, a kind of an alcoholic coctail, -1 damage if accepted
+!!IF&y2=4:Q1/12/1/2^As you depart, the gnome offers each of you a glass of something he calls {Gnegroni}. Will you drink it?^;
+!!IF&y2=4/1:Q1/13/1/1^Disgusting! (-1 min and max damage)^;
+!!MA&y2=4/1:M34/d-1 M35/d-1 M136/d-1 M6/d-1 M7/d-1 M174/d-1 M106/d-1; -1 damage low on Jalery, Vames and Newt Vames
+!!MA&y2=4/1:E34/d-1 E35/d-1 E136/d-1 E6/d-1 E7/d-1 E174/d-1 E106/d-1; -1 damage high on Jalery, Vames and Newt Vames
+; Gnome 5, Nittoh tea, +1 damage if accepted
+!!IF&y2=5:Q1/12/1/2^As you depart, the gnome offers each of you a cup of something he calls {Gnittoh}. Will you drink it?^;
+!!IF&y2=5/1:Q1/11/1/1^Invigorating! (+1 min and max damage)^;
+!!MA&y2=5/1:M34/d+1 M35/d+1 M136/d+1 M6/d+1 M7/d+1 M174/d+1 M106/d+1; +1 damage low on Jalery, Vames and Newt Vames
+!!MA&y2=5/1:E34/d+1 E35/d+1 E136/d+1 E6/d+1 E7/d+1 E174/d+1 E106/d+1; +1 damage high on Jalery, Vames and Newt Vames
+; Gnome 6, Nettle tea, +1 damage if accepted, don't see any better tea names starting with N
+!!IF&y2=6:Q1/12/1/2^As you depart, the gnome offers each of you a cup of something he calls {Gnettle}. Will you drink it?^;
+!!IF&y2=6/1:Q1/11/1/1^Invigorating! (+1 min and max damage)^;
+!!MA&y2=6/1:M34/d+1 M35/d+1 M136/d+1 M6/d+1 M7/d+1 M174/d+1 M106/d+1; +1 damage low on Jalery, Vames and Newt Vames
+!!MA&y2=6/1:E34/d+1 E35/d+1 E136/d+1 E6/d+1 E7/d+1 E174/d+1 E106/d+1; +1 damage high on Jalery, Vames and Newt Vames
+
+  !!el:;
+!!IF:M^The correct answer was {%Z8}. Better luck with the next Gnome! Have a nice day!^;
+  !!en:;
+!!en:;
+

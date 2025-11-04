@@ -1,0 +1,178 @@
+ZVSE
+
+** SND_Passes, JHV, May 2011
+* Perilous Passes Stone Men for "The Swords of Night and Day"
+
+* uses v46, 96-98, z307-z308, z249, z367, z462-z463, FU96
+
+!#VRz307:S^Stone Man^;
+!#VRz308:S^Stone Men^;
+!#UN:G1/32/0/307;
+!#UN:G1/32/1/308;
+!#MA:E32/60; [Damage High]
+!#MA:M32/30; [Damage Low]
+!#MA:P32/300 U32/-2; HP 300, don't want upgrades to Iron Golems
+!#EA32:F119/-1/?v4; y4=line for ability 119/any, or empty line if none, -1 if no free lines
+!#EA32:Bv4/1/119/65/1/1/1/1/1/1/1/1/1/1/1;  immunity to hostile air (works for TLB)
+!#VRv4:+1;
+!#EA32:Bv4/1/97/70/100/100/100/100/100/100/100/100/100/100/100; 100% chance to Stone Gaze after hit, or actually 80% because Leora has 20% Resistance
+!#VRz462:S^Storm Giant^;
+!#VRz463:S^Storm Giants^;
+!#UN:G1/152/0/462;
+!#UN:G1/152/1/463;
+!#MA:E152/100 M152/50 P152/800; HP
+*#EA152:B9/1/119/65/1/1/1/1/1/1/1/1/1/1/1;  immunity to hostile air (works for TLB)
+!#EA152:B9/1/103/61/99/99/99/99/99/99/99/99/99/99/99;  99% magic damage protection, but the actual protection from TLB is in Battles.erm
+!#VRz249:S^Electrum (1 liter)^;
+!#VRz367:S^{Electrum} (1 liter)
+The most powerful fuel known.^;
+!#UN:A64/9/249;
+!#UN:A64/10/367;
+!#OB82/128/0:SH307; (ZOBJ045 modified)
+!#OB83/128/0:SH307;
+!#OB82/129/0:SH307;
+!#OB83/129/0:SH307;
+!#OB87/123/0:SH307;
+!#OB88/123/0:SH307;
+!#OB87/124/0:SH307;
+!#OB88/124/0:SH307;
+!#OB94/120/0:SH307;
+!#OB95/120/0:SH307;
+!#OB94/121/0:SH307;
+!#OB95/121/0:SH307;
+!#OB100/118/0:SH307;
+!#OB101/118/0:SH307;
+!#OB100/119/0:SH307;
+!#OB101/119/0:SH307;
+!#OB102/114/0:SH307;
+!#OB103/114/0:SH307;
+!#OB102/115/0:SH307;
+!#OB103/115/0:SH307;
+!#OB104/108/0:SH307;
+!#OB105/108/0:SH307;
+!#OB104/109/0:SH307;
+!#OB105/109/0:SH307;
+!#OB117/110/0:SH307;
+!#OB118/110/0:SH307;
+!#OB117/111/0:SH307;
+!#OB118/111/0:SH307;
+!#OB127/108/0:SH307;
+!#OB128/108/0:SH307;
+!#OB127/109/0:SH307;
+!#OB128/109/0:SH307;
+
+!?OB49/1; magic well 2 ZOBJ045
+!!FU&v1000=1:E; don't do U/G maze triggers
+!!PO998:N?v1;
+!!FU&v1>0:E;
+!!HE-1:N?v46;
+!!HE-1:Tv998/v999/v1000/32/10;
+!!HEv46:O?v3;
+!!FU&v3<0:E;
+!!FU86:P2;
+!!VRv1:Sv998+1;
+!!VRv2:Sv999+1;
+!!UN:Ov998/v999/v1000/1;
+!!UN:Ov1/v999/v1000/1;
+!!UN:Ov998/v2/v1000/1;
+!!UN:Ov1/v2/v1000/1;
+!!TRv998/v999/v1000:T0/23/d/d/d/d/d/d P1;
+!!TRv1/v999/v1000:T0/23/d/d/d/d/d/d P1;
+!!TRv998/v2/v1000:T0/23/d/d/d/d/d/d P1;
+!!TRv1/v2/v1000:T0/23/d/d/d/d/d/d P1;
+
+!?OB54/152; Storm Giant (LoT) Negotiation
+!!OB998:S; disable
+*!VRv97:Sv999+1;
+*!HE-1:Pv998/v97/v1000; move off SG YS [only necessary if flying]
+!!VRz463:S^Storm Giant^; for IF:Q display caption
+!#VRz463:S^Storm Giants^;
+!!IF:Q1/21/152/2^You small creatures ask me for Electrum?
+There are only two things I value more!  Gold and battle!  You can pay me 25000 gold, or fight me for it.
+Will you pay me the gold?^;
+!!OW:R-1/6/?v1;
+!!IF&1/v1>24999:Q1/21/152/1^Very well, I will take your gold.^;
+!!OW&1/v1>24999:R-1/6/d-25000;
+!!HE-1&1/v1>24999:A4/64;
+!!FU&1/v1>24999:E;
+!!IF:Q2/21/152/2^You will not or cannot pay, so will you fight?^;
+!!IF&-2:Q2/21/152/1^Then begone!^;
+!!FU&-2:E;
+!!HE-1:N?v46;
+; Check V's and J's creature type
+!!HE-1:C0/0/?y-1/d;
+!!VRy-2|y-1=6/y-1=7/y-1=174:Sy-1;
+!!VRy-3|y-1=34/y-1=35/y-1=136:Sy-1;
+!!HE-1:C0/1/?y-1/d;
+!!VRy-2|y-1=6/y-1=7/y-1=174:Sy-1;
+!!VRy-3|y-1=34/y-1=35/y-1=136:Sy-1;
+!!HE-1:C0/2/?y-1/d;
+!!VRy-2|y-1=6/y-1=7/y-1=174:Sy-1;
+!!VRy-3|y-1=34/y-1=35/y-1=136:Sy-1;
+!!HE-1:C0/3/?y-1/d;
+!!VRy-2|y-1=6/y-1=7/y-1=174:Sy-1;
+!!VRy-3|y-1=34/y-1=35/y-1=136:Sy-1;
+!!HE-1:C0/4/?y-1/d;
+!!VRy-2|y-1=6/y-1=7/y-1=174:Sy-1;
+!!VRy-3|y-1=34/y-1=35/y-1=136:Sy-1;
+!!HE-1:C0/5/?y-1/d;
+!!VRy-2|y-1=6/y-1=7/y-1=174:Sy-1;
+!!VRy-3|y-1=34/y-1=35/y-1=136:Sy-1;
+!!HE-1:C0/6/?y-1/d;
+!!VRy-2|y-1=6/y-1=7/y-1=174:Sy-1;
+!!VRy-3|y-1=34/y-1=35/y-1=136:Sy-1;
+; Check if V&J have Air Immunity
+!!EAy-2&y-2>0:F119/65/?y-4;
+!!EAy-3&y-3>0:F119/65/?y-5;
+!!EAy-2&y-4>0:By-4/?y-6/d/d/?y-8/d/d/d/d/d/d/d/d/d/d;
+!!EAy-3&y-5>0:By-5/?y-7/d/d/?y-9/d/d/d/d/d/d/d/d/d/d;
+!!VRy-6:*y-8;
+!!VRy-7:*y-9;
+!!IF|y-6>0/y-7>0:Q1/20/50/1^The Storm Giant's supreme control over Air temporarily negates your Air immunity!^;
+; Take away Air Immunity from V&J if they have it
+!!EAy-2&y-6>0:By-4/0/d/d/0/0/0/0/0/0/0/0/0/0/0;
+!!EAy-3&y-7>0:By-5/0/d/d/0/0/0/0/0/0/0/0/0/0/0;
+!!HE-1:Tv96/v97/v98/152/1; fight LoT
+; Restore Air Immune to V&J if they had it
+!!EAy-2&y-6>0:By-4/1/d/d/1/1/1/1/1/1/1/1/1/1/1/1;
+!!EAy-3&y-7>0:By-5/1/d/d/1/1/1/1/1/1/1/1/1/1/1/1;
+!!HEv46:O?v1;
+!!FU&v1<0:E;
+!!HEv46:A4/64;
+; 5 EP given in SND_Battles
+
+!$OB54/152;
+!!UN:Ov998/v999/v1000/1;
+!!VRz463:S^Storm Giants^; restore hint text ("a few __")
+
+!$LE113/46/0; East Wood Passes
+!!VRv46:S27;
+!!FU86:P5;
+!$LE118/42/0;
+!!VRv46:S27;
+!!FU86:P5;
+!$LE120/41/0;
+!!VRv46:S27;
+!!FU86:P5;
+!$LE120/37/0;
+!!VRv46:S27;
+!!FU86:P5;
+!$LE125/41/0;
+!!VRv46:S27;
+!!FU86:P5;
+!$LE123/35/0;
+!!VRv46:S27;
+!!FU86:P5;
+!$LE129/38/0;
+!!VRv46:S27;
+!!FU86:P5;
+!$LE132/38/0;
+!!VRv46:S27;
+!!FU86:P5;
+!$LE130/32/0;
+!!VRv46:S27;
+!!FU86:P5;
+!$LE141/37/0;
+!!VRv46:S27;
+!!FU86:P5;
+

@@ -1,0 +1,31 @@
+ZVSE
+
+** SND_Peasants, JHV, June 2011
+
+* uses v46, v95, z1-z10
+
+!#VRv95:S-1;
+
+!?OB54/139; Peasant
+!!OB998:S; disable
+!!HE-1:N?v46;
+!!FU86:P2; inc. exp.
+!!VRz1:S^Thank you so much for rescuing us!^;
+!!VRz2:S^We will see our families again, thanks to you!^;
+!!VRz3:S^You are true heroes!^;
+!!VRz4:S^Megathon's Wraiths carried us here, to work as slaves and then be eaten!  You have saved us!^;
+!!VRz5:S^We thought no one could help us!  Who are you guys?^;
+!!VRz6:S^We saw friends dragged to Megathon's castle to die, and soon we would have been next!  All that we have is yours!^;
+!!VRz7:S^We prayed to Leora for help, and she heard us and sent you!^;
+!!VRz8:S^When we get back to our farms, we will gather stones and built a monument to your courage, like the Pyramid of the Law Giver!^;
+!!VRz9:S^We must flee, before the Wraiths return!^;
+!!VRz10:S^Never was so much done for so many by so few!^;
+!!IF:N21/139/21/139;
+!!VRv95:+1;
+!!VRv1:Sv95%10+1; 1-10
+!!VRz1:Szv1;
+!!IF:N1/1;  (N1/-1, N1/z-1, N1/z11 always shows z1 text)
+
+!$OB54/139; Peasant
+!!UN:Ov998/v999/v1000/1;
+

@@ -1,0 +1,392 @@
+ZVSE
+
+; SND_GnomeAnnagrams, JHV, August 26, 2021
+
+; uses v67, v1427-v1428 temporarily, v99, z389, FU454-FU456, FU651, f370-f385, Dialog 46, GnomeAnn.wav,
+; Bersey/Era Memory Slot 215, GnomeAnn.gif, DL154GnA.txt, GNgramBk.pcx,
+; GnAletrs.def, SecSkGnA.def-->SECSK82.def (ReDirect did not work)
+
+!#VRz389:S^Gnome Ann!^;
+!#HT139/167:T389;
+!#VRv67:S-1;
+
+!#SN:M215; delete slot 215
+!#SN:M215/20/1/1; create Era data slot #215, 0-19 item indeces, strings, save data in Saved Game
+!#VRv1:C0/1/2/3/4/5/6/7/8/9;
+!#SN:M215/v1/^"I fear Gnome Ann."--Hulk Hogan
+
+I am Gnome Ann. I need help in solving Ann-agrams
+which the Norms have assigned me. In return I will
+make your foes fear you in your next battle!
+Will you do one for me?^;  370--fear
+!#SN:M215/v2/^"Our Mission: to boldly go where
+Gnome Ann has gone before."--Star Trek
+
+I can help you travel farther than you thought
+possible if you help me solve another Ann-agram.
+Will you try?^; 371--travel
+!#SN:M215/v3/^"Gnome Ann can paddle two canoes
+at the same time."-- Bantu Proverb
+
+I can lend you the ability to strike twice
+per turn in your next battle if you can
+solve another Ann-agram for me--will you?^; 372--dbl strike
+!#SN:M215/v4/^"The land was made without lines of demarcation
+and it is Gnome Ann's right to divide it."
+--Chief Joseph
+I will divide the land into 16 36x36 divisions and
+reveal one of them to you from afar if you solve
+another Ann-agram for me. Will you?^; 373-Show
+!#SN:M215/v5/^"The wicked flee when Gnome Ann pursueth."
+--Bible
+I can make your foes fear you again in your next
+battle if you will solve another Ann-agram for me.
+Will you try?^;  374-fear
+!#SN:M215/v6/^"Gnome Ann is above the law."--T. Roosevelt
+
+I can double the experience you get from your
+next battle if you can solve another Ann-agram
+for me. Do you agree?^; 375-exper.
+!#SN:M215/v7/^"Gnome Ann is born wise."--M. Cervantes
+
+I will double your mana if you can solve my
+next Ann-agram. Will you try it?^; 376-mana dbl
+!#SN:M215/v8/^"Fool, no man can kill me", said the Nazgul.
+I replied, "I am Gnome Ann!"
+
+I will teach you a Destroy Undead spell and improve
+your Slayer spell if you solve my next Ann-agram.
+Okay?^; 377--spells
+!#SN:M215/v9/^"In our colleges applied science may
+almost be described as a 'Gnome Ann's land'."
+-- Edward Teller
+I will apply my science to prevent your enemies from
+retaliating to your blows in your next battle if you
+can solve another Ann-agram. Agreed?^;  378--no retal.
+!#SN:M215/v10/^"Time and tide wait for Gnome Ann."--Chaucer
+
+I will increase the time you can travel even more
+if you will solve this last Ann-agram!
+Do you wish to try?^; 379--more travel
+
+!#VRv1:Cd10/d10/d10/d10/d10/d10/d10/d10/d10/d10;
+!#SN:M215/v1/^Not used in this script.^;
+!#SN:M215/v2/^^;
+!#SN:M215/v3/^^;
+!#SN:M215/v4/^^;
+!#SN:M215/v5/^^;
+!#SN:M215/v6/^^;
+!#SN:M215/v7/^^;
+!#SN:M215/v8/^^;
+!#SN:M215/v9/^^;
+!#SN:M215/v10/^^;
+
+!?OB139/167&1000; Gnome Ann
+!!VRz2:S^GnomeAnn.wav^;
+!!SN:Pz2;
+!!VRv67:+1%10; (%# of anagrams)
+!!SN:M215/v67/?z5;
+!!VRz6:S^..\Data\GnomeAnn.gif^;
+!!VRz10:S^Gnome Ann^;
+!!IF:D46/5/0/10/6/0/0/0/0/0/0/0/0/0/0/0;
+!!IF:F46/0/0/0/0/1;
+!!IF:E99/46; v99 0 for Yes or -1 for Cancel
+!!VRv67&v99<0:-1; repeat same sequence next time
+!!FU&v99<0:E;
+!!VRy98:Sv998;
+!!VRy99:Sv999;
+!!VRy100:Sv1000;
+!!VRv3:C0/0/1/2/3/4/5/0/0/6/7/8/9/10/0/0;
+!!VRz-1:S^DL154GnA.txt^;
+!!DL154:Nz-1;
+!!VRz3&v67=0:S^My (___) cat keeps (_____) my socks.^;
+!!VRz4&v67=0:S^(boy's nickname)(biting)^;
+!!VRz3&v67=1:S^The Armorer is (____) to (___) your sword.^;
+!!VRz4&v67=1:S^(moving toward)(sharpen)^;
+!!VRz3&v67=2:S^The (___) bells (____) in (_).^;
+!!VRz4&v67=2:S^(community)(sound)(musical scale)^;
+!!VRz3&v67=3:S^We (___) while (_____) down in the mess hall.^;
+!!VRz4&v67=3:S^(became acquainted)(eating)^;
+!!VRz3&v67=4:S^A good decision is based on (____) reasons, not just a (___).^;
+!!VRz4&v67=4:S^(clear, logical)(random inpulse)^;
+!!VRz3&v67=5:S^Birds (_____) on the (___) and goeth likewise.^;
+!!VRz4&v67=5:S^(move toward--archaic)(bird appendage)^;
+!!VRz3&v67=6:S^(____) singers can (__) high (_) and even (_) above it.^;
+!!VRz4&v67=6:S^(females)(reach)(musical note) (alphabetically higher note)^;
+!!VRz3&v67=7:S^(__) opened a (__) to give us some (___).^;
+!!VRz4&v67=7:S^(short form of Margaret/Megan)(metal can)(food)^;
+!!VRz3&v67=8:S^(___) will (___) when the sun sets where the compass mark is (_).^;
+!!VRz4&v67=8:S^(dark hours)(move toward)(direction abbreviation)^;
+!!VRz3&v67=9:S^A (____) saying, may (__) your appetite for more wisdom.^;
+!!VRz4&v67=9:S^(pithy aphorism)(sharpen)^;
+!!DL154:A2/3/z3/1;
+!!DL154:A3/3/z4/1;
+!!DL154:S?v1;
+!!VRv67&v1=30721:-1; on cancel, go back to this puzzle again next time
+!!FU&v1=30721:E; on cancel don't check the answer
+!!VRy2:Sv5*2+v6*2+v7*2+v8*2+v9*2+v10*2+v11*2+v12*2+v13*2+v14*2+v15*2+v16;
+!!VRv1:C21767/25876/23305/17663/24276/26658/19201/15608/15554/8340;
+!!VRy3:Sv67+1;
+!!VRy1:Svy3;
+; change SS82 DEF--didn't work, chgd SECSK82 outright--Note Leora casnnot have Diplomacy or Necromancy
+;SN:L^Era.dll^/?y11; y11=handle
+;SN:Ay11/^RedirectFile^/?y12; y12=FU address
+;SN:Ey12/1/^SECSK82.def^/^SECSKGA.def^;  Basic Diplo-->Gnome Ann
+; new use of y11-y12: elimate Basic and Advanced prefixes, restore at end
+!!UN:C6976984/4/?y11; [6A75D8]=address of Basic Advanced Expert
+!!UN:Cy11/1/?y13; save 'B' from 'Basic', or whatever it is in other languages
+!!UN&y13>=65/y13<=90:Cy11/1/0; remove Basic if a capital letter actually found at this address
+!!VRy12:Sy11+1; (A)dvanced, start looking for the first capital letter of 'Advanced', may be shorter or longer in other languages and doesn't have to be 'A'
+!!VRv1427:Sy12;
+!!VRv1428:S0;
+!!FU651:Py12/20; Find the 1st capital letter after 'Basic', look at most 20 characters ahead
+!!VRy12:Sv1427;
+!!VRy14:Sv1428;
+!!UN&y14>=65/y14<=90:Cy12/1/0; remove Advanced if a capital letter actually found at this address
+!!VRz3:S^Gnome Ann^;
+!!VRz4:S^A very powerful Gnome Witch who may be seen often because Gnome Ann can be in two places at once!^;
+!!UN:G0/4/0/3 G0/4/1/4;
+!!if&y1<>y2:; failure
+!!VRz7:S^OBELISK.WAV^;
+!!SN:Pz7;
+!!IF:Q1/20/15/16/1/1^Your answer is not accepted by the Norns. Gnome Ann is disappointed and leaves!^;
+!!HE-1:R0/-1;
+!!UN:Oy98/y99/y100; delete Gnome Ann object here
+;SN:Ay11/^RedirectFile^/?y12; y12=FU address
+;SN:Ey12/1/^SECSK82.def^/^^;  restore DEF
+;UN:G0/4/0/0 G0/4/1/0;
+!!UN&y13>=65/y13<=90:Cy11/1/y13; restore Basic 0x42
+!!UN&y14>=65/y14<=90:Cy12/1/y14; restore Advanced 0x41
+!!FU:E;
+!!el:; success
+!!VRz7:S^OBELISK.WAV^;
+!!SN:Pz7;
+!!IF:Q1/14/3/1^Jalery and Vames proudly flex their muscles in front of Gnome Ann (+2 max HP).^;
+!!MA:P34/d+2 P35/d+2 P136/d+2 P6/d+2 P7/d+2 P174/d+2 P106/d+2; +2 HP for Jalery, Vames and Newt Vames
+!!IF:Q1/20/15/14/1/1^Success! You will receive your promised reward.^;
+!!HE-1:R0/1 R1/1;
+;Flag n is stored in byte 91F2E0+n-1 = 9,564,895+n
+!!VRy4:Sv67+370+9564895;
+!!UN:Cy4/1/1; set flag f37n where n=[v67]
+!!UN:Oy98/y99/y100; delete Gnome Ann object here
+!!en:;
+!!if|v67=0/v67=4:; fear
+!!VRz6:S^Fear!^;
+!!VRz8:S^Gnome Ann has cursed your next enemy to fear you!^;
+!!UN:G0/12/0/6 G0/12/1/8;
+!!IF:Q1/20/15/20/39/1^Gnome Ann weakens your next enemy!^;
+!!UN:G0/12/0/0 G0/12/1/0;
+!!en:;
+!!if|v67=1/v67=9:; travel
+!!VRz8:S^Gnome Ann has blessed you with greater travel ability!^;
+!!UN:G0/11/3/8;
+!!IF:Q1/20/15/20/11/1^Gnome Ann blesses you!^;
+!!UN:G0/11/3/0;
+!!en:;
+!!if&v67=2:; dbl strike (next fight)
+!!VRz6:S^Double Strike^;
+!!VRz8:S^You will strike or shoot twice per turn in your next battle!^;
+!!UN:G0/19/0/6 G0/19/2/8; use Adv Tactics
+!!IF:Q1/20/15/20/61/1^Gnome Ann will give you Double Strike for one battle!^;
+!!UN:G0/19/0/0 G0/19/2/0;
+!!en:;
+!!if&v67=3:; Show Map region
+!!VRz6:S^Map Regions^;
+!!VRz8:S^Gnome Ann can reveal one of the numbered regions to you!^;
+!!UN:G0/3/0/6 G0/3/1/8;
+!!IF:Q1/20/15/20/12/1^Gnome Ann will reveal one of the numbered regions!^;
+!!UN:G0/3/0/0 G0/3/1/0;
+!!VRz-1:S^Select Region 3, 4, or 7-16 by combining Numbers:
+(3=1+2, 7=1+2+4, 9=1+8, 10=2+8, 11=1+2+8, 12=4+8, ...)^;
+!!VRz-2:S^1^;
+!!VRz-3:S^2^;
+!!VRz-4:S^4^;
+!!VRz-5:S^8^;
+!!VRz-6:S^16^;
+!!VRv3:S0;
+!!IF:G0/3/0/-1/-2/-3/-4/-5/-6;
+!!IF:Q1/20/15/1^You have chosen Region %V3.^;
+!!IF|v3=1/v3=2/v3=5/v3=6:Q1/20/15/1^That Region is not allowed! Region 11 will be shown instead.^;
+!!VRv3|v3=1/v3=2/v3=5/v3=6:S11;
+!!VRy31:Sv3-1%4*36; column
+!!VRy32:Sv3-1:4*36; row
+!!HE-1:O?y5;
+!!VRv1:C1/2/4/8/16/32/64/128;
+!!VRy5:+1;
+!!VRy6:Svy5;
+!!DO454/0/35/1:Py31/y32/y6;
+!!IF:V373/0; Show completed
+!!en:;
+!!if&v67=5:; dbl experience for next battle
+!!VRz6:S^Double Experience^;
+!!VRz8:S^Your experience for your next battle will be doubled!^;
+!!UN:G0/21/0/6 G0/21/3/8; Adv Learning
+!!IF:Q1/20/15/20/67/1^Gnome Ann will match the experience of your next battle!^;
+!!UN:G0/21/0/0 G0/21/2/0;
+!!en:;
+!!if&v67=6:; dbl mana
+!!VRz6:S^Double Mana^;
+!!VRz8:S^Your spell points will be doubled!^;
+!!UN:G0/21/0/6 G0/21/1/8; Basic Learning
+!!IF:Q1/20/15/20/66/1^Gnome Ann doubles your maximum spell points!^;
+!!UN:G0/21/0/0 G0/21/1/0;
+!!HE-1:Fd/d/d/?y7 Idy7/1;
+!!VRy7:*20;
+!!HE-1:Iy7;
+!!IF:V376/0; done
+!!en:;
+!!if&377:; spells
+!!VRz6:S^Monster Killer Spells^;
+!!VRz8:S^Slayer and Destroy Undead will wrest the Crown from a Nazgul's head!^;
+!!UN:G0/14/0/6 G0/14/2/8; Advanced Fire
+!!IF:Q1/20/15/20/46/1^Gnome Ann gives you the spells of a Monster Destroyer!^;
+!!UN:G0/14/0/0 G0/14/2/0;
+!!HE-1:M25/1 S14/3;
+!!IF:V377/0; done
+!!en:;
+!!if&v67=8:; retaliation
+!!VRz6:S^No Retaliation^;
+!!VRz8:S^Gnome Ann can prevent your blows from being retaliated!^;
+!!UN:G0/3/0/6 G0/3/2/8;
+!!IF:Q1/20/15/20/13/1^Gnome Ann shackles your next enemy!^;
+!!UN:G0/3/0/0 G0/3/2/0;
+!!en:;
+;SN:Ay11/^RedirectFile^/?y12; y12=FU address
+;SN:Ey12/1/^SECSK82.def^/^^;  restore DEF
+;UN:G0/4/0/0 G0/4/1/0;
+!!UN&y13>=65/y13<=90:Cy11/1/y13; restore Basic 0x42
+!!UN&y14>=65/y14<=90:Cy12/1/y14; restore Advanced 0x41
+
+!?DL&v998=154/v999>4/v999<19/v1000=13;
+;   v998 = Dialog Id, v999 = Item Id, v1000 = MB CM:S
+!!VRz2:S^BUTTON.WAV^;
+!!SN:Pz2; click
+!!if&v3=0:; high-light
+!!VRv3:Sv999;
+;VRy1:Svv999+10;
+;DL154:Av999/4/y1/1;
+!!el:; switch w/def item v3
+!!VRy1:Svv3;
+!!VRy2:Svv999;
+!!DL154:Av3/4/y2/1;
+!!DL154:Av999/4/y1/1;
+!!VRvv3:Sy2;
+!!VRvv999:Sy1;
+!!VRv3:S0;
+!!en:;
+
+!?DL&v998=154/v999>30720/v999<30723/v1000=13;
+!!VRz2:S^BUTTON.WAV^;
+!!SN:Pz2; click
+!!DL:C1;
+
+!?FU454; x16=0-35 columns, x1=starting row #, x2=starting col #, x3=Player bit
+!!VRy2:Sx2+x16; current col #
+!!DO455/0/35/1:Px1/y2/x3;
+
+!?FU455; x16=0-35 rows, x1=leftmost row #, x2=current col, x3=player bit
+!!VRy1:Sx1+x16;
+!!TRy1/x2/0:V?y2;
+!!VRy2:|x3;
+!!TRy1/x2/0:Vy2;
+
+!?BA0&1000;
+!!IF:V380/0 V381/0;
+!!BA:H0/?y1 H1/?y2;
+!!HEy1:O?y3;
+!!OW:Iy3/?y4; y4=1 if AI
+!!if|370/374:; Fear
+!!IF&y4=1:V380/1;
+!!IF&y4=0:V381/1; only 1 human player, so AI gets Fear
+!!IF:V370/0 V374/0; only this time (&1000|370/374)
+!!en:;
+!!if&372:; dbl-strike
+!!IF&y4=0:V382/1;
+!!IF&y4=1:V383/1;
+!!IF:V372/0; only this time
+!!en:;
+!!if&378:; no retal.
+!!IF&y4=0:V384/1;
+!!IF&y4=1:V385/1;
+!!IF:V378/0; only this time
+!!en:;
+
+!?BF&1000;
+!!DO456/0/19/1&382:P32768; dbl strike
+!!DO456/21/40/1&383:P32768;
+!!IF:V382/0 V383/0;
+!!DO456/0/19/1&384:P65536; no retaliation
+!!DO456/21/40/1&385:P65536;
+!!IF:V384/0 V385/0;
+
+!?FU456; x16=stk, x1= MA:X/BM:F code
+!!BMx16:N?y1 T?y2 F?y3;
+!!FU&y1<1:E;
+!!FU&y2>144/y2<150:E;
+!!VRy3:|x1;
+!!BMx16:Fy3;
+
+!?BA1|380/381;
+!!IF:V380/0 V381/0;
+!!UN:C4605877/2/36623;  set 0F 8F = 8F0F
+!!UN:C4605879/4/341;  set 55 01 00 00 = 155h
+!!UN:C4605912/2/33807;  set 0F 84 = 840F
+!!UN:C4605914/4/306;  set 32 01 00 00 = 132h
+!!UN:C4606025/2/34063;  set 0F 85 = 850F
+!!UN:C4606027/4/179;  set B3000000 = B3
+!!UN:C4606046/2/34063;  set 0F 85 = 850F
+!!UN:C4606048/4/158;  set 9E 00 00 00 = 9E
+
+!?FU651; find the first capital letter between addresses x1 (inclusive) and x1+x2 (exclusive), return address in v1427, letter in v1428
+!!FU&x2<1:E; no more addresses to check, give up
+!!VRv1427:Sx1;
+!!UN:Cv1427/1/?v1428;
+!!VRy1:Sx2;
+!!VRy1:-1; one less byte left to check
+!!VRy2:Sx1;
+!!VRy2:+1; next address to check
+!!FU651|v1428<65/v1428>90:Py2/y1;
+; Returning from recursive calls doesn't get values from further down the call chain, use a vars instead
+
+!?FU77007|380/381;
+!!SN:X?y1; stk 0-41
+!!BMy1:T?y2; chk type--arrow towers (149) crash
+!!IF:V4/0;
+!!IF&381/y1>20:V4/1;
+!!IF&380/y1<21:V4/1;
+!!IF|y2=145/y2=149:V4/0; don't do catapults or arrow towers
+!!VRv3:S0 T1000%100;
+!!if&4/v3<35;  35% morale freezes
+!!UN:C4605877/2/37008;  set nop nop nop nop nop nop
+!!UN:C4605879/2/37008;
+!!UN:C4605881/2/37008;
+!!UN:C4605912/2/37008;  set nop nop nop nop nop nop
+!!UN:C4605914/2/37008;
+!!UN:C4605916/2/37008;
+!!UN:C4606025/2/37008;  set nop nop nop nop nop nop
+!!UN:C4606027/2/37008;
+!!UN:C4606029/2/37008;
+!!UN:C4606046/2/37008;  set nop nop nop nop nop nop
+!!UN:C4606048/2/37008;
+!!UN:C4606050/2/37008;
+!!el;
+!!UN:C4605877/2/36623;  set 0F 8F = 8F0F
+!!UN:C4605879/4/341;  set 55 01 00 00 = 155h
+!!UN:C4605912/2/33807;  set 0F 84 = 840F
+!!UN:C4605914/4/306;  set 32 01 00 00 = 132h
+!!UN:C4606025/2/34063;  set 0F 85 = 850F
+!!UN:C4606027/4/179;  set B3000000 = B3
+!!UN:C4606046/2/34063;  set 0F 85 = 850F
+!!UN:C4606048/4/158;  set 9E 00 00 00 = 9E
+!!en;
+
+!?HM-1&1000/371;
+!!HE-1:Wd30;
+!!HE-1:W?v1;
+!!HE-1&v1>20000:W20000; limit max movement "windup"
+
+!?HM-1&1000/379;
+!!HE-1:Wd30;
+!!HE-1:W?v1;
+!!HE-1&v1>20000:W20000; limit max movement "windup"
+

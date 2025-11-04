@@ -1,0 +1,221 @@
+ZVSE
+
+** SND_Wraiths for Swords of Night and Day, JHV, May 2011
+
+* uses F192, FU135-FU137, v1420 from DarkTower, v1421-v1422, v1426 and timers and variables from Tobyn's script
+* v1-v6, v96-v99 temporary use
+!#IF:V192/0;
+!#VRv1421:S0; Not currently fighting off a Dark Moon attack
+!#VRv1422:S0; Not currently finghting off a Dead Zone attack
+
+!?TM2&v2395=0/v2392>1; Red, daily after day 1
+* v2392 day
+* v2393 weekday
+* v2395 color
+* v2396 month
+* v2389 week
+!!OW:O3/0/?v1; check whether Leora active
+!!FU&v1<>27:E; exit if Leora in town garrison (or dead)
+!!HE27:P?v96/?v97/?v98; get location
+!!FU&v98=1:E; exit if L underground
+!!VRv99:Sv2392%28; v99=1 is the Dark of the Moon
+!!FU135&v99=1/v2396>1:P; always attack at Dark of Moon after month 1
+!!FU&v99=1/v2396>1:E;
+* check for Leora (Gem) below Dead Zone
+* Dead Zone:  143y = 19162 -104x
+!!VRv4:Sv96*-104+19162;
+!!VRv5:Sv97*143;
+!!FU&v5<v4:E; exit if not in or past DZ
+* grass/swamp/snow (2,3,4)-25%, dirt (0)-35%, rough(5)-55%, lava(7)-65%, underground(6)-80%
+!!VRv4:S0 T99;
+!!TRv96/v97/v98:T?v5/d/d/d/d/d/d/d;
+!!VRv6:S25;
+!!VRv6&v5=0:S35;
+!!VRv6&v5=5:S55;
+!!VRv6&v5=7:S65;
+!!VRv6&v5=6:S80;
+!!FU136&v4<v6:P;
+
+!?FU135; Wraith attack at Dark of Moon
+!!VRz-1:S^WRTHMOVE.WAV^;
+!!SN:Pz-1;
+!!IF:Q1/21/61/1^It is the night of the Dark Moon!  Wraiths have come to carry you back to Megathon!^;
+!!VRv1421:S1;
+!!FU137:P;
+!!VRv1421:S0;
+
+!?FU136; Wraith attack below Dead Zone
+!!VRz-1:S^WRTHMOVE.WAV^;
+!!SN:Pz-1;
+!!IF:Q1/21/61/1^You have gone past the Dead Zone, into Megathon's territory!  Wraiths have found you!^;
+!!VRv1422:S1;
+!!FU137:P;
+!!VRv1422:S0;
+
+!?FU137;
+!!IF:V192/1; flag for Wraith battle
+!!HE27:Tv96/v97/v98/0/1;
+!!VRv46:S27;
+!!FU86:Pv2396; increment exp
+
+!?BA0&1000/192; == Beginning of a battle ( set up creatures )
+!!IF:V192/0;
+!!BA:M1/0/61/v2389; put 1 Wraith (61) for each week in slot 0
+!!BA:M1/1/-1/0; == clear slot 1
+!!BA:M1/2/61/v2389;
+!!BA:M1/3/-1/0; == clear slot 3
+!!BA:M1/4/61/v2389;
+!!BA:M1/5/61/v2389; added after Artifact mods
+!!BA:M1/6/61/v2389;
+
+!?BA0; start of any battle vs Wraiths
+!!HE-1:N?y-1;
+!!FU&y-1<>27:E; Leora-Gem
+!!BA:H1/?y-1;
+!!FU&y-1>-1:E; vs hero-less army (not Devoron)
+!!BA:M1/0/?y-1/d;
+!!FU&y-1>-1/y-1<>61:E; continue only if fighting Wraiths and nothing else
+!!BA:M1/1/?y-1/d;
+!!FU&y-1>-1/y-1<>61:E; continue only if fighting Wraiths and nothing else
+!!BA:M1/2/?y-1/d;
+!!FU&y-1>-1/y-1<>61:E; continue only if fighting Wraiths and nothing else
+!!BA:M1/3/?y-1/d;
+!!FU&y-1>-1/y-1<>61:E; continue only if fighting Wraiths and nothing else
+!!BA:M1/4/?y-1/d;
+!!FU&y-1>-1/y-1<>61:E; continue only if fighting Wraiths and nothing else
+!!BA:M1/5/?y-1/d;
+!!FU&y-1>-1/y-1<>61:E; continue only if fighting Wraiths and nothing else
+!!BA:M1/6/?y-1/d;
+!!FU&y-1>-1/y-1<>61:E; continue only if fighting Wraiths and nothing else
+!!VRy-2:S2; danger level, default 2 (night attack in Dead Zone or Garrison near Devoron)
+*!IF&v1420=1:L^Test, starting a fight vs Wraiths inside a Dark Tower...^; can use these messages to debug in case of variables conflict
+*!IF&v1421=1:L^Test, starting a fight vs Wraiths on a Dark Moon...^;
+*!IF&v1422=1:L^Test, starting a fight vs Wraiths on night in Dead Zone...^;
+*!BA&v1420=0/v1421=0/v1422=0:Pd/?y-1/d; alternative check, y coordinate < 113 means Woodshire area, lower means Garrisons
+*!IF&v1420=0/v1421=0/v1422=0/y-1<113:L^Test, starting a fight vs Wraiths in Woodshire area...^; alternative check with y coordinate
+*!IF&v1420=0/v1421=0/v1422=0/y-1>112:L^Test, starting a fight vs Wraiths in a garrison close to Megathon...^; alternative check with y coordinate
+!!OB998:T?y-1;
+*!IF&v1420=0/v1421=0/v1422=0/y-1=54:L^Test, starting a fight vs Wraiths in Woodshire area...^;
+*!IF&v1420=0/v1421=0/v1422=0/y-1<>54:L^Test, starting a fight vs Wraiths in a garrison close to Megathon...^;
+!!VRy-2&v1420=0/v1421=0/v1422=0/y-1=54:S0; Neutral Wraiths on the map in Woodshire area. Let's say they are weakened, so danger level 0.
+!!VRy-2|v1420=1/v1421=1:S1; Normal night attack or a Dark Tower. Still fairly close to Woodshire, so danger level 1. Also better not set danger level 2 in Dark Towers, because they are a source of Artifacts that can shield from Wraiths
+!!VRy-3:S0; Fort level in Woodshire, Fort = 0
+!!CA5/6/0:B3/8;
+!!VRy-3&1:S1; Citadel = 1
+!!CA5/6/0:B3/9;
+!!VRy-3&1:S2; Castle = 2
+!!CA5/6/0:B3/26;
+!!VRy-3&1:S19; Grail = 19, protects from all draining
+!!VRy-4:Sy-3;
+!!VRy-4:+7; building number of the fortification level the player has
+!!IF&y-3>y-2:Q1/22/y-4/1^The Wraiths tried to...
+drain your Health
+or destroy one Artifact,
+but the protectve wards
+in the nearby Woodshire
+have shielded you!^;
+!!FU&y-3>y-2:E;
+; Woodshire Citadel/Castle protection was not enough, so try to drain an Artifact except the Swords, Spellbook etc.
+; loop with HE:A2, then HE:A3 if found to remove 1 copy
+; If no suitable Artifact found, drain 5 max HP from V&J, if >1
+; Yes, -5 HP or -Artifact is harsh, but it doesn't happen that often and the player had time to prapare
+; Inform the player that Artifact was lost, with picture, or that HP was lost if >1
+; Drain nothing if no suitable Artifact and HP = 1
+!!VRy-5:Sy-2; Fortification building needed to protect from these Wraiths
+!!VRy-5:+8;
+!!VRy-5&y-5>9:S26;
+!!VRv1426:S-1;
+!!DO647/7/127/1:P; Look for an expendable Artifact that Leora could throw at the Wraiths to save Jalery and Vames from draining 5 HP
+!!FU648&v1426<0:P; If no ordinary artifact found, look for a bit more valuable Artifact
+!!IF&v1426>0:Q1/8/v1426/22/y-5/1^The Wraiths tried to...
+drain your Health
+but you threw them
+a disposable Artifact instead!
+The protective wards built in Woodshire
+were not strong enough to protect you.
+(You lose this Artifact)^;
+!!IF&v1426<0:Q1/16/3/22/y-5/1^The Wraiths tried to...
+drain your health!
+You had no disposable Artifacts to throw them,
+and the protectie wards built in Woodshire
+were not strong enough to protect you.
+So the Wraiths succeeded!
+(Jalery and Vames lose 5 HP)^;
+!!HE27&v1426>0:A3/v1426/1/0;
+!!FU&v1426>0:E;
+; No protection from Woodshire, no Artifact to throw away, so take away up to 5 HP from all Vames and Jalery creatures
+; If less than 5 HP, set HP to 1
+!!FU650:P6; Vames Swordman
+!!FU650:P7; Vames Crusader
+!!FU650:P174; Vames Paladin
+!!FU650:P106; Vames Newt
+!!FU650:P34; Jalery Mage
+!!FU650:P35; Jalery Archmage
+!!FU650:P136; Jalery Enchanter
+
+!?FU647; Check if Leora has non-special Artifact number x16
+; End if one Artifact found
+; Ignore special Artifacts like Gem of Isis
+; Don't check for combo Artifacts. If players want to sacrifice those, they can disassemple them.
+!!FU|x16=70/x16=98/x16=49/x16=91/x16=97/x16=99/x16=62/x16=108/x16=47/x16=63/x16=69/x16=64/x16=79/x16=81/x16=111/x16=127:E;
+!!HE27:A2/x16/?y1/d;
+!!VRv1426&y1>0:Sx16;
+!!VRx16&y1>0:S200; If Artifact found, end loop
+
+!?FU648; No ordinary Artifacts found, check if Leora has a special Artifact for sacrifice
+; Only special Artifacts like Gem of Isis, but not Swords of Night and Day etc.
+; First check if Leora has the Swords:
+!!HE27:A2/157/?y1/d; Night
+!!HE27:A2/128/?y2/d; Day
+; Start with the weakest. Priority list:
+; 79 Moon Seed if Leora also has 157 Sword of Night
+!!FU649&y1>0:P79;
+; 81 Sun Seed if Leora also has 128 Sword of Day
+!!FU649&y2>0:P81;
+; 111 Ice Water if Leora also has 157 Sword of Night
+!!FU649&y1>0:P111;
+; 127 Fire Water if Leora also has 128 Sword of Day
+!!FU649&y2>0:P127;
+; 70 Equestrian's Gloves
+!!FU649:P70;
+; 98 Boots of Speed
+!!FU649:P98;
+; 49 Klingon Badge of Courage
+!!FU649:P49;
+; 91 Golden Bow
+!!FU649:P91;
+; 64 Elektrum if Leora also has 157 Sword of Night and 128 Sword of Day
+!!FU649&y1>0/y2>0:P64;
+; 97 Neckale of Swiftness
+!!FU649:P97;
+; 99 Cape of Velocity
+!!FU649:P99;
+; 62 Poison Arrows
+!!FU649:P62;
+; 108 Klingon Pendant of Courage
+!!FU649:P108;
+; 47 Rainbow Shield
+!!FU649:P47;
+; 63 Gem of Isis
+!!FU649:P63;
+; 69 Tim's Ring
+!!FU649:P69;
+; Stop here, don't throw away quest items that lead to the Swords if Leora doesn't have the Swords and don't throw away the Swords either.
+; 64 Elektrum
+; 79 Moon Seed
+; 81 Sun Seed
+; 111 Ice Water
+; 127 Fire Water
+; 157 Sword of Night
+; 128 Sword of Day
+
+!?FU649; Check if Leora has specified Artifact for sacrifice
+!!FU&v1426>0:E; Artifact already found earlier, don't look further, final result is already in v1426
+!!HE27:A2/x1/?y1/d; don't bother with x1 validation, the usage is right above
+!!VRv1426&y1>0:Sx1;
+
+!?FU650; Take away up to 5 max HP from specified creature type
+!!MA:Px1/?y1; Check the creature's current max HP
+!!MA&y1<6:Px1/1; If 5 or less, set it to 1
+!!MA&y1>5:Px1/d-5; If more than 5, take away 5
+

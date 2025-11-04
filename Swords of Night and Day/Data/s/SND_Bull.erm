@@ -1,0 +1,77 @@
+ZVSE
+
+** SND_Bull, JHV, May 2011
+* Wild Bull battle for "The Swords of Night and Day"
+
+* uses v37, v46, v52, z181-z185, z699, FU301, Flags 178 & 190
+
+!#VRz181:S^Wild Bull^;
+!#VRz184:S^Wild Bulls^;
+!#UN:G1/103/0/181; (Mighty Gorgon)
+!#UN:G1/103/1/184;
+!#MA:M103/16 E103/30 P103/500 S103/4;
+!#EA103:B6/1/d/d/3/5/7/d/d/d/d/d/d/d/d;  Death Stare 3%, ...
+!#EA103:F114/-1/?y4; y4=line for ability 114/any, or empty line if none, -1 if no free lines
+!#EA103&y4>-1:By4/1/114/50/10/10/10/10/10/10/10/10/10/10/10; 50% chance to regenerate 10 HP to counteract poison
+!#MA:X103/?v1;
+!#VRv1:|131072; [Add No Morale]
+!#MA:X103/v1;
+*#VRz178:S^Farmhouse^; (in SND_Frogs)
+!#OB27/32/0:SH178;
+!#VRz182:S^War Axe^;
+!#VRz183:S^{War Axe}
+This amazing axe can be used for attack and defense, and increases magic skill.  It is so magically light in a warrior's hands that the warrior can strike twice in the time it normally takes to strike once.^;
+!#UN:A158/9/182;
+!#UN:A158/10/183;
+
+!?OB27/32/0; Farmhouse
+!!PO998:N?v1; house code (0-3)
+!!IF&v1=3:Q1/21/139/1^You are welcome to the axe.  You can use it much better than we can.^;
+!!FU&v1=3:E;
+!!IF&v1=0:Q1/21/139/1^There is a dangerous wild bull in the woods near where we go to fish in the creek.  If you are brave enough to hunt it, we will give you a valuable axe that a Barbarian Lord traded us! It is very hard to kill though. You may need poisoned arrows.^;
+!!UN&v1=0:S42/28/0/3/4; show bull in woods
+!!IF&v1=1:Q1/21/139/1^The woods are just west of here.  Please get rid of the bull and we will gladly give you the axe.  It is made for battles, not farming, so it is of no use to us.^;
+!!PO998&v1=0:N1;
+!!IF&v1=2:Q1/21/139/8/158/1^You are brave men!  Here is the axe which we promised you.^;
+!!HE-1&v1=2:A4/158;
+!!PO27/32/0&v1=2:N3; (AE triggers change v998)
+
+!#VRz185:S^A wild bull with fire in its eyes!^;
+!#OB41/25/0:SH185;  Bull
+!?OB41/25/0;
+!!PO27/32/0:N?v1;
+!!IF&v1<1:M^This bull seems to be wild and dangerous.  Fighting it for no reason would not be worth the risk.^;
+!!OB41/25/0&v1>0:R;
+
+!?BA0&v998=41/v999=25/v1000=0;
+!!IF:V190/1;
+!!HE-1:N?v46;
+!!VRv52:S3; DS starts at 3%
+
+!?BR;
+!!VRv37:Sv997; save round count (v997 gets changed after BR trigger)
+
+!?BG0&190/v37>-1; reset DS at end of bull's turn (better than BR)
+!!BG:N?v1; stack
+!!FU&v1<21:E; exit if not bull
+!!IF:V178/1;
+
+!?BG1&178;
+!!IF:V178/0;
+!!VRv52:S-40 R100;
+!!VRv52&v52<0:S0 R5;
+!!EA-22:B6/1/d/d/v52/v52/v52/d/d/d/d/d/d/d/d;  Death Stare v52%, ...
+!!VRv52:+1; add 1% for display--MG always has small chance of DS
+
+!?MM0&190; trigger for mouse hint text
+!!MM:M?z9;
+!!VRz10:S^%Z9 (Bull Death Stare {%V52%%})^;
+!!MM:Mz10;
+
+!?BA1&190;
+!!IF:V190/0;
+!!HEv46:O?v1;
+!!FU&v1<0:E;
+!!PO27/32/0:N2;
+!!FU86:P1; inc. exp.
+

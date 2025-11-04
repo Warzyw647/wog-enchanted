@@ -1,0 +1,193 @@
+ZVSE
+
+** SND_Tomb, Tomb of Imhotep for The Swords of Night and Day, JHV, July 2011
+
+* uses v53-v57, v96-v97, v1423, z313-z316, FU628, FU871-FU880, and flags 207-208
+
+!#VRv55:C0/5/5; bit flags for tomb events, steps until random event, random range of next count
+!#IF:V207/0; =1 inside Tomb
+!#VRv1423:S0; bonus EP for fighting the Mummy, set when fight vs Mummy starts
+
+* Mummy
+!#MA:E141/100; [Damage High]
+!#MA:M141/40; [Damage Low]
+!#MA:A141/20 D141/20 P141/800 S141/8; Attack, Defense, HP, Speed
+!#MA:O141/3; Town type=Inferno--sees QS on Lava
+!#EA141:F114/-1/?v4; v4=line for ability 114/any, or empty line if none, -1 if no free lines
+!#EA141&v4>-1:Bv4/1/114/90/99/99/99/99/99/99/99/99/99/99/99; 90% chance to regenerate 99 HP
+* Skeleton Warrior stats set in SND_Day1Day2 to not interfere with Megathon's day 1 battle
+
+* disable OB49/1 trigger for entrance
+!#PO24/108/0:N1;
+!#VRz313:S^Tomb of Imhotep^;
+!#OB24/108/0:SH313;
+
+!?OB24/108/0; Tomb Entrance
+!!IF:Q1^The lintels of the entrance are carved with hieroglyphics which say:
+
+"You who come seeking the treasure of Imhotep, know that his tomb is cursed, and bold young warriors who enter may leave as wizened peasants, if at all."
+
+Will you enter?^;
+!!FU&-1:E;
+!!HE-1:P120/54/1;
+!!IF:V207/1;
+!!HE-1:M9/0; no TP out of Tomb, first go outside
+!!VRv1:S1 T255;
+!!VRv2:R1/v1; set random seed based on time
+
+!#VRz314:S^^;
+!#OB120/54/1:SH314; (Eye of Horus)
+
+!?OB120/54/1;
+!!IF:Q1^Will you leave the Tomb of Imhotep?^;
+!!FU&-1:E;
+!!HE-1:P24/108/0;
+!!IF:V207/0;
+!!HE-1:A2/108/d/?y-1;
+!!HE-1&y-1>0:M9/1; give back TP when exiting the Tomb and hero has the Polsat Sun equipped
+
+!?BA0&207;
+!!BA:B^Egypt.pcx^;
+
+*?BF&207;
+*!BF:C;
+
+!?BA53&207;
+!!HEv46:O?o;
+!!FU86&o>0/v1423>0:Pv1423; give bonus EP, FU86 in SND_Arena; Also +2 EP for each neutral fight is given in SND_Battles
+!!VRv1423:S0; some fight just ended, so definitely not fighting the Mummy right now
+
+!?HM-1&207; quest hero about to move, next location = v998/v999/v1000
+!!VRv96:Cv998/v999/v1000;
+!!HE27:P?v53/?v54/d; save start of each step also
+!!HE-1:N?v46; reuse v46 for Hero #
+!!HE-1:Wd200;
+!!HE-1:W?v1;
+!!HE-1&v1>15000:W15000; limit max movement "windup"
+!!VRv56:-1; step countdown to random event
+!!FU&v56>0:E;
+!!VRv56:S2 Rv57; reset counter
+!!VRv1:S1 R9; chose event randomly
+!!VRv1:+870; function # for event
+*!HE-1:W?v2; save MP
+*!HE-1:W0; stop hero? might not work--doesn't
+!!FUv1:P;
+*!HEv46:Wv2;
+
+!?FU871; Bast
+!!VRy1:Sv55 &1;
+!!FU&y1<>0:E;
+!!VRv55:|1;
+!!IF:Q1/32/1/11/1/1^The Cat Goddess Bast blesses you with +1 Defense and +1 Luck!^;
+!!HEv46:Fd/d1/d/d;
+!!HEv46:R1/d1;
+!!VRv57&v57>0:-1;
+
+!?FU872; Thoth
+!!VRy1:Sv55 &2;
+!!FU&y1<>0:E;
+!!VRv55:|2;
+!!IF:Q1/34/1/1^Thoth blesses you with +1 Knowledge!^;
+!!HEv46:Fd/d/d/d1;
+!!VRv57&v57>0:-1;
+
+!?FU873; Ra
+!!VRy1:Sv55 &4;
+!!FU&y1<>0:E;
+!!VRv55:|4;
+!!IF:Q1/33/1/14/1/1^Ra blesses you with +1 Power and +1 Morale!^;
+!!HEv46:Fd/d/d1/d;
+!!HEv46:R0/d1;
+!!VRv57&v57>0:-1;
+
+!?FU874; Anubis
+!!VRy1:Sv55 &8;
+!!FU&y1<>0:E;
+!!VRv55:|8;
+!!IF:N31/-1/32/-1/33/-1/34/-1;
+!!IF:N^Anubis curses you!^;
+!!HEv46:Fd-1/d-1/d-1/d-1;
+!!VRv57&v57>0:-1;
+
+!?FU875; Set
+!!VRy1:Sv55 &16;
+!!FU&y1<>0:E;
+!!VRv55:|16;
+!!IF:Q1/31/1/1^Set blesses you with +1 Attack!^;
+!!HEv46:Fd1/d/d/d;
+!!VRv57&v57>0:-1;
+
+!?FU876; Horus
+!!VRy1:Sv55 &32;
+!!FU&y1<>0:E;
+!!VRv55:|32;
+!!IF:N31/1/32/1/33/1/34/1;
+!!IF:N^Horus blesses you!^;
+!!HEv46:Fd1/d1/d1/d1;
+!!VRv57&v57>0:-1;
+
+!?FU877; Osiris
+!!VRy1:Sv55 &64;
+!!FU&y1<>0:E;
+!!VRv55:|64;
+!!IF:M^Osiris blesses you with +5 HP!^;
+!!MA:P6/d5 P7/d5 P174/d5 P34/d5 P35/d5 P136/d5;
+!!HEv46:R0/d1;
+!!VRv57&v57>0:-1;
+
+!?FU878; Mummy 1
+!!VRy1:Sv55 &128;
+!!FU&y1<>0:E;
+!!VRv55:|128;
+!!IF:Q1/21/65677/1^You hear a monster moan:  "Anck-Su-Namun!"^; 65536*1+141=65677
+!!VRv57&v57>0:-1;
+
+!?FU879; Mummy 2
+!!VRy1:Sv55 &128;
+!!FU&y1=0:E;
+!!VRy1:Sv55 &256;
+!!FU&y1<>0:E;
+!!VRv55:|256;
+!!IF:Q1/21/65677/1^You hear shambling footsteps behind you!^;
+!!VRv57&v57>0:-1;
+
+!?FU880; Mummy 3
+!!VRy1:Sv55 &256;
+!!FU&y1=0:E;
+!!VRy1:Sv55 &512;
+!!FU&y1<>0:E;
+!!VRv55:|512;
+!!IF:Q1/21/65677/1^The Mummy attacks!^;
+!!VRv1423:S10; fighting the Mummy now, set EP bonus
+!!HEv46:Tv96/v97/v98/141/1;
+!!VRv57&v57>0:-1;
+!!FU&o>0:E; o=owner, set in BA53&207
+* Leora/Gem lost, but may try to complete a move
+* resurrect her, but with only peasants
+!!HEv46:O3;
+!!HEv46:C0/0/139/1 C0/1/139/1 C0/2/0/0 C0/3/0/0 C0/4/0/0 C0/5/0/0 C0/6/0/0;
+!!IF:M^The Curse of the Mummy has changed Vames and Jalery to peasants!  All hope is gone!^;
+!!OW:A3/v46; set hero active
+!!UN:R1; <--causes crash w/o OW:A
+
+!#VRz315:S^Gem of Isis^;
+!#VRz316:S^{Gem of Isis}
+When equipped, this gem gives Vames and Jalery double Hit Points in battle.^;
+!#UN:A63/9/315;
+!#UN:A63/10/316;
+
+!?AE1&v998=63; equip Gem
+!!IF:V208/1;
+!?AE0&v998=63; unequip Gem
+!!IF:V208/0;
+
+!?BF&208/1000; Gem Equipped
+!!DO628/0/5/1:P; check attacker stacks 0-5
+!!DO628/21/26/1:P; check defender stacks 21-26
+
+!?FU628; double V & J's HP
+!!BMx16:N?y1 T?y2;
+!!FU&y1<1:E; exit if no creature in stack
+!!FU&y2<>6/y2<>7/y2<>174/y2<>34/y2<>35/y2<>136:E; exit if not V or J
+!!BMx16:H?y3 Hdy3;
+

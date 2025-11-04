@@ -1,0 +1,72 @@
+ZVSE
+
+* SND_ArtifactMods, JHV, Jan. 2013
+* added movement and Klingon benefits to Era Mod (don't forget to prohibit them in Arena)
+
+* uses z230-z236. FU98
+
+* increase Red growth rates to compensate for faster human play
+!#MA:G61/10 G63/6; W: 7+3=10-->10+5=15, VL: 4+2=6-->6+4=9
+* (increase army sizes in Dark Towers also)
+
+!#VRz230:S^Klingon Badge of Courage^;
+!#VRz231:S^{Klingon Badge of Courage}
+When equipped, this badge increases Morale by +1, grants immunity to hostile mind spells, and applies Basic Bloodlust in battle.^;
+!#UN:A49/9/230 A49/10/231;
+
+!#VRz232:S^Klingon Pendant of Courage^;
+!#VRz233:S^{Klingon Pendant of Courage}
+When equipped, this pendant adds +3 Luck and Morale, and grants access to the Imperial Klingon Warren to travel to your home city almost instantaneously.^;
+!#UN:A108/9/232 A108/10/233;
+
+!#VRz234:S^{Necklace of Swiftness}
+When equipped, this necklace increases combat speed by +1, and movement by +5%.^;
+!#UN:A97/10/234;
+
+!#VRz235:S^{Cape of Velocity}
+When equipped, this cape increases combat speed by +2, and movement by +10%.^;
+!#UN:A99/10/235;
+
+!#VRz236:S^{Tim's Ring}
+When equipped, this ring increases combat speed by +1, and movement by +5%.^;
+!#UN:A69/10/236;
+
+!?MG0; open Spell Book (remove allies for Town Portal)
+!!OW:T3/2; set Green to team 2 (unused)
+
+!?MG1; spell cast (restore allies)
+!!OW:T3/1;
+
+!?AE1&v998=108/-199/-207; put on Pendant (not in Arena--f199 from Arena and not in Tomb of Imhotep)
+!!HE27:M9/1;
+!?AE0&v998=108; take off Pendant
+!!HE27:M9/0;
+
+!?BR&v997=0/1000; (would happen 2x if no Tactics)
+!!BH0:N?v1; left hero
+!!BH1:N?v2; right hero
+!!FU&v1<>27/v2<>27:E; exit if not Leora (Gem)
+!!HE27:A2/49/?y2/?y3; y3=Badges equipped
+!!DO98/0/6/1&v1=27/y3>0/-199:P; (not in Arena--f199 from Arena)
+!!DO98/21/27/1&v2=27/y3>0/-199:P;
+
+!?FU98; x16=stack
+!!BMx16:N?y1;
+!!BMx16&y1>0:M43/50/1; Bloodlust, 50 rounds, Basic
+
+!?TM2&v2392>1/v2395=3; Day >1, Green
+!!VRy1:S110; 10% starting bonus
+!!HE27:A2/98/?y2/?y3; y3=Boots equipped
+!!VRy1&y3>0:+20;
+!!HE27:A2/70/?y2/?y3; y3=Gloves equipped
+!!VRy1&y3>0:+10;
+!!HE27:A2/99/?y2/?y3; y3=Capes equipped
+!!VRy1&y3>0:+10;
+!!HE27:A2/69/?y2/?y3; y3=Rings equipped
+!!VRy1&y3>0:+5;
+!!HE27:A2/97/?y2/?y3; y3=Necklaces equipped
+!!VRy1&y3>0:+5;
+!!HE27:W?y4;
+!!VRy4:*y1+50:100;
+!!HE27:Wy4 Gy4;
+

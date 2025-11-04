@@ -1,0 +1,29 @@
+ZVSE
+
+* SND_Portals for The Swords of Night and Day, JHV, May 2011
+
+* uses z395, Flag 193
+* v1-v10 and z1-z10 temporary
+
+!#VRz395:S^Portal (Inactive)^; chgd to Active at Blue Button
+!#HT63/66:T395;
+
+!?OB63/66&193; flag 193 set by Turbine start at Blue Button
+!!VRz1:S^../Data/PortalNE.gif^;
+!!VRz2:S^../Data/PortalTM.gif^;
+!!VRz3:S^../Data/PortalMG.gif^;
+!!VRz4:S^../Data/PortalSE.gif^;
+!!VRz5:S^Portal Destinations:^;
+!!VRz6:S^Northeast Portal^;
+!!VRz7:S^Marsh of the Machines^;
+!!VRz8:S^Garden of the Moon and Sun^;
+!!VRz9:S^Southeast Portal^;
+!!VRz10:S^Select Destination:^;
+!!IF:D6/5//10/1/2/3/4/6/7/8/9/6/7/8/9;
+!!IF:F6/////1;
+!!IF:E9/6; v9 1-4 or -1 for Cancel
+!!FU&v9<1:E;
+!!VRv1:C113/56/25/142/3/128/75/129; v1-v4 x's, v5-v8 y's
+!!VRv10:Sv9+4; index to y's
+!!HE-1:Pvv9/vv10/0;
+

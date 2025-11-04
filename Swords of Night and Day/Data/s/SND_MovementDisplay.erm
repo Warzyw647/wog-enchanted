@@ -1,0 +1,16 @@
+ZVSE
+
+; After Right Click on Horse icon 'continue movement'
+; Display current hero's remaining movement
+
+!?CM0;
+!!CM:I?y-1;
+!!FU&y-1<>7:E;
+!!HE18&v2392=1:W?y-1; Day 1 Jenova, then Gem
+!!HE18&v2392=1:G?y-2;
+*!HE-1:W?y-1; version for more heroes
+*!FU&y-1<0:E;
+!!HE27&v2392>1:W?y-1; Always display just Leora's movement, no need to have her selected
+!!HE27&v2392>1:G?y-2;
+!!IF:L^Leora's movement: %Y-1/%Y-2^;
+

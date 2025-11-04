@@ -1,0 +1,20 @@
+ZVSE
+
+** SND_Tunnels, JHV, June 2011
+
+* uses z496
+
+!#VRz496:S^Tunnel^;
+!#OB138/42/0:SH496;
+!#OB138/50/0:SH496;
+
+!?OB138/42/0; Tunnel
+!!IF:Q1^The tunnel looks deep and dark.  Will you enter it?^;
+!!FU&-1:E;
+!!HE-1:P138/50/0;
+
+!?OB138/50/0; Tunnel
+!!IF:Q1^The tunnel looks deep and dark.  Will you enter it?^;
+!!FU&-1:E;
+!!HE-1:P138/42/0;
+
