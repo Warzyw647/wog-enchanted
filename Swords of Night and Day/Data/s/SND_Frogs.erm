@@ -55,8 +55,10 @@ These arrows increase your Archery skill by 15% and carry poison.^;
 
 !?AE1&v998=62; equip Arrows
 !!DO72/0/6/1:P0; give shooter troops Poison
+
 !?AE0&v998=62; unequip Arrows
-!!DO72/0/6/1:P1; remove Poison from shooter troops
+!!HE-1:A2/62/d/?y1; # of Arrows still equipped including the ones being un-equipped rigth now (AE0 works before the item is actually un-equipped)
+!!DO72/0/6/1&y1=1:P1; remove Poison from shooter troops
 
 !?FU72; x16=troop slot, x1=1 add Poison, 0 remove Poison
 !!HE-1:C0/x16/?y1/?y2;
