@@ -4,7 +4,7 @@ ZVSE
 ; DC_EfreetWhirl, JHV, Dec.21, 2016, added artifact choice to
 ; TvH_EfreetWhirl, JHV, June 14, 2016
 
-; uses z564-z565, and v99 & FU48, v78 from Setup and FU65
+; uses z564-z565, v78 from Setup and FU65
 ; reuses week v2389 from Tut
 
 !#VRz564:S^Efreet Whirlwind^;
@@ -46,15 +46,6 @@ ZVSE
 
 !?OB16/3&-1000;
 !!OB998:R; enable
-
-!?FU48; x1=1st guess #, x2=L prev. #, x3=L-1 #, x4=no. of items in v2:C list
-; x5=index increment (must be relatively prime to x4), v99=selected index
-!!if&x1<>x2/x1<>x3:; good guess (Line 0)
-!!VRv99:Sx1;
-!!FU:E;
-!!en:;
-!!VRx1:-2+x5%x4+2; (2-6)->(0-4)+3mod5->(2-6)
-!!SN:G0;
 
 !?FU65; pick next fixed-random number for Efreet Whirlwind rewards and guard counts
 !!VRv78:*v96%v69+1;

@@ -4,7 +4,6 @@ ZVSE
 ; DC_MaridCyclone, JHV, Dec. 4, 2016
 
 ; uses z566-z569, z589-z593, FU176, FU66, v77 from Settings
-; reuses POi/2/z & POi/3/z (i=0-1), v99, & FU48 from RandomAttacks
 ; implements Blue Pearl & Black Pearl (labels in Setup) for use as bonuses
 
 !#VRz566:S^Black Pearl^;
