@@ -1,0 +1,61 @@
+ZVSE
+
+; HS_EfreetWhirl, JHV, Mar. 18, 2017, based on
+; DC_EfreetWhirl, JHV, Dec.21, 2016, added artifact choice to
+; TvH_EfreetWhirl, JHV, June 14, 2016
+
+; uses z564-z565, and v99 & FU48, v78 from Setup and FU65
+; reuses week v2389 from Tut
+
+!#VRz564:S^Efreet Whirlwind^;
+!#HT16/3:P0/564; (Imp Cache->OrgTnd2.def)
+!#VRz565:S^%Z564 (empty)^;
+!#HT16/3:P1/565;
+*#CB53/52/0:R1/0; Efeet banks don't start with Mercury inherited from their underlying CB subtype (Imp Cache) - moved to Day1Day2
+*#CB52/60/0:R1/0;
+
+!?OB16/3&1000;
+!!OB998:R; enable
+!!PO998:N?y1;
+!!IF&y1>0:M^The Whirlwind is empty.^;
+!!OB998&y1>0:M-1/1/0; eliminate next message (there must be a std message)
+!!FU&y1>0:E;
+!!IF:Q1^Would you like to challenge the power of the Whirlwind?^;
+!!OB998&-1:S; disable (w/be no std message)
+!!FU&-1:E;
+!!VRy1:Sv78%13+9; instead of S9 T12 take next random number from the sequence, modulo 13, add 9
+!!FU65:P;
+!!CBv998/v999/v1000:G0/52/y1 G1/52/y1 G2/52/y1 G3/52/y1 G4/52/y1; Efreeti
+!!VRy11:Sv2389-1*2; weekly increment in Efreeti
+!!CBv998/v999/v1000&v2389>1:G0/52/dy11 G1/52/dy11 G2/52/dy11 G3/52/dy11 G4/52/dy11; Efreeti
+!!CBv998/v999/v1000:A1/?y3; y3=# of artifacts
+!!VRv1:C156/156/63/64/65/118/119/93; War Banners/potions/black pearl (see MaridTornado)
+!!VRy9:Sv2389+1;
+!!VRy8:Sy1%y9%8+1; instead of Tv2389, add efreet count modulo (v2389+1), then do modulo 8 and +1 like before; 2x modulo because better rewards become available only in later weeks
+!!VRy10:Svy8;
+!!CBv998/v999/v1000&y3>0:A4/0; remove previous artifact #0, if any
+!!CBv998/v999/v1000:A3/y10; add artifact, even if mini bank - strengthens creature bank refills compared to other options of spending Elektrum (Grails, Beacons)
+!!VRy2:Sy1+1:3;
+!!VRy3:Sy2*1000;
+!!CBv998/v999/v1000:M53/y2 R1/dy2 R3/dy2 R5/0 R6/y3; Efreet Sultans, mercury, sulfur, gold, (mercury and sulfur increases every time to better compete with other Elektrum uses like Grails and Lloyd Beacons)
+!!OB998:M-1/1/0; disable first message
+
+!$OB16/3;
+!!HE-1:O?y1;
+!!PO998&y1>-1:N1;
+
+!?OB16/3&-1000;
+!!OB998:R; enable
+
+!?FU48; x1=1st guess #, x2=L prev. #, x3=L-1 #, x4=no. of items in v2:C list
+; x5=index increment (must be relatively prime to x4), v99=selected index
+!!if&x1<>x2/x1<>x3:; good guess (Line 0)
+!!VRv99:Sx1;
+!!FU:E;
+!!en:;
+!!VRx1:-2+x5%x4+2; (2-6)->(0-4)+3mod5->(2-6)
+!!SN:G0;
+
+!?FU65; pick next fixed-random number for Efreet Whirlwind rewards and guard counts
+!!VRv78:*v96%v69+1;
+

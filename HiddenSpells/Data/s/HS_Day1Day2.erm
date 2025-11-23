@@ -1,0 +1,59 @@
+ZVSE
+
+* HS_Day1Day2, JHV, Sept. 27, 2012, based on:
+** Day1Day2 for Swords of Night and Day
+* uses TM2 and flag 51 (also used by Messages script)
+
+!?TM2&v2392=1/v2395=3; Day 1, Green
+*  give Leora (Gem) Basic Archery, Exp Scouting, Adv Earth Exp Myst. and Basic Tactics--Hidden
+!!HE27:S1/1 S3/3 S17/2 S8/3 S19/1 Ed1;
+!!HE27:W0; freeze Leora
+!!OW:R3/0/0 R3/1/0 R3/2/0 R3/3/0 R3/4/0 R3/5/0 R3/6/0; remove all Green's resources
+!!CB42/108/0:R4/0; Marid banks don't start with Crystals inherited from their underlying CB subtype (Dwarven Treasuries)
+!!CB54/119/0:R4/0;
+!!CB53/52/0:R1/0; Efeet banks don't start with Mercury inherited from their underlying CB subtype (Imp Cache)
+!!CB52/60/0:R1/0;
+
+!!VRy-1:Sv68*-2+10;
+!!VRy-2:Sy-1*10;
+!!HE27:Fy-1/y-1/y-1/y-1 Iy-2; Tone down Leora's starting stats, 10/8/6/4/2 based on selected difficulty
+!!VRy-1:Sv68*-1+5;
+!!VRy-2:Sy-1*214:5; Calladan's starting mana = max, so 214*Knowledge/5
+!!HE26:Fy-1/y-1/y-1/y-1 Iy-2; Tone down Calladan's starting stats, 5/4/3/2/1 based on selected difficulty
+!!HE26:F?y-2/?y-3/?y-4/?y-5/1;
+!!VRy-2:*-1+y-1;
+!!VRy-3:*-1+y-1;
+!!VRy-4:*-1+y-1;
+!!VRy-5:*-1+y-1;
+!!HE26:Fdy-2/dy-3/dy-4/dy-5; Add stats from Calladans starting Artifact, if any
+!!IF:M^Dramatis Personae:
+
+Devoron, Red God of Destruction, who aids the Ice King.
+
+The Ice King, whose greed cannot be satisfied until he owns everything.
+
+Leora, Green Goddess of Life, who guides and protects Woodshire and its people. Leora may cast multiple defensive spells per battle round.
+
+Jalery, the High Enchanter of Woodshire, and Vames, the War Leader. (Together in times past they won the Swords of Night and Day!)
+
+Calladan, a minor Life god who served Greenholme ere it was whelmed.
+
+The Sun Warrior, who serves the Golden Sword of Day.
+
+The Moon Guard, who serves the Black Sword of Night.^;
+
+!?TM2&v2392>1/v2395=3; Day >1, Green
+!!OW:R3/6/d-3950; reduce 4000/day to 50/day
+!!CA72/73/0:M2/3/152/1; (Ice Hold--LoT from Map Editor disappears)
+!!HE27:W?i Gi; allow Gem and Elleshar to dig despite movement blessings
+!!HE26:W?i Gi;
+
+!?TM2&v2392=2/v2395=3; Day 2
+!!IF:V201/0 V202/0 V203/0 V204/0; no more battle prayers
+!!IF:Q1/21/128/1^{Leora}:  Hear me, my children!  You have defeated the Ice King's forces, but he will send stronger and stronger armies, and he carries an Otataral Orb which would prohibit all my defensive magics, if he should lead an army himself.  Also he knows Elder Magic which is unaffected by the Orb, so withstanding his sieges only delays your doom!^;
+!!IF:Q1/21/136/1^{Jalery}:  Perhaps if we accepted his challenge to send champions through his portal to fight in his arena, we might find a source of Elder Magic somewhere in his City of Holds?^;
+!!IF:Q1/21/174/1^{Vames}:  Your magic is needed here to defend the castle.  I will go, with a few of the junior mages.^;
+!!IF:Q1/21/136/1^{Jalery}:  Take both swords.  You will need them!^;
+!!IF:Q1/21/128/1^{Leora}:  I will be with you to help as much as I can. My nephew Calladan is spying in the City now and will tell us what he learns. We must go swiftly, before the attacks grow too powerful for Jalery to withstand!^;
+!!IF:V51/1; set flag to display messages randomly on roads
+

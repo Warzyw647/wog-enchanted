@@ -1,0 +1,280 @@
+ZVSE
+
+; WoG options and setup for Lost Temples - Hidden Spells, JHV, September 24, 2012
+; uses v1-v40 temporarily at start of map, v68 for game difficulty, 69, v77-v79,v84-v87, v96-v97, v112 for fixed random rolls, z350-z366, z476-z479, FU14022-24
+
+!#UN:K1/1 M1; [Disable Monster bonuses, spawning and plagues]
+;#UN:J4/32768; 8x standard WoG AI Thinking Radius
+!#UN:P1/1; [(Arrow) Tower Experience: 0-WoG, 1-SoD]
+!#UN:P2/1; [Leave Creatures on Map: 0-WoG, 1-SoD]
+!#UN:P3/1; [Commanders are disabled]
+!#UN:P4/1; [Players can not demolish towns]
+!#UN:P5/0; [Map isn't wogified, i.e., no objects replaced by WoG objects)
+!#UN:P6/1; [Heroes don't start with Commanders]
+!#UN:P900/1; [Stack experience enabled]
+!#UN:P902/1; [artifact dropping enabled]
+!#UN:P906/1; [Disable gaining of stack exp. in battles--yes]
+
+!#UN:J2/?v68; Selected game difficulty 0-4
+!#VRv69:S999330; Some prime number around 1 million, minus 1. Random seed will be from range [0, this number]. Quite many seeds, but not close to overflows.
+!#VRv96:S647; Another, small prime; not 999330th root of 1 modulo 999331, but as a 199866th root it's good enough; it's just important that's this is not a 3rd or 10th root or some other smll number like that because then cycle would quickly repeat
+!#VRv97:S137; And another one, somewhat close to the number of unlocked artifacts, minimum artifact id that may be picked is 7 (Centaur Axe), maximum is 143 (Monster's Power)
+!#VRv77:S0 Rv69; Random number used to generate Treasures
+!#VRv78:S0 Rv69; Random number used to generate Treasures
+!#VRv79:S0 Rv69; Random number used to generate Treasures in the Arena, v80 also used there to pick Artifact class and v81-83 to store the resulting artifacts
+!#VRv84:S0 Rv69; Random number used to generate Treasures
+!#VRv69:+1; Back to being prime for modulo operations later (Prime means definitely no small cycles)
+
+; add special terrain patches to map
+; dirt patches P0/21/23/Level;
+; sand patches P1/0/2/Level;
+; grass patches P2/51/52/Level;
+; snow P3/50/55/Level;
+; lava P7/52/57/Level;
+!?FU14022; x16=coordinate index, x1=TR type, x2=TR min subtype, x3=TR max subtype, x4=lvl
+; x in v1-v20 (v[x16]), y in v21-v40 (v[x16+20])
+!!VRy1:Sx16+20; y-loc. index (to v21-v40)
+!!VRy2:Sx3-x2;
+!!VRy3:Sx2+Ry2;
+!!TRvx16/vy1/x4:Tx1/y3/d/d/d/d/d/d;
+
+; Lava -  Tyrant's Hold, Forge,
+!#VRv1:C66/66/66/66/67/74/67/67/67/67/67/70/70/70/70/70;
+!#VRv17:C67/67/68/68;
+!#VRv21:C74/75/76/77/77/78/24/25/26/27/28/24/25/26/27/28;
+!#VRv37:C78/79/78/79;
+!#DO14022/1/20/1:P7/52/57/0;
+!#VRv1:C64/64/64/64/63/61/62/63/64/64/67/70;
+!#VRv13:C69/69/70/70/71/71/72/72;
+!#VRv21:C32/33/34/35/35/37/37/37/37/38/29/29;
+!#VRv33:C78/79/78/79/78/79/78/79;
+!#DO14022/1/20/1:P7/52/57/0;
+!#VRv1:C64/65/66/67/68/69/70/71/72/73/3/3/3/3/3/3;
+!#VRv21:C39/39/39/39/39/39/39/39/39/39/61/62/63/64/65/66;
+!#DO14022/1/16/1:P7/52/57/0;
+!#VRv1:C73/73/73/73/73/73/73/70/70/70/70/70/99/66/77;
+!#VRv21:C32/33/34/35/36/37/38/24/25/26/27/28/94/78/78;
+!#DO14022/1/15/1:P7/52/57/0;
+!#VRv1:C99/99/99/99/99/99/99/99/99/99;
+!#VRv11:C99/99/99/99/99/99/99/99/99/99;
+!#VRv21:C74/75/76/77/78/79/80/81/82/83;
+!#VRv31:C84/85/86/87/88/89/90/91/92/93;
+!#DO14022/1/20/1:P7/52/57/0;
+
+; Dirt - wall boundaries
+!#VRv1:C120/120/120/126/126/126/140/140/140/140/140/140/120/120/120;
+!#VRv21:C75/76/77/75/76/77/79/80/81/82/83/84/75/76/77;
+!#DO14022/1/15/1:P0/21/23/0;
+!#VRv1:C44/44/44/44/44/44/44/44/44/44/44/44/44/44/44;
+!#VRv16:C44/44/44/44;
+!#VRv21:C51/52/53/54/55/56/57/58/59/60/61/62/63/64/65;
+!#VRv36:C66/67/68/69;
+!#DO14022/1/19/1:P0/21/23/0;
+!#VRv1:C100/100/100/100/100/100/100/100/100/100;
+!#VRv11:C100/100/100/100/100/100/100/100/100/100;
+!#VRv21:C48/49/50/51/52/53/54/55/56/57;
+!#VRv31:C58/59/60/61/62/63/64/65/66/67;
+!#DO14022/1/20/1:P0/21/23/0;
+!#VRv1:C100/100/100/5/5/5/5/5/5/5/5/5/5/5/5;
+!#VRv21:C68/69/70/103/104/105/106/107/108/109/110/111/112/113/114;
+!#DO14022/1/15/1:P0/21/23/0;
+!#VRv1:C5/5/5/5/5/5/5/5/5/5;
+!#VRv11:C5/5/5/5/5/5/5/5/5/5;
+!#VRv21:C115/116/117/118/119/120/121/122/123/124;
+!#VRv31:C125/126/127/128/129/130/131/132/133/134;
+!#DO14022/1/20/1:P0/21/23/0;
+!#VRv1:C136/136/136/136/136/136/136/136/136/136;
+!#VRv11:C136/136/136/136/136/136/136/136/136/136;
+!#VRv21:C87/88/89/90/91/92/93/94/95/96;
+!#VRv31:C97/98/99/100/101/102/103/104/105/106;
+!#DO14022/1/20/1:P0/21/23/0;
+!#VRv1:C136/136/136/136/136/136/136/136/136/136;
+!#VRv11:C136/136/136/136/136/136/136/136/136/136;
+!#VRv21:C107/108/109/110/111/112/113/114/115/116;
+!#VRv31:C117/118/119/120/121/122/123/124/125/126;
+!#DO14022/1/20/1:P0/21/23/0;
+!#VRv1:C136/120/120/120/120/120/120/120/120/120;
+!#VRv21:C127/65/66/67/68/69/70/75/76/77;
+!#DO14022/1/10/1:P0/21/23/0;
+!#VRv1:C131/131/131/131/131/131/131/131/131/131;
+!#VRv11:C131/131/131/131/131/131/131;
+!#VRv21:C38/39/40/41/42/43/44/45/46/47;
+!#VRv31:C48/49/50/51/52/53/54;
+!#DO14022/1/17/1:P0/21/23/0;
+
+; snow--Ice Hold
+!#VRv1:C76/71/72/73/74/75/76;
+!#VRv21:C70/77/77/77/77/77/77;
+!#DO14022/1/7/1:P3/50/55/0;
+
+; snow for star gates
+!#VRv1:C127/132/114/131;
+!#VRv21:C88/93/103/92;
+!#DO14022/1/4/1:P3/50/55/0;
+
+; test summoning hidden temple via redirect
+*?PI;
+; change volcano 158/0 to Water Temple (Era 2.3+ required for Redirect)
+*!SN:L^Era.dll^/?y1; y1=handle
+*!SN:Ay1/^RedirectFile^/?y2; y2=FU address
+*!SN:Ey2/1/^ZWVolc1.def^/^WtrTmpl.def^;
+*!UN:I95/117/1/158/0; Redirect had no effect--use volcano/temple placement
+*!UN:I104/110/1/158/0/144/0;
+
+*?CM0&-49; R-C on Adv Map
+*!UN:O104/110/1; delete Temple--result:  rock underneath deleted instead
+*!VRz476:S^^;
+*!IF:V49/1;
+
+; Leora--> Cr 128
+!#VRz350:S^Leora, Goddess of Life^;
+!#UN:G1/128/1/350;
+*; Soldiers and Mages
+!#VRz351:S^Warrior^;
+!#VRz352:S^Warriors^;
+!#UN:G1/6/0/351;
+!#UN:G1/6/1/352;
+!#VRz353:S^Senior Warrior^;
+!#VRz354:S^Senior Warriors^;
+!#UN:G1/7/0/353;
+!#UN:G1/7/1/354;
+!#MA:P7/40;
+!#VRz355:S^High Mage^;
+!#VRz356:S^High Mages^;
+!#UN:G1/35/0/355;
+!#UN:G1/35/1/356;
+; Paladin flags
+!#MA:X174/?v7104;
+!#VRv7104:&-5 &-3 |16 |32768; remove shoot, remove fly, add alive, add attack twice
+!#MA:A174/12 D174/14 E174/12 M174/8 P174/50 S174/7 X174/v7104;
+*; Warrior and Mage/Enchanter at Day 2
+!#VRz357:S^Vames the Elite Warrior^;
+!#UN:G1/174/0/357;
+!#UN:G1/174/1/357;
+!#VRz358:S^Jalery the High Enchanter^;
+!#UN:G1/136/0/358;
+!#UN:G1/136/1/358;
+!#VRz359:S^Ice Guard^;
+!#VRz360:S^Ice Guards^;
+!#UN:G1/40/0/359 G1/40/1/360;
+!#EA40:B12/1/119/87/1/1/1/1/1/1/1/1/1/1/1; Immune to Hostile Water
+!#VRz361:S^Death Guard^;
+!#VRz362:S^Death Guards^;
+!#UN:G1/41/0/361 G1/41/1/362;
+!#EA41:B9/1/119/87/1/1/1/1/1/1/1/1/1/1/1; Immune to Hostile Water
+!#EA41:B12/1/102/114/1/1/1/1/1/1/1/1/1/1/1; Rebirth
+!#EA41:B13/1/80/43/0/0/0/0/1/1/1/1/2/2/3; add castings
+!#VRz363:S^Ice King^;
+!#UN:G1/152/0/363 G1/152/1/363;
+!#EA152:B8/1/119/87/1/1/1/1/1/1/1/1/1/1/1; Immune to Hostile Water
+!#EA152:B12/1/102/114/1/1/1/1/1/1/1/1/1/1/1; Rebirth
+!#EA152:B13/1/80/43/1/1/1/1/2/2/2/2/3/3/4; add castings
+!#VRv1:Sv68+1*400;
+!#MA:P152/v1; Ice King HP 400/800/1200/1600/2000 depending on selected game difficulty
+!#MA:B152/1; Ice King gets 1 rebirth cast plus creature experience bonus. 24 default casts can be confusing for players.
+!#VRz364:S^Ice Boss^;
+!#VRz365:S^Ice Bosses^;
+!#VRz366:S^Motivates. Produces liches from dead guards.^;
+!#UN:G1/51/0/364 G1/51/1/365 G1/51/2/366;
+!#EA51:B10/1/80/43/1/1/1/1/2/2/2/2/3/3/3; add castings
+!#UN:C5928811/1/64;  [5A776B] 0xFea (works in Era 2) make Ice Bosses resurrect Liches
+!#EA51:B11/1/119/65/0/0/0/1/1/1/1/1/1/1/1; Air Immunity starting at creature level 3
+
+; Castle Town w/Mages instead of Monks
+!#UN:T0/4/0/34; [level 4 no upg - Mages]
+!#UN:T0/4/1/35; [level 4 upg - Arch Mages]
+; [these creatures count as being Castle troops]
+!#MA:O34/0 O35/0; Mages, Arch Mages
+!#MA:O136/0 O164/0 O166/0; Enchanters, Sun Warrior, Moon Guard
+
+!?PI;
+; make Lava roads
+!!VRy1:S7; --Lava
+!!VRy2:S0; --no pathfinding
+!!VRy3:Sy1 *4 +y2 *4 +6546704;
+!!UN:Cy3/4/50; --50 movepoints per tile
+!!VRy3:+4;
+!!UN:Cy3/4/40;
+!!VRy3:+4;
+!!UN:Cy3/4/30;
+!!VRy3:+4;
+!!UN:Cy3/4/25;
+; make Dirt faster also
+!!VRy1:S0; --Dirt
+!!VRy2:S0; --no pathfinding
+!!VRy3:Sy1 *4 +y2 *4 +6546704;
+!!UN:Cy3/4/90; --90 movepoints per tile
+!!VRy3:+4;
+!!UN:Cy3/4/85;
+!!VRy3:+4;
+!!UN:Cy3/4/65;
+!!VRy3:+4;
+!!UN:Cy3/4/55;
+
+!?GM0;
+!!UN:C5928811/1/64;  [5A776B] (works in Era 2) make Ice Bosses resurrect Liches
+; make Lava roads
+!!VRy1:S7; --Lava
+!!VRy2:S0; --no pathfinding
+!!VRy3:Sy1 *4 +y2 *4 +6546704;
+!!UN:Cy3/4/50; --50 movepoints per tile
+!!VRy3:+4;
+!!UN:Cy3/4/40;
+!!VRy3:+4;
+!!UN:Cy3/4/30;
+!!VRy3:+4;
+!!UN:Cy3/4/25;
+; make Dirt faster also
+!!VRy1:S0; --Dirt
+!!VRy2:S0; --no pathfinding
+!!VRy3:Sy1 *4 +y2 *4 +6546704;
+!!UN:Cy3/4/90; --90 movepoints per tile
+!!VRy3:+4;
+!!UN:Cy3/4/85;
+!!VRy3:+4;
+!!UN:Cy3/4/65;
+!!VRy3:+4;
+!!UN:Cy3/4/55;
+!!UN:C6684604/1/106; change LAVRVR.DEF to LAVRJV.DEF
+!!UN:C6684605/1/118;
+; set Sec. Skill icons for Masters
+!!FU&v313<15:E;
+!!UN:C6685136/2/22090; secskill-->JVcskill
+!!UN:C6684920/2/22090; secsk82-->JVcsk82
+
+; gold stars
+!?FU14023; x16=coordinate index, x1=river type, x2=river subtype, x3=z-loc.
+; x in v1-v20 (v[x16]), y in v21-v40 (v[x16+20])
+!!VRy1:Sx16+20; y-loc. index (to v21-v40)
+!!VRy2:Sx3-x2;
+!!VRy3:Sx2+Ry2;
+!!TRvx16/vy1/x3:Td/d/d/d/d/d/?y10/d; y10=mirror bits
+; zero river mirror bits: AND y10 with 0x FF FF FF F3 = -13
+!!VRy10:&-13;
+!!TRvx16/vy1/x3:Td/d/x1/x2/d/d/y10/d;
+
+!#UN:C6684604/1/106; change LAVRVR.DEF to LAVRJV.DEF
+!#UN:C6684605/1/118;
+!#VRv1:C114/105/108/114/127/132/26;
+!#VRv21:C128/113/113/103/88/93/62;
+!#DO14023/1/7/1:P4/14/0; paint bonus gold stars
+
+!?FU14024; x16=1-N, x1/x2/x3=x-1/y-1/z0, x4/x5=dx/dy, set red squares
+!!VRy1:Sx4*x16+x1; xi
+!!VRy2:Sx5*x16+x2; yi
+!!TRy1/y2/x3:P0;
+
+!#DO14024/1/3/1:P60/37/0/1/0;
+!#DO14024/1/4/1:P63/36/0/0/1;
+!#DO14024/1/12/1:P62/40/0/1/0;
+!#DO14024/1/9/1:P74/31/0/0/1;
+!#DO14024/1/4/1:P63/31/0/0/1;
+!#DO14024/1/3/1:P63/32/0/1/-1;
+!#DO14024/1/3/1:P63/33/0/1/-1;
+!#DO14024/1/3/1:P70/28/0/1/1;
+!#DO14024/1/3/1:P70/29/0/1/1;
+!#DO14024/0/1/1:P66/27/0/0/1;
+!#DO14024/0/1/1:P71/27/0/0/1;
+!#DO14024/0/3/1:P67/24/0/0/1;
+!#DO14024/0/3/1:P70/24/0/0/1;
+

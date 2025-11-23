@@ -1,0 +1,95 @@
+ZVSE
+
+* HS_StraightGates, JHV, Oct. 4, 2012
+
+* uses v148-v149, z8 temporarily, z308, FU64 and flag 367
+
+* from Astrology to Alchemy
+!#TR114/128/0:E0;
+!#TR102/128/0:E0;
+!?OB114/128/0&1000;
+!!IF:M^Follow the arrow, {straight} and true,
+and Alchemy's Hold you will go to.^;
+!!VRv148:C-1/0; step change
+!!IF:V367/1;
+!!HE-1:N?y-1;
+!!FU64:Py-1/113/128/0; can't step on star (YS)
+!!TR102/128/0:E0;
+
+!?HM-1&367;
+!!HE-1:P?y1/?y2/?y3;
+!!VRy8:Sv998-y1;
+!!VRy9:Sv999-y2;
+!!FU&y8=v148/y9=v149:E;
+!!IF:V367/0;
+
+!?OB102/128/0&1000;
+!!TR114/128/0:E0;
+!!IF&-367:M^Your path from the star was crooked, so,
+To Alchemy's Hold you will not go.^;
+!!FU&-367:E;
+!!HE-1:N?y-1;
+!!FU64:Py-1/85/124/0;
+!!IF:V367/0;
+
+* from Power to Gold
+!#TR114/103/0:E0;
+!#TR122/111/0:E0;
+!#VRz308:S^^;
+!#HT12/3:T308; delete hint text for blank campfire 12/3
+!#OB122/111/0:S;
+!?OB114/103/0&1000;
+!!IF:M^From star to star you must go true,
+Or the Hold of Gold will be closed to you.^;
+!!VRv148:C1/1; step change
+!!IF:V367/1;
+!!HE-1:N?y-1;
+!!FU64:Py-1/115/104/0; can't step on star (YS)
+!!TR122/111/0:E0; dropping art. may erase YS
+
+!?OB122/111/0&1000;
+!!TR114/103/0:E0;
+!!IF&-367:M^From star straight to star you did not walk,
+So the gate to Gold will not unlock.^;
+!!FU&-367:E;
+!!HE-1:N?y-1;
+!!FU64:Py-1/48/129/0;
+!!IF:V367/0;
+
+* from Power to Home
+!#TR127/88/0:E0;
+!#TR132/93/0:E0;
+!#OB132/93/0:S;
+!?OB127/88/0&1000;
+!!IF:M^Tap each heel twice on the golden way,
+And home you will bound without delay.^;
+!!VRv148:C1/1; step change
+!!IF:V367/1;
+!!HE-1:N?y-1;
+!!FU64:Py-1/128/89/0; can't step on star (YS)
+!!TR132/93/0:E0; dropping art. may erase YS
+
+!?OB132/93/0&1000;
+!!TR127/88/0:E0;
+!!IF&-367:M^From hither to yon you wandered wrong,
+So back to your home you will not roam.^;
+!!FU&-367:E;
+!!HE-1:N?y-1;
+!!FU64:Py-1/72/73/1;
+!!HE-1:M8/0; Take DD so that the hero doesn't get it this way in the outside world. Should get DD outside of Holds by figuring out a number of an open Hold and asking Pyth for a ride there.
+!!IF:V367/0;
+
+!?FU64; teleport hero x1 to location x2/x3/x4 if nobody stands there, otherwise kill the hero who tries to teleport
+!!OBx2/x3/x4:T?y1;
+!!OBx2/x3/x4&y1=34:U?y2;
+!!if&y1=34/y2<>x1:;
+ !!HEx1:B0/?z7; name
+ !!IF:M^The destination is occupied by another soul! %Z7 cannot re-materialize!^;
+ !!VRz8:S^MEDUKILL.WAV^;
+ !!SN:Pz8;
+ !!HEx1:K; prevent heroes from banging
+!!el:;
+ !!HEx1:Px2/x3/x4; no hero on the destination tile, safe to teleport
+!!en:;
+
+

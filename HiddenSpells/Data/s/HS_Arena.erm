@@ -1,0 +1,705 @@
+ZVSE
+
+; HS_Arena, JHV, Oct., 2012
+
+; uses v27 (round count), v79 from settings, v80-v83, v99, v201-v202, v314-v317, z219, FU84, FU330-FU334, f270-f275 (f6, f7 temporary), TM1 from TobynsUniversalTimer
+; also uses v156-v159, v160-v169, v72, v1076-v1092, v1185-v1196, v1266-v1269, v1460-v1476,
+; v1501-v1540, FU112-FU123
+; Ice Cannon battle added:
+; v1336-v1339, z480-z481, f609-611, FU7027-FU7029, FU7041-FU7048
+; Battle Bones for Beast battles added: v1-v7 & v9 (temporary)
+
+!#VRv201:S174; Vames Cr Type
+!#VRv202:S136; Jalery Cr Type
+!#IF:V609/0 V610/0 V611/0;
+
+!#VRz219:S^Arena^;
+!#OB121/48/0:SH219;
+
+!?OB121/48/0; Arena
+!!PO998:V3/?y1;
+!!VRy2:Sc; day # (starts at 1)
+!!IF&y1=y2:M^The Arena games are over for today. The King is angry because some foreign barbarians won for a change!^;
+!!FU&y1=y2:E;
+!!VRz1:S^../Mods/HiddenSpells/Data/ArenaSwd.gif^;
+!!VRz2:S^../Mods/HiddenSpells/Data/Arena.jpg^;
+!!VRz3:S^../Mods/HiddenSpells/Data/ArenaSwd.gif^;
+!!VRz5:S^Arena Gladiator Gate - Today is a good day to die!
+You see one tiny box with a coin symbol and three boxes with numbers.
+The smallest has number %V81 on it and a drawing of a few Mithril bars.
+The middle one has number %V82 and 500 gold coin pictures.
+The largest is numbered %V83 and also has symbols '1k$' on it.^;
+!!VRz6:S^Exotic wild beasts in the Arena^;
+!!VRz7:S^Catch the bouncing Gremlins--if you can!^;
+!!VRz8:S^Kiss the Ice King's Daughters.^;
+!!VRz9:S^The Death Guards^;
+!!VRz10:S^What will you face?^;
+!!IF:D5/5/0/10/1/2/3/0/0/0/0/0/6/7/8/9;
+!!VRz-6:S^If you survive, skin and butcher the beasts for 1 gold per pound.^;
+!!VRz-7:S^The Ice King laughs at their merry antics--especially if you die!^;
+!!VRz-8:S^Their kisses are cold, sloppy and deadly!^;
+!!VRz-9:S^The Ice King's workers of the month!^;
+!!IF:F5/-6/-7/-8/-9/1;
+!!IF:E99/5; v99 1-4 or -1 for Cancel
+!!FU&v99=-1:E;
+!!PO998:V3/y2;
+!!IF&-275:M^Notice: no damage spells are allowed in the Arena, by order of the Ice King! (Unless you know any Elder spells, ha ha!)^;
+!!IF:V275/1;
+!!FU330&v99=4:P;
+!!FU7027&v99=3:P;
+!!FU331&v99=2:P;
+!!FU332&v99=1:P;
+
+!?FU330; fight Death Guards
+!!IF:V270/1;
+!!VRv314:+1; # of DG fights
+!!HE-1:Tv998/v999/v1000/41/1;
+!!IF:V270/0;
+!!HE-1:O?y1;
+!!FU&y1<>3:E;
+!!IF:Q1/8/v83/6/1000/1^The great and generous Ice King rewards you for your victory, stranger. Next time you may not be so lucky!^;
+!!OW:R-1/6/d1000;
+!!HE-1:A4/v83;
+
+!?BA0&270;
+!!BA:B^SndArena.pcx^;
+!!VRy1:Sv314+2;
+!!VRy2:Sy1:3;
+!!BA:M1/0/41/y2 M1/1/40/y1 M1/2/40/y1 M1/3/40/y1 M1/4/-1/0 M1/5/-1/0 M1/6/-1/0;
+
+!?BF&270;
+!!DO84/21/27/1:P; give foes immunity to mage spells
+!!BF:C;
+!!BM22:P100;
+!!BM23:P116;
+!!BM24:P134;
+!!BM21:P117; (after later stack moved out of the way)
+
+!#VRv4:S7994243+173; Era 1.8
+!#VRv5:S7994051+173;
+!#VRv6:S7993859+173;
+!#UN:Cv4/1/9;
+!#UN:Cv5/1/8;
+!#UN:Cv6/1/3;
+
+!?FU6000;
+!!VRx3&x1=1/x2<2:S16;
+!!VRx3&x1=1/x2>197:S16;
+!!FU|x2<2/x2>197:E;
+!!UN:C4446879/4/?y10;
+!!UN:C4446867/1/?y11;
+!!VRy10&y11=254:-2;
+!!VRy10&y11=-2:-2;
+!!VRx2:+y10;
+!!UN&x1=0:Cx2/1/x3;
+!!UN&x1=1:Cx2/1/?x3;
+
+!#MA:X173/?i;
+!#VRi:|4;
+!#MA:X173/i;  add shooter flag
+!#MA:N173/16 B173/0; shots=16, # of casts=0 for SG
+!#FU6000:P0/173/3;
+!#EA173:B6/1/102/115/1/1/1/1/1/1/1/1/1/1/1;  shoot while foe adjacent
+!#EA173:B7/1/119/53/1/1/1/1/1/1/1/1/1/1/1; Immunity to all hostile spells
+!#EA173:B8/1/87/61/75/75/75/75/75/75/75/75/75/75/75;  Dwarf magic resistance
+!#EA173:B9/0/108/170/25/25/25/25/25/25/25/25/25/25/25;  summon clone Arctic SS (for Ice Apple)
+!#EA173:B10/0/108/13/10/10/10/10/10/10/10/10/10/10/10;  summon clone Archangel (-"-)
+
+; v1076-v1092 look-up table for 2-power vs. bit #
+!#VRv1076:C1/2/4/8/16/32/64/128/256/512/1024/2048/4098;
+!#VRv1089:C8192/16384/32768/65536;
+; v1185-v1188 table of bit-values for same wall of next room by wall bit #
+!#VRv1185:C4/8/1/2;
+; v1189-v1192: table of column (x) offsets to next room after opening P0-P3
+!#VRv1189:C1/0/-1/0; add 1 to RC (v56) after opening P0
+; v1193-v1196: table of row (y) offsets to next room after opening P0-P3
+!#VRv1193:C0/-1/0/1; add 1 to RR (v56) after opening P3
+; v1266-v1269 table of hex offsets for P0-P3 passageways
+!#VRv1266:C1/-17/-1/17;
+; v1360-v1419 = stack of visited rooms (put v56 on stack after opening a wall)
+; v1359 = stack counter
+!#VRv1359:S-1;
+
+!?FU331; fight bouncing Santa Gremlins
+!!UN:C7721205/4/222;  no guards
+!!IF:V271/1 V272/0 V273/0;
+!!VRv315:+1; # of SG fights
+!!UN:C6738874/1/101; change tombstone to snow pyramid
+; v1460-v1471: table of BF:M codes, row 0, row 1, ..., row 11
+!!VRv1460:C64572/21844/65534/21844/65534/21844/65534/21844/65534/21844/64572;
+!!VRv156:S16; set starting room number to mid left side, col 0, row 2
+!!VRv6:S2; entrance room row number
+!!VRv7:S0; entrance column no.
+!!VRv8:Sv6*17+v7*2+18; BF hex = 18+34*row+2*col
+!!DO115/1501/1540/1:P0; fill v1501-v1540 w/0
+!!VRv1517:S1; set room 16 to visited
+!!VRv1359:S-1; set stack counter to -1
+!!DO116/1/39/1:P; note need N*M-1 calls for NxM maze w/1 room already visited
+!!HE-1:N?v156 O?v157; reuse v156 & v157 for Hero # and Owner #
+!!HE-1:S19/?v158 S19/0; save Tactics skill and remove
+!!HE-1:A2/6/d/?v159; chk for Tent
+!!HE-1&v159>0:A-6; remove Tent
+!!UN:C5168326/4/2657254; turn on TL triggers
+!!UN:C7825648/2/29717; at normal speed
+!!HE-1:Tv998/v999/v1000/173/1;
+!!UN:C5168326/4/434630; turn off TL triggers
+!!IF:V271/0 V272/0;
+!!UN:C6738874/1/48; restore tombstone
+!!HEv156:O?v1;
+!!FU&v1<>v157:E;
+!!HEv156:S19/v158; restore Tactics skill
+!!HEv156&v159>0:A4/6; restore Tent
+!!VRy7:S3 R3; 3-6
+!!IF:Q1/21/173/8/v81/7/y7/1^The Gremlins dropped an artifact and some Mithril!^;
+!!OW:R-1/7/dy7;
+!!HE-1:A4/v81;
+
+!?BA0&271;
+!!BA:B^snow5.pcx^;
+!!VRy1:Sv315+2*3;
+!!BA:M1/0/173/y1 M1/1/173/y1 M1/2/173/y1 M1/3/173/y1 M1/4/173/y1 M1/5/173/y1 M1/6/-1/0;
+
+; give foes immunity to mage spells
+!?FU84; x16=enemy stack
+!!BMx16:N?y1 T?y2;
+!!FU&y1<1:E; exit if no creature in stack
+!!VRy1:Sx16+1*-1;
+!!EAy1:Oy2; attempt to fix Ogre glitch in Gauntlet
+!!EAy1:F119/-1/?y4; y4=line for ability 119/any, or empty line if none, -1 if no free lines
+!!EAy1&y4>-1:By4/1/119/68/1/1/1/1/1/1/1/1/1/1/1;  immunity to direct spell damage [DOESN'T WORK on Titan LB]
+!!EAy1&y4>-1/v202<>34:By4/1/119/65/1/1/1/1/1/1/1/1/1/1/1;  immunity to hostile air (works for TLB)
+
+!?BF&271;
+!!DO84/21/27/1:P; give foes immunity to mage spells
+!!BF:Mv1460/v1461/v1462/v1463/v1464/v1465/v1466/v1467/v1468/v1469/v1470/61;
+!!DO333/0/6/1:P; position attacking stacks
+!!BM21:P26;
+!!BM22:P32;
+!!BM23:P66;
+!!BM24:P134;
+!!BM25:P168;
+!!BM26:P162;
+
+!?FU333; x16=stack 0-6
+!!BMx16:N?y1 T?y2;
+!!FU|y1<1/y2<0:E;
+!!FU&y2>144/y2<150:E; avoid Ballista, etc.
+!!VRv1:C18/52/120/154/86/6/176/8/178;
+!!MA:Xy2/?y3;
+!!VRy3:&1; dbl-wide bit
+!!DO334/1/9/1:Py3/x16;
+
+!?FU334; x16=hex-table index, 1-9, x1=dbl-wide code (1=dbl-wide). x2=stk
+!!VRy1:Svx16; target hex
+!!BU:Ey1/?y2;
+!!FU&y2>-1:E; hex occupied
+!!VRy3&x1>0:Sy1+1; dbl-wide front hex (P is back hex)
+!!BU&x1>0:Ey3/?y2;
+!!FU&x1>0/y2>-1:E; hex occupied
+!!BU&x1>0:Oy3/?y2;
+!!FU&x1>0/y2<>0:E; hex has obstacle
+!!BMx2:Py1;
+!!VRx16:S99; end loop
+
+!?FU77006&271/-273; check for side 0, set bounce-SG flag
+!!SN:X?y1/?v160;  side, stack of side (0-20)
+!!VRv160&y1=1:+21;
+!!IF&y1=0:V272/1;
+!!IF&y1=1:V272/0;
+!!UN&272:C5168326/4/2657254; turn on TL triggers
+!!UN&-272:C5168326/4/434630; turn off TL triggers
+
+!?TL2&272/-273; bounce SG at random 5 sec. intervals
+!!BU:C?y1; y1=1 if battle ended
+!!SN&y1=1:Q;
+!!VRy1:S0 R1;
+!!SN&y1=0:Q;
+!!UN:C5168326/4/434630; turn off TL triggers
+!!IF:V6/1 V7/0; use f6 temporarily to keep one SG back, f7 to check for move
+!!VRy3:S21 R5; chg to 2-move for Yona test
+!!VRy4:Sy3+1;
+!!BMy3:N?y5;
+!!BMy4:N?y6;
+!!VRy3&y5<1/y6<1:+2;
+!!VRy3&y3>26:S21;
+!!VRy4:Sy3+1;
+!!DO113/y3/y4/1:P;
+!!IF:V7/0; disable end of movement for Yona test (and thenceforth for continuous bouncing)
+!!IF&7:V272/0;
+!!BMv160&v160>-1/v160<21:P?y1 N?y2; hi-lited stack v160 set in FU77006
+!!BMv160&v160>-1/v160<21/y2>0/y1>0/y1<186:Py1; re-hi-light acting stack
+*!UN:C6919200/4/?v2; (Bersy's code to redraw shadow grid, UN:C + SN:E)
+*!SN:E4797616/2/v2/0/1; add.=4934BA, sometimes get crash EIP=4925B7--coincidence?
+*!BU:R; (I guess so-still got crash after BU:R, same EIP, w/o SN:E)(& w/o BU:R)
+!!BMv160&v160>-1:V62; replaces BU:R
+!!UN&-7:C5168326/4/2657254; turn on TL triggers
+*!SN:Q; started getting 4925B7 crash again after this command (wasn't in old 6-move version)
+
+!?BG0&271;
+!!BG:A?y1;
+!!FU&y1<>1/y1<>2/y1<>6/y1<>7:E;
+*!UN:C5168326/4/434630; turn off TL triggers
+!!IF:V272/0;
+
+!?BG1&271;
+!!BU:C?y1;
+!!IF&y1=1:V272/0 V273/1;
+!!UN&y1=1:C5168326/4/434630; turn off TL triggers
+
+!?CM4&271;
+!!CM:I?v7 D?v8;
+!!IF|v7=2008/v8=252:V272/0; cast spell
+!!UN:R5/2/?v6;
+!!FU&v6<3:E; 0=null, 1=move, 2=fly
+*!UN:C5168326/4/434630; turn off TL triggers
+!!IF:V272/0;
+
+!?FU77003&271; check for keypress
+*!UN:C5168326/4/434630; turn off TL triggers
+!!IF:V272/0;
+
+!?BA1&271;
+!!IF:V272/0;
+!!UN:C5168326/4/434630; turn off TL triggers
+
+!?FU113&272/-273; x16=SG stack
+!!BMx16:N?y1;
+!!FU&y1<1:E;
+!!VRv2:S-1;
+!!FU112:P; set hex # in v2
+!!FU&v2<0:E;
+!!BMx16:N?y2 P?y3; dbl-chk
+!!FU&y2<1:E;
+!!VRy4:Sy3:17; r (hex row)
+!!VRy5:Sy3%17; t (hex column)
+!!VRy6:Sy4%2; r even or odd
+!!VRy7:Sy5*44+36; xh for odd r
+!!VRy7&y6=0:+22; xh for even r
+!!VRy8:Sy4*42+112; yh
+!!VRy9:Sy7-23; xh1
+!!VRy10:Sy7+23; xh2
+!!VRy11:Sy8-28; yh1
+!!VRy12:Sy8+28; yh2
+!!SN:Ev65/1/?y21/?y22/?y23/?y24; call MouseGet(x,y,lmb,rmb)
+!!SN&y21>y9/y21<y10/y22>y11/y22<y12:Ev41/1/388/322; Mouseput(x,y)--move mouse pointer to center
+!!BMx16:Pv2;
+!!IF:V7/1;
+
+!?FU112&272/-273; v2=count of trys, --> selected hex
+!!VRv2:+1;
+!!VRy1:S0 R7; column (x)
+!!VRy1|6/v27<1:S6 R1; column (x)
+!!VRy2:S0 R4; row (y)
+!!VRy3:Sy2*17+y1*2+18; trial hex
+!!BU:Ey3/?y4;
+!!VRv2&y4=-1:Sy3;
+!!IF&y4=-1:V6/0; keep only 1 stack back always
+!!SN&y4=-1:Q;
+!!VRv2&v2>10:S-1;
+*!SN&v2<0:Q;
+!!FU&v2<0:E;
+!!FU112:P; try again
+*!SN:Q;
+
+!?FU115; x16=v-index, x1=value
+!!VRvx16:Sx1;
+
+!?FU116; stack loop, (v1357,v1358)= (x,y) of room zero
+; call FU117 to check for closed wall in current room (to open)
+!!FU117:P;
+
+!?FU117; put passageway randomly in current maze room to unvisited adjacent room
+; v156 = room #, 0 to 39
+; calculate 4 corner #'s (indexes to corner bit-flag table) based on v156
+!!VRv6:Sv156:8; room row # (RR)
+!!VRv7:Sv156%8; room column # (RC)
+!!VRv8:Sv6*17+v7*2+18; BF hex = 18+34*row+2*col
+!!DO120/0/3/1:P; start with fresh "deck" of passage #'s
+!!VRv160:S4; set total passages in "deck"
+!!FU118:P;
+; v160<0 on return from FU118 if no closed passageway found
+!!FU123&v160<0:P; call stack popper if no closed pw found
+!!FU117&v160<0:P; and try again with previous room from stack
+
+
+!?FU118; open passageway to adjacent room
+!!FU119:P; select a passage # to be opened (-->v169)
+!!FU&v160<0:E; give up if no passageways were left to try
+!!VRy1:S1266+v169; index to passageway offset
+!!VRy8:Sv8+vy1; passageway hex
+!!VRy2:Sy8:17; word #
+!!VRy3:Sy8%17; bit number in word
+!!VRy4:S1076+y3; index to v1076 bit-values table
+!!VRy5:Svy4+1*-1; &-value to remove obstacle
+!!VRy6:S1460+y2; index to v1460 table of BF:M obstacle bit flags
+*!IF:M^current hex=%V8, passage hex=%Y8, word=%Y2, bit=%Y3 &=%Y5^;
+!!VRvy6:&y5;
+; put current room # in stack
+!!FU122:P;
+; set next room # that passage leads to
+!!VRv156:Sv157; v157 set in FU119
+
+!?FU119; function to deal one random passageway # from deck w/o replacement
+!!VRv160:-1; reduce # of cards left in deck by 1 (starts @ 4-->3)
+!!FU&v160<0:E; give up if no passageways left to try
+!!VRy1:S0 Rv160; y1=random # from [0,v160]
+!!VRy2:S161+y1; y2=161+y1
+!!VRv169:Svy2;  v169=v(161+y1)= passageway # picked
+!!VRy4:S161+v160; y4 = v-index of current last card in deck
+!!VRvy2:Svy4; replace card y1 with last card
+
+; check for unvisited room next if this wall opened
+
+; v1189-v1192: table of column offsets to next room after opening P0-P3
+!!VRy1:S1189+v169; index to column offset
+!!VRy2:Svy1+v7; new column
+!!IF:V1/0;
+!!IF|y2<0/y2>7:V1/1; set flag 1 if new column # outside maze
+; v1193-v1196: table of row offsets to next room after opening P0-P3
+!!VRy1:S1193+v169; index to row offset
+!!VRy3:Svy1+v6; new row
+!!IF:V2/0;
+!!IF|y3<0/y3>4:V2/1; set flag 2 if new row # outside maze
+!!VRv157:Sy3*8+y2;
+; check whether next room visited
+!!VRy1:S1501+v157; index to visit codes
+!!VRy6:S0;
+!!VRy6&-1/-2:Svy1; v157 room code (1=visited)
+; if legal room not visited, use this passage
+!!VRvy1&y6=0/-1/-2:S1; set room v157 to visited
+!!FU119|1/2/y6=1:P; try again if room v157 illegal or already visited
+
+!?FU120;  function to initialize "deck" of passage #'s (note x16 is DO counter)
+!!VRy1:S161+x16;  y1->161+x16 (v161->v164)  (x16=0->3)
+!!VRvy1:Sx16;      v(161+i)=i, for i=0->3
+
+!?FU121; function to deal one random passageway # from deck w/o replacement-->v169
+!!VRv160:-1; reduce # of cards left in deck by 1 (starts @ 4-->3)
+!!FU&v160<0:E; give up if no passageways left to try
+!!VRy1:S0 Rv160; y1=random # from [0,v160]
+!!VRy2:S161+y1; y2=161+y1
+!!VRv169:Svy2;  v169=v(161+y1)= passageway # picked
+!!VRy4:S161+v160; y4 = v-index of current last card in deck
+!!VRvy2:Svy4; replace card y1 with last card
+
+!?FU122; stack placer
+; v156 = current room number
+; v1359 = stack counter
+; v[1360+v1359] = last stack entry
+!!VRv1359:+1;
+!!VRy1:S1360+v1359;
+!!VRvy1:Sv156;
+
+!?FU123; stack popper
+; v156 = current room number
+; v1359 = stack counter
+; v[1360+v1359] = last stack entry
+!!VRy1:S1360+v1359;
+!!VRv156:Svy1;
+!!VRv1359:-1;
+
+!?FU332; fight beasts
+!!IF:V274/1;
+!!VRv316:+1; # of Bst fights
+!!HE-1:Tv998/v999/v1000/41/1;
+!!IF:V274/0;
+!!HE-1:O?y1;
+!!FU&y1<>3:E;
+!!IF:Q1/6/v317/1^We can use the meat and hides in our war effort, so we will pay you %V317 gold for them.^;
+!!OW:R-1/6/dv317;
+
+!?BA0&274;
+!!BA:B^SndArena.pcx^;
+; change DEFs
+!!SN:L^Era.dll^/?y1; y1=handle
+!!SN:Ay1/^RedirectFile^/?y2; y2=FU address
+!!SN:Ey2/1/^ObDtS03.def^/^OB12Skul.def^;  O12 skull pile
+!!SN:Ey2/1/^ObFFS04.def^/^OB83Ribs.def^;  O83 ribs
+!!SN:Ey2/1/^ObSnS08.def^/^OB31Hrns.def^;  O31 Horned Skull
+
+!!FU177:P; get random seed (see HS_Objects)
+!!VRy10:Sv316-1:3+1; y10=max index (1 to y10+1)
+!!VRy10&y10>4:S4;
+!!VRv1:C73/102/49/92/96; beast 1 CR#'s
+!!VRy11:S1 Ry10;
+!!BA:M1/0/vy11/3;
+!!MA:Pvy11/?v317; save HP for reward
+!!VRv317:*3;
+!!VRv1:C5/79/38/26/168; beast 2 CR#'s
+!!VRy11:S1 Ry10;
+!!BA:M1/1/vy11/2;
+!!MA:Pvy11/?y2;
+!!VRv317:+y2+y2; save HP for reward
+!!FU&v316<6:E;
+!!VRv1:C144/63/24/82/135; beast 3 CR#'s
+!!VRy11:S1 Ry10;
+!!BA:M1/2/vy11/1;
+!!MA:Pvy11/?y2;
+!!VRv317:+y2; save HP for reward
+!!FU&v316<9:E;
+!!VRv1:C80/109/110/27/196; beast 4 CR#'s
+!!VRy11:S1 Ry10;
+!!BA:M1/3/vy11/1;
+!!MA:Pvy11/?y2;
+!!VRv317:+y2; save HP for reward
+
+!?BF&274;
+!!DO84/21/27/1:P; give foes immunity to mage spells
+; add bones
+!!BF:C;
+!!VRv9:S0 T48%7+1; random from 1 to 7
+!!VRv1:C56/125/109/93/124/140/75;
+!!VRy1:Svv9;
+!!BF:O83/y1; Ribs
+!!VRv1:C142/107/74/124/76/128/39;
+!!VRy2:Svv9;
+!!BF:O31/y2; Horned Skull
+!!VRv1:C93/40/60/58/43/74/126;
+!!VRy3:Svv9;
+!!BF:O12/y3; Skull Pile
+
+
+!?BA1&274;
+; unchange DEFs
+!!SN:L^Era.dll^/?y1; y1=handle
+!!SN:Ay1/^RedirectFile^/?y2; y2=FU address
+!!SN:Ey2/1/^ObDtS03.def^/^^;
+!!SN:Ey2/1/^ObFFS04.def^/^^;
+!!SN:Ey2/1/^ObSnS08.def^/^^;
+
+
+!?FU7027; Ice Cannon Battle
+!!IF:V609/1;
+!!VRv1336:+1; # of IC fights
+!!HE-1:T62/86/1/123/1; (snow)
+!!IF:V609/0;
+!!HE-1:O?y1;
+!!FU&y1<>3:E;
+!!IF:Q1/8/v82/6/500/1^The Ice King says, "You won? Good, I have too many daughters and am happy to get rid of a few. Take some gold and this piece of junk as a reward."^;
+!!OW:R-1/6/d500;
+!!HE-1:A4/v82;
+
+!#VRz480:S^Ice Maiden^;
+!#VRz481:S^Ice Maidens^;
+!#UN:G1/123/0/480; (Ice Elemental)
+!#UN:G1/123/1/481;
+!#MA:S123/8;
+!#EA123:B7/1/74/10/100/100/100/100/100/100/100/100/100/100/100; replaces Fire Prot.(A/S)
+!#EA123:B8/1/115/28/2/2/2/2/2/2/2/2/2/2/2; (QS)
+
+!?BA0&609;
+!!BA:B^snow5.pcx^;
+!!VRy1:Sv1336+2;
+!!BA:M1/0/123/y1 M1/1/123/y1 M1/2/-1/0 M1/3/-1/0 M1/4/-1/0 M1/5/-1/0 M1/6/-1/0;
+!!BA&v1336>4:M1/2/123/y1;
+!!BA&v1336>8:M1/3/123/y1;
+!!BA&v1336>12:M1/4/123/y1;
+; change OBLVS03 to OBiceC50
+!!SN:L^Era.dll^/?y1; y1=handle
+!!SN:Ay1/^RedirectFile^/?y2; y2=FU address
+!!SN:Ey2/1/^OBLVS03.def^/^OBiceC50.def^;
+!!SN:Ey2/1/^C07SPW0.def^/^C07SPW1.def^;
+
+!?BA1&609;
+!!IF:V610/0 V611/0;
+; undo redirect
+!!SN:L^Era.dll^/?y1; y1=handle
+!!SN:Ay1/^RedirectFile^/?y2; y2=FU address
+!!SN:Ey2/1/^OBLVS03.def^/^^;
+!!SN:Ey2/1/^C07SPW0.def^/^^;
+
+!?BF&609;
+!!BF:C;
+!!BF:O50/80;  (cr at 83)
+!!BF:O50/148; (cr at 151)(and above at 100)
+!!BM21:P83;
+!!BM22:N?v1;
+!!BM22&v1>0:P151;
+!!BM23:N?v1;
+!!BM23&v1>0:P32;
+!!BM24:N?v1;
+!!BM24&v1>0:P100;
+!!BM25:N?v1;
+!!BM25&v1>0:P15;
+!!BM26:N?v1;
+!!BM26&v1>0:P185;
+!!BM27:N?v1;
+!!BM27&v1>0:P168;
+!!DO84/21/27/1:P; give foes immunity to mage spells
+
+!?BG0&609;
+!!BG:N?v1337; stack
+!!FU&v1337<21:E;
+!!IF:V610/1;
+
+!?FU77006&610;
+; Decision on what stack will move now.
+; SN:X Parameters (2): Side (0 - left, 1 - right) / Stack number (0-20)
+!!SN:X?y1/?y2;
+!!VRv1338:Sy2;
+!!VRv1338&y1=1:+21;
+
+!?BG1&609;
+!!BU:C?y1;
+!!IF&y1=1:V610/0;
+
+!?BG1&610; end of RHS stack turn
+!!IF:V610/0;
+!!BMv1337:N?v1;
+!!FU&v1<1:E; stack can't cast if dead
+!!IF:V611/1;
+; h=17r+t, where r=row (0 @ top, 10 @ bottom) & t=column (0 @ LHS, 16 @ RHS)
+; or r=h:17, t=h%17
+; measure x--> and y (down) from top left corner of screen, in units of pixels
+
+;            (0)         (1)         (hex # is at tip of hex)
+;          *     *     *     *
+;       o           o           o
+;       *           *           *
+;      (17)        (18)        (19)
+;    *     *     *     ;     *
+;  o          o           o
+;  *          *           *
+;  o         (34)        (35)
+;    *     *     *     *
+;       o           o
+
+; location of hex 0:  (58,85)
+; x-distance from (0) to (18) = 22, y-distance = 42 )overall hgt 53)
+
+; for even r, x=44t+58, for odd r, x=44(t-1/2)+58 = 44t+36; y=42r+85
+; center of hex: y--+27--> 42r+112
+!!FU7028:P637/182; fire top cannon
+; top covers r0-r5, c1-c8
+!!VRv1:S0 R5; select random row
+!!VRv2:S1 R7; select random col
+!!FU7041:P637/182/v1/v2/0; calc. parabola and launch iceball
+!!FU7028:P637/350; fire bottom cannon
+; bottom covers r5-r10, c1-c8
+!!VRv1:S5 R5; select random row
+!!VRv2:S1 R7; select random col
+!!FU7041:P637/350/v1/v2/1; calc. parabola and launch iceball
+!!IF:V611/0;
+
+!?FU7028; fire cannon at x1/x2
+!!VRz3:S^Mods/HiddenSpells/Data/screen.bmp^;
+!!SN:Ev38/1/z3/0/0/800/556; call CaptureScreen(left=0,top=0,width=800,height=556)
+!!VRz2:S^Mask.bmp^;
+!!VRy1:Sx1-36;
+!!VRy2:Sx2-36;
+!!VRz1:S^blast.82m^;
+!!SN:Pz1;
+!!UN:R6/500;
+!!DO7029/1/6/1:Py1/y2;
+!!BU:R;
+
+!?FU7029; plot SnoBalS[x16]
+!!VRz1:S^Mods/HiddenSpells/Data/SnoBalS%X16.bmp^;
+; clip below y=555
+!!VRy2:S72; height
+!!VRy1:Sx2+71;
+!!VRy2&y1>555:S627-y1;
+!!SN:Ev43/1/z3/z1/z2/x1/x2/72/y2; call SaveCaptMask(left=x1,top=x2,width=72,height=y2)
+!!SN:Ev39/1/z2/x1/x2/72/y2/100/0; call DrawBmp(left=x1,top=x2,width=72,height=y2,Delay=0.1 sec.,IfKey=0)
+
+!?FU7041; x1=cannon x, x2=cannon y, x3=target row, x4=target col (tc), x5=cannon # (0-1)
+!!VRy1:Sx3*17+x4; target hex
+; for even r, x=44tc+58, for odd r, x=44(tc-1/2)+58 = 44tc+36; y=42r+112
+!!VRe-50:S1:2; e-50=0.5 for rounding
+!!VRe-1:Sx1; x0 (cannon mouth)
+!!VRe-2:Sx2; y0
+!!VRy2:Sx3%2; odd row, 1 even 0
+!!VRe-3:Sx4*44+36;
+!!VRe-3&y2<1:+22; xT (target hex)
+!!VRe-4:Sx3*42+112; yT
+!!VRe-5:S25; cannon h
+!!VRe-6:S79; cannon w
+!!VRe-7:S82861:1000; cannon L
+!!VRe-8:Se-1-e-3; dx
+!!VRe-9:Se-2-e-4; dy
+!!VRe-10:Se-8*e-6; dx*w
+!!VRe-11:Se-9*e-5; dy*h
+!!VRe-12:Se-10+e-11:e-7; (dx*w+dy*h)/L = tT
+!!VRe-13:Se-8*e-7; dx*L
+!!VRe-14:Se-6*e-12; w*tT
+!!VRe-15:Se-13-e-14:e-5:e-12:e-12; a=(dx*L-w*tT)/h/tT^2
+!!VRe-16:Se-12:5+e-50; N=# of iceball moves along u-axis)(dt=5 pixels)
+!!VRy16:Se-16-1; N-1
+!!VRz4:S^Bombaway.82m^;
+!!SN:Pz4;
+!!DO7042/1/y16/1:P-1/-2/-5/-6/-7/5/-15/-50; move iceball N-1 times (do last time here:)
+!!VRy3:Se-3-30; icball is off-center in 72x72 by (-6,-2)
+!!VRy4:Se-4-34;
+; clip below y=555
+!!VRy22:S72; height
+!!VRy21:Sy4+71;
+!!VRy22&y21>555:S627-y21;
+!!SN:Ev43/1/z3/z1/z2/y3/y4/72/y22; call SaveCaptMask(left=y3,top=y4,width=72,height=y22)
+!!SN:Ev39/1/z2/y3/y4/72/y22/0/0; call DrawBmp(left=y3,top=y4,width=72,height=y22,Delay=0,IfKey=0)
+!!DO7029/1/5/1:Py3/y4; plot splat
+!!BU:R;
+!!BU:Ey1/?y5;
+!!BMy5&y5>-1:C16/y1/3/3/1; cast Ice Bolt on target if living stack there
+!!BMv1337:C20/y1/3/3/0; cast Frost Ring
+!!FU&x5=0:E;
+!!BMv1338:N?y6 P?y7;
+!!BMv1338&y6>-1:Py7; high-light active stack--but make sure it isn't killed via MR1
+!!UN:C6919200/4/?v2; (Bersy's code to redraw shadow grid, UN:C + SN:E)
+!!SN:E4797616/2/v2/0/1;
+!!BMv1338:V62;
+
+!?MR1&611; stack about to take magical damage
+!!MR:F?v1; corrected damage
+!!UN:C8683268/1/?v2; v2 = target stack number for Era 1.8 w/stk exp enabled
+!!BMv1338:H?v4 N?v5 L?v6; v1338 from FU77006&610
+!!VRv7:Sv4*v5-v6; total HP
+!!VRv8:Sv7-2;
+!!MR&v2=v1338/v1>v8:Fv8;
+
+!?FU7042; plot iceball trajectory
+; ex1=x0, ex2=y0, ex3=h, ex4=w, ex5=L, x6=dt, ex7=a, ex8=0.5
+; xv = x0 -w*t/L -h*a*t^2/L
+!!VRe1:+x6; t=t+dt
+!!VRe2:Sex3*ex7*e1+ex4*e1:ex5; (h*a*t+w)*t/L
+!!VRe3:Sex1-e2; xv
+!!VRy3:Se3+ex8-30; rounded integer xv [icball is off-center in 72x72 by (-6,-2)]
+; yv=y0-h*t/L + w*a*t^2/L
+!!VRe4:Sex4*ex7*e1-ex3*e1:ex5; (w*a*t-h)*t/L
+!!VRe5:Sex2+e4; yv
+!!VRy4:Se5+ex8-34; rounded integer xv
+; clip below y=555
+!!VRy2:S72; height
+!!VRy1:Sy4+71;
+!!VRy2&y1>555:S627-y1;
+!!SN:Ev43/1/z3/z1/z2/y3/y4/72/y2; call SaveCaptMask(left=y3,top=y4,width=72,height=y2)
+!!SN:Ev39/1/z2/y3/y4/72/y2/0/0; call DrawBmp(left=y3,top=y4,width=72,height=y2,Delay=0,IfKey=0)
+
+!?TM1; Select new Artifacts for Arena, repeat every day
+!!OW:C?y-1;
+!!FU&y-1<>3:E; reroll at start of human player's turn
+!!VRv80:S2;
+!!DO67/1/500/1:P; Search for next Treasure Artifact, try at most 500 times
+!!VRv81:Sv83;
+!!UN:Av81/?y-2; Check if the Artifact is enabled in map settings
+!!UN:Av81/3/?y-3; Check the Artifact's class
+!!UN|y-2<>0/y-3<>v80:J6/v80/?v81; fall back to true random artifact in case fixed random doesn't return a correct result
+!!VRv80:S4;
+!!DO67/1/500/1:P; Search for next Minor Artifact, try at most 500 times
+!!VRv82:Sv83;
+!!UN:Av82/?y-2; Check if the Artifact is enabled in map settings
+!!UN:Av82/3/?y-3; Check the Artifact's class
+!!UN|y-2<>0/y-3<>v80:J6/v80/?v82; fall back to true random artifact in case fixed random doesn't return a correct result
+!!VRv80:S8;
+!!DO67/1/500/1:P; Search for next Major Artifact, try at most 500 times
+!!UN:Av83/?y-2; Check if the Artifact is enabled in map settings
+!!UN:Av83/3/?y-3; Check the Artifact's class
+!!UN|y-2<>0/y-3<>v80:J6/v80/?v83; fall back to true random artifact in case fixed random doesn't return a correct result
+
+!?FU67; select the next pseudo-random minor, treasure or major artifact enabled in map settings.
+!!VRy1:Sv79%v97+7; Candidate Artifact number
+!!VRv79:*v96%v69; Set next seed for Artifact selection
+!!UN:Ay1/?y2; Check if the Artifact is enabled in map settings
+!!UN:Ay1/3/?y3; Check the Artifact's class
+!!VRv83&y2=0/y3=v80:Sy1; If Artifact enabled and correct class, return result
+!!VRx16&y2=0/y3=v80:S647; and end loop
+

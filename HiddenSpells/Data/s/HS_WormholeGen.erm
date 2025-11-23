@@ -1,0 +1,69 @@
+ZVSE
+
+; HS_WormholeGen, JHV, Mar. 18, 2017
+
+; uses z588-z88, Dialog 16
+
+!#VRz588:S^Wormhole Generator^;
+!#OB125/96/0:SH588;
+
+!?OB125/96/0; WhGn
+!!PO53/52/0:N?y1;
+!!PO52/60/0:N?y2;
+!!PO42/108/0:N?y3;
+!!PO54/119/0:N?y4;
+!!VRz-1:S^OK^;
+!!VRz-2:S^OK^;
+!!VRz-3:S^OK^;
+!!VRz-4:S^OK^;
+!!VRz-1&y1>0:S^XX^;
+!!VRz-2&y2>0:S^XX^;
+!!VRz-3&y3>0:S^XX^;
+!!VRz-4&y4>0:S^XX^;
+!!VRz4:S^*** Wormhole Control System ***
+System Status: Efreet1 Efreet2 Marid1 Marid2
+----------------------- =%Z-1----- =%Z-2---- =%Z-3--- =%Z-4--
+Power Status: *Low* -- Warning: Electrum Replenishment
+will be needed for any Wormhole connection restorations.^;
+!!VRz5:S^Wormhole Generator^;
+!!VRz6:S^..\Data\PlasDisc.gif^;
+!!VRz7:S^..\Data\Compute.gif^;
+!!VRz8:S^..\Data\PlasDisc2.gif^;
+!!VRz9:S^Wormhole Vortex^;
+!!IF:D16/z4/0/z5/z6/z7/z8/0/z9/0/z9 ;
+!!IF:F16/0/0/0/0/0;
+!!IF:E99/16;
+!!FU&y1=0/y2=0/y3=0/y4=0:E;
+!!VRz4:S^*** Wormhole Control System ***
+
+One or more Wormhole connections have been broken.
+Restoration will require more power than current
+reserves. Provide more electrum when available.^;
+!!IF:D16/z4/0/z5/z6/z7/z8/0/z9/0/z9 ;
+!!IF:F16/0/0/0/0/1;
+!!IF:E99/16;
+!!FU&v99=-1:E;
+!!HE-1:A2/120/?y5/d;
+!!FU&y5<1:E; exit if no Electrum
+!!HE-1:A3/120/1/1; delete 1 Electrum
+!!VRz1:S^Powerup.wav^;
+!!SN:Pz1;
+!!UN:R6/1500;
+!!VRz2:S^Mods/HiddenSpells/Data/OpenG.wav^;
+!!SN:Ev34/1/z2; call PlayOnce
+!!UN:R6/4500;
+!!VRz4:S^*** Wormhole Control System ***
+
+All Wormhole connections have been restored.^;
+!!IF:D16/z4/0/z5/z6/z7/z8/0/z9/0/z9 ;
+!!IF:F16/0/0/0/0/0;
+!!IF:E99/16;
+!!PO53/52/0:N0;
+!!PO52/60/0:N0;
+!!PO42/108/0:N0;
+!!PO54/119/0:N0;
+!!CB53/52/0:T0 V0;
+!!CB52/60/0:T0 V0;
+!!CB42/108/0:T0 V0;
+!!CB54/119/0:T0 V0;
+

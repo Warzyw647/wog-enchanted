@@ -1,0 +1,131 @@
+ZVSE
+
+; HS_Leprechaun, JHV, Mar.16, 2017, adapted from
+; DC_Leprechaun, JHV, Oct.28, 2016
+
+; Leprehaun King and Poteen Still
+; uses z517-z519, z560-z561, f304-f306, Dialogs 13 & 15, reuses v415-v418 & f415
+; uses PO3/0/z:N
+; reuses round counter v27
+
+!#VRz517:S^Leprechaun King^;
+!#HT96/0:T517; (Temple)
+!#VRz518:S^Jug of Poteen^;
+!#VRz519:S^{Jug of Poteen}
+This powerful liquor is bound to increase your soldiers' morale, when used wisely.^;
+!#UN:A52/9/518 A52/10/519;
+!#VRz560:S^Poteen Still^;
+!#HT141/120:T560;
+!#VRz561:S^Poteen Pot^;
+!#HT141/25:T561;
+
+!?OB96/0&1000; Temple disquised as Leprehaun garden
+!!OBv998/v999/v1000:S; disable tentatively (prevents normal message)
+!!VRv415:Cv998/v999/v1000;
+!!IF:V415/1; setup to re-enable after visit
+!!OW:A-1/?y1; active Hero if any
+!!FU|y1<0/y1>155:E;
+!!UN:C11079004/4/?y4; [A90D5C] = Orrin's Heroes Table base address-7093
+!!VRy5:Sy1*1170+7093+y4; address of Visited flags
+!!UN:Cy5/4/?y6;
+!!VRy6:&67109120; check for Temple bits
+!!IF&y6>0:M^You have already been blessed with enhanced morale for your next battle. Until the blessing is used it cannot be restored.^;
+!!FU&y6>0:E;
+!!VRz1:S^Did you think to catch myself, Oberon, King of faeries,
+fays, leprechauns, gnomes, bogles, and halfings?!
+Begone, before I put a murrain on you,
+the likes of which you'll not soon forget!^;
+!!VRz2:S^King Oberon^;
+!!VRz3:S^../Data/DwrfKing.gif^;
+!!VRz7:S^King Oberon^;
+!!IF:D13/z1/0/z2/z3/0/0/0/z7;
+!!IF:F13/0/0/0/0/0;
+!!IF:E2/13;
+!!HEy1:A2/52/?y7/d;
+!!FU&y7<1:E;
+!!IF:Q1/8/52/14/100/1^Oh wait! is that a jug of poteen I see, and will I have a dram or two? Don't mind if I do, and in exchange I give you my blessing of great morale for one battle!^;
+!!HEy1:A-52;
+!!OBv415/v416/v417:M-1/1/0 R; disable next message (there must be a message to disable, none if obj disabled)
+!!IF:V415/0;
+!!PO415:N?y21 N1; description flag
+!!FU&y21>0:E;
+!!IF:M^All of your troops will have 100% morale bursts for the first five rounds of your next battle (not including Tactics rounds), normal+50% morale bursts for the next five, and then normal morale bursts. (This description of the enhanced morale effect will not be repeated the next time you visit me with poteen.)^;
+
+!?HM-1&415;
+!!OBv415/v416/v417:R; re-enable
+!!IF:V415/0;
+
+!?BA0&1000;
+!!IF:V305/0 V306/0;
+!!BA:H0/?y1; LHS HE
+!!UN:C11079004/4/?y4; [A90D5C] = Orrin's Heroes Table base address+261-7093
+!!VRy5:Sy1*1170+7093+y4; address of Visited flags
+!!UN:Cy5/4/?y6;
+!!VRy6:&67109120; check for Temple bits
+!!IF&y6>0:V305/1;
+!!HEy1&y6>0:R0/3;
+!!BA:H1/?y2; RHS HE
+!!FU&y2=-2:E;
+!!VRy5:Sy2*1170+7093+y4; address of Visited flags
+!!UN:Cy5/4/?y6;
+!!VRy6:&67109120; check for Temple bits
+!!IF&y6>0:V306/1;
+!!HEy2&y6>0:R0/3;
+
+!?BG0|305/306;
+!!UN:C4605370/2/36623; restore jg 464708(h)for normal morale
+!!UN:C4605372/4/328;
+!!IF:V304/0;
+!!IF&v27>9:V305/0 V306/0; rounds 0-9 only
+!!FU&v27>9:E;
+!!BG:Q?y1 A?y2 N?v418 E?v419;; check side, act (3=def.), stack, target stack
+!!FU|y2=1/y2=3/y3=8:E; Hero-cast, Def., & Wait don't repeat
+!!FU&y1>0/-306:E; do RHS only if f306 set
+!!FU&y1=0/-305:E; do LHS only if f305 set
+!!VRy20:S0 T207%2;
+!!FU&y20=1/v27>4:E; 50% chance for rounds 5-9
+!!IF:V304/1;
+!!UN:C4605370/2/37008; set nop nop nop nop nop nop for morale
+!!UN:C4605372/2/37008;
+!!UN:C4605374/2/37008;
+
+!?MF1&304; chk for Defend-set after deflection
+!!MF:N?y1; target
+!!FU&y1<>v419:E;
+!!BMv418:F?y5;
+!!VRy6:Sy5 &16777216; morale
+!!VRy7:Sy5 &67108864; done acting
+;VRy8:Sy5 &33554432; waiting
+!!VRy9:Sy5 &134217728; defending
+!!FU|y6<>0/y7=0/y9=0:E; exit if Thor had morale burst or not done or not defending
+!!VRy10:Sy5 &-67108865 &-134217729; erase done & defending
+!!BMv418:Fy10;
+
+!?BA1|305/306;
+!!IF:V304/0 V305/0 V306/0;
+!!UN:C4605370/2/36623; restore jg 464708(h)for normal morale
+!!UN:C4605372/4/328;
+
+!?OB19/31/0; Knu Knu's Still
+!!VRz4:S^This is my still, where I make the royal poteen.
+"Be still my heart" or my heart will be stilled,
+the Ice King says. As usual he charges an exorbitant
+fee--20,000 gold for a jug. I don't suppose you
+want to buy some? It would help make my quota.^;
+!!VRz5:S^Poteen Distillery^;
+!!VRz6:S^..\Data\poteen.gif^;
+!!VRz7:S^..\Data\KnuKnu.gif^;
+!!VRz8:S^Poteen Jug^;
+!!VRz9:S^Knu Knu the Brewer^;
+!!IF:D15/z4/0/z5/z6/z7/z6/0/z8/z9/z8/0;
+!!IF:F15/0/0/0/0/1;
+!!IF:E99/15;
+!!FU&v99=-1:E;
+!!OW:R-1/6/?y3; gold
+!!IF&y3<20000:Q1/6/20000/8/52/1^You don't have enough gold, unfortunately. I'd give you a taste, but he makes me account for every drop.^;
+!!FU&y3<20000:E;
+!!HE-1:A4/52;
+!!OW:R-1/6/d-20000;
+!!UN:R1 R2;
+!!IF:Q1/6/20000/8/52/1^Thanks for the gold, and here's your poteen. Don't drink it all in one place!^;
+

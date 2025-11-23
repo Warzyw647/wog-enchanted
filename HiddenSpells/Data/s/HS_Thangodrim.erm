@@ -1,0 +1,98 @@
+ZVSE
+
+; HS_Thangodrim, JHV, Mar.11, 2017
+
+; uses z510-z513, w60-w63
+
+!#IF:W27;
+!#VRw60:S0;
+!#VRw61:S0;
+!#VRw62:S0;
+!#VRw63:S0;
+!#IF:W26;
+!#VRw60:S0;
+!#VRw61:S0;
+!#VRw62:S0;
+!#VRw63:S0;
+
+!#VRz510:S^The Adamantium Orb (Right Eye of Thangodrim)^;
+!#OB65/47/0:SH510;
+!#VRz511:S^The Mithril Orb (Left Eye of Thangodrim)^;
+!#OB77/47/0:SH511;
+!#VRz512:S^The Adamantium Spire (Left Horn of Thangodrim)^;
+!#OB90/89/0:SH512;
+!#VRz513:S^The Mithril Spire (Right Horn of Thangodrim)^;
+!#OB92/97/0:SH513;
+
+!?OB65/47/0; Ad. Orb
+!!PO998:V0/?y1; last day used
+!!IF&v2392=y1:M^No more grinding can be done today.^;
+!!FU&v2392=y1:E;
+!!IF:W-1;
+!!VRy2:Sw60+5;
+!!OW:R-1/5/?y3; gems
+!!IF&y3<y2:Q1/5/y2/31/2/1^You do not have enough gems to pay me.^;
+!!FU&y3<y2:E;
+!!IF:Q1/5/y2/31/2/2^For %Y2 gems I will grind all your weapons sharper. Agreed?^;
+!!FU&-1:E;
+!!HE-1:Fd2/d/d/d;
+!!VRy4:Sy2*-1;
+!!OW:R-1/5/dy4;
+!!VRw60:Sy2;
+!!UN:R1 R2;
+!!PO998:V0/v2392; last day used
+
+!?OB77/47/0; Mithril Orb
+!!PO998:V0/?y1; last day used
+!!IF&v2392=y1:M^No more amalgamation can be done today.^;
+!!FU&v2392=y1:E;
+!!IF:W-1;
+!!VRy2:Sw61+5;
+!!OW:R-1/1/?y3; merc
+!!IF&y3<y2:Q1/1/y2/32/2/1^You do not have enough mercury to pay me.^;
+!!FU&y3<y2:E;
+!!IF:Q1/1/y2/32/2/2^For %Y2 mercury I will strengthen your armor by adding a thin layer of mithril-mercury amalgam. Agreed?^;
+!!FU&-1:E;
+!!HE-1:Fd/d2/d/d;
+!!VRy4:Sy2*-1;
+!!OW:R-1/1/dy4;
+!!VRw61:Sy2;
+!!UN:R1 R2;
+!!PO998:V0/v2392; last day used
+
+!?OB90/89/0; Ad. Spire
+!!PO998:V0/?y1; last day used
+!!IF&v2392=y1:M^No more supplementing can be done today.^;
+!!FU&v2392=y1:E;
+!!IF:W-1;
+!!VRy2:Sw62+5;
+!!OW:R-1/4/?y3; crystal
+!!IF&y3<y2:Q1/4/y2/32/2/1^You do not have enough crystal to pay me.^;
+!!FU&y3<y2:E;
+!!IF:Q1/4/y2/34/2/2^For %Y2 crystal I will supplement your microndia's power storage so that they can hold more energy. Agreed?^;
+!!FU&-1:E;
+!!HE-1:Fd/d/d/d2;
+!!VRy4:Sy2*-1;
+!!OW:R-1/4/dy4;
+!!VRw62:Sy2;
+!!UN:R1 R2;
+!!PO998:V0/v2392; last day used
+
+!?OB92/97/0; Mith. Spire
+!!PO998:V0/?y1; last day used
+!!IF&v2392=y1:M^No more micro-cloning can be done today.^;
+!!FU&v2392=y1:E;
+!!IF:W-1;
+!!VRy2:Sw63+5;
+!!OW:R-1/3/?y3; sulfur
+!!IF&y3<y2:Q1/3/y2/32/2/1^You do not have enough sulfur to pay me.^;
+!!FU&y3<y2:E;
+!!IF:Q1/3/y2/33/2/2^For %Y2 sulfur I will clone some of your power mircrondia so that their output increases. Agreed?^;
+!!FU&-1:E;
+!!HE-1:Fd/d/d2/d;
+!!VRy4:Sy2*-1;
+!!OW:R-1/3/dy4;
+!!VRw63:Sy2;
+!!UN:R1 R2;
+!!PO998:V0/v2392; last day used
+

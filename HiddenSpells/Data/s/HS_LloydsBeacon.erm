@@ -1,0 +1,179 @@
+ZVSE
+
+* HS_LloydsBeacon, JHV, Oct., 2012, based on:
+* Gorgo Teleport (Right-Click Cast Spell) for "300" map, JHV March 31, 2009
+
+* uses v1984-v2003
+* v1984-v1989 x's for 6 teleports
+* v1990-v1995 y's for 6 teleports
+* v1996-v2001 L's for 6 teleports
+!#VRv2003:S0; # of teleport locations which have been set so far
+!#VRv2002:S0; # of available teleport locations
+
+** uses z730-z731, z753-z759
+!#VRz730:S^Lloyd's Beacon^;
+!#VRz731:S^Statue of Transportation (visited)^;
+!#VRz753:S^None--exit^;
+!#VRz754:S^None--exit^;
+!#VRz755:S^None--exit^;
+!#VRz756:S^None--exit^;
+!#VRz757:S^None--exit^;
+!#VRz758:S^None--exit^;
+!#VRz759:S^None--exit^;
+
+!#OB32/92/0:SH730;
+
+** uses FU456
+
+!?OB32/92/0; Lloyd's Beacon, N=1
+!!PO998:N?y1;
+!!FU&y1<>1:E;
+!!VRz4:S^Enter Authorization code ...
+You are registered for %V2002 Teleport locations.
+Use your RMB on Cast Spell to activate Beacon.
+Your number of teleport locations is at the limit.
+(No locations can be added, unit shuts down.)^;
+!!VRz5:S^Lloyd's Beacon^;
+!!VRz6:S^..\Mods\HiddenSpells\Data\machineB.gif^;
+!!IF:D25/z4/0/z5/z6 ;
+!!IF:F25/0/0/0/0/0;
+!!IF&v2002>5:E2/25;
+!!FU&v2002>5:E; exit if at max loc.s
+!!HE-1:A2/120/?y1/?y2;
+!!VRz4:S^Enter Authorization code ...
+You are registered for %V2002 Teleport locations.
+Use your RMB on Cast Spell to activate Beacon.
+Add Electrum to this unit for more locations.
+(No Electrum detected, unit shuts down.)^;
+!!VRz5:S^Lloyd's Beacon^;
+!!VRz6:S^..\Mods\HiddenSpells\Data\machineB.gif^;
+!!IF:D25/z4/0/z5/z6 ;
+!!IF:F25/0/0/0/0/0;
+!!IF&y1<1:E2/25;
+!!FU&y1<1:E; exit if no Electrum
+!!VRz4:S^Enter Authorization code ...
+You are registered for %V2002 Teleport locations.
+Use your RMB on Cast Spell to activate Beacon.
+Will you provide Electrum for another location?^;
+!!VRz5:S^Lloyd's Beacon^;
+!!VRz6:S^..\Mods\HiddenSpells\Data\machineB.gif^;
+!!IF:D26/z4/0/z5/z6 ;
+!!IF:F26/0/0/0/0/1;
+!!IF:E2/26;
+!!FU&v2=-1:E;
+!!VRz2:S^AlchMgic.wav^;
+!!SN:Pz2;
+!!HE-1:A3/120/1/1; delete 1 Electrum
+!!VRv2002:+1;
+!!VRz4:S^You are now registered for %V2002 locations.^;
+!!VRz5:S^Lloyd's Beacon^;
+!!VRz6:S^..\Mods\HiddenSpells\Data\machineB.gif^;
+!!IF:D24/z4/0/z5/z6 ;
+!!IF:F24/0/0/0/0/0;
+!!IF:E2/24;
+
+!?OB32/92/0; Lloyd's Beacon, N=0
+!!PO998:N?v1;
+!!FU&v1=1:E; exit if Beacon already visited
+!!PO998:N1;  set "position N number" of current position to 1
+!!VRv2002:S2; set starting # of available teleport loc.s
+!!VRz2:S^AlchMgic.wav^;
+!!SN:Pz2;
+!!VRz4:S^Teleport Beacon Registration commencing ...
+Authorization code Gamma-Alpha-Omicron issued.
+You are registered for two Teleport locations.
+Use your RMB on Cast Spell to activate Beacon.
+Add Electrum to this unit for more locations.^;
+!!VRz5:S^Lloyd's Beacon^;
+!!VRz6:S^..\Mods\HiddenSpells\Data\machineB.gif^;
+!!IF:D24/z4/0/z5/z6 ;
+!!IF:F24/0/0/0/0/0;
+!!IF:E2/24;
+!!VRz4:S^NOTE: under our Family and Friends Policy
+your location list is available to all those
+you have so designated, to either teleport to
+an established location or to add a new one.^;
+!!VRz5:S^Lloyd's Beacon^;
+!!VRz6:S^..\Mods\HiddenSpells\Data\machineB.gif^;
+!!IF:D24/z4/0/z5/z6 ;
+!!IF:F24/0/0/0/0/0;
+!!IF:E2/24;
+
+!?CM0; check right-click on adventure screen
+!!CM:I?v1; [Area clicked: v1]
+!!FU|v1<>8/v2002<2:E; exit if Cast Spell not right-clicked or no LB
+!!CM:R0;  [Disable standard right-click operation]
+* set up radio button (G1) dialog box: use v1 for results/initial state/
+* z# has header/z# has 1st item description/etc.
+!!VRz-1:S^Lloyd's Beacon Teleport Menu:^;
+!!VRz-2:S^(Set new teleport destination.)--sorry, not available now.^; v99=1
+!!VRz-2&v2002>v2003:S^Set current location as a new teleport destination.^; v99=1
+!!VRz-3:S^(Teleport to an existing destination.)--sorry, none available.^; v99=2
+!!VRz-3&v2003>0:S^Teleport to an existing destination.^; v99=2
+!!VRz-4:S^Exit from menu.^; v99=4
+!!IF:G1/99/2/-1/-2/-3/-4;
+!!FU&v99=4:E;
+!!FU456&v99=1/v2002>v2003:P; set new dest.
+!!FU&v99=1:E;
+!!FU&v99=2/v2003<1:E;
+* move active hero or 26 (Elleshar/Calladan)
+!!OW:A-1/?v2;
+!!VRv2&v2<0:S26;
+!!HEv2:I?v3/1;
+!!IF&v3<20:M^Sorry, you do not have enough Spell Points for the Teleport.^;
+!!FU&v3<20:E;
+!!HEv2:M8/?v3;
+!!IF&v3=1:Q1^Notice: using Lloyd's Beacon will remove Pyth's temporary Dimension Door. Do you still want to proceed?^;
+!!FU&v3=1/-1:E;
+!!IF&v3=1:V51/1; set flag to display messages randomly on roads
+* set up radio button (G1) dialog box: use v1 for results/initial state/
+* z# has header/z# has 1st item description/etc.
+!!VRz-1:S^Select the teleport location:^;
+!!VRz-2:S^Cancel^;
+!!IF:G1/1/1/-1/753/754/755/756/757/758/-2;  (G0 would be check-box)
+!!FU&v1=64:E;
+!!HEv2:M8/0 Id-20/1;
+!!VRv4:S-1;
+!!VRv4&v1=1/z753<>z759:Cv1984/v1990/v1996;
+!!VRv4&v1=2/z754<>z759:Cv1985/v1991/v1997;
+!!VRv4&v1=4/z755<>z759:Cv1986/v1992/v1998;
+!!VRv4&v1=8/z756<>z759:Cv1987/v1993/v1999;
+!!VRv4&v1=16/z757<>z759:Cv1988/v1994/v2000;
+!!VRv4&v1=32/z758<>z759:Cv1989/v1995/v2001;
+!!FU&v4<0:E;
+!!OBv4/v5/v6:T?y9;
+!!if&y9=34; another Hero on destination
+  !!HEv2:B0/?z7; name
+  !!IF:M^The destination is occupied by another soul! %Z7 cannot re-materialize!^;
+  !!VRz8:S^MEDUKILL.WAV^;
+  !!SN:Pz8;
+  !!HEv2:K;
+  !!FU:E;
+!!en;
+!!HEv2:Pv4/v5/v6;
+
+!?FU456; set new dest.
+!!OW:A-1/?v2;
+!!VRv2&v2<0:S27;
+!!HEv2:P?y1/?y2/?y3; get position
+!!VRz-1:S^Lloyd's Beacon Operation Menu:^;
+!!VRz-2:S^Type a description of this location:^; -->z1
+!!VRz-3:S^Options:^;
+!!VRz-4:S^..\Mods\HiddenSpells\Data\machineB.gif^;
+!!VRz-8:S^Chose locations well--you cannot change them.^;
+!!VRz2:S^Store your current position.^; v1=1
+!!VRz3:S^Cancel selection and exit.^; v1=2
+!!IF:D7/-1/-2/-3/0/-4/0/0/-8/-8/-8/0/2/3/0/0; [Set up custom dialogue box]
+!!IF:F7/0/0/0/0/0; [Disable Cancel button]
+!!IF:E1/7; [Display Custom Dialogue] selected option 1-4 in v1
+!!FU&v1=2:E;
+!!VRy4:S1984+v2003; index to x-table
+!!VRvy4:Sy1;
+!!VRy4:S1990+v2003; index to y-table
+!!VRvy4:Sy2;
+!!VRy4:S1996+v2003; index to z-table
+!!VRvy4:Sy3;
+!!VRy4:S753+v2003; index to z-table
+!!VRzy4:S^%Z1 (20 Spell Pts)^;
+!!VRv2003:+1;
+
