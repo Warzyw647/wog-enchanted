@@ -17,10 +17,14 @@ ZVSE
 !!IF&y1>0:M^This facility has been shut down by the Ice King due to unauthorized use.^;
 !!FU&y1>0:E;
 !!IF:Q1^Welcome to the Pyramid of Power!
-Beware! Only an Elite Warrior may walk the Path of Power. Do not attempt this without a powerful warrior in your army! If he or she succeeds in completing the path, they will gain +50 Hit Points, +10 Damage, +1 Speed, and a medal for courage. Do you wish to try?^;
+Beware! Only an Elite Warrior may walk the Path of Power. Do not attempt this without a powerful melee warrior in your army! (Led by a powerful god or godess.) If he or she succeeds in completing the path, they will gain +50 Hit Points, +10 Damage, +1 Speed, and a medal for courage. Do you wish to try?^;
 !!FU&-1:E;
 !!HE-1:N?v1628;
+!!IF&v1628<>27:M^Sorry, your god is not powerful enough.^;
 !!FU&v1628<>27:E;
+!!HE27:C0/0/?y1/d/d/2 C0/1/?y2/d/d/2 C0/2/?y3/d/d/2 C0/3/?y4/d/d/2 C0/4/?y5/d/d/2 C0/5/?y6/d/d/2 C0/6/?y7/d/d/2;
+!!IF&y1<>174/y2<>174/y3<>174/y4<>174/y5<>174/y6<>174/y7<>174:M^Sorry, you have no warrior who is powerful enough.^;
+!!FU&y1<>174/y2<>174/y3<>174/y4<>174/y5<>174/y6<>174/y7<>174:E;
 !!HEv1628:A2/4/?v1629/d A2/5/?v1630/d A2/6/?v1631/d;
 !!HEv1628:A-4 A-5 A-6; remove war machines (just in case)
 !!VRv1600:C0/0/0/0/0/0/0; preset v1600-v1606 to empty slots
