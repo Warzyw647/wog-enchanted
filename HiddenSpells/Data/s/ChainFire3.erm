@@ -1,10 +1,10 @@
 ZVSE
 
-* ChainFire3, JHV, Aug. 12, 2012 - added FB from Hero Aug. 14 [update Jan 2015 v156->v150]
+; ChainFire3, JHV, Aug. 12, 2012 - added FB from Hero Aug. 14 [update Jan 2015 v156->v150]
 ; update Mar 2017 v793-v799-->v893-v899
 
-* uses v150-v155, v893-v899, v2900-v3086, FU510-FU518, flag 58 &67 (5 temp., 200 from Battles)
-* assumes XFiles.dll already loaded by another script
+; uses v150-v155, v893-v899, v2900-v3086, FU510-FU518, flag 58 &67 (5 temp., 200 from Battles)
+; assumes XFiles.dll already loaded by another script
 
 !?BG0&67;
 !!BG:A?v2 S?v3;
@@ -63,7 +63,7 @@ ZVSE
 !!VRv895:Cy3/v151; save target
 
 !?FU518; calculate an arc from the casting Hero at x1/x2 to the tip of hex x3
-* edited from FU513 - see FU513 for hex-->pixel notes
+; edited from FU513 - see FU513 for hex-->pixel notes
 !!VRy12:Sx3%17; t2
 !!VRy2:Sx3:17; r2
 !!VRy4:Sy2%2;
@@ -101,31 +101,31 @@ ZVSE
 !!BU:R;
 
 !?FU510; returns distance squared in v151, x1=1st hex, x2=2nd hex
-* h=17r+t, where r=row (0 @ top, 10 @ bottom) & t=column (0 @ LHS, 16 @ RHS)
-* or r=h:17, t=h%17
-* measure x--> and y (down) from top left corner of screen, in units of pixels
+; h=17r+t, where r=row (0 @ top, 10 @ bottom) & t=column (0 @ LHS, 16 @ RHS)
+; or r=h:17, t=h%17
+; measure x--> and y (down) from top left corner of screen, in units of pixels
 
-*            (0)         (1)         (hex # is at tip of hex)
-*          *     *     *     *
-*       o           o           o
-*       *           *           *
-*      (17)        (18)        (19)
-*    *     *     *     *     *
-*  o          o           o
-*  *          *           *
-*  o         (34)        (35)
-*    *     *     *     *
-*       o           o
+;            (0)         (1)         (hex # is at tip of hex)
+;          ;     ;     ;     *
+;       o           o           o
+;       ;           ;           *
+;      (17)        (18)        (19)
+;    ;     ;     ;     ;     *
+;  o          o           o
+;  ;          ;           *
+;  o         (34)        (35)
+;    ;     ;     ;     *
+;       o           o
 
-* location of hex 0:  (58,85)
-* x-distance from (0) to (18) = 22, y-distance = 42
+; location of hex 0:  (58,85)
+; x-distance from (0) to (18) = 22, y-distance = 42
 
-* for even r, x=44t+58, for odd r, x=44(t-1/2)+58 = 44t+36; y=42r+85
-* distance between h1 and h2:
-* for r1 & r2 same parity, d^2 = 1936(t2-t1)^2 + 1764(r2-r1)^2
-* for r1 even and r2 odd, d^2 = 1936(t2-t1-1/2)^2 + 1764(r2-r1)^2
-* for r1 odd and r2 even, d^2 = 1936(t2-t1+1/2)^2 + 1764(r2-r1)^2
-* 1936(t2-t1 +/- 1/2)^2 = 1936(t2-t1)^2 +/- 1936(t2-t1) +484
+; for even r, x=44t+58, for odd r, x=44(t-1/2)+58 = 44t+36; y=42r+85
+; distance between h1 and h2:
+; for r1 & r2 same parity, d^2 = 1936(t2-t1)^2 + 1764(r2-r1)^2
+; for r1 even and r2 odd, d^2 = 1936(t2-t1-1/2)^2 + 1764(r2-r1)^2
+; for r1 odd and r2 even, d^2 = 1936(t2-t1+1/2)^2 + 1764(r2-r1)^2
+; 1936(t2-t1 +/- 1/2)^2 = 1936(t2-t1)^2 +/- 1936(t2-t1) +484
 !!VRy11:Sx1%17; col 1  35%17=1
 !!VRy12:Sx2%17; col 2  49%15=15
 !!VRy1:Sx1:17; row 1  35:17=2
@@ -141,12 +141,12 @@ ZVSE
 !!VRv151:Sy7+y17; dist.
 
 !?FU511; approximate square root using integer arithmetic
-** v151=dist^2 - multiply by 64
-** v897=sqrt(v151)
+*; v151=dist^2 - multiply by 64
+*; v897=sqrt(v151)
 !!VRv897:S0;
 !!FU&v151<1:E;
 !!VRy1:Sv151*64;
-** chose initial guesses, v897 & y2 (g1 & g2):
+*; chose initial guesses, v897 & y2 (g1 & g2):
 !!VRv897:S32;
 !!VRv897&y1>1536:*2;
 !!VRv897&y1>6144:*2;  128
@@ -161,36 +161,36 @@ ZVSE
 !!VRv897:+3:8;
 
 !?FU512; recursive soln for sqrd=v897=sqrt(64*dist)=8*sqrt(dist)
-* x1=64*dist, x2=g2
+; x1=64*dist, x2=g2
 !!VRv897:+x2 +1 :2; g1=(g1+g2+1)/2
 !!VRy3:Sv897 :2 +x1; y3=(nn+v897/2)
 !!VRy2:Sy3 :v897; y2=(nn+v897/2)/v897; //guess 2
 !!VRy3:Sy2-v897;
-** done if abs(g2-g1) <= 1
+*; done if abs(g2-g1) <= 1
 !!FU512|y3>1/y3<-1:Px1/y2; otherwise continue
 
 !?FU513; calculate an arc from the tip of hex x1 to the tip of hex x2
 !!FU&x1=x2:E;
-* h=17(r-1)+t, where r=row (0 @ top, 10 @ bottom) & t=column (0 @ LHS, 16 @ RHS)
-* or r=h:17, t=h%17
-* measure X--> and Y (down) from top left corner of screen, in units of pixels
+; h=17(r-1)+t, where r=row (0 @ top, 10 @ bottom) & t=column (0 @ LHS, 16 @ RHS)
+; or r=h:17, t=h%17
+; measure X--> and Y (down) from top left corner of screen, in units of pixels
 
-*            (0)         (1)         (hex # is at tip of hex)
-*          *     *     *     *
-*       o           o           o
-*       *           *           *
-*      (17)        (18)        (19)
-*    *     *     *     *     *
-*  o          o           o
-*  *          *           *
-*  o         (34)        (35)
-*    *     *     *     *
-*       o           o
+;            (0)         (1)         (hex # is at tip of hex)
+;          ;     ;     ;     *
+;       o           o           o
+;       ;           ;           *
+;      (17)        (18)        (19)
+;    ;     ;     ;     ;     *
+;  o          o           o
+;  ;          ;           *
+;  o         (34)        (35)
+;    ;     ;     ;     *
+;       o           o
 
-* location of hex 0:  (58,85)
-* X-distance from (0) to (18) = 22, Y-distance = 42
+; location of hex 0:  (58,85)
+; X-distance from (0) to (18) = 22, Y-distance = 42
 
-* for even r, x=44t+58, for odd r, x=44(t-1/2)+58 = 44t+36; y=42r+85
+; for even r, x=44t+58, for odd r, x=44(t-1/2)+58 = 44t+36; y=42r+85
 !!VRy11:Sx1%17; t1
 !!VRy12:Sx2%17; t2
 !!VRy1:Sx1:17; r1
@@ -225,15 +225,15 @@ ZVSE
 !!DO514/0/v897/8:Py5/y7/y9/y10/y14/y15/y19/y23/y24; X1,Y1,dX,dY,L/2,L^2/2,bendy dir.,bendx,delay
 
 !?FU514; x1=X1, x2=Y1, x3=dX, x4=dY, x5=L/2, x6=L^2/2, x7=bendy, x8=bendx, x9=delay,v151=L^2, v897=L, x16=t
-* Xt = X1 +(dX/L)*t, Yt = Yt +(dY/L)*t
+; Xt = X1 +(dX/L)*t, Yt = Yt +(dY/L)*t
 !!VRy1:Sx3*x16+x5:v897+x1; Xt
 !!VRy2:Sx4*x16+x5:v897+x2; Yt
-* s = 176*t*(L-t)/L^2 (176=4*44)
+; s = 176*t*(L-t)/L^2 (176=4*44)
 !!VRy3:Sv897-x16*x16*176+x6:v151; s
-* Xs = Xt + (dY/L)*s, Ys = Yt - (dX/L)*s
+; Xs = Xt + (dY/L)*s, Ys = Yt - (dX/L)*s
 !!VRy4:Sx4*x8*y3+x5:v897+y1-32; Xs
 !!VRy5:Sx3*x7*y3+x5:v897+y2-14; Ys
-* plot FireBi.bmp at (xs,ys) where i=x16%4
+; plot FireBi.bmp at (xs,ys) where i=x16%4
 !!VRy6:Sx16:8%4; divide by DO increment
 !!VRz1:S^Mods/HiddenSpells/Data/FireB%Y6.bmp^;
 !!VRz2:S^Mask.bmp^;
