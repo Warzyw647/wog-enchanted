@@ -1,8 +1,8 @@
 ZVSE
 
-* HS_Objects (Part I), JHV, Oct., 2012
+; HS_Objects (Part I), JHV, Oct., 2012
 
-* uses v99, v311-v313, v780-v797, z201-z218, z311-z347, FU177-FU179, FU311-FU322, FU870-FU881, and f368
+; uses v99, v311-v313, v780-v797, z201-z218, z311-z347, FU177-FU179, FU311-FU322, FU870-FU881, and f368
 
 !#VRz311:S^Fruit Tree^;
 !#OB129/139/0:SH311;
@@ -155,19 +155,13 @@ This magic potion adds 5 Damage ability but -3 Health to a selected creature (Ct
 !!FU&v99=32:E;
 !!VRv99&v99=16:S14; PO:N takes 0-15
 !!PO998:V3/y2;
-*!VRz2:S^Mods/HiddenSpells/Data/AlchStr2.wav^;
 !!VRz2:S^AlchStr2.wav^;
-*!SN:Ev34/1/z2; call PlayOnce
 !!SN:Pz2;
 !!UN:R6/8000;
-*!VRz2:S^Mods/HiddenSpells/Data/AlchMgic.wav^;
 !!VRz2:S^AlchMgic.wav^;
-*!SN:Ev34/1/z2; call PlayOnce
 !!SN:Pz2;
 !!UN:R6/5500;
-*!VRz2:S^Mods/HiddenSpells/Data/steam.wav^;
 !!VRz2:S^steam.wav^;
-*!SN:Ev34/1/z2; call PlayOnce
 !!SN:Pz2;
 !!UN:R6/2000;
 !!VRz4:S^The potion is ready to be distilled.^;
