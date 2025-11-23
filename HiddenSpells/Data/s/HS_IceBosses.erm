@@ -22,7 +22,7 @@ ZVSE
 !!BMy1:E3;
 !!IF:V417/0;
 
-!?TM2&v2392=21/v2395=3; Day 21, Green
+!?TM2&v2392=8/v2395=3; Day 8, Green
 ; start adding Ice Bosses to Ice Guard Battles
 !!IF:V416/1;
 !!VRz2:S^Mods/HiddenSpells/Data/Interrup.wav^;
