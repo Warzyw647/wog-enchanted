@@ -1,13 +1,13 @@
 ZVSE
 
-* HS_TeleportSnail, JHV, Oct. 3, 2012, based on:
-* TestDimDoorLimit2, JHV, Oct. 1, 2012
+; HS_TeleportSnail, JHV, Oct. 3, 2012, based on:
+; TestDimDoorLimit2, JHV, Oct. 1, 2012
 
-* uses v30-v65, v98-v99, z191, FU88-FU92, and flags 56-58 (and flag 51 from Messages)
+; uses v30-v65, v98-v99, z191, FU88-FU92, and flags 56-58 (and flag 51 from Messages)
 
 !#VRz191:S^Pyth the Teleportation Snail^;
 !#OB136/66/0:SH191;
-* --> Cr 126
+; --> Cr 126
 !#UN:G1/126/1/191;
 
 !?OB136/66/0&-56; Snail, first visit
@@ -21,8 +21,8 @@ ZVSE
 !!IF:V56/1;
 
 !?OB136/66/0&56; Snail, after first visit
-* set up radio-button (G1) dialog box: radio-buttons/use v99 for results/initial state
-* /z# has header/z# has 1st item description/etc.
+; set up radio-button (G1) dialog box: radio-buttons/use v99 for results/initial state
+; /z# has header/z# has 1st item description/etc.
 !!VRz-1:S^Pyth, Master of accessible closed Holds, at your service:
 (Some Holds are open, some are only accessible from other Holds.)^;
 !!VRz-2:S^Send you to a Hold^; v99=1 FU88
@@ -43,7 +43,7 @@ ZVSE
 !!VRz-4:S^Pyth, the Snail of Teleportation^;
 !!IF:D42/-1/-2/0/-3/0/0/0/-4/0/0/0/0/0/0/0;
 !!IF:E1/42;
-* get address of z1
+; get address of z1
 !!UN:V?y1/?y2;
 !!VRy3:S9597416+512;  Era
 !!UN:Cy3/4/?v3; get 1st four bytes of z1
@@ -64,14 +64,7 @@ ZVSE
 !!VRy7:Svv18;
 !!IF:Q1/21/126/1^Here you go!  Remember, the teleportation spell I have given you for your exit will only work once, and for a radius of three steps or less, so use it well!^;
 !!OBy6/y7/0:T?y8;
-!!if&y8=34; another Hero on destination
-  !!HE-1:B0/?z7; name
-  !!IF:M^The destination is occupied by another soul! %Z7 cannot re-materialize!^;
-  !!VRz8:S^MEDUKILL.WAV^;
-  !!SN:Pz8;
-  !!HE-1:K;
-  !!FU:E;
-!!en;
+!!VRy6&y8=34:-1; move destination left if the other Hero is on it
 !!HE-1:Py6/y7/0;
 !!HE-1:M8/1;
 *!IF:V51/0; unset flag to display messages randomly on roads [chgd]
@@ -150,7 +143,7 @@ ZVSE
 !!FU&v10=0:E; exit if spell not cast
 !!if&v10<>8:E; shut down if not DD
  !!UN:C5168326/4/434630; turn off TL triggers
- !!UN:C7825648/2/29717; restore old code
+ !!UN:C7825648/2/5492; restore old code
  !!IF:V57/0;
 !!el; phase 2, check teleport coordinates if DD
  !!IF:V57/0 V58/1;
@@ -164,21 +157,21 @@ ZVSE
 !!if&y7>50175;
   !!SN:Ev41/1/296/270; Mouseput(x,y)--move mouse pointer to center
 !!en;
-* (can't check y3=0 here, spell click not cleared)
+; (can't check y3=0 here, spell click not cleared)
 
 !?TL0&58;
 !!HEv9:P?v1/?v2/?v3; check HE loc. vs. v6/v7/v8
 !!FU&v6=v1/v7=v2:E;
 !!IF:V58/0; when HE reaches destination, stop monitoring
 !!UN:C5168326/4/434630; turn off TL triggers
-!!UN:C7825648/2/29717; restore old code
+!!UN:C7825648/2/5492; restore old code
 !!HEv9:M8/0; remove DD
 !!IF:V51/1; set flag to display messages randomly on roads
 
 !?CM5&58; occurs after Hero lands (or not--not always--check HE:P)
 !!IF:V58/0; when LMB selects destination, stop monitoring
 !!UN:C5168326/4/434630; turn off TL triggers
-!!UN:C7825648/2/29717; restore old code
+!!UN:C7825648/2/5492; restore old code
 !!HEv9:M8/0; remove DD
 !!IF:V51/1; set flag to display messages randomly on roads
 
@@ -187,5 +180,5 @@ ZVSE
 !!FU&y1<>27/y1<>13:E;
 !!IF:V57/0 V58/0; disable this FU & TL0
 !!UN:C5168326/4/434630; turn off TL triggers
-!!UN:C7825648/2/29717; restore old code
+!!UN:C7825648/2/5492; restore old code
 
