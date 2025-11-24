@@ -1,16 +1,16 @@
 ZVSE
 
-* HS_LloydsBeacon, JHV, Oct., 2012, based on:
-* Gorgo Teleport (Right-Click Cast Spell) for "300" map, JHV March 31, 2009
+; HS_LloydsBeacon, JHV, Oct., 2012, based on:
+; Gorgo Teleport (Right-Click Cast Spell) for "300" map, JHV March 31, 2009
 
-* uses v1984-v2003
-* v1984-v1989 x's for 6 teleports
-* v1990-v1995 y's for 6 teleports
-* v1996-v2001 L's for 6 teleports
+; uses v1984-v2003
+; v1984-v1989 x's for 6 teleports
+; v1990-v1995 y's for 6 teleports
+; v1996-v2001 L's for 6 teleports
 !#VRv2003:S0; # of teleport locations which have been set so far
 !#VRv2002:S0; # of available teleport locations
 
-** uses z730-z731, z753-z759
+; uses z730-z731, z753-z759
 !#VRz730:S^Lloyd's Beacon^;
 !#VRz731:S^Statue of Transportation (visited)^;
 !#VRz753:S^None--exit^;
@@ -23,7 +23,7 @@ ZVSE
 
 !#OB32/92/0:SH730;
 
-** uses FU456
+; uses FU456
 
 !?OB32/92/0; Lloyd's Beacon, N=1
 !!PO998:N?y1;
@@ -103,8 +103,8 @@ an established location or to add a new one.^;
 !!CM:I?v1; [Area clicked: v1]
 !!FU|v1<>8/v2002<2:E; exit if Cast Spell not right-clicked or no LB
 !!CM:R0;  [Disable standard right-click operation]
-* set up radio button (G1) dialog box: use v1 for results/initial state/
-* z# has header/z# has 1st item description/etc.
+; set up radio button (G1) dialog box: use v1 for results/initial state/
+; z# has header/z# has 1st item description/etc.
 !!VRz-1:S^Lloyd's Beacon Teleport Menu:^;
 !!VRz-2:S^(Set new teleport destination.)--sorry, not available now.^; v99=1
 !!VRz-2&v2002>v2003:S^Set current location as a new teleport destination.^; v99=1
@@ -116,7 +116,7 @@ an established location or to add a new one.^;
 !!FU456&v99=1/v2002>v2003:P; set new dest.
 !!FU&v99=1:E;
 !!FU&v99=2/v2003<1:E;
-* move active hero or 26 (Elleshar/Calladan)
+; move active hero or 26 (Elleshar/Calladan)
 !!OW:A-1/?v2;
 !!VRv2&v2<0:S26;
 !!HEv2:I?v3/1;
@@ -126,8 +126,8 @@ an established location or to add a new one.^;
 !!IF&v3=1:Q1^Notice: using Lloyd's Beacon will remove Pyth's temporary Dimension Door. Do you still want to proceed?^;
 !!FU&v3=1/-1:E;
 !!IF&v3=1:V51/1; set flag to display messages randomly on roads
-* set up radio button (G1) dialog box: use v1 for results/initial state/
-* z# has header/z# has 1st item description/etc.
+; set up radio button (G1) dialog box: use v1 for results/initial state/
+; z# has header/z# has 1st item description/etc.
 !!VRz-1:S^Select the teleport location:^;
 !!VRz-2:S^Cancel^;
 !!IF:G1/1/1/-1/753/754/755/756/757/758/-2;  (G0 would be check-box)
