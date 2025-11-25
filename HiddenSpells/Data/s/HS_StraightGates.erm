@@ -1,10 +1,10 @@
 ZVSE
 
-* HS_StraightGates, JHV, Oct. 4, 2012
+; HS_StraightGates, JHV, Oct. 4, 2012
 
-* uses v148-v149, z8 temporarily, z308, FU64 and flag 367
+; uses v148-v149, z7 and z8 temporarily, z308, FU64 and flag 367
 
-* from Astrology to Alchemy
+; from Astrology to Alchemy
 !#TR114/128/0:E0;
 !#TR102/128/0:E0;
 !?OB114/128/0&1000;
@@ -32,7 +32,7 @@ To Alchemy's Hold you will not go.^;
 !!FU64:Py-1/85/124/0;
 !!IF:V367/0;
 
-* from Power to Gold
+; from Power to Gold
 !#TR114/103/0:E0;
 !#TR122/111/0:E0;
 !#VRz308:S^^;
@@ -56,7 +56,7 @@ So the gate to Gold will not unlock.^;
 !!FU64:Py-1/48/129/0;
 !!IF:V367/0;
 
-* from Power to Home
+; from Power to Home
 !#TR127/88/0:E0;
 !#TR132/93/0:E0;
 !#OB132/93/0:S;
