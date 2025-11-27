@@ -140,8 +140,9 @@ The largest is numbered %V83 and also has symbols '1k$' on it.^;
 !!HE-1:A2/6/d/?v159; chk for Tent
 !!HE-1&v159>0:A-6; remove Tent
 !!UN:C5168326/4/2657254; turn on TL triggers
-!!UN:C7825648/2/29717; at normal speed
+!!UN:C7825648/2/37008; remove TL restrictions, Trigger will be called max 20 times per second
 !!HE-1:Tv998/v999/v1000/173/1;
+!!UN:C7825648/2/5492; back to normal speed
 !!UN:C5168326/4/434630; turn off TL triggers
 !!IF:V271/0 V272/0;
 !!UN:C6738874/1/48; restore tombstone
@@ -150,7 +151,7 @@ The largest is numbered %V83 and also has symbols '1k$' on it.^;
 !!HEv156:S19/v158; restore Tactics skill
 !!HEv156&v159>0:A4/6; restore Tent
 !!VRy7:S3 R3; 3-6
-!!IF:Q1/21/173/8/v81/7/y7/1^The Gremlins dropped an artifact and some Mithril!^;
+!!IF:Q1/21/173/8/v81/7/y7/1^The Gremlins dropped an Artifact and some Mithril!^;
 !!OW:R-1/7/dy7;
 !!HE-1:A4/v81;
 
