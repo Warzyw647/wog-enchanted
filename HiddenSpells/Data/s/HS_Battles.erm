@@ -4,7 +4,7 @@ ZVSE
 ; SND_BAttles, May 2011, updated Aug 27 for Chain Lightning messages (woG 3.58f)
 ; update Mar 15, 2017--added HL to call FU86 after Tree of Knowledge visit, requires TUT
 
-* uses v1-v11 (temp.), v1297 (from HS), v1298, v1477, FU85-FU87, FU94, FU138, FU301, flags 200-205
+; uses v1-v11 (temp.), v1297 (from HS), v1298, v1477, FU85-FU87, FU94, FU138, FU301, flags 200-205
 !#VRv1477:S0; V-J experience points
 !#IF:V200/0 V201/1 V202/1 V203/1 V204/1;
 
@@ -57,7 +57,7 @@ ZVSE
 !!BMv8&v8>-1/v8<42:T?v9;
 !!FU|v7<6/v7>7/v9<>136:E; exit if not Jalery
 !!MR:F600; [D600--no effect on battle message, try MR0--D600 has no effect there too]
-* eliminate message "The %s does %d damage." ("The Chain Lightning does 220")
+; eliminate message "The %s does %d damage." ("The Chain Lightning does 220")
 !!UN&v1297>0:Cv1297/2/8192; replace "Th" = 54 68 = 26708 with " " = 20 00 = 8192
 !!IF:V205/1;
 
@@ -67,7 +67,7 @@ ZVSE
 !!BU:Mz10;
 !!IF:V205/0;
 
-* 1st battle: prayers
+; 1st battle: prayers
 
 !?BG0&1000/201;
 !!BU:T?v1;
@@ -113,7 +113,7 @@ ZVSE
 !!IF:Q1/21/6/1^Leora, if you can, we ask you to heal our wounds that we may fight to the last.^;
 !!IF:V204/0;
 
-* casting for each stack per round
+; casting for each stack per round
 
 !?BA0&1000;
 !!IF:V200/0;
@@ -124,9 +124,10 @@ ZVSE
 !?FU301; battle randomizer
 !!VRy1:R100;
 
-!?BF&1000;
-!!DO85/0/6/1:P; give SG, Giants, Titans, and Lot exp. based on Leora's
-!!DO85/21/30/1:P;
+!?BR&1000;
+!!BA:O?y1/?y2;
+!!DO85/0/20/1&y1<>3:P; give enemy creatures exp. based on Leora's, refresh at start of each turn in case there are summons with wrong xp
+!!DO85/21/41/1&y2<>3:P;
 
 !?FU6003; uses v1-v10 base level points, v11 stack exp., x16=trial level, x1=factor, x2= stack exp. pts
 !!VRy1:Svx16*x1;
@@ -142,9 +143,10 @@ ZVSE
 !!VRv11&x2<y1:Sx16;
 !!VRx16&x2<y1:S100; end loop
 
-!?FU85; x16=stack, give SG, Giants, Titans, and LoT stack experience
+!?FU85; x16=stack, give enemy creatures stack experience
 !!BMx16:T?y1 N?y2;
-!!FU&y1<>173/y1<>40/y1<>41/y1<>152|y2<1:E;
+!!FU&y2<1:E;
+
 !!VRy3:Sx16+1*-1;
 ;EAy3:E?y4/12/d/d; get level (N.G.)
 !!EAy3:E?y8/2/d/d; note: E?y8/12/d/d doesn't work--can set but not get
@@ -156,8 +158,11 @@ ZVSE
 !!VRv11:S0;
 !!DO6003/1/10/1:Py9/y8;
 ; now v11=stack experience level (0-10)
-!!VRy8:6-v68;
-!!VRy5:Sv1477+1:y8; increase enemy creature xp level based on difficulty, at 200% give creature levels 1/2/3/.../10 on EP 1/3/5/.../19, at 160 on 2/5/8/.../29, at 130% on 3/7/11/.../39, at 100% on 4/9/14/.../49, at 80% on 5/11/17/.../59
+!!VRy8:S6-v68;
+; increase enemy creature xp level based on difficulty,
+; at 200% give creature levels 1/2/3/.../10 on EP 1/3/5/.../19, at 160 on 2/5/8/.../29, at 130% on 3/7/11/.../39, at 100% on 4/9/14/.../49, at 80% on 5/11/17/.../59
+; decrease enemy creature xp level by 1 each week (starting fom week 2), due to Ice King's poor management
+!!VRy5:Sv1477+1:y8+1-v2389;
 !!VRy5&y5>10:S10;
 !!FU&v11>=y5:E;
 !!EAy3:Ey5/12/d/d;
@@ -197,7 +202,7 @@ ZVSE
 !!FU&v3<>3:E; exit if Calladan lost
 !!FU86:P1;
 
-* update experience
+; update experience
 !?FU86; x1=amount of exp to add, v1477=total exp
 !!VRy3:Sv1477;
 !!VRv1477:+x1;
@@ -205,7 +210,7 @@ ZVSE
 !!HE27:Ey1; set Gem/Leora's exp to show mage/warrior exp
 !!VRy2:Sv1477+10000000;
 !!HE26:Ey2; set Elleshar/Calladan's exp to show mage/warrior exp
-* promotions
+; promotions
 !!if&y3<5/v1477=>5;
 !!EA34:F76/-1/?v1; v1=line for ability 76/any
 !!EA34&v1>-1:Bv1/1/76/24/30/30/30/30/30/40/40/40/40/40/50;  30/40/50% chance to deflect 25% of damage
