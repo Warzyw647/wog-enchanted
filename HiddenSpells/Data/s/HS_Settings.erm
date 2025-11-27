@@ -168,7 +168,7 @@ ZVSE
 !#UN:G1/152/0/363 G1/152/1/363;
 !#EA152:B8/1/119/87/1/1/1/1/1/1/1/1/1/1/1; Immune to Hostile Water
 !#EA152:B12/1/102/114/1/1/1/1/1/1/1/1/1/1/1; Rebirth
-!#EA152:B13/1/80/43/1/1/1/1/2/2/2/2/3/3/4; add castings
+!#EA152:B13/1/80/43/1/2/3/4/5/6/7/8/9/10/11; add castings
 !#VRv1:Sv68+1*400;
 !#MA:P152/v1; Ice King HP 400/800/1200/1600/2000 depending on selected game difficulty
 !#MA:B152/1; Ice King gets 1 rebirth cast plus creature experience bonus. 24 default casts can be confusing for players.
@@ -184,7 +184,7 @@ ZVSE
 !#UN:T0/4/0/34; [level 4 no upg - Mages]
 !#UN:T0/4/1/35; [level 4 upg - Arch Mages]
 ; [these creatures count as being Castle troops]
-!#MA:O34/0 O35/0; Mages, Arch Mages
+!#MA:O34/0 U34/35 O35/0; Mages, Arch Mages
 !#MA:O136/0 O164/0 O166/0; Enchanters, Sun Warrior, Moon Guard
 
 !?PI;
@@ -241,6 +241,7 @@ ZVSE
 !!FU&v313<15:E;
 !!UN:C6685136/2/22090; secskill-->JVcskill
 !!UN:C6684920/2/22090; secsk82-->JVcsk82
+!!MA:U34/35; just in case
 
 ; gold stars
 !?FU14023; x16=coordinate index, x1=river type, x2=river subtype, x3=z-loc.
