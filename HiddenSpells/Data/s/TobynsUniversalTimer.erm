@@ -1,0 +1,49 @@
+ZVSE
+  UNIVERSAL TIMER INIT by Tobyn   (see script64.erm for longer description)
+
+!#TM1:S1/999/1/255;    triggers every color every day
+!#TM2:S1/999/1/255;    same but triggers only *after* all calculations from TM1 are done
+!#VRv2396:S1;          init v2396 month indicator (starts with month 1)
+!#VRv2390:S1;          init v2390 day comparator (c also starts with day 1 value)
+!#MCv2391:S@once@;     init macros (= other names) for the eight used vars
+!#MCv2392:S@day@;
+!#MCv2393:S@weekday@;
+!#MCv2394:S@AI@;
+!#MCv2395:S@color@;
+!#MCv2396:S@month@;
+!#MCv2388:S@week@;     monthly week count    (1,2,3,4,1,2,...)
+!#MCv2389:S@weeks@;    continuing week count (1,2,3,4,5,6,...)
+
+!#MCv2371:S@monday@;     !#VR$monday$:S1;    init macros and values for weekdays
+!#MCv2372:S@tuesday@;    !#VR$tuesday$:S2;
+!#MCv2373:S@wednesday@;  !#VR$wednesday$:S3;
+!#MCv2374:S@thursday@;   !#VR$thursday$:S4;
+!#MCv2375:S@friday@;     !#VR$friday$:S5;
+!#MCv2376:S@saturday@;   !#VR$saturday$:S6;
+!#MCv2377:S@sunday@;     !#VR$sunday$:S7;
+
+!#MCv2380:S@red@;        !#VR$red$:S0;       init macros and values for colors
+!#MCv2381:S@blue@;       !#VR$blue$:S1;
+!#MCv2382:S@tan@;        !#VR$tan$:S2;
+!#MCv2383:S@green@;      !#VR$green$:S3;
+!#MCv2384:S@orange@;     !#VR$orange$:S4;
+!#MCv2385:S@purple@;     !#VR$purple$:S5;
+!#MCv2386:S@teal@;       !#VR$teal$:S6;
+!#MCv2387:S@pink@;       !#VR$pink$:S7;
+
+  UNIVERSAL TIMER GLOBAL CALL EVERY DAY
+
+!?TM1;                     GLOBAL CALL (in central script so user needn't do it himself)
+!!OW:C?v2395;                get current player color (0..7)
+!!OW:Iv2395/?v2394;          get current player status (0=human, 1=AI)
+!!VRv2393:Sc %7;             set weekday (mon=1..sat=6,sun=0)
+!!VRv2393&v2393=0:S7;        set sunday=7 instead of sunday=0
+!!VRv2392:Sc;                set current day (comparison with c doesn't work in the next two lines)
+!!VRv2391&v2390=v2392:S1;    set once-on-that-day flag (only first active color)
+!!VRv2391&v2390>v2392:S0;    reset that flag (at second active color each day)
+!!VRv2390&v2391=1:+1;        inc day comparator (needed for flag)
+!!VRv2389&v2391=1:Sc -1 :7 +1; set weeks (cont count)
+!!VRv2388&v2393=1/v2391=1:+1; inc  week counter by 1 for each monday
+!!VRv2396&v2388=5/v2391=1:+1; inc month counter by 1 for each 5th week
+!!VRv2388&v2388=5/v2391=1:S1; reset week counter for each new month
+

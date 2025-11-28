@@ -1,0 +1,38 @@
+ZVSE
+
+; DL_Scouting, JHV, Feb.14, 2025, based on
+; SoF_Scouting, JHV, Oct. 20, 2011
+; Give +10%, +20%, +30% movement to Heroes w/Scouting
+
+; uses z273-z276, universal Timer 1, FU97
+
+!#VRz276:S^{Scouting}^;     [Set yellow skill name]
+
+!#VRz273:S^{Basic} {Scouting}
+
+Basic Scouting allows your hero to see 1 square further into the shroud and gain +10% movement.^;
+!#VRz274:S^{Advanced} {Scouting}
+
+Advanced Scouting allows your hero to see 2 squares further into the shroud and gain +20% movement.^;
+!#VRz275:S^{Expert} {Scouting}
+
+Expert Scouting allows your hero to see 3 squares further into the shroud and gain +30% movement.^;
+!#UN:G0/3/0/276;     [Set yellow skill name for Scouting]
+!#UN:G0/3/1/273 G0/3/2/274 G0/3/3/275;     [Set skill texts for Scouting]
+
+!?TM1; use daily universal timer from TUT
+!!OW:C?v3; (Check current player)
+!!OW:Rv3/6/?n; get gold
+!!OW&n>9000000:Rv3/6/8000000; prevent gold OF at 9,999,999
+!!DO97/0/155/1:P;
+
+!?FU97;
+!!HEx16:O?y2; (Check hero owner)
+!!FU&y2<>v3:E; (exit if not the same)
+!!HEx16:S3/?y4; get scouting level
+!!FU&y4<1:E;
+!!VRy4:*10+100;
+!!HEx16:W?y1;
+!!VRy1:*y4 :100;
+!!HEx16:Wy1 Gy1;
+

@@ -1,0 +1,336 @@
+ZVSE
+
+* HS_RandomArmies, based on
+* Songfx Random Armies script, JHV, Nov. 28, 2010, Revised Dec. 15, 2010
+
+!#OW:D0/254; Red doesn't need towns
+!#TM4:S1/999/7/1; Red, every Monday
+!#TM5:S2/999/7/8; Green, every Tuesday
+
+** variables:
+* v6000 = 14*creature type, type 0=Castle, 1=Rampart, ... (Conflux not included)
+* v6001 = current HP limit = c0:3+2*300 but with 6000 limit (iterated up to 24000)
+* v6002 = total HP of selected cr's
+* v6003 = number of different cr #'s chosen (max=7)
+* V6004 = number of different cr #'s still in cr-list minus 1
+* v6005 = previous attacker, v6006-v6010 = attacking HE#'s
+!#VRv6005:C90/74/115/101/62; (Malekith/Sandro/Tazor/Krellion/Zydar)
+* v6015 = current attacker
+* v6020-v6026 - save troop slot MA #'s
+* v6027-v6029 - save troop slot 0-2 exper.
+* v6030-v6036 - save troop slot stack counts
+* v6037-v6039 - save troop slot 3-5 exper.
+* v6040-v6053 = list of cr#'s to choose from
+* v6054 - save troop slot 6 exper.
+* V6055 - save Vames exper. in HS_SND
+* v6056 - flag Woodshire siege
+* v6060-v6073 = probability upper value for cr (scale of 200)
+!#VRv6060:C22/44/62/80/95/110/125/140/151/162/173/184/192/200;
+* v6075 = current HP limit = c0:3+2*300
+* v6080-v6093 - number of creatures chosen, v6080=# of v6040's, etc.
+
+* Functions:  FU302-FU310
+
+* Flags:  3-4 temporary
+
+* Timers: TM4
+
+!#MA:P32/31; give Stone Golems 31 HP to keep sorted lists in std/upgraded order
+* (after sort, Mage-25, Arch Mage-30, Stone Golem-31, iron Golem-35)
+!#MA:P60/21 P61/21 P64/40 P65/45;
+
+* give attackers their skills and spells so that they don't look useless compared to their armies
+!?TM2&v2392=1/v2395=3; Day 1, Green
+!!HE90:M16/1; Malekith - Ice Bolt
+!!HE74:M24/1; Sandro - Death Ripple
+!!HE115:S10/2; Tazar - Advanced Ballistics
+!!HE115:S27/3; Tazar - Expert First Aid
+!!HE101:S20/2; Krellion - Advaced Artillery
+!!HE101:S10/1; Krellion - Basic Ballistics
+!!HE62:M21/1; Zydar - Fireball
+
+
+!?TM4;
+!!CA72/72/1:H0/?v4 H1/?v2 O?v3; check for garrison/visiting Hero in castle & Green Owner
+!!FU&v3<>3:E;
+!!FU&v2=-1/v4=-1:E;
+!!VRv2&v4>-1:Sv4; save garrison Hero's troops
+* save Hero's troops
+!!HEv2:C0/0/?v6020/?v6030/?v6027/2 C0/1/?v6021/?v6031/?v6028/2 C0/2/?v6022/?v6032/?v6029/2;
+!!HEv2:C0/3/?v6023/?v6033/?v6037/2 C0/4/?v6024/?v6034/?v6038/2 C0/5/?v6025/?v6035/?v6039/2 C0/6/?v6026/?v6036/?v6054/2;
+* remove Hero's troops except for one peasant to tempt CH
+!!HEv2:C0/0/139/1 C0/1/-1/0 C0/2/-1/0 C0/3/-1/0 C0/4/-1/0 C0/5/-1/0 C0/6/-1/0;
+
+!?TM4&v2=-1/v3=3;
+* save castle garrison troops
+!!CA72/72/1:M2/0/?v6020/?v6030 M2/1/?v6021/?v6031 M2/2/?v6022/?v6032;
+!!CA72/72/1:M2/3/?v6023/?v6033 M2/4/?v6024/?v6034 M2/5/?v6025/?v6035 M2/6/?v6026/?v6036;
+!!EX72/72/1/0/2:E?v6027;
+!!EX72/72/1/1/2:E?v6028;
+!!EX72/72/1/2/2:E?v6029;
+!!EX72/72/1/3/2:E?v6037;
+!!EX72/72/1/4/2:E?v6038;
+!!EX72/72/1/5/2:E?v6039;
+!!EX72/72/1/6/2:E?v6054;
+* remove Garrison troops except for one peasant to tempt CH
+!!CA72/72/1:M2/0/139/1 M2/1/-1/0 M2/2/-1/0 M2/3/-1/0 M2/4/-1/0 M2/5/-1/0 M2/6/-1/0;
+
+!?TM4&v3=3; check for Hero on 72/74/1
+!!VRv1:S-2;
+!!OW:H0/1/2; Red Hero #2 to v1
+!!FU&v1<0:E;
+!!HEv1:P?y1/?y2/?y3;
+!!HEv1&y1=72/y2=74/y3=1:K;
+
+!?TM4&v3=3;
+!!VRv1:S0 T20;
+!!DO302/0/v1/1:P; add randomness
+!!VRv1:Sc0-1:7%5; attacking Hero table index, 0-4
+!!VRv3:Sv1+6005; index to current attacker
+!!VRv6015:Svv3;
+!!HEv6015&v6015=101:A2/4/?v4/d;
+!!HEv6015&v6015=101/v4=0:A4/4; If it's Kilgor without a Ballista, give him his Ballista
+!!HEv6015&v6015=115:A2/6/?v4/d;
+!!HEv6015&v6015=115/v4=0:A4/6; If it's Tazar without a Tent, give him his Tent
+* increase ADPK each attack, up to about 100 to avoid overflow
+* D stands for selected Game Difficulty (0-4)
+* everyone gets a total of +2D+3 stats each week
+!!HE90:Fd/d/?v4/d;
+!!HE90&v4<100:Fd/d/dv68/d Fd/d/dv68/d Fd/d/d3/d; Malekith +2D+3 Power each week
+!!HE74:Fd/d/?v4/d;
+!!HE74&v4<100:Fd/d/dv68/dv68 Fd1/d/d1/d1; Sandro +1 Attack, +D+1 Power, +D+1 Knowledge each week
+!!HE115:Fd/?v4/d/d;
+!!HE115&v4<100:Fd/dv68/d/d Fd/dv68/d/d Fd1/d2/d/d; Tazar +1 Attack, +2D+2 Defense each week
+!!HE101:F?v4/d/d/d;
+!!HE101&v4<100:Fdv68/d/d/d Fdv68/d/d/d Fd2/d1/d/d; Krellion +2D+2 Attack, +1 Defense each week
+!!HE62:Fd/d/?v4/d;
+!!HE62&v4<100:Fd/d/dv68/dv68 Fd1/d/d1/d1; Zydar +1 Attack, +D+1 Power, +D+1 Knowledge each week
+!!HEv6015:Fd/d/d/?v4;
+!!VRv4:*10;
+!!HEv6015:Iv4/1; give full spell points
+!!HEv6015:P72/74/1; put attacker in front of castle (on red square)
+!!HEv6015:O0; set attacker to Red
+!!AI:Sv6015/-1/1/72/72/1/5000000/1; tell attacker to attack castle
+!!CA72/73/0:O2; set Red Inferno to Tan for more incentive to attack
+* put barriers around attacker
+!!UN:I71/73/1/131/0; place shrub object on map
+!!UN:I73/73/1/131/0;
+!!UN:I71/74/1/131/0;
+!!UN:I73/74/1/131/0;
+*!UN:I72/73/1/79/6; lure attacker w/gold
+
+** random creature selection, type to be same as hero
+!!VRv6000:Sv6015:16*14;
+!!DO303/0/13/1:P; set cr#'s in v6040-v6099
+!!FU307:P; sort list by HP (Monk < Swordsman)
+!!VRv6075:Sc0:3+2*300;
+!!VRv6001:Sv6075;
+!!VRv6001&v6001>6000:S6000; STACK LIMIT gets exceeded around 10,000
+!!VRv6002:C0/0/13;
+!!VRv6059:C-1/22/44/62/80/95/110/125/140/151/162/173/184/192/200;
+!!VRv6080:C0/0/0/0/0/0/0/0/0/0/0/0/0/0;
+!!IF:V4/1; initialize collapse flag
+!!FU304:P; select cr's
+!!IF:V1/0;
+!!IF&v6001<v6075:V1/1;
+!!VRv6001&1:+6000;
+!!VRv6001&1/v6001>v6075:Sv6075;
+!!VRv6004&1:S-1; initialize stack count for FU305
+!!DO305/0/13/1&1:P; collapse lists
+!!FU304&1:P; select more cr's (up to 12000)
+!!IF:V1/0;
+!!IF&v6001<v6075:V1/1;
+!!VRv6001&1:+6000;
+!!VRv6001&1/v6001>v6075:Sv6075;
+!!VRv6004&1:S-1; initialize stack count for FU305
+!!DO305/0/13/1&1:P; collapse lists
+!!FU304&1:P; select more cr's (up to 18000)
+!!IF:V1/0;
+!!IF&v6001<v6075:V1/1;
+!!VRv6001&1:+6000;
+!!VRv6001&1/v6001>v6075:Sv6075;
+!!VRv6004&1:S-1; initialize stack count for FU305
+!!DO305/0/13/1&1:P; collapse lists
+!!FU304&1:P; select more cr's (up to 24000)
+!!VRv6004:S-1; initialize stack count for FU305
+!!DO305/0/13/1:P; collapse lists
+** at this point slots 0-v6004 are set
+** with cr MA #'s in v6040 list and stack counts in v6080 list
+*!IF:M^HP limit = %V6075, v6001=%V6001, Total HP selected = %V6002^;
+!!DO306/0/6/1:Pv6015; fill attacker's troop slots
+!!OB72/73/1:T?y8; chk for blocking Hero
+!!if&y8=34; another Hero blocking
+  !!IF:M^The Red Warrior arrogantly says, "You are in my way! I call on {Devoron} to remove this pest!^;
+  !!HE72/73/1:B0/?z7; name
+  !!IF:M^Caught within Devoron's Triple Wards and outside Woodshire's hallowed walls, %Z7 is swept away by Devoron's Red Magic!^;
+  !!VRz8:S^Mods/HiddenSpells/Data/MEDUKILL.WAV^;
+  !!SN:Ev34/1/z8;
+  !!HE72/73/1:K;
+!!en;
+!!CA72/72/1:H0/?y6 H1/?y7; 0/garrison, 1/visiting
+!!if&y7>-1/y6>-1; another Hero blocking
+  !!IF:M^The Red Warrior arrogantly says, "You are in my way! I call on {Devoron} to remove this pest!^;
+  !!HEy7:B0/?z7; name
+  !!IF:M^Caught within Devoron's Triple Wards and outside Woodshire's hallowed walls, %Z7 is swept away by Devoron's Red Magic!^;
+  !!VRz8:S^Mods/HiddenSpells/Data/MEDUKILL.WAV^;
+  !!SN:Ev34/1/z8;
+  !!HEy7:K;
+!!en;
+
+!?FU303; x16=cr rank in type v6000:14
+!!VRy1:Sx16+6040; index to cr-list in v6040-v6099
+!!VRvy1:Sv6000+x16;
+
+!?FU304; select creatures randomly
+!!VRy1:Sv6004+6060; index to top of p-limits
+!!VRv2:S0 Rvy1; random p-value
+!!VRv1:S0;
+!!DO309/0/v6004/1:Pv2;
+!!VRy2:Sv1+6040; index to cr-#
+!!VRv3:Svy2;
+!!MA:Pvy2/?y3; get HP
+!!VRy4:Sv6002+y3;
+*!IF:M^FU304: p=%V2, v1=%V1, cr#(v1)=%V3, HP(v1)=%Y3, v6002=%V6002, y4=%Y4, stack count = %V6003, v6004=%V6004^;
+!!IF:V3/1; OK
+!!IF&y4>v6001:V3/0; N.G.
+!!VRv6004&-3:Sv1-1; remove cr's from list (HP too large)
+* if cr ok, add to its troop stack
+!!VRv6002&3:Sy4; new HP total
+!!VRy5&3:Sv1+6080; index to troop stack
+!!VRvy5&3:+1;
+* only choose either upgraded or unupgraded creatures of a given type
+!!VRy6:Sv1%2;
+!!VRy7&y6=0:Sv1+1; if v1 even, v1+1 is its upgrade (before list collapsed)
+!!VRy7&y6=1:Sv1-1; if v1 odd, v1-1 is its upgrade
+!!VRy8:Sy7+6060; index to p-limit for upgraded or un-upgraded version of v1
+!!VRy9:Sy8-1; index to previous p-limit
+!!VRvy8&3/4:Svy9;
+!!VRv6003&vy5=1/3:+1; add to stack count
+!!VRv6004&v6003=7/4/3:S-1; initialize for FU305
+!!DO305/0/13/1&v6003=7/4/3:P; collapse lists (once only)
+!!FU304&v6004>-1:P; select another cr
+
+!?FU305; collapse v6040, V6060, & v6080 lists down to 7 cr's or less
+!!IF:V4/0;
+!!VRy10:Sx16+6080; index to cr stack count
+!!FU&vy10=0:E;
+!!VRv6004:+1;
+!!VRy11:Sv6004+6080;
+!!VRvy11:Svy10;
+!!VRy10:-20;
+!!VRy11:-20;
+!!VRvy11:Svy10;
+!!VRy10:-20;
+!!VRy11:-20;
+!!VRvy11:Svy10;
+
+!?FU306; x16=troop slot, x1=HE#
+!!VRy20:Sx16+6040; index to MA#
+!!VRy21:Sy20+40; index to count
+!!HEx1:C0/x16/-1/0; empty slot
+!!HEx1&x16<=v6004:C0/x16/vy20/vy21;
+
+!?FU307; sort cr lists by HP
+!!IF:V3/0; unfinished flag
+!!DO308/0/12/1:P;
+!!FU307&3:P;
+
+!?FU308; bubble sort, x16=index to v6040
+!!VRy1:Sx16+6040; index to cr-#
+!!MA:Pvy1/?y3; get HP
+!!VRy2:Sx16+6041; index to next cr-#
+!!MA:Pvy2/?y4; get HP
+!!FU&y4>=y3:E;
+* switch
+!!IF:V3/1;
+!!VRy5:Svy1;
+!!VRvy1:Svy2;
+!!VRvy2:Sy5;
+
+!?FU309; cr p-range search, x1=p, x16=cr# 0-v6004, v1=selected cr #
+!!VRy1:Sx16+6060; index to p-limit table, v6060-v6073
+!!FU&x1>vy1:E;
+!!VRv1:Sx16;
+!!VRx16:S99;
+
+
+** siege Battle
+!?BA0&1000/v998=72/v999=72/v1000=1;
+!!VRv6056:S0; set for not Monday siege
+!!OW:C?y1; active owner
+!!VRy2:Sc0-1%7; week day 0-6
+*!BA:M1/0/?y40/?y41; [Check defending monster type: y40 and number: y41]
+*!FU|y40<>139/y41<>1:E; [Exit if not 1 peasant]
+!!FU|y1<>0/y2<>0:E; exit if not Red on Monday
+!!VRv6056:S1; set for Monday siege
+!!BA:M1/0/v6020/v6030 M1/1/v6021/v6031 M1/2/v6022/v6032 M1/3/v6023/v6033;
+!!BA:M1/4/v6024/v6034 M1/5/v6025/v6035 M1/6/v6026/v6036;
+*!EX72/72/1/0/2:Ev6027; N.G. does not affect stack
+* restore Hero's troops
+!!BA:H1/?v2;
+!!HEv2&v2>-1:C0/0/v6020/v6030/v6027/2 C0/1/v6021/v6031/v6028/2 C0/2/v6022/v6032/v6029/2;
+!!HEv2&v2>-1:C0/3/v6023/v6033/v6037/2 C0/4/v6024/v6034/v6038/2 C0/5/v6025/v6035/v6039/2 C0/6/v6026/v6036/v6054/2;
+!!VRv1:S0 T20;
+!!DO302/0/v1/1:P;
+
+!?BF&1000/v998=72/v999=72/v1000=1/v6056=1;
+!!VRv1:C6027/6028/6029/6037/6038/6039/6054; index table for exp.
+!!DO310/21/29/1:P; reset stack exp.
+
+!?FU310; x16=stack
+!!BMx16:N?y1 O?y2 T?y5;
+!!FU|y1<1/y2<0:E; exit if stack empty or has no slot
+!!VRy2:+1; convert to v1-v7 index
+!!VRy3:Svy2; get exp. index
+!!VRy4:Sx16+1*-1;
+!!EAy4:Oy5 Evy3/2/d/d; set exp.
+
+!?BA1&1000/v998=72/v999=72/v1000=1/v6056=1;
+!!VRv6056:S0;
+* remove shrubs
+!!UN:O71/73/1;
+!!UN:O73/73/1;
+!!UN:O71/74/1;
+!!UN:O73/74/1;
+!!CA72/73/0:O0; set Ice Hold back to Red
+!!HEv6015:O?v1;
+!!FU&v1=0:E;
+* give experience credits = 1*exp, use gold for now
+!!VRv1:Sv6002+500*1; exp=creature HP+500
+!!IF:Q1/6/v1/1^You have won some spoils from the defeated army!^;
+!!OW:R3/6/dv1;
+!!BA:H1/?v2;
+!!FU86&v2<0:P1; count battle exp for no Hero
+
+!?FU302; battle randomizer
+!!VRy1:R100;
+!!VRy2&y1>50:R100;
+
+!?TM5;
+!!VRv2:S-2;
+!!CA72/72/1:O?v3; check for Green (3) owner
+!!FU&v3<>3:E;
+!!CA72/72/1:H1/?v2; check for visiting Hero in castle
+!!FU&v2=-1:E;
+* check Hero's troops for 1 Peasant
+!!HEv2:C0/0/?y1/?y2;
+!!FU|y1<>139/y2<>1:E;
+* restore Hero's troops
+!!HEv2:C0/0/v6020/v6030/v6027/2 C0/1/v6021/v6031/v6028/2 C0/2/v6022/v6032/v6029/2;
+!!HEv2:C0/3/v6023/v6033/v6037/2 C0/4/v6024/v6034/v6038/2 C0/5/v6025/v6035/v6039/2 C0/6/v6026/v6036/v6054/2;
+
+!?TM5&v2=-1/v3=3;
+* check Garrison's troops for 1 Peasant
+!!CA72/72/1:M2/0/?y1/?y2;
+!!FU|y1<>139/y2<>1:E;
+* restore castle garrison troops
+!!CA72/72/1:M2/0/v6020/v6030 M2/1/v6021/v6031 M2/2/v6022/v6032;
+!!CA72/72/1:M2/3/v6023/v6033 M2/4/v6024/v6034 M2/5/v6025/v6035 M2/6/v6026/v6036;
+!!EX72/72/1/0/2:Ev6027;
+!!EX72/72/1/1/2:Ev6028;
+!!EX72/72/1/2/2:Ev6029;
+!!EX72/72/1/3/2:Ev6037;
+!!EX72/72/1/4/2:Ev6038;
+!!EX72/72/1/5/2:Ev6039;
+!!EX72/72/1/6/2:Ev6054;
+

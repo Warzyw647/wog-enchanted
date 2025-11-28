@@ -1,0 +1,89 @@
+ZVSE
+
+; HS_Greenhouse, JHV, Mar.16, 2017 (Greenhouse and Mermaid)
+
+; uses z514-z516, Dialog 12
+; also uses v415-v417 & f415
+
+!#VRz514:S^Greenhouse^;
+!#OB29/20/0:SH514;
+!#VRz515:S^Bouquet of Flowers^;
+!#VRz516:S^{Bouquet of Flowers}
+This beautiful bouquet may please a fair lady, and bring you much luck.^;
+!#UN:A46/9/515 A46/10/516;
+
+!?OB29/20/0; Greenhouse
+!!VRz4:S^Welcome to this Greenhouse, where beautiful flowers
+are grown. Would you like a bouquet to please a lady?
+The Ice King demands that we make a huge profit, or
+he will reduce our head count--literally--so we must
+charge 10,000 gold for our product.^;
+!!VRz5:S^Bouquet of Flowers^;
+!!VRz6:S^..\Data\Bouquet.gif^;
+!!IF:D12/z4/0/z5/z6/0/0/0;
+!!IF:F12/0/0/0/0/1;
+!!IF:E99/12;
+!!FU&v99=-1:E;
+!!OW:R-1/6/?y3; gold
+!!IF&y3<10000:Q1/6/10000/8/46/1^You do not have enough gold to pay us, sorry.^;
+!!FU&y3<10000:E;
+!!HE-1:A4/46;
+!!OW:R-1/6/d-10000;
+!!UN:R1 R2;
+!!IF:Q1/6/10000/8/46/1^Take the flowers, with our thanks for the gold.^;
+
+!?OB52/0&1000; Mermaid
+!!OBv998/v999/v1000:S; disable tentatively (prevents normal message)
+!!VRv415:Cv998/v999/v1000;
+!!IF:V415/1; setup to re-enable after visit
+!!OW:A-1/?y1; active Hero if any
+!!FU|y1<0/y1>155:E;
+!!UN:C11079004/4/?y4; [A90D5C] = Orrin's Heroes Table base address-1AB0
+!!VRy5:Sy1*1170+7093+y4; address of Visited flags (0x1AB0+0x105=7093)
+!!UN:Cy5/4/?y6;
+!!VRy6:&32768; check for Mermaid bit
+!!IF&y6>0:M^You have already been blessed with perfect luck for your next battle. Until the blessing is used it cannot be restored.^;
+!!FU&y6>0:E;
+!!HEy1:A2/46/?y7/d;
+!!IF&y7<1:M^You have no gift for me? Then begone!^;
+!!FU&y7<1:E;
+!!IF:Q1/8/46/11/100/1^Oh! You brought me a lovely gift of flowers! Thank you, and in gratitude I give you my blessing of perfect luck for one battle!^;
+!!HEy1:A-46;
+!!OBv415/v416/v417:M-1/1/0 R; disable next message (there must be a message to disable, none if obj disabled)
+!!IF:V415/0;
+
+!?HM-1&415;
+!!OBv415/v416/v417:R; re-enable
+!!IF:V415/0;
+
+!?BA0&1000;
+!!IF:V301/0 V302/0;
+!!BA:H0/?y1; LHS HE
+!!UN:C11079004/4/?y4; [A90D5C] = Orrin's Heroes Table base address-1AB0
+!!VRy5:Sy1*1170+7093+y4; address of Visited flags
+!!UN:Cy5/4/?y6;
+!!VRy6:&32768; check for Mermaid bit
+!!IF&y6>0:V301/1;
+!!BA:H1/?y2; RHS HE
+!!FU&y2=-2:E;
+!!VRy5:Sy2*1170+7093+y4; address of Visited flags
+!!UN:Cy5/4/?y6;
+!!VRy6:&32768;
+!!IF&y6>0:V302/1;
+
+!?BG0|301/302;
+!!BG:Q?y1; check side
+!!FU&y1>0/-302:E; do RHS only if f302 set
+!!FU&y1=0/-301:E; do LHS only if f301 set
+!!UN:C4454012/2/37008; set nop nop shooter
+!!UN:C4461918/2/37008; set nop nop melee
+!!IF:V300/1;
+!?BG1&300;
+!!UN:C4454012/2/30847; restore jg 43F6F6 shooter
+!!UN:C4461918/2/30847; restore jg 4415D8 melee
+!!IF:V300/0;
+!?BA1|301/302;
+!!IF:V300/0 V301/0 V302/0;
+!!UN:C4454012/2/30847; restore jg 43F6F6 shooter
+!!UN:C4461918/2/30847; restore jg 4415D8 melee
+

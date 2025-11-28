@@ -1,0 +1,209 @@
+ZVSE
+
+* HS_SwordsOfNightAndDay2, JHV, Oct. 10, 2011, based on
+* SND_SwordsOfNightAndDay, JHV, May 2011
+* uses v27, v28, v6055, v6057, v6155, v6157, v7095-v7105, z306, z384-z387, z447, FU71, FU73-FU75, Flags 23-24 & 185-188
+
+!#VRz384:S^Golden Sword of Day^;
+!#VRz385:S^{Golden Sword of Day}
++3 A, +3 D, +3 P +6 K, Armageddon immunity, summons a Sun Warrior.  In combination with the Sword of Night, gives Jalery and Vames multiple attacks.^;
+!#UN:A128/9/384;
+!#UN:A128/10/385;
+!#VRz386:S^Black Sword of Night^;
+!#VRz387:S^{Black Sword of Night}
++3 A & D, allows retaliation against no-retaliation creatures, summons a Moon Guard.  In combination with the Sword of Day, gives Jalery and Vames multiple attacks.^;
+!#UN:A157/9/386;
+!#UN:A157/10/387;
+!#VRz306:S^Sun Warrior^;
+!#UN:G1/164/0/306;
+!#MA:S164/10 P164/200 X164/?v1;
+!#VRv1:|4194304; "summoned"
+!#MA:X164/v1;
+!#EA164:F119/-1/?v4; v4=line for ability 119/any, or empty line if none, -1 if no free lines
+!#EA164&v4>-1:Bv4/1/119/65/1/1/1/1/1/1/1/1/1/1/1;  immunity to hostile air (works for TLB)
+!#VRz447:S^Moon Guard^;
+!#UN:G1/166/0/447;
+!#MA:S166/10 P166/200 X166/?v1;
+!#VRv1:|4194304; "summoned"
+!#MA:X166/v1;
+!#EA166:F119/-1/?v4; v4=line for ability 119/any, or empty line if none, -1 if no free lines
+!#EA166&v4>-1:Bv4/1/119/65/1/1/1/1/1/1/1/1/1/1/1;  immunity to hostile air (works for TLB)
+!#EA166:F115/-1/?v1; v1=line for ability 115/-1 | MG must be faster than V or J
+!#EA166&v1>-1:Bv1/1/115/53/0/0/1/1/1/2/2/2/3/3/3; Enchant w/Haste (3=expert, 4=mass, 5=mass+R, 6=mass+RE)
+!#OB23/23/1:S;
+!#OB118/117/1:S;
+
+!?AE1&v998=128; equip AB (Golden Sword of Day)
+*!HE-1:M26/0; remove Armageddon spell (doesn't work)
+!!IF:V185/1; remove Armageddon on next left-click
+!!HE-1:A2/157/?y-2/?y-1; y-1=# equipped
+!!VRy-1:+1;
+!!IF&y-1>1:V186/1;
+!!DO71/0/6/1:Py-1; give troops 1 or 2 swords (exp.)
+
+** remove Armageddon spell
+* Left-click in Hero Screen
+!?CM2;
+!!HE27:M26/0; remove Armageddon spell
+!!HE26:M26/0;
+!!IF:V185/0;
+* Left-click on Adventure Screen
+!?CM5&185;
+!!HE27:M26/0; remove Armageddon spell
+!!HE26:M26/0;
+!!IF:V185/0;
+!?CM3; Hero Meeting
+!!HE27:M26/0;
+!!HE26:M26/0;
+
+!?AE1&v998=157; equip CSoR (Black Sword of Night)
+!!HE-1:Fd3/d1/d/d; +3A +1D as well as built-in +2D
+!!HE-1:A2/128/?y-2/?y-1; y-1=# equipped
+!!VRy-1:+1;
+!!IF&y-1>1:V186/1;
+!!DO71/0/6/1:Py-1; give troops 1 or 2 swords (exp.)
+
+!?AE0|v998=128/v998=157; remove a sword
+!!HE-1&v998=157:Fd-3/d-1/d/d;
+!!IF:V186/0;
+!!HE-1:A2/128/?y-3/?y-1; y-1=# AB equipped
+!!HE-1:A2/157/?y-3/?y-2; y-2=# CSoR equipped
+*!VRy-3:Sy-1+y-2; (doesn't work--sword that triggered this not removed yet)
+!!VRy-4&v998=157:Sy-1;
+!!VRy-4&v998=128:Sy-2;
+!!DO71/0/6/1:Py-4; give troops 0 or 1 swords (exp.)
+
+!?FU71; x16=troop slot, x1=# of swords equipped
+!!HE-1:C0/x16/?y1/?y2;
+!!FU|y1<0/y2<1:E; exit if no creature in slot
+!!VRy3:Sx1*5; exp. level
+!!HE-1:C0/x16/d/d/y3/12;
+
+* multiple attacks per round & summon Sun and/or Moon Warriors
+!?BA52&1000; after RandomArmies
+!!VRv7103:C-1/-1/-1;
+!!FU&496:E; not allowed in Pyramid of Pwr--JV Oct. 7, 2021
+!!BA:H0/?v7101; attacker
+!!BA:H1/?v7102; defender (-2 none)
+!!VRv7095:C-1/16/3/-1/16/3; stack/bit-flags/count, 16 is dummy flag
+!!VRv28:S0;
+!!IF:V187/0 V188/0;
+!!FU&v7101<>27/v7102<>27:E;
+!!HE27:A2/128/?y3/?y1; y-1=# AB equipped
+!!HE27:A2/157/?y3/?y2; y-2=# CSoR equipped
+!!VRv28:Sy1+y2*5;
+!!VRv28&v7102=27:+1; if Swords equipped, v28=10 for attacker, 11 for defender
+!!DO72/0/6/1:P; Vames' slot -> v7103, Jalery -> v7104
+!!DO73/0/6/1&v7103>-1/v7101=27:P0/174/6055/6155; find Vames' BA:M slot, empty it
+!!DO73/0/6/1&v7103>-1/v7102=27:P1/174/6055/6155; (V w/o J must not be stack 0, for mult. attacks)
+!!DO73/0/6/1&v7104>-1/v7101=27:P0/136/6057/6157; find Jalery' BA:M slot, empty it
+!!DO73/0/6/1&v7104>-1/v7102=27:P1/136/6057/6157;
+
+
+!?BF&1000/v28>0/-496;
+!!FU&v7103=-1/v7104=-1:E; (neither Vames nor Jalery involved)
+!!HE27:A2/128/?y3/?y1; y1=# AB equipped
+!!HE27:A2/157/?y3/?y2; y2=# CSoR equipped
+!!DO75/19/155/17&y1>0/v7101=27:P164/0/-1; left side
+!!DO75/31/167/17&y1>0/v7102=27:P164/1/-1;  right side
+!!DO75/19/155/17&y2>0/v7101=27:P166/0/-1; left side
+!!DO75/31/167/17&y2>0/v7102=27:P166/1/-1;  right side
+!!DO75/19/155/17&v7101=27/v7104>-1:P136/0/v7104/v6057/v6157; summon Jalery, LHS
+!!DO75/31/167/17&v7102=27/v7104>-1:P136/1/v7104/v6057/v6157;  RHS
+!!DO75/19/155/17&v7101=27/v7103>-1:P174/0/v7103/v6055/v6155; summon Vames, LHS
+!!DO75/31/167/17&v7102=27/v7103>-1:P174/1/v7103/v6055/v6155;  RHS
+
+
+!?FU72; x16=troop
+!!HE27:C0/x16/?y1/?y2;
+!!FU&y2<1:E;
+!!VRv7103&y1=174:Sx16;
+!!VRv7104&y1=136:Sx16;
+
+!?FU73; x16=stack #, x1=side, x2=cr#, x3=exp. v#, x4=War Banner v#
+!!BA:Mx1/x16/?y1/d;
+!!FU&y1<>x2:E;
+!!HE27:C0/x16/d/d/?vx3/2; get Vames' exp.
+!!EX27/x16:R?vx4/d/d/d; =0-1, 1 if has War Banner (Health Bonus assumed)
+!!BA:Mx1/x16/-1/0; empty Vames' slot--for multiple attacks, V w/o J must not be stack 0
+
+!?BF&1000/v28>0; reset EA:B & exp.
+!!DO74/0/9/1|v28=5/v28=10:P;
+!!DO74/21/30/1|v28=6/v28=11:P;
+
+!?FU74; x16=stack, v28=exp. level
+!!BMx16:T?y1 N?y2;
+!!FU|y1<0/y2=0:E;
+!!VRy2:Sx16+1*-1;
+!!EAy2:Oy1;
+!!EAy2:Ev28/12/d/d;
+
+!?FU75; x1=single-hex cr# to be summoned, x2=side, x3= slot, x4=exp., x16=front hex to check
+!!BU:Ex16/?y1; check for live stack at x16
+!!FU&y1>-1:E;
+!!BU:Sx1/1/x16/x2/x3/0; summon x1
+!!BU:Ex16/?y2;
+!!FU&y2<0:E;
+!!VRy3:Sy2+1*-1;
+;EAy3|x1=174/x1=136:Ex4/2/d/d;
+!!EAy3:Ex4/2/d/d;
+!!EAy3&x5=1:R156/0; restore artifact
+!!VRy6:Sx16; save loc.
+!!VRx16:S255; end loop
+!!FU&x1<>136:E; exit if not Jalery
+!!VRy7:Sx2*21; stk 0 or 21
+!!BMy7:P?y5 P8; move stk 0 to H8
+!!BMy2:Py5; move J to stk 0 loc.
+!!BMy7:Py6; switch J & stk 0
+
+!?BR;
+!!VRv27:Sv997; save round counter for other triggers
+
+!#IF:V23/1 V24/1;
+
+!?BG0&187/v27>-1/-496;
+!!BG:N?v1; stack #
+!!FU&v1=v7095:E;
+!!IF:V1/1;
+!!IF&23:V1/0;
+!!IF:V23/0;
+!!IF&1:V23/1;
+* restore flags for Vames (must restore AFTER BG1 of his turn)
+!!BMv7095&23/v7095>0:N?v1;
+!!BMv7095&23/v7095>0/v1>0:Fv7096;
+!!IF&23:V187/0;
+
+!?BG0&1000/186/v27>-1/-496; save bit-flags for Vames
+!!BG:N?v1; stack #
+!!BMv1:F?v2 T?v3; type
+!!FU&v3<>174:E;
+!!VRv7095:Cv1/v2;
+!!VRv7096:&-16777217; erase had-morale
+!!IF:V187/1;
+
+!?BG0&188/v27>-1/-496;
+!!BG:N?v1; stack #
+!!FU&v1=v7098:E;
+!!IF:V1/1;
+!!IF&24:V1/0;
+!!IF:V24/0;
+!!IF&1:V24/1;
+* restore flags for Jalery (must restore AFTER BG1 of his turn)
+!!BMv7098&24/v7098>0:N?v1;
+!!BMv7098&24/v7098>0/v1>0:Fv7099;
+!!IF&24:V188/0;
+
+!?BG0&1000/186/v27>-1/-496; save bit-flags for Jalery
+!!BG:N?v1; stack #
+!!BMv1:F?v2 T?v3; type
+!!FU&v3<>136:E;
+!!VRv2:&-16777217; erase had-morale
+!!VRv7098:Cv1/v2;
+!!IF:V188/1;
+
+!?BA1|v7101=27/v7102=27/-496;
+!!HE27:O?y1;
+!!FU&y1<>3:E;
+!!HE27&v7103>-1:C0/v7103/d/d/v6055/2; restore Vames exper.
+!!HE27&v7104>-1:C0/v7104/d/d/v6057/2; restore Jalery exper.
+

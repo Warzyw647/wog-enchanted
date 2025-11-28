@@ -1,0 +1,723 @@
+ZVSE
+
+; HiddenSpells, JHV, Aug. 23, 2012, from
+; TestRaurosFurySB, JHV, Aug. 19, 2012
+
+; uses v30-v66, v325, v1281-v1297, v1381-v1392, z348-z349, FU519-FU525, FU545,
+; and flags 59-70 (flag 200 from Battles, flags 381-384 from Forge), f385
+; NOTE: hidden Fire spell requires ChainFire2 script (in same map)
+; added v1297 calculation for CL damage address here (must be after Settings uses v1-v40)
+
+!#VRz348:S^Huorn^;
+!#VRz349:S^Huorns^;
+!#UN:G1/22/0/348 G1/23/0/348 G1/22/1/349 G1/22/1/349;
+
+!?PI; set up XFiles dll (XFiles.dll in EraPlugins)
+; Load dll and get ID
+!!VRz1:S^XFiles.dll^; store dll name
+!!SN:Lz1/?v37; now v37 holds dll ID [IMPORTANT: never use ?v1 in SN]
+!!IF&v37=0:M^Error--XFiles was not found. The map is not playable without it. Check installation.^;
+; get CaptureScreen Addresses
+!!VRz1:S^CaptureScreen^; store function name
+!!SN:Av37/z1/?v38; (assuming that v37 holds dll ID) get CaptureScreen function address to v38
+!!VRz1:S^DrawBmp^; store function name
+!!SN:Av37/z1/?v39; get DrawBmp function address to v39
+!!VRz1:S^SaveMask^; store function name
+!!SN:Av37/z1/?v40; get SaveMask function address to v40
+!!VRz1:S^MousePut^; store function name
+!!SN:Av37/z1/?v41; get MousePut function address to v41
+!!VRz1:S^SaveCaptMask^; store function name
+!!SN:Av37/z1/?v43; get SaveCaptMask address to v43
+!!VRz1:S^PlayOnce^; store function name
+!!SN:Av37/z1/?v34; get PlayOnce function address to v34
+!!VRz1:S^PlayLoop^; store function name
+!!SN:Av37/z1/?v35; get PlayLoop function address to v35
+!!VRz1:S^StopPlay^; store function name
+!!SN:Av37/z1/?v36; get StopPlay function address to v36
+!!VRz1:S^PlayMedia^; store function name
+!!SN:Av37/z1/?v60; get PlayMedia address to v60
+!!VRz1:S^CloseMedia^; store function name
+!!SN:Av37/z1/?v61; get CloseMedia address to v61
+!!VRz1:S^OpenMedia^; store function name
+!!SN:Av37/z1/?v62; get OpenMedia address to v62
+!!VRz1:S^PlayMedia2^; store function name
+!!SN:Av37/z1/?v64; get PlayMedia2 address to v64
+!!VRz1:S^MouseGet^; store function name
+!!SN:Av37/z1/?v65; get MouseGet function address to v65
+!!VRz1:S^KeyPress^; store function name
+!!SN:Av37/z1/?v66; get KeyPress function address to v66
+; Find the address of "The %s does %d damage." battle scroll message from GENRLTXT.TXT
+; uses v1297 to save address of string
+!!UN:C6970820/4/?v2; read address at 6A5DC4
+!!VRv2:+44; 2Ch offset 0
+!!UN:Cv2/4/?v1297;
+!!VRv1297:+16530; offset 1 to first string of GENRLTXT, plus offset to damage string
+!!UN:Cv1297/2/?v4; first two bytes "Th" = 54 68 = 6854h = 26708
+!!IF&v4<>26708:M^Error - GENRLTXT message not found.^;
+!!VRv1297&v4<>26708:S-1;
+!!UN:V?v8/?v9; WoG/ERM or WoG/Era
+!!IF&v9<>2400/v9<>2410/v9<>300/v9<>243/v9<>2430/v9<>2461:M^Warning: Era version %V9 is unknown. Memory addresses used in this map are different for some different Era versions, and have not been tested for this Era version, so the map may not be playable. See author for updates.^;
+!!VRv325:S196884; Hint Text address offset 3 for WoG and Era below Era 2.41
+!!VRv325&v9=2410:S196924; Hint Text address offset 3 Era 2.41
+!!VRv325|v9=243/v9=2430:S196912; Hint Text address offset 3 Era 2.43
+!!UN:C41977312/4/?y5; base
+!!VRy5:+20; offset 1
+*!UN:Cy5/4/?y6; base 2
+!!VRy6:+564; offset 2
+*!UN:Cy6/4/?y7; base 3
+!!VRv325:+y7; add offset 3
+; alternate method for Maciek:
+!!VRz1:S^era.dll^; store dll name
+!!SN:Lz1/?y1; now y1 holds dll ID
+!!VRz1:S^GlobalRedirectFile^; store function name
+!!SN:Ay1/z1/?v2;
+!!IF&v2=0:M^Error - GlobalRedirectFile not found, so the map is not playable. Check with author.^;
+!!FU&v2=0:E;
+!!VRv3:S0;
+!!DO545/150000/230000/4:Pv2; was 220200/230000 for Era 2.41 & 2.43, found 162,472 for 2.46
+!!IF&v3=0:M^Hint address search failed, map is not playable in this Era installation.^;
+!!FU&v3=0:E;
+!!VRv325:Sv3;
+
+!?FU545; x16=search address minus GlobalRedirectFile, x1=GRF
+!!VRy2:Sx1+x16;
+!!UN:Cy2/4/?y1;
+!!FU&y1=0:E;
+!!SN:Xy2;
+!!SN:X?z1; buffer address to z1 address
+*!IF:M^Hint test = %Z1, at %Y2, v325=%V325^;
+!!VRv3:Sy2;
+!!VRx16:S500000; end loop
+
+!?GM0; set up XFiles dll after program restart and map reload
+; Load dll and get ID
+!!VRz1:S^XFiles.dll^; store dll name
+!!SN:Lz1/?v37; now v37 holds dll ID
+!!IF&v37<1:M^Error - the XFiles DLL was not found!  XFile functions won't work. Map is not playable in this condition.^;
+; get CaptureScreen Addresses
+!!VRz1:S^CaptureScreen^; store function name
+!!SN:Av37/z1/?v38; (assuming that v37 holds dll ID) get CaptureScreen function address to v38
+!!VRz1:S^DrawBmp^; store function name
+!!SN:Av37/z1/?v39; get DrawBmp function address to v39
+!!VRz1:S^SaveMask^; store function name
+!!SN:Av37/z1/?v40; get SaveMask function address to v40
+!!VRz1:S^MousePut^; store function name
+!!SN:Av37/z1/?v41; get MousePut function address to v41
+!!VRz1:S^SaveCaptMask^; store function name
+!!SN:Av37/z1/?v43; get SaveCaptMask address to v43
+!!VRz1:S^PlayOnce^; store function name
+!!SN:Av37/z1/?v34; get PlayOnce function address to v34
+!!VRz1:S^PlayLoop^; store function name
+!!SN:Av37/z1/?v35; get PlayLoop function address to v35
+!!VRz1:S^StopPlay^; store function name
+!!SN:Av37/z1/?v36; get StopPlay function address to v36
+!!VRz1:S^PlayMedia^; store function name
+!!SN:Av37/z1/?v60; get PlayMedia address to v60
+!!VRz1:S^CloseMedia^; store function name
+!!SN:Av37/z1/?v61; get CloseMedia address to v61
+!!VRz1:S^OpenMedia^; store function name
+!!SN:Av37/z1/?v62; get OpenMedia address to v62
+!!VRz1:S^PlayMedia2^; store function name
+!!SN:Av37/z1/?v64; get PlayMedia2 address to v64
+!!VRz1:S^MouseGet^; store function name
+!!SN:Av37/z1/?v65; get MouseGet function address to v65
+!!VRz1:S^KeyPress^; store function name
+!!SN:Av37/z1/?v66; get KeyPress function address to v66
+!!VRv63:S0; set video length to zero (signal to use Open before Start)
+*!SN:Ev61/1/?v3/?z4; call CloseMedia to close any open media file
+!!IF:V60/0 V61/0 V63/0 V65/0 V68/0; unset saved element choice
+; Find the address of "The %s does %d damage." battle scroll message from GENRLTXT.TXT
+; uses v1297 to save address of string
+!!UN:C6970820/4/?v2; read address at 6A5DC4
+!!VRv2:+44; 2Ch offset 0
+!!UN:Cv2/4/?v1297;
+!!VRv1297:+16530; offset 1 to first string of GENRLTXT, plus offset to damage string
+!!UN:Cv1297/2/?v4; first two bytes "Th" = 54 68 = 6854h = 26708
+!!IF&v4<>26708:M^Error - GENRLTXT message not found.^;
+!!VRv1297&v4<>26708:S-1;
+; repeat shooting SG code under GM0
+!!VRv4:S7994243+173; Era 1.8
+!!VRv5:S7994051+173;
+!!VRv6:S7993859+173;
+!!UN:Cv4/1/9;
+!!UN:Cv5/1/8;
+!!UN:Cv6/1/3;
+!!FU6000:P0/173/3; (FU6000 in HS_Arena)
+!!UN:V?v8/?v9; WoG/ERM or WoG/Era
+!!VRv325:S196884; Hint Text address offset 3 for WoG and Era below Era 2.41
+!!VRv325&v9=2410:S196924; Hint Text address offset 3 Era 2.41
+!!VRv325|v9=243/v9=2430:S196912; Hint Text address offset 3 Era 2.43
+!!UN:C41977312/4/?y5; base
+!!VRy5:+20; offset 1
+*!UN:Cy5/4/?y6; base 2
+!!VRy6:+564; offset 2
+*!UN:Cy6/4/?y7; base 3
+!!VRv325:+y7; add offset 3
+; alternate method for Maciek:
+!!VRz1:S^era.dll^; store dll name
+!!SN:Lz1/?y1; now y1 holds dll ID
+!!VRz1:S^GlobalRedirectFile^; store function name
+!!SN:Ay1/z1/?v2;
+!!IF&v2=0:M^Error - GlobalRedirectFile not found, so the map is not playable. Check with author.^;
+!!FU&v2=0:E;
+!!VRv3:S0;
+!!DO545/150000/230000/4:Pv2; was 220200/230000 for Era 2.41 & 2.43, found 162,472 for 2.46
+!!IF&v3=0:M^Hint address search failed, using %V325.^;
+!!FU&v3=0:E;
+!!VRv325:Sv3;
+
+!?BA52&1000;  comes after BA0, where Devoron added
+!!BA:H0/?v1295 H1/?v1296; att. & def. Heroes
+!!UN:Cv325/1/00; wipe out last hint
+!!VRz10:S^^;
+!!VRv1293:C0/0;
+!!IF:V200/0 V385/0;
+!!IF&381/-373:V385/1; HS active if Air Horn
+!!IF&382/-374:V385/1; HS active if Fire Hammer
+!!IF&383/-375:V385/1; HS active if Water Mail
+!!IF&384/-376:V385/1; HS active if Earth Shield
+!!IF&v1295<>27/v1295<>29/v1296<>27/v1296<>29:V385/0; Hidden Spells active for Gem or Melodia (maybe)
+
+!?CM4&385; Combat MB
+!!CM:F?v1 I?v2 D?v3; v1=0 for LMB, v2=2008 for Cast Spell, v3=252-253 for L-R Hero
+!!FU&v2<>2008/v3<>252/v3<>253|v1<>0:E;
+!!BG:Q?v153;
+!!BHv153:M?v8;
+!!FU&v8=1:E; exit if casting disabled
+!!UN:C7825648/2/37008; remove timer restrictions. Trigger will be called max 20 times per second.
+!!UN:C5168326/4/2657254; turn on TL triggers
+!!IF:V59/1 V61/0; f59=1 for TL0, f61=0 for chime
+!!VRv1293:C0/0;
+!!HEv1295:A2/126/?y2/?v1293; check for Orb of Inhibition
+!!HEv1296&v1296<>-2:A2/126/?y2/?v1294;
+!!HEv1295&v1293>0:A3/126/v1293/1; remove equipped Orb of Inhibition
+!!HEv1296&v1296<>-2/v1294>0:A3/126/v1294/1;
+!!HEv1295&v1293>0:A126; put the removed Orb of Inhibition into Devoron's Backpack so that it's given after battle even if it ends before the next script that restores it
+!!HEv1296&v1296<>-2/v1294>0:A126;
+
+!?TL0|v1293>0/v1294>0;
+!!FU519:P;
+
+!?FU519; restore Orbs
+!!HEv1295&v1293>0:A3/126/v1293/0; remove Orb of Inhibition from Backpack
+!!HEv1296&v1296<>-2/v1294>0:A3/126/v1294/0;
+!!HEv1295&v1293>0:A4/126; re-equip Orb of Inhibition
+!!HEv1296&v1296<>-2/v1294>0:A4/126;
+!!VRv1293:Cd-1/d-1;
+!!FU519|v1293>0/v1294>0:P;
+
+!?TL0&59/385;
+!!SN:Ev65/1/?y1/?y2/?y3/?y4; call MouseGet(x,y,lmb,rmb)
+!!SN:Xv325; (hint text address) to address buffer
+!!UN:Cv325/1/?y8;
+!!VRv2:Cy1/y2/y3/y4/v325/y8; for debugging
+!!if&y4<>0/y1>209/y1<285/y2>107/y2<157/60/383/-375; Mouse on left half of Water picture, RMB click
+ !!IF:V59/0; disable FU77 Enter-check
+ !!IF:M^{Wave of Fury} - unleashes the warren of Ruse to sweep a wave of icy magic diagonally down and across the battlefield from top or side to bottom or side.  All the properties of troops which it sweeps over are reduced by 15%-30% depending on your Water Magic skill.  Click the hex where you wish the right side of the wave to start (must be along an edge of the field).  For attackers, the wave sweeps diagonally to the right and down, and for defenders, to the left and down. Costs 20 mana. May only be cast once per battle round.^;
+ !!IF:V59/1;
+!!en;
+!!if&y4<>0/y1>209/y1<285/y2>107/y2<157/63/381/-373; Mouse on left half of Air picture, RMB click
+ !!IF:V59/0; disable FU77 Enter-check
+ !!IF:M^{Eye of the Whirwind} - unleashes the warren of Serc to sweep a vortex of storm magic around the designated spot.  All the troops which it sweeps over are blown outwards, and 10%-25% (depending on your Air Magic skill) are blown entirely away.  If obstacles or other troops block them from moving the damage is increased by 10%.  Also they lose 1-4 Speed (to a minimum of 2). Click the hex where you wish to center the vortex (a troop there will be unaffected). Costs 20 mana. May only be cast once per battle round.^;
+ !!IF:V59/1;
+!!en;
+!!if&y4<>0/y1>209/y1<285/y2>107/y2<157/65/382/-374; Mouse on left half of Fire picture, RMB click
+ !!IF:V59/0; disable FU77 Enter-check
+ !!IF:M^{Chain of Fire} - unleashes the warren of Thyr to hurl a ball of fiery magic at the designated foe.  After striking the first target, it proceeds to the next, until its force (which depends on your Fire Magic skill and Spell Power) is exhausted.  Costs 20 mana. May only be cast once per battle round.^;
+ !!IF:V59/1;
+!!en;
+!!if&y4<>0/y1>209/y1<285/y2>107/y2<157/68/384/-376; Mouse on left half of Earth picture, RMB click
+ !!IF:V59/0; disable FU77 Enter-check
+ !!IF:M^{Huorn Grove} - unleashes the warren of Dris to plant a grove of Huorns around the designated location.  The Huorns can guard a friend or bind a foe in place (until they are defeated).  Each unoccupied spot around the target will have a troop whose number depends on your Power and Earth Skill (roughly 0.128*P +0.513*(S+1)). Costs 20 mana. May only be cast once per battle round.^;
+ !!IF:V59/1;
+!!en;
+!!if&y3=0; get hint just before LMB click if poss.
+ !!SN:X?z10; buffer address to z10 address
+ !!if&y1>209/y1<285/y2>107/y2<157/60/-61/383/-375; Mouse on left half of Water picture
+  !!IF:L^^; make noise
+  !!IF:V61/1;
+ !!en;
+ !!if&y1>209/y1<285/y2>107/y2<157/65/-61/382/-374; Mouse on left half of Fire picture
+  !!IF:L^^; make noise
+  !!IF:V61/1;
+ !!en;
+ !!if&y1>209/y1<285/y2>107/y2<157/63/-61/381/-373; Mouse on left half of Air picture
+  !!IF:L^^; make noise
+  !!IF:V61/1;
+ !!en;
+ !!if&y1>209/y1<285/y2>107/y2<157/68/-61/384/-376; Mouse on left half of Earth picture
+  !!IF:L^^; make noise
+  !!IF:V61/1;
+ !!en;
+ !!SN:Q; exit
+!!el; LMB clicked, check last hint in z10
+ !!VRz-1:S^Exit^;
+ !!if&z10=z-1;
+  !!UN:C5168326/4/434630; turn off TL triggers
+  !!UN:C7825648/2/29717; restore old code
+  !!IF:V59/0 V61/0;
+ !!en;
+ !!VRz-1:S^Next Page^;
+ !!if&z10=z-1;
+  !!IF:V60/0 V61/0 V63/0 V65/0 V68/0;
+ !!en;
+ !!if&y1>209/y1<285/y2>107/y2<157/60/383/-375; click on left half of Water picture
+  !!BG:Q?y9; side
+  !!HE-10&y9=0:I?y10/1; mana
+  !!HE-20&y9=1:I?y10/1;
+  !!IF:V59/0; disable FU77 Enter-check
+  !!IF&y10<20:M^You do not have 20 mana to cast the spell with, sorry.^;
+  !!IF:V59/1;
+  !!SN&y10<20:Q;
+  !!IF:V62/1; enable Wave spell
+  !!UN:C5168326/4/434630; turn off TL triggers
+  !!UN:C7825648/2/29717; restore old code
+  !!IF:V61/0 V63/0 V65/0 V68/0;
+  !!SN:Ev41/1/58/85; put mouse on hex 0
+  !!SN:Ev66/1/13/1052; Enter to exit Spell Book
+ !!en;
+ !!if&y1>209/y1<285/y2>107/y2<157/63/381/-373; click on left half of Air picture
+  !!BG:Q?y9; side
+  !!HE-10&y9=0:I?y10/1; mana
+  !!HE-20&y9=1:I?y10/1;
+  !!IF:V59/0; disable FU77 Enter-check
+  !!IF&y10<20:M^You do not have 20 mana to cast the spell with, sorry.^;
+  !!IF:V59/1;
+  !!SN&y10<20:Q;
+  !!IF:V64/1; enable vortex spell
+  !!UN:C5168326/4/434630; turn off TL triggers
+  !!UN:C7825648/2/29717; restore old code
+  !!IF:V61/0 V60/0 V65/0 V68/0;
+  !!SN:Ev41/1/58/85; put mouse on hex 0
+  !!SN:Ev66/1/13/1052; Enter to exit Spell Book
+ !!en;
+ !!if&y1>209/y1<285/y2>107/y2<157/65/382/-374; click on left half of Fire picture
+  !!BG:Q?y9; side
+  !!HE-10&y9=0:I?y10/1; mana
+  !!HE-20&y9=1:I?y10/1;
+  !!IF:V59/0; disable FU77 Enter-check
+  !!IF&y10<20:M^You do not have 20 mana to cast the spell with, sorry.^;
+  !!IF:V59/1;
+  !!SN&y10<20:Q;
+  !!IF:V66/1; enable fire spell
+  !!UN:C5168326/4/434630; turn off TL triggers
+  !!UN:C7825648/2/29717; restore old code
+  !!IF:V60/0 V61/0 V63/0 V68/0;
+  !!SN:Ev41/1/58/85; put mouse on hex 0
+!!HEv1295:A2/126/?y2/?v1293; check for Orb of Inhibition
+!!HEv1296&v1296<>-2:A2/126/?y2/?v1294;
+!!HEv1295&v1293>0:A3/126/v1293/1; remove equipped Orb of Inhibition
+!!HEv1296&v1296<>-2/v1294>0:A3/126/v1294/1;
+!!HEv1295&v1293>0:A126; put the removed Orb of Inhibition into Devoron's Backpack so that it's given after battle even if it ends before the next script that restores it
+!!HEv1296&v1296<>-2/v1294>0:A126;
+  !!SN:Ev66/1/13/1052; Enter to exit Spell Book
+ !!en;
+ !!if&y1>209/y1<285/y2>107/y2<157/68/384/-376; click on left half of Earth picture
+  !!BG:Q?y9; side
+  !!HE-10&y9=0:I?y10/1; mana
+  !!HE-20&y9=1:I?y10/1;
+  !!IF:V59/0; disable FU77 Enter-check
+  !!IF&y10<20:M^You do not have 20 mana to cast the spell with, sorry.^;
+  !!IF:V59/1;
+  !!SN&y10<20:Q;
+  !!IF:V69/1; enable Huorn spell
+  !!UN:C5168326/4/434630; turn off TL triggers
+  !!UN:C7825648/2/29717; restore old code
+  !!IF:V60/0 V61/0 V63/0 V65/0;
+  !!SN:Ev41/1/58/85; put mouse on hex 0
+  !!SN:Ev66/1/13/1052; Enter to exit Spell Book
+ !!en;
+ !!VRz-1:S^Air Spells^;
+ !!VRz-2:S^Earth Spells^;
+ !!VRz-3:S^Fire Spells^;
+ !!VRz-4:S^Water Spells^;
+ !!VRz-5:S^All Spells^;
+ !!VRz-6:S^Next Page^;
+ !!if&z10=z-1; click on Air tab
+  !!IF:V60/0 V61/0 V63/1 V65/0 V68/0;
+ !!en;
+ !!if&z10=z-2; click on Earth tab
+  !!IF:V60/0 V61/0 V63/0 V65/0 V68/1;
+ !!en;
+ !!if&z10=z-3; click on Fire tab
+  !!IF:V60/0 V61/0 V63/0 V65/1 V68/0;
+ !!en;
+ !!if&z10=z-4; click on Water tab
+  !!IF:V60/1 V61/0 V63/0 V65/0 V68/0;
+ !!en;
+ !!if&z10=z-5; click on All tab
+  !!IF:V60/0 V61/0 V63/0 V65/0 V68/0;
+ !!en;
+ !!if&z10=z-6; click on Next Page tab
+  !!IF:V60/0 V61/0 V63/0 V65/0 /V68/0;
+ !!en;
+ !!SN:Q; quit event to stop trigger searches
+!!en;
+
+!?FU77003&59/385; check for exit by Enter (13), or Esc (27)
+!!SN:X?y98/0;
+!!FU&y98<>13/y98<>27:E;
+!!UN:C5168326/4/434630; turn off TL triggers
+!!UN:C7825648/2/29717; restore old code
+!!IF:V59/0 V61/0;
+!!FU519&-66:P; restore Orb except for Chain Fire
+
+!?FU77003&385; check for Esc (27) out of hidden spell
+!!SN:X?y98/0;
+!!FU&y98<>27:E;
+!!FU519:P; restore Orbs if player Esc-aped out of Chain Fire spell
+!!IF:V62/0 V64/0 V66/0 V67/0 V69/0 V70/0; Esc cancels spell
+
+!?MG0; Adventure Map Spell Book
+!!IF:V60/0 V61/0 V63/0 V65/0 V68/0; unset saved element choice
+
+; Ruse Fury Wave, JHV, Aug. 19, 2012
+
+; assumes XFiles.dll addresses set previously
+; uses FU520-FU522 & flag 62
+
+!?CM4&62; BF, select start of Wave
+!!CM:D?y3; hex
+!!FU|y3<0/y3>168:E; exit if not on valid hex
+!!VRi:Sy3%17; i, horizontal, 0-->16
+!!VRj:Sy3:17; j, vertical 0\\>10
+!!BG:Q?y4; side
+; For LHS Hero clicked hex is for RHS of wave and must be along top or LHS of BF
+!!FU&y4=0/j<>0/i<>3:E;
+; For RHS Hero clicked hex is for RHS of wave and must be along top or RHS of BF
+!!FU&y4=1/j<>0/i<>16:E;
+!!CM:R0;
+!!IF:V59/0 V61/0 V62/0;
+!!HE-10&y4=0:S16/?y5 I?y6/1; Water skill, mana
+!!HE-20&y4=1:S16/?y5 I?y6/1; Water skill, mana
+!!HE-10&y4=0:Id-20/1; subtract mana
+!!HE-20&y4=1:Id-20/1;
+!!BHy4:M1; disable further casting in this round (Battles may re-enable, see BG1&71 here)
+!!IF:V200/0;
+!!SN&y4=0:Ev41/1/58/85; put mouse on hex 0 to lose Tome
+!!SN&y4=1:Ev41/1/762/85; put mouse on hex 16 to lose Tome
+!!BU:R;
+!!VRz1:S^screen.bmp^;
+!!SN:Ev38/1/z1/0/0/800/556; call CaptureScreen(left=0,top=0,width=800,height=556)
+!!VRz1:S^Mods\HiddenSpells\Data\River.wav^;
+!!SN:Ev35/1/z1; call PlayLoop
+!!FU520:Pi/j/0/y4/y5;
+!!FU519:P; restore Orb
+
+!?FU520; x1=i, x2=j, x3=wave count, x4=side, x5=Water skill
+; hR = 17*j+i, hM = hR-1, hL = hM-1
+!!VRy11:Sx2*17+x1;
+!!BU:Ey11/?y13; live stack if any
+!!FU522&y13>-1:Py13/x5; change A,D,Dm,H,L,S
+!!BMy13&y13>-1:V46; ice bolt
+!!VRy10:Sy11-1;
+!!BU:Ey10/?y12;
+!!FU522&y12>-1/y12<>y13:Py12/x5; change A,D,Dm,H,L,S
+!!BMy12&y12>-1/y12<>y13:V46; ice bolt
+!!VRy19:Sy10-1;
+!!BU:Ey19/?y21;
+!!FU522&y21>-1/y21<>y12:Py21/x5; change A,D,Dm,H,L,S
+!!BMy21&y21>-1/y21<>y12:V46; ice bolt
+; move wave to next row
+; for even j, Xh=44i+58, for odd j, Xh=44(i-1/2)+58 = 44i+36; Yh=42j+85
+; Xw = Xh-72-44 = Xh-116 (for 144x96 Wave centered at center of x1-1)
+; Yw = Yh+42-96 = Yh-54 (for 96x96 Wave with bottom edge at tip of hex that is below & between x1 and x-1)
+!!VRy1:Sx2%2;
+!!VRy2:S-1*y1+x1+x1*22+58-116; Xw
+!!VRy3:Sx2*42+85-54; Yw
+; plot WaveQk.bmp at (Xw,Yw) where k=x3%6
+!!VRy6:Sx3%6;
+!!VRz1:S^Mods/HiddenSpells/Data/WaveQ%Y6.bmp^;
+!!VRz2:S^Mask.bmp^;
+!!VRz3:S^screen.bmp^;
+!!SN:Ev43/1/z3/z1/z2/y2/y3/144/96; call SaveCaptMask(left=y2,top=y3,width=144,height=96)
+!!SN:Ev39/1/z2/y2/y3/144/96/40/0; call DrawBmp(left=y2,top=y3,width=144,height=96,Delay=40 ms,IfKey=0)
+; For LHS, end wave if on bottom row (10) or last occupied column (15) of even row
+!!VRz1:S^Mods\HiddenSpells\Data\River.wav^;
+!!SN&x4=0/x1=15/y1=0|x2=10:Ev34/1/z1; call PlayOnce
+!!SN&x4=0/x1=15/y1=0|x2=10:Ev36/1; call StopPlay [doesn't work in Era 2.46]
+!!BU&x4=0/x1=15/y1=0|x2=10:R;
+!!FU&x4=0/x1=15/y1=0|x2=10:E;
+; For RHS, end wave if on bottom row (10) or 3rd occupied column (3) of odd row
+!!VRz1:S^Mods\HiddenSpells\Data\River.wav^;
+!!SN&x4=1/x1=3/y1=1|x2=10:Ev34/1/z1; call PlayOnce
+!!SN&x4=1/x1=3/y1=1|x2=10:Ev36/1; call StopPlay [doesn't work in Era 2.46]
+!!BU&x4=1/x1=3/y1=1|x2=10:R;
+!!FU&x4=1/x1=3/y1=1|x2=10:E;
+!!DO521/1/7/1:Py2/y3/x3/x4; move wave right & down by (+/-11/4, 21/4) pixels
+!!VRx3:+8;
+!!VRx1:+1-y1-x4; diagonal move \ or /
+!!VRx2:+1;
+!!FU520:Px1/x2/x3/x4/x5; next hexes
+
+!?FU521; x1=Xw, x2=Yw, x3=wave count (all at start of move to next hexes), x4=side
+!!VRy1:Sx1*4;
+!!VRy2:Sx2*4;
+!!VRy3:S11*x16; 4*dX
+!!VRy3&x4=1:*-1;
+!!VRy4:S21*x16; 4*dY
+!!VRy5:Sy1+y3+2:4; next Xw
+!!VRy5&x4=1:Sy1+y3-2:4; next Xw
+!!VRy6:Sy2+y4+2:4; next Yw
+!!VRy7:Sx16+x3%6; next wave count mod 6
+!!VRz1:S^Mods/HiddenSpells/Data/WaveQ%Y7.bmp^;
+!!VRz2:S^Mask.bmp^;
+!!VRz3:S^screen.bmp^;
+!!SN:Ev43/1/z3/z1/z2/y5/y6/144/96; call SaveCaptMask(left=y5,top=y6,width=144,height=96)
+!!SN:Ev39/1/z2/y5/y6/144/96/40/0; call DrawBmp(left=y5,top=y6,width=144,height=96,Delay=40 ms,IfKey=0)
+
+!?FU522; x1=stack, x2=Water skill, change A,D,Dm,H,L,S
+!!BMx1:T?y20; type
+!!FU|y20=167/y20=123/y20=115:E; no harm to Water Messenger, Ice E, Water E
+!!VRy1:S20-3-x2;
+!!BMx1:A?y2 D?y3 U1/?y4 U2/?y5 H?y6 L?y7 S?y8;
+!!VRy12:Sy2*y1+10:20;
+!!VRy13:Sy3*y1+10:20;
+!!VRy14:Sy4*y1+10:20;
+!!VRy14&y14<1:S1;
+!!VRy15:Sy5*y1+10:20;
+!!VRy15&y15<1:S1;
+!!VRy16:Sy6*y1+10:20;
+!!VRy16&y16<2:S2;
+!!VRy17:Sy7*y1+10:20;
+!!VRy17&y17>=y16:Sy16-1;
+!!VRy18:Sy8*y1+10:20;
+!!VRy18&y18<2/y8>1:S2;
+!!BMx1:Ay12 Dy13 U1/y14 U2/y15 Hy16 Ly17 Sy18;
+!!BMx1:M45/10/0; Weakness
+
+!?MM0&62; trigger for mouse hint text
+!!MM:D?y3; hex
+!!FU|y3<0/y3>168:E; exit if not on valid hex
+!!VRi:Sy3%17; i, horizontal, 0-->16
+!!VRj:Sy3:17; j, vertical 0\\>10
+!!BG:Q?y4; side
+; For LHS Hero clicked hex is for RHS of wave and must be along top or LHS of BF
+!!UN:R5/2/0; cancel
+!!FU&y4=0/j<>0/i<>3:E;
+; For RHS Hero clicked hex is for RHS of wave and must be along top or RHS of BF
+!!FU&y4=1/j<>0/i<>16:E;
+!!UN:R5/4/88; show Tome of Water
+!!VRz8:S^Click to start the {Wave} here.^;
+!!MM:Mz8;
+
+; test Eye of the Whirlwind, JHV, Aug. 23, 2012
+; uses v1281-v1292, v1381-v1392, FU523-FU524 & flags 63-64
+
+!?CM4&64; BF, select center of Whirlwind w/RMB
+!!CM:D?y1; hex
+!!FU|y1<1/y1>185:E; exit if not on valid hex
+!!VRi:Sy1%17; i, horizontal, 0-->16
+!!FU|i<1/i>15:E;
+!!CM:R0;
+!!BG:N?y21; get current stack
+!!VRj:Sy1:17; j, vertical 0\\>10
+!!IF:V59/0 V60/0 V61/0 V62/0 V64/0;
+!!BG:Q?y4; side
+!!HE-10&y4=0:S15/?y5 I?y6/1; Air skill, mana
+!!HE-20&y4=1:S15/?y5 I?y6/1; Air skill, mana
+!!HE-10&y4=0:Id-20/1; subtract mana
+!!HE-20&y4=1:Id-20/1;
+!!BHy4:M1; disable further casting in this round (Battles may re-enable, see BG1&71 here)
+!!IF:V200/0;
+; for even j, Xh=44i+58, for odd j, Xh=44(i-1/2)+58 = 44i+36; Yh=42j+85
+; Xw = Xh-width/2 = Xh-90
+; Yw = Yh+27-height/2 = Yw-63
+!!VRk:Sj%2;
+!!VRy2:S-1*k+i+i*22+58-90; Xw
+!!VRy3:Sj*42+85-63; Yw
+!!VRz1:S^Mods/HiddenSpells/Data/vortex21.bmp^;
+!!VRz2:S^Mask0.bmp^;
+!!SN:Ev40/1/z1/z2/y2/y3/180/180; call SaveMask(left=y2,top=y3,width=180,height=180)
+!!VRz1:S^Mods/HiddenSpells/Data/vortex22.bmp^;
+!!VRz2:S^Mask1.bmp^;
+!!SN:Ev40/1/z1/z2/y2/y3/180/180; call SaveMask(left=y2,top=y3,width=180,height=180)
+!!VRz1:S^Mods/HiddenSpells/Data/vortex23.bmp^;
+!!VRz2:S^Mask2.bmp^;
+!!SN:Ev40/1/z1/z2/y2/y3/180/180; call SaveMask(left=y2,top=y3,width=180,height=180)
+!!VRz1:S^Mods/HiddenSpells/Data/vortex24.bmp^;
+!!VRz2:S^Mask3.bmp^;
+!!SN:Ev40/1/z1/z2/y2/y3/180/180; call SaveMask(left=y2,top=y3,width=180,height=180)
+!!VRz1:S^Mods/HiddenSpells/Data/vortex25.bmp^;
+!!VRz2:S^Mask4.bmp^;
+!!SN:Ev40/1/z1/z2/y2/y3/180/180; call SaveMask(left=y2,top=y3,width=180,height=180)
+!!VRz1:S^Mods/HiddenSpells/Data/vortex26.bmp^;
+!!VRz2:S^Mask5.bmp^;
+!!SN:Ev40/1/z1/z2/y2/y3/180/180; call SaveMask(left=y2,top=y3,width=180,height=180)
+!!VRz1:S^Mods\HiddenSpells\Data\wind.wav^;
+!!SN:Ev35/1/z1; call PlayLoop
+!!VRv10:C0/300;
+!!FU523:Py2/y3;
+!!SN&y4=0:Ev41/1/58/85; put mouse on hex 0 to lose Tome
+!!SN&y4=1:Ev41/1/762/85; put mouse on hex 16 to lose Tome
+!!BU:R;
+!!VRv1281:C-35/-34/-33/-18/-15/-2/2/16/19/33/34/35; even j loc.s from center
+!!VRv1284&k=1:Cd-1/d-1/d/d/d-1/d-1; odd j loc.s from center (L->R, T->B)
+!!VRv1381:C-16/-16/-16/-18/1/-17/18/-1/17/17/17/17; even j moves
+!!VRv1381&k=1:C-17/-17/-17/-17/1/-18/17/-1/18/16/16/16; odd j moves (L->R, T->B)
+!!DO524/1/12/1:Py1/y5; blow outer troops away
+!!VRv1281:C-17/-16/-1/1/17/18; even j loc.s from center
+!!VRv1281&k=1:C-18/-17/d/d/16/17; odd j loc.s from center (L->R, T->B)
+!!VRv1381:C-17/1/-17/18/-1/16; even j moves
+!!VRv1381&k=1:C-16/d/-18/17/d/17; odd j moves (L->R, T->B)
+!!DO524/1/6/1:Py1/y5; blow inner troops away
+!!VRz1:S^Mods\HiddenSpells\Data\wind.wav^;
+!!SN:Ev34/1/z1; call PlayOnce [added for Era 2.46]
+!!SN:Ev36/1; call StopPlay [doesn't work in Era 2.46]
+!!BG:N?y21; get current stack
+!!BMy21&y21>-1/y21<42:P?y23 Py23; dummy move current stack to re-highlight it
+!!BU:R;
+!!FU519:P; restore Orb
+
+!?FU523; x1=Xw, x2=Yw
+!!VRy1:Sv10%6;
+!!VRv10:+1;
+!!VRz1:S^Mask%Y1.bmp^;
+!!SN:Ev39/1/z1/x1/x2/180/180/v11/0; call DrawBmp(left=y2,top=y3,width=180,height=180,Delay=v11/1000 sec.,IfKey=0)
+!!VRv11&v11>55:-10;
+!!VRv11&v11<60:S0;
+!!FU523&v10<201:Px1/x2;
+
+!?FU524; x1=central hex, x2=Air skill, x16=table index
+!!VRy1:Sx16+1280; index to loc.s table
+!!VRy2:Sx1+vy1; hex in whirlwind
+!!VRy21:Sy2%17;
+!!FU|y2<1/y2>185/y21<1/y21>15:E; invalid hex
+!!BU:Ey2/?y3; live stack
+!!FU&y3<0:E; no stack
+!!BMy3:T?y20; type
+!!FU|y20=112/y20=127/y20=166:E; air creatures immune
+!!BMy3:V22; prot. from air
+!!VRy4:Sx16+1380; index to moves table
+!!VRy5:Sy2+vy4; hex to move stack y3 to
+!!VRy51:Sy5%17;
+!!IF:V4/1; valid hex flag
+!!IF|y5<1/y5>185/y51<1/y51>15:V4/0;
+!!BU&4:Ey5/?y6; bumped stack
+!!BU&4:Oy5/?y7; bumped obstacle (could be QS or mine)
+!!BMy3&y6<0/y7=0/4:Py5; move stack if move hex clear
+!!BMy3:N?y8 S?y9;
+!!VRy19:Sy9-1-x2;
+!!VRy19&y19<2:S2; min speed 2
+!!VRy19&y9<2:Sy9; except for war machines
+*!IF:L^stk=%Y3, S=%Y9, reduced S=%Y19, air=%X2^; BM:S? does not include AoD spell effect (prob. not Slow either)
+!!VRy10:Sx2+2;
+!!VRy10|y6>-1/y7<>0/-4:+2; more damage if bumped
+!!VRy11:S20-y10*y8+10:20; reduced N
+!!VRy11&y11<1:S1; min of 1
+!!BMy3:Ny11 Sy19;
+
+!?MM0&64; trigger for mouse hint text
+!!MM:D?y3; hex
+!!FU|y3<1/y3>185:E; exit if not on valid hex
+!!VRi:Sy3%17; i, horizontal, 0-->16
+!!UN:R5/2/0; cancel
+!!FU|i<1/i>15:E;
+!!UN:R5/4/87; show Tome of Air
+!!VRz8:S^Click to center the {Whirlwind} here.^;
+!!MM:Mz8;
+
+!?MM0&66; Chain Fire
+!!IF:V67/0;
+!!MM:D?y3; hex
+!!FU|y3<0/y3>186:E; exit if not on valid hex
+!!BU:Ey3/?y4; live stack
+!!FU&y4<0:E;
+!!BG:Q?y1; casting side
+!!BMy4:I?y5; target side
+!!FU&y1=y5:E;
+!!VRi:Sy3%17; i, horizontal, 0-->16
+!!UN:R5/4/86; show Tome of Fire
+!!VRz8:S^Click to cast {Chain of Fire} here.^;
+!!MM:Mz8;
+!!IF:V67/1;
+
+!?CM4&67;
+!!CM:F?y1; MB flag
+!!FU&y1<>0:E; permit RMB
+!!CM:R0;
+!!BG:Q?y4; casting side
+!!SN&y4=0:Ev41/1/58/85; put mouse on hex 0 to lose Tome
+!!SN&y4=1:Ev41/1/762/85; put mouse on hex 16 to lose Tome
+!!CM:D?y3; hex
+!!BG:Dy3 S19;
+!!BG:A1; simulate CL cast, ChainFire script turns it to Fireballs
+!!IF:V59/0 V61/0 V66/0;
+
+!?BG1&67;
+!!FU519:P; restore Orbs
+!!IF:V67/0;
+
+!?MM0&69; Huorn Grove
+!!IF:V70/0;
+!!MM:D?y3; hex
+!!FU|y3<1/y3>185:E; exit if not on valid hex
+!!UN:R5/4/89; show Tome of Earth
+!!VRz8:S^Click to cast {Huorn Grove} here.^;
+!!MM:Mz8;
+!!IF:V70/1;
+
+!?CM4&70; Huorn Grove
+!!CM:F?y1; MB flag
+!!FU&y1<>0:E; permit RMB
+!!CM:R0;
+!!BG:Q?y4; casting side
+!!SN&y4=0:Ev41/1/58/85; put mouse on hex 0 to lose Tome
+!!SN&y4=1:Ev41/1/762/85; put mouse on hex 16 to lose Tome
+!!CM:D?y1; hex
+!!VRi:Sy1%17; i, horizontal, 0-->16
+!!VRj:Sy1:17; j, vertical 0\\>10
+!!HE-10&y4=0:S17/?y5 I?y6/1 Fd/d/?y7/d; Earth skill, mana, Power
+!!HE-20&y4=1:S17/?y5 I?y6/1 Fd/d/?y7/d;
+!!HE-10&y4=0:Id-20/1; subtract mana
+!!HE-20&y4=1:Id-20/1;
+!!BHy4:M1; disable further casting in this round (Battles may re-enable, see BG1&71 here)
+!!IF:V200/0;
+; for even j, Xh=44i+58, for odd j, Xh=44(i-1/2)+58 = 44i+36; Yh=42j+85
+; Xg = Xh-70
+; Yg = Yh-38
+!!VRk:Sj%2;
+!!VRy2:S-1*k+i+i*22+58-70; Xw
+!!VRy3:Sj*42+85-38; Yw
+!!VRz1:S^Mods\HiddenSpells\Data\Fangorn.wav^;
+!!SN:Ev34/1/z1; call PlayOnce
+!!VRz1:S^screen.bmp^;
+!!SN:Ev38/1/z1/0/0/800/556; call CaptureScreen(left=0,top=0,width=800,height=556)
+!!DO525/0/11/1:Py2/y3;
+!!SN:Ev39/1/z2/y2/y3/141/131/2000/0; call DrawBmp last time to allow more time for sound
+!!VRv1281:C-17/-16/-1/1/17/18; even j loc.s from center
+!!VRv1281&k=1:C-18/-17/d/d/16/17; odd j loc.s from center (L->R, T->B)
+!!VRy8:Sy5+1*4+y7*50+195:390; 390=6*65, y8=# of DS/hex
+!!VRy8&y8<1:S1;
+!!BU:R;
+!!DO526/1/6/1:Py1/y8/y4; summon Huorns (DS) around y1 for side y4
+!!FU519:P; restore Orb
+!!IF:V59/0 V61/0 V69/0 V70/0;
+
+!?FU525; x1=Xg, x2=Yg, x16=BMP #, show Trees gif
+!!VRz1:S^Mods/HiddenSpells/Data/Tree%X16.bmp^;
+!!VRz2:S^Mask.bmp^;
+!!VRz3:S^screen.bmp^;
+!!SN:Ev43/1/z3/z1/z2/x1/x2/141/131; call SaveCaptMask(left=x1,top=x2,width=141,height=131)
+!!SN:Ev39/1/z2/x1/x2/141/131/200/0; call DrawBmp(left=x1,top=x2,width=141,height=131,Delay=0.2 sec.,IfKey=0)
+
+!?FU526; x1=central hex, x2=# of DS, x3=side, x16=table index
+!!VRy1:Sx16+1280; index to loc.s table
+!!VRy2:Sx1+vy1; hex in groove
+!!VRy21:Sy2%17;
+!!FU|y2<1/y2>185/y21<1/y21>15:E; invalid hex
+!!BU:Ey2/?y3; live stack
+!!FU&y3>-1:E; stack already on grove hex
+!!BU:Oy2/?y7; obstacle (could be QS or mine)
+!!VRy7:&3; =3 if magic obstacle, =2 if non-magic obstacle
+!!FU&y7=2:E;
+!!BU:S23/x2/y2/x3/-1/1; summon DS
+!!BU:Ey2/?y8; summoned stack
+!!FU&y8<0:E;
+!!BMy8:F?y9;
+!!VRy9:|4194304; set Summoned flag (vanishes when kills, frees stack count)
+!!BMy8:Fy9;
+
+!?BA1&385;
+!!IF:V385/0;
+

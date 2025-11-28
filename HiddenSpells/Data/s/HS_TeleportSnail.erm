@@ -1,0 +1,184 @@
+ZVSE
+
+; HS_TeleportSnail, JHV, Oct. 3, 2012, based on:
+; TestDimDoorLimit2, JHV, Oct. 1, 2012
+
+; uses v30-v65, v98-v99, z191, FU88-FU92, and flags 56-58 (and flag 51 from Messages)
+
+!#VRz191:S^Pyth the Teleportation Snail^;
+!#OB136/66/0:SH191;
+; --> Cr 126
+!#UN:G1/126/1/191;
+
+!?OB136/66/0&-56; Snail, first visit
+!!IF:M^A giant snail-like creature, shimmering with magical wards, projects its thoughts at you!^;
+!!IF:Q1/21/126/1^Do not hurt poor Pyth, stranger! I serve the Ice King, but only as a slave, and while death would free me from him, the sundering of his wards would bring his wrath upon you, and he would only enslave another of my kind to replace me!^;
+!!IF:Q1/21/126/1^My people live on a far world, where, to compensate for our slow motion and fragility, we evolved the ability to teleport dangerous creatures away from us.  The Ice King has set powerful spells upon me, engraved on my carapace, which force me to do his will.^;
+!!IF:Q1/21/126/1^Which is, that upon demand I teleport him, or any of his servants who know the code numbers, into one of the Holds.  Also, each time I must give some of my power to the transportees, so they may teleport themselves back out (over a short distance and for one use only).^;
+!!IF:Q1/21/126/1^His spells prevent me from telling anyone the numbers of the Holds, but during my imprisonment I have pondered the numbers and thought of clues which the spells will not prevent me from communicating. I will give them to anyone who opposes the Ice King's tyranny!^;
+!!IF:Q1/21/126/1^For example, I can tell you this:  since the Hold of Fire is close to the Beast Hold, its number is close to the number of the Beast Hold, and can be expressed in a formula which uses these numbers: 6 and 25, and also in a similar formula with these numbers: 6, 15, and 20, or with these: 6, 9, 12, 12, and 16.^;
+!!IF:Q1/21/126/1^The formula is ... ahhh! ... I can not say it, the spells prevent me!  You must work it out for yourself.  Try other Holds and I will give you other examples.  The formula is always of the same type.^;
+!!IF:V56/1;
+
+!?OB136/66/0&56; Snail, after first visit
+; set up radio-button (G1) dialog box: radio-buttons/use v99 for results/initial state
+; /z# has header/z# has 1st item description/etc.
+!!VRz-1:S^Pyth, Master of accessible closed Holds, at your service:
+(Some Holds are open, some are only accessible from other Holds.)^;
+!!VRz-2:S^Send you to a Hold^; v99=1 FU88
+!!VRz-3:S^(Whisper) Give clues for North Holds^; v99=2  FU90
+!!VRz-4:S^(Whisper) Give clues for South Holds^; v99=4  FU91
+!!VRz-5:S^Cancel^; v99=8
+!!IF:G1/99/1/-1/-2/-3/-4/-5;
+!!FU&v99=8:E;
+!!FU88&v99=1:P;
+!!FU90&v99=2:P;
+!!FU91&v99=4:P;
+
+!?FU88; Holds
+!!VRz-1:S^Enter the number of the Hold twice, for verification.
+(If the code is 123--which it isn't--enter 123123)^;
+!!VRz-2:S^What is the code?^;
+!!VRz-3:S^..\Mods\HiddenSpells\Data\Snail.bmp^;
+!!VRz-4:S^Pyth, the Snail of Teleportation^;
+!!IF:D42/-1/-2/0/-3/0/0/0/-4/0/0/0/0/0/0/0;
+!!IF:E1/42;
+; get address of z1
+!!UN:V?y1/?y2;
+!!VRy3:S9597416+512;  Era
+!!UN:Cy3/4/?v3; get 1st four bytes of z1
+!!VRy3:+3;
+!!UN:Cy3/2/?v4; get 4th & 5th bytes of z1
+!!VRv4&v4=0:S1;
+!!VRy5:Sv3%v4;
+!!VRv1:C7069/9297/12435/7498/12242/2634/5392/0/8842/10970;
+!!VRv11:C4509/983/6780/3666/6421/1845/5232/-1;
+!!DO89/1/17/1:Py5;
+!!IF&v18<1:Q1/21/126/1^I am sorry, that is not a correct code. I cannot transport you.^;
+!!FU&v18<1:E;
+!!VRv1:C13/35/69/122/26/40/54/87/120/3;
+!!VRv11:C37/54/99/120/130/120/55;
+!!VRy6:Svv18;
+!!VRv1:C68/20/59/29/45/67/57/68/50/97;
+!!VRv11:C87/88/104/80/98/126/140;
+!!VRy7:Svv18;
+!!IF:Q1/21/126/1^Here you go!  Remember, the teleportation spell I have given you for your exit will only work once, and for a radius of three steps or less, so use it well!^;
+!!OBy6/y7/0:T?y8;
+!!VRy6&y8=34:-1; move destination left if the other Hero is on it
+!!HE-1:Py6/y7/0;
+!!HE-1:M8/1;
+*!IF:V51/0; unset flag to display messages randomly on roads [chgd]
+
+!?FU89; select Hold that matches code x1. put index in v18
+!!FU&vx16<>x1:E;
+!!VRv18:Sx16;
+!!VRx16:S99; end DO
+
+!?FU90; North Holds clues
+!!VRz-1:S^Which accessible closed Hold?
+(Some Holds are open, some are only accessible from other Holds.)^;
+!!VRz2:S^The Hold of Gems^; v98=1
+!!VRz3:S^The Hold of Earth^; v98=2
+*!VRz4:S^The Forge Hold^; v98=4
+!!VRz4:S^^; v98=4
+!!VRz5:S^The Hold of Water^; v98=8
+*!VRz6:S^The Hold of Knowledge^; v98=16
+!!VRz6:S^^; v98=16
+!!VRz7:S^The Hold of Force^; v98=32
+!!VRz8:S^The Hold of Fire^; v98=64
+!!VRz9:S^Cancel^; v98=128
+!!IF:G1/98/0/-1/2/3/4/5/6/7/8/9;
+!!FU&v98=128:E;
+!!FU92&v98=1:P2/11/20/11/12/16;
+!!FU92&v98=2:P3/10/21/6/8/21;
+!!FU92&v98=4:P4/13/20/12/13/16;
+!!FU92&v98=8:P5/5/24/3/4/24;
+!!FU92&v98=16:P6/4/25/4/15/20;
+!!FU92&v98=32:P7/13/22/4/6/6/9/22;
+!!FU92&v98=64:P8/6/25/6/15/20;
+
+!?FU91; South Holds clues
+!!VRz-1:S^Which accessible closed Hold?
+(Some Holds are open, some are only accessible from other Holds.)^;
+*!VRz2:S^The Hold of Time^; v98=1
+!!VRz2:S^^; v98=1
+!!VRz3:S^The Hold of Travel^; v98=2
+!!VRz4:S^The Hold of Air^; v98=4
+*!VRz5:S^The Hold of Fabrication^; v98=8
+!!VRz5:S^^; v98=8
+*!VRz6:S^The Hold of the Ghost Wheel^; v98=16
+!!VRz6:S^^; v98=16
+!!VRz7:S^The Hold of Power^; v98=32
+!!VRz8:S^The Hold of Astrology^; v98=64
+!!VRz9:S^The Hold of the Oracle^; v98=128
+!!VRz10:S^Cancel^; v98=256
+!!IF:G1/98/0/-1/2/3/4/5/6/7/8/9/10;
+!!FU&v98=256:E;
+!!FU92&v98=1:P2/5/26/3/4/26;
+!!FU92&v98=2:P3/15/22/9/12/22;
+!!FU92&v98=4:P4/9/26/8/9/12/12/18;
+!!FU92&v98=8:P5/19/20/12/16/19;
+!!FU92&v98=16:P6/12/25/12/15/20;
+!!FU92&v98=32:P7/17/22/1/4/4/16/22;
+!!FU92&v98=64:P8/11/26/8/11/12/12/18;
+!!FU92&v98=128:P9/5/28/3/4/28;
+
+!?FU92; x1=z#, x2 & x3 = 1st pair, x4 & x5 & x6 ... = 2nd set
+!!VRz-1:Szx1;
+!!IF&x7=0:M^The number of %Z-1 can be expressed in a formula which uses these numbers: %X2 and %X3, and also in a similar formula with these numbers: %X4, %X5, and %X6.^;
+!!IF&x7<>0/x8=0:M^The number of %Z-1 can be expressed in a formula which uses these numbers: %X2 and %X3, and also in a similar formula with these numbers: %X4, %X5, %X6, and %X7.^;
+!!IF&x8<>0:M^The number of %Z-1 can be expressed in a formula which uses these numbers: %X2 and %X3, and also in a similar formula with these numbers: %X4, %X5, %X6, %X7, and %X8.^;
+
+!?MG0; Adv Map Spell Cast (pre-cast)
+!!OW:A-1/?v9; get active Hero # (note HE-1 doesn't always work)--JHV
+!!VRv9&v9<0:S26; assume top Hero (Elleshar/Calladon)
+!!UN:C7977068/4/0; Era 2.3 address for last cast spell number--set to zero
+!!UN:C7825648/2/37008; remove timer restrictions. Trigger will be called max 20 times per second.
+!!UN:C5168326/4/2657254; turn on TL triggers
+!!IF:V57/1;
+!!HEv9:P?v6/?v7/?v8; save HE loc. (HE-1 did not work--at game start)
+
+!?TL0&57; wait for cast
+!!UN:C7977068/4/?v10; Era 2.3 address for last cast spell number
+!!FU&v10=0:E; exit if spell not cast
+!!if&v10<>8:E; shut down if not DD
+ !!UN:C5168326/4/434630; turn off TL triggers
+ !!UN:C7825648/2/5492; restore old code
+ !!IF:V57/0;
+!!el; phase 2, check teleport coordinates if DD
+ !!IF:V57/0 V58/1;
+!!en;
+
+!?TL0&58;
+!!SN:Ev65/1/?y1/?y2/?y3/?y4; call MouseGet(x,y,lmb,rmb)
+!!VRy5:Sy1*2-591*y5; (2dx)^2
+!!VRy6:Sy2*2-539*y6; (2dy)^2
+!!VRy7:Sy5+y6;
+!!if&y7>50175;
+  !!SN:Ev41/1/296/270; Mouseput(x,y)--move mouse pointer to center
+!!en;
+; (can't check y3=0 here, spell click not cleared)
+
+!?TL0&58;
+!!HEv9:P?v1/?v2/?v3; check HE loc. vs. v6/v7/v8
+!!FU&v6=v1/v7=v2:E;
+!!IF:V58/0; when HE reaches destination, stop monitoring
+!!UN:C5168326/4/434630; turn off TL triggers
+!!UN:C7825648/2/5492; restore old code
+!!HEv9:M8/0; remove DD
+!!IF:V51/1; set flag to display messages randomly on roads
+
+!?CM5&58; occurs after Hero lands (or not--not always--check HE:P)
+!!IF:V58/0; when LMB selects destination, stop monitoring
+!!UN:C5168326/4/434630; turn off TL triggers
+!!UN:C7825648/2/5492; restore old code
+!!HEv9:M8/0; remove DD
+!!IF:V51/1; set flag to display messages randomly on roads
+
+!?FU77003|57/58; key Press (27=Esc, 13=Enter)
+!!SN:X?y1/0;
+!!FU&y1<>27/y1<>13:E;
+!!IF:V57/0 V58/0; disable this FU & TL0
+!!UN:C5168326/4/434630; turn off TL triggers
+!!UN:C7825648/2/5492; restore old code
+
