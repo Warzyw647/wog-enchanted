@@ -26,6 +26,7 @@ ZVSE
 !!VRy-4:*-1+y-1;
 !!VRy-5:*-1+y-1;
 !!HE26:Fdy-2/dy-3/dy-4/dy-5; Add stats from Calladans starting Artifact, if any
+!!HE84:F40/40/30/30 I600; Set Devoron's stats
 !!IF:M^Dramatis Personae:
 
 Devoron, Red God of Destruction, who aids the Ice King.

@@ -1,8 +1,8 @@
 ZVSE
 
-* HS_IceHold, JHV, Oct. 22, 2012
+; HS_IceHold, JHV, Oct. 22, 2012
 
-* uses z501-z502, FU540, flag 390
+; uses z501-z502, FU540, flag 390
 
 !#VRz501:S^Otataral Orb^;
 !#VRz502:S^{Otataral Orb}
@@ -11,22 +11,23 @@ When equipped in battle, this orb supresses all but Elder magic.^;
 !#UN:A126/10/502;
 
 !?OB72/73/0&1000; Ice Hold
-!!IF:Q1/21/152/1^What? Mortals dare enter my Hold? Guards! Destroy them! Devoron! Aid me!^;
+!!IF:Q1/21/152/1^What is this? Mortals dare enter my Hold? Guards! Destroy them! Devoron! Aid me!^;
 !!IF:V390/1;
 
 !?BA0&390
 !!BA:H1/84; Devoron (Damacon) defends
 !!VRv2:C0/0; inititalize count of Warriors and Mages
-!!DO540/0/6/1:P; count W & M
-!!VRy1:Sv2*3+14:7; # Ice G per stack
-!!VRy2:Sv3*2+4:2; # Death G per stack
-*!BA:M1/0/41/y2 M1/1/40/y1 M1/2/40/y1 M1/3/152/1 M1/4/40/y1 M1/5/40/y1 M1/6/41/y2; [stk 21 DG gets IK L11 EP]
+!!DO540/0/6/1:P; count Warriors & Mages & Efreet Sultans & Marids
+!!VRy1:Sv2:2; # Ice G per stack
+!!VRy1&y1<10:S10;
+!!VRy2:Sv3:2; # Death G per stack
+!!VRy2&y2<5:S5;
 !!BA:M1/0/152/1 M1/1/40/y1 M1/2/40/y1 M1/3/41/y2 M1/4/40/y1 M1/5/40/y1 M1/6/41/y2; [leave IK in stk 21]
 
 !?FU540; x16=BA:M0 slot
 !!BA:M0/x16/?y1/?y2; type, count
-!!VRv2|y1=6/y1=7:+y2;
-!!VRv3|y1=34/y1=35:+y2;
+!!VRv2|y1=6/y1=7/y1=53:+y2;
+!!VRv3|y1=34/y1=35/y1=182:+y2;
 
 !?BF&390;
 !!BM22:P14;
@@ -39,7 +40,7 @@ When equipped in battle, this orb supresses all but Elder magic.^;
 !!BU:S40/y1/100/1/-1/0; surround Ice King
 !!BU:S40/y1/116/1/-1/0;
 !!BU:S40/y1/134/1/-1/0;
-* try setting BM:B for instant rebirth
+; try setting BM:B for instant rebirth
 !!BM24:B?y3;
 !!BM24&y3<5:B5;
 !!BM27&y3<5:B5;
@@ -51,7 +52,7 @@ When equipped in battle, this orb supresses all but Elder magic.^;
 !!FU&y2<>3:E; lost if not Green
 !!IF:Q1/21/152/1^The Ice King is dead!^;
 !!IF:Q1/21/136/21/174/1^Long live the new kings!^;
-* scoring bonus
+; scoring bonus
 !!VRv1:Sc;
 !!VRy1:Sv1:10;
 !!VRv1&381:-y1;
