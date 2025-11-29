@@ -184,9 +184,7 @@ ZVSE
 !!BG:Q?v153;
 !!BHv153:M?v8;
 !!FU&v8=1:E; exit if casting disabled
-!!UN:C7825648/2/37008; remove timer restrictions. Trigger will be called max 20 times per second.
-!!UN:C5168326/4/2657254; turn on TL triggers
-!!IF:V59/1 V61/0; f59=1 for TL0, f61=0 for chime
+!!VRz10:S^^;
 !!VRv1293:C0/0;
 !!HEv1295:A2/126/?y2/?v1293; check for Orb of Inhibition
 !!HEv1296&v1296<>-2:A2/126/?y2/?v1294;
@@ -194,6 +192,9 @@ ZVSE
 !!HEv1296&v1296<>-2/v1294>0:A3/126/v1294/1;
 !!HEv1295&v1293>0:A126; put the removed Orb of Inhibition into Devoron's Backpack so that it's given after battle even if it ends before the next script that restores it
 !!HEv1296&v1296<>-2/v1294>0:A126;
+!!IF:V59/1 V61/0; f59=1 for TL0, f61=0 for chime
+!!UN:C7825648/2/37008; remove timer restrictions. Trigger will be called max 20 times per second.
+!!UN:C5168326/4/2657254; turn on TL triggers
 
 !?TL0|v1293>0/v1294>0;
 !!FU519:P;
@@ -228,7 +229,7 @@ ZVSE
 !!en;
 !!if&y4<>0/y1>209/y1<285/y2>107/y2<157/68/384/-376; Mouse on left half of Earth picture, RMB click
  !!IF:V59/0; disable FU77 Enter-check
- !!IF:M^{Huorn Grove} - unleashes the warren of Dris to plant a grove of Huorns around the designated location.  The Huorns can guard a friend or bind a foe in place (until they are defeated).  Each unoccupied spot around the target will have a troop whose number depends on your Power and Earth Skill (roughly 0.128*P +0.513*(S+1)). Costs 20 mana. May only be cast once per battle round.^;
+ !!IF:M^{Huorn Grove} - unleashes the warren of Dris to plant a grove of Huorns around the designated location.  The Huorns can guard a friend or bind a foe in place (until they are defeated).  Each unoccupied spot around the target will have Power/6 Huorns, plus 1 for each level of Earth Magic. Costs 20 mana. May only be cast once per battle round.^;
  !!IF:V59/1;
 !!en;
 !!if&y3=0; get hint just before LMB click if poss.
@@ -254,12 +255,14 @@ ZVSE
  !!VRz-1:S^Exit^;
  !!if&z10=z-1;
   !!UN:C5168326/4/434630; turn off TL triggers
-  !!UN:C7825648/2/29717; restore old code
-  !!IF:V59/0 V61/0;
+  !!UN:C7825648/2/5492; restore old code
+  !!IF:V59/0 V60/0 V61/0  V63/0 V65/0 V68/0;
+  !!SN:Q; exit
  !!en;
- !!VRz-1:S^Next Page^;
+ !!VRz-1:S^All Spells^;
  !!if&z10=z-1;
   !!IF:V60/0 V61/0 V63/0 V65/0 V68/0;
+  !!SN:Q; exit
  !!en;
  !!if&y1>209/y1<285/y2>107/y2<157/60/383/-375; click on left half of Water picture
   !!BG:Q?y9; side
@@ -271,7 +274,7 @@ ZVSE
   !!SN&y10<20:Q;
   !!IF:V62/1; enable Wave spell
   !!UN:C5168326/4/434630; turn off TL triggers
-  !!UN:C7825648/2/29717; restore old code
+  !!UN:C7825648/2/5492; restore old code
   !!IF:V61/0 V63/0 V65/0 V68/0;
   !!SN:Ev41/1/58/85; put mouse on hex 0
   !!SN:Ev66/1/13/1052; Enter to exit Spell Book
@@ -286,7 +289,7 @@ ZVSE
   !!SN&y10<20:Q;
   !!IF:V64/1; enable vortex spell
   !!UN:C5168326/4/434630; turn off TL triggers
-  !!UN:C7825648/2/29717; restore old code
+  !!UN:C7825648/2/5492; restore old code
   !!IF:V61/0 V60/0 V65/0 V68/0;
   !!SN:Ev41/1/58/85; put mouse on hex 0
   !!SN:Ev66/1/13/1052; Enter to exit Spell Book
@@ -301,15 +304,15 @@ ZVSE
   !!SN&y10<20:Q;
   !!IF:V66/1; enable fire spell
   !!UN:C5168326/4/434630; turn off TL triggers
-  !!UN:C7825648/2/29717; restore old code
+  !!UN:C7825648/2/5492; restore old code
   !!IF:V60/0 V61/0 V63/0 V68/0;
   !!SN:Ev41/1/58/85; put mouse on hex 0
-!!HEv1295:A2/126/?y2/?v1293; check for Orb of Inhibition
-!!HEv1296&v1296<>-2:A2/126/?y2/?v1294;
-!!HEv1295&v1293>0:A3/126/v1293/1; remove equipped Orb of Inhibition
-!!HEv1296&v1296<>-2/v1294>0:A3/126/v1294/1;
-!!HEv1295&v1293>0:A126; put the removed Orb of Inhibition into Devoron's Backpack so that it's given after battle even if it ends before the next script that restores it
-!!HEv1296&v1296<>-2/v1294>0:A126;
+  !!HEv1295:A2/126/?y2/?v1293; check for Orb of Inhibition
+  !!HEv1296&v1296<>-2:A2/126/?y2/?v1294;
+  !!HEv1295&v1293>0:A3/126/v1293/1; remove equipped Orb of Inhibition
+  !!HEv1296&v1296<>-2/v1294>0:A3/126/v1294/1;
+  !!HEv1295&v1293>0:A126; put the removed Orb of Inhibition into Devoron's Backpack so that it's given after battle even if it ends before the next script that restores it
+  !!HEv1296&v1296<>-2/v1294>0:A126;
   !!SN:Ev66/1/13/1052; Enter to exit Spell Book
  !!en;
  !!if&y1>209/y1<285/y2>107/y2<157/68/384/-376; click on left half of Earth picture
@@ -322,7 +325,7 @@ ZVSE
   !!SN&y10<20:Q;
   !!IF:V69/1; enable Huorn spell
   !!UN:C5168326/4/434630; turn off TL triggers
-  !!UN:C7825648/2/29717; restore old code
+  !!UN:C7825648/2/5492; restore old code
   !!IF:V60/0 V61/0 V63/0 V65/0;
   !!SN:Ev41/1/58/85; put mouse on hex 0
   !!SN:Ev66/1/13/1052; Enter to exit Spell Book
@@ -358,7 +361,7 @@ ZVSE
 !!SN:X?y98/0;
 !!FU&y98<>13/y98<>27:E;
 !!UN:C5168326/4/434630; turn off TL triggers
-!!UN:C7825648/2/29717; restore old code
+!!UN:C7825648/2/5492; restore old code
 !!IF:V59/0 V61/0;
 !!FU519&-66:P; restore Orb except for Chain Fire
 
@@ -687,8 +690,7 @@ ZVSE
 !!SN:Ev39/1/z2/y2/y3/141/131/2000/0; call DrawBmp last time to allow more time for sound
 !!VRv1281:C-17/-16/-1/1/17/18; even j loc.s from center
 !!VRv1281&k=1:C-18/-17/d/d/16/17; odd j loc.s from center (L->R, T->B)
-!!VRy8:Sy5+1*4+y7*50+195:390; 390=6*65, y8=# of DS/hex
-!!VRy8&y8<1:S1;
+!!VRy8:Sy7:6+y5+1; y8=# of DS/hex
 !!BU:R;
 !!DO526/1/6/1:Py1/y8/y4; summon Huorns (DS) around y1 for side y4
 !!FU519:P; restore Orb
@@ -717,6 +719,13 @@ ZVSE
 !!BMy8:F?y9;
 !!VRy9:|4194304; set Summoned flag (vanishes when kills, frees stack count)
 !!BMy8:Fy9;
+!!VRy10:Sy8+1*-1;
+!!HE27:A2/128/d/?y1; y-1=# AB equipped
+!!HE27:A2/157/d/?y2; y-2=# CSoR equipped
+!!VRy8:S0;
+!!VRy8&y1>0:+5;
+!!VRy8&y2>0:+5;
+!!EAy10:Ey8/12/d/d; Set Huorns' creature experience = # of Leora's Swords equipped
 
 !?BA1&385;
 !!IF:V385/0;
