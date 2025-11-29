@@ -1,10 +1,10 @@
 ZVSE
 
-* HS_ObjectsII (Part II), JHV, Oct., 2012
+; HS_ObjectsII (Part II), JHV, Oct., 2012
 
-* uses v73-v76, temporarily v80 like in Arena, v84-v87, v99, v318, z220-z230, z476-z479, FU68, FU186-FU192, f181-f182, f373- f380
+; uses v73-v76, temporarily v80 like in Arena, v84-v87, v99, v318, z220-z230, z476-z479, FU68, FU186-FU192, f181-f182, f373- f380
 
-* show all of map after Grail Built in Woodshire
+; show all of map after Grail Built in Woodshire
 !?TH1; leave Town Hall
 !!CA72/72/1:B3/26; Grail Built? --> F1
 !!UN&1:S72/72/0/3/104;
@@ -188,7 +188,7 @@ by a blast from my Mark V Plasma Cannon:
 !!VRz-4:S^Plasma Cannon^;
 !!IF:D29/-1/-2/0/-3/0/0/0/-4/0/0/0/0/0/0/0;
 !!IF:E1/29;
-* get address of z1
+; get address of z1
 !!UN:V?y1/?y2;
 !!VRy3:S9597416+512;  Era
 !!UN:Cy3/4/?v3; get 1st four bytes of z1
@@ -224,7 +224,7 @@ and our 40K Mark V Plasma Cannons would be named:
 !!VRz-4:S^Plasma Cannon^;
 !!IF:D30/-1/-2/0/-3/0/0/0/-4/0/0/0/0/0/0/0;
 !!IF:E1/30;
-* get address of z1
+; get address of z1
 !!UN:V?y1/?y2;
 !!VRy3:S9597416+512;  Era
 !!UN:Cy3/4/?v3; get 1st four bytes of z1
@@ -302,19 +302,24 @@ and our 40K Mark V Plasma Cannons would be named:
  !!EA34:B10/1/102/115/1/1/1/1/1/1/1/1/1/1/1; Shoot Adjacent--enabled
  !!EA35:B10/1/102/115/1/1/1/1/1/1/1/1/1/1/1;
  !!EA136:B12/1/102/115/1/1/1/1/1/1/1/1/1/1/1;
+ !!EA182:B12/1/102/115/1/1/1/1/1/1/1/1/1/1/1;
  !!OW:R-1/6/d-5000;
 !!en;
 !!if&v99=2;
  !!EA34:B11/1/105/61/1/1/1/1/1/1/1/1/1/1/1; No Rng Penalty--enabled
  !!EA35:B11/1/105/61/1/1/1/1/1/1/1/1/1/1/1;
+ !!EA182:B13/1/105/61/1/1/1/1/1/1/1/1/1/1/1;
  !!OW:R-1/6/d-10000;
 !!en;
 !!if&v99=3;
- !!MA:X34/?y4 X35/?y5 X136/?y6;
+ !!MA:X34/?y4 X35/?y5 X136/?y6 X182/?y7;
  !!VRy4:|32768;
  !!VRy5:|32768;
  !!VRy6:|32768;
- !!MA:X34/y4 X35/y5 X136/y6;
+ !!VRy7:|32768;
+ !!MA:X34/y4 X35/y5 X136/y6 X182/y7;
+ !!MA:N34/?y4 N35/?y5 N136/?y6 N182/?y7;
+ !!MA:N34/dy4 N35/dy5 N136/dy6 N182/dy7;
  !!OW:R-1/6/d-15000;
 !!en;
 !!if&v99=4;
@@ -384,8 +389,8 @@ if you have some mithril to spare.^;
 !!IF:M^I cannot cast another net until the last one fades!^;
 
 !?OB112/81/0&-181/1000; Ghost Wheel
-!!IF:Q1/21/159/2^I can cast an ethereal net to trap monsters from the Immaterium! Once trapped in our reality, they will thirst for your blood, but their own chaotic energy is a source of mithril! Shall I cast my net?
-You may want to bring some bait!^;
+!!IF:Q1/21/159/2^I can cast an ethereal net to trap monsters from the Immaterium! Once trapped in our reality, they will thirst for your blood, but their own chaotic energy is a source of Mithril! Shall I cast my net?
+You may want to bring some {bait}!^;
 !!FU&-1:E;
 !!IF:V181/1 V182/1;
 !!HE-1:M8/0 N?v318 Wd2000; remove DD until Ghost defeated, save HE#, add movement to reach Net
@@ -417,11 +422,11 @@ You may want to bring some bait!^;
 !!MOv73/v74/0/1:Gy2 M1 R10/1 U1; y2 monsters, message text=Timed Event 1, savage, can't flee
 
 !?FU186; cast Net
-* x1/x2/x3 = center location, x4=level (1-3)
-* level 1: net 4x4, map 5x5, +'s 3x3
-* level 2: net 6x6
-* level 3: net 8x8
-* +'s: 2*x4+1, upper left corner @ C-(x4,x4)
+; x1/x2/x3 = center location, x4=level (1-3)
+; level 1: net 4x4, map 5x5, +'s 3x3
+; level 2: net 6x6
+; level 3: net 8x8
+; +'s: 2*x4+1, upper left corner @ C-(x4,x4)
 !!VRy1:Sx1-x4;
 !!VRy2:Sx2-x4;
 !!VRy3:Sx4*2;
@@ -440,7 +445,7 @@ You may want to bring some bait!^;
 !!DO189/0/0/1:Py7/y5/x3/3/3/0/0; bottom right corner of net
 
 !?FU187; do column x16 (0-(NC-1))
-* x1/x2/x3 = upper left corner, x4 = NC-1
+; x1/x2/x3 = upper left corner, x4 = NC-1
 !!VRy1:Sx1+x16;
 !!DO188/0/x4/1:Py1/x2/x3;
 
@@ -451,8 +456,8 @@ You may want to bring some bait!^;
 !!TRx1/y2/x3:Td/d/y3/4/d/d/d/d;
 
 !?FU189; do edge row or column
-*               x1 x2 x3    x4             x5           x6 x7
-* DO189/0/y3/1:Px0/y0/z/river subtype/river mirror bits/dx/dy
+;               x1 x2 x3    x4             x5           x6 x7
+; DO189/0/y3/1:Px0/y0/z/river subtype/river mirror bits/dx/dy
 !!VRv1&x16=0:Sx1;
 !!VRv2&x16=0:Sx2;
 !!VRv1|v1<0/v1>=v37/v2<0/v2>=v37:+x6;
@@ -494,8 +499,8 @@ You may want to bring some bait!^;
 !!TRx1/y2/x3:Td/d/0/d/d/d/d/d; remove river
 
 !?HM-1&182;
-** move Monster one step also
-* collision check
+; move Monster one step also
+; collision check
 !!VRv1:Sv998-v73;
 !!VRv2:Sv999-v74;
 !!FU&v1=0/v2=0:E;
@@ -653,7 +658,7 @@ you--he comes here occasionally.^;
 !!IF:F39/0/0/0/0/0;
 !!IF:E99/39;
 
-* In and Out of the Black Star (TR:P1 has no effect on black tiles)
+; In and Out of the Black Star (TR:P1 has no effect on black tiles)
 !#TR17/6/1:E0;
 !#TR20/3/1:E0;
 !?OB17/6/1;
@@ -726,7 +731,7 @@ you--he comes here occasionally.^;
 !!UN:I51/127/1/158/0/145/0; (144/2 not found)
 !!VRz478:S^Cold Winds Temple of Air^;
 !!OB51/127/1:SH478;
-* built-in YS of AirTmpl.def doesn't work (except to distribute H478)
+; built-in YS of AirTmpl.def doesn't work (except to distribute H478)
 !!TR48/127/1:E0; so add one manually (48/126 N.G. also)(part of volcano 158/0?)
 !!UN:R1;
 !!IF:V377/0;
