@@ -151,11 +151,21 @@ ZVSE
 
 !?TL0&58;
 !!SN:Ev65/1/?y1/?y2/?y3/?y4; call MouseGet(x,y,lmb,rmb)
-!!VRy5:Sy1*2-591*y5; (2dx)^2
-!!VRy6:Sy2*2-539*y6; (2dy)^2
+; 2*x center: for 1920x1080 resolution, axb source size in HD mod it's 1665 (each tile is 45 px, center of first tile on the left is at 22 or 23 px)
+; 2*x center for original 800x600 resolution: 591
+!!VRy5:Sy1*2-1665*y5; (2dx)^2
+;!VRy5:Sy1-832*y5; (dx)^2
+; 2*y center for 1920x1080 res is 1035, for 800x600 it's 539
+!!VRy6:Sy2*2-1035*y6; (2dy)^2
+;!VRy6:Sy2-517*y6; (dy)^2
 !!VRy7:Sy5+y6;
-!!if&y7>50175;
-  !!SN:Ev41/1/296/270; Mouseput(x,y)--move mouse pointer to center
+; check if 3.5 or more tiles away, 1 tile is 32 px on 800x600 resolution, assume 1920x1080 with 45 pixel tiles
+; for 1920x1080 res: (2*45*3.5)^2-1=99224
+; for 800x600 res: (2*32*3.5)^2-1=50175
+;!IF:L^dbg: dx2: %Y5, dy2: %Y6, 2sqdist: %Y7/99224^;
+!!if&y7>99224; 
+;!if&y7>24806; 
+  !!SN:Ev41/1/799/517; Mouseput(x,y)--move mouse pointer to center (assume 1920x1080 sceen resolution, so 832/517 is the correct destination, but MousePut knows at most 799x599; it's 296/270 for 800x600)
 !!en;
 ; (can't check y3=0 here, spell click not cleared)
 
