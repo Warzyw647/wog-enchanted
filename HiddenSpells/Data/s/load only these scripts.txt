@@ -1,0 +1,38 @@
+TobynsUniversalTimer.erm
+era - secondary skills scrolling.erm
+Display Mithril.erm
+HS_IceHold.erm
+HiddenSpells.erm
+ChainFire3.erm
+HS_Arena.erm
+HS_Battles.erm
+HS_Cloak of Levitation.erm
+HS_Day1Day2.erm
+HS_EfreetWhirl.erm
+HS_FireApple.erm
+HS_ForgeAndCauldron.erm
+HS_FountainOfWisdom.erm
+HS_Greenhouse.erm
+HS_HallOfHeroes.erm
+HS_IceApple.erm
+HS_JungleLairs.erm
+HS_Leprechaun.erm
+HS_LloydsBeacon.erm
+HS_MaridTornado.erm
+HS_Objects.erm
+HS_ObjectsII.erm
+HS_PotionShop.erm
+HS_Pyramid.erm
+HS_RandomArmies.erm
+HS_RoadMessages.erm
+HS_Settings.erm
+HS_SpellHotkeys.erm
+HS_StraightGates.erm
+HS_SwordsOfNightAndDay2.erm
+HS_TeleportSnail.erm
+HS_Thangodrim.erm
+HS_WormholeGen.erm
+HS_IceBosses.erm
+DL_Scouting.erm
+TestLoTcastIceRain.erm
+HS_MovementDisplay.erm

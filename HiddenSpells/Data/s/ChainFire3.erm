@@ -1,0 +1,243 @@
+ZVSE
+
+; ChainFire3, JHV, Aug. 12, 2012 - added FB from Hero Aug. 14 [update Jan 2015 v156->v150]
+; update Mar 2017 v793-v799-->v893-v899
+
+; uses v150-v155, v893-v899, v2900-v3086, FU510-FU518, flag 58 &67 (5 temp., 200 from Battles)
+; assumes XFiles.dll already loaded by another script
+
+!?BG0&67;
+!!BG:A?v2 S?v3;
+!!FU|v2<>1/v3<>19:E; exit if not Hero cast or spell not CL
+!!BG:D?v152 Q?v153 E?v893; target hex, casting side, target stack
+!!HE-10&v153=0:S14/?v154 S15/?v155 I?v894/1 Id65/1; Fire skill, Air skill, SP
+!!HE-20&v153=1:S14/?v154 S15/?v155 I?v894/1 Id65/1;
+!!VRv150:S5; strike number
+!!VRv150&v155<2:S4;
+!!SS21:Ev154/?v898 P?v899;
+!!SS19:Ev155/?v2 P?v3;
+!!SS21:Ev154/v2 Pv3;  improve Fireball to CL
+!!IF:V58/1 V200/0; flag for BG1, disable Battles BG1 that gives multiple casts
+!!BG:A0;
+!!DO515/2900/3086/1:P; re-init. hex markers
+!!BHv153:C31/0/3/0; cast Prot. from Fire to make Hero casting animation
+!!VRz1:S^Mods/HiddenSpells/Data/screen.bmp^;
+!!SN:Ev38/1/z1/0/0/800/556; call CaptureScreen(left=0,top=0,width=800,height=556)
+!!FU518&v153=0:P35/63/v152; Xs/Ys/target hex
+!!FU518&v153=1:P764/63/v152;
+!!DO516/1/v150/1:P;
+!!BHv153:M1; disable further casting in this round (Battles BG1 may re-enable, see BG1 below)
+
+!?FU515; x16=hex # +2900
+!!VRvx16:S0;
+
+!?FU516; do a strike and then arc (if nec.)
+!!BHv153:C21/v152/v155/0; fire strike
+!!SS21:Ev154/?y1 P?y2;
+!!VRy1: :2;
+!!VRy2: :2;
+!!SS21:Ev154/y1 Py2;  reduce Fireball like CL
+!!FU&x16=v150:E; no arc nec.
+!!VRy3:Sv152+2900; hex-marker index
+!!VRvy3:S1; mark hex as hit
+!!IF:V5/0; flag for target
+!!VRv896:S1000000; min distance^2 found
+!!DO517/0/20/1:P; find next target (if any)
+!!VRx16&-5:S99; end loop if no targets left
+!!FU&-5:E;
+!!VRz1:S^Mods/HiddenSpells/Data/screen.bmp^;
+!!SN:Ev38/1/z1/0/0/800/556; call CaptureScreen(left=0,top=0,width=800,height=556)
+!!FU513:Pv152/v895; calc. arc
+!!VRv152:Sv895;
+
+!?FU517; target search, x16=0-20 stack number
+!!VRy1:S1-v153*21+x16; stack no.
+!!FU&y1=v893:E; don't re-target initial target
+!!BMy1:N?y2 P?y3;
+!!FU|y2<1/y3<0/y3>186:E; dead stack
+!!VRy4:Sy3+2900; hex-marker index
+!!FU&vy4=1:E; already hit
+!!IF:V5/1; target found
+!!FU510:Pv152/y3; get dist.^2
+!!FU&v151>=v896:E; not min. dist.
+!!VRv895:Cy3/v151; save target
+
+!?FU518; calculate an arc from the casting Hero at x1/x2 to the tip of hex x3
+; edited from FU513 - see FU513 for hex-->pixel notes
+!!VRy12:Sx3%17; t2
+!!VRy2:Sx3:17; r2
+!!VRy4:Sy2%2;
+!!VRy5:Sx1; X1
+!!VRy6:S-1*y4+y12+y12*22+58; X2
+!!VRy7:Sx2; Y1
+!!VRy8:Sy2*42+85; Y2
+!!VRy9:Sy6-y5; dX
+!!VRy10:Sy8-y7; dY
+!!VRv151:Sy9*y9;
+!!VRy13:Sy10*y10;
+!!VRv151:+y13; L^2
+!!FU511:P; v897=L
+!!VRy14:Sv897:2; L/2
+!!VRy15:Sv151:2; L^2/2
+!!VRy16:Sy7+y8+1:2; Ym
+!!VRy17:Sy9*44+y14:v897; dX*44/L
+!!VRy19:Sv153*2-1; bendy (left looking from 1 to 2 for side 0, right for side 1)
+!!VRy23:Sy19*-1;
+!!VRy24:S10; std delay
+!!VRy24&v897>400:S0;
+!!DO514/0/v897/8:Py5/y7/y9/y10/y14/y15/y19/y23/y24; X1,Y1,dX,dY,L/2,L^2/2,bendy dir.,bendx,delay
+
+!?BG0&58; in case it happens before BG1&58
+!!BHv153:M1; disable further casting in this round
+
+!?BG1&58;
+!!SS21:Ev154/v898 Pv899; restore Fireball
+!!BHv153:M1; disable further casting in this round
+!!SS19:Cv155/?y1; get CL mana cost
+!!VRy2:Sv894-y1; won't be <0 or CL couldn't be cast
+!!HE-10&v153=0:Iy2/1; pay CL cost
+!!HE-20&v153=1:Iy2/1;
+!!IF:V58/0;
+!!BU:R;
+
+!?FU510; returns distance squared in v151, x1=1st hex, x2=2nd hex
+; h=17r+t, where r=row (0 @ top, 10 @ bottom) & t=column (0 @ LHS, 16 @ RHS)
+; or r=h:17, t=h%17
+; measure x--> and y (down) from top left corner of screen, in units of pixels
+
+;            (0)         (1)         (hex # is at tip of hex)
+;          ;     ;     ;     *
+;       o           o           o
+;       ;           ;           *
+;      (17)        (18)        (19)
+;    ;     ;     ;     ;     *
+;  o          o           o
+;  ;          ;           *
+;  o         (34)        (35)
+;    ;     ;     ;     *
+;       o           o
+
+; location of hex 0:  (58,85)
+; x-distance from (0) to (18) = 22, y-distance = 42
+
+; for even r, x=44t+58, for odd r, x=44(t-1/2)+58 = 44t+36; y=42r+85
+; distance between h1 and h2:
+; for r1 & r2 same parity, d^2 = 1936(t2-t1)^2 + 1764(r2-r1)^2
+; for r1 even and r2 odd, d^2 = 1936(t2-t1-1/2)^2 + 1764(r2-r1)^2
+; for r1 odd and r2 even, d^2 = 1936(t2-t1+1/2)^2 + 1764(r2-r1)^2
+; 1936(t2-t1 +/- 1/2)^2 = 1936(t2-t1)^2 +/- 1936(t2-t1) +484
+!!VRy11:Sx1%17; col 1  35%17=1
+!!VRy12:Sx2%17; col 2  49%15=15
+!!VRy1:Sx1:17; row 1  35:17=2
+!!VRy2:Sx2:17; row 2  49:17=2
+!!VRy13:Sy12-y11;  14
+!!VRy3:Sy2-y1;  0
+!!VRy4:Sy1%2; 0 even, 1 odd   0
+!!VRy5:Sy2%2;                 0
+!!VRy6:Sy4-y5;             0
+!!VRy7:Sy13+y6*y13*1936;
+!!VRy7&y6<>0:+484;
+!!VRy17:Sy3*y3*1764;
+!!VRv151:Sy7+y17; dist.
+
+!?FU511; approximate square root using integer arithmetic
+*; v151=dist^2 - multiply by 64
+*; v897=sqrt(v151)
+!!VRv897:S0;
+!!FU&v151<1:E;
+!!VRy1:Sv151*64;
+*; chose initial guesses, v897 & y2 (g1 & g2):
+!!VRv897:S32;
+!!VRv897&y1>1536:*2;
+!!VRv897&y1>6144:*2;  128
+!!VRv897&y1>20480:*2;
+!!VRv897&y1>98304:*2;  512
+!!VRv897&y1>393216:*2;
+!!VRv897&y1>1572864:*2; 2048
+!!VRv897&y1>6291456:*2;
+!!VRy3:Sv897:2 +y1;
+!!VRy2:Sy3:v897; y2=(nn+v897/2)/v897; //guess 2
+!!FU512:Py1/y2; recursive soln
+!!VRv897:+3:8;
+
+!?FU512; recursive soln for sqrd=v897=sqrt(64*dist)=8*sqrt(dist)
+; x1=64*dist, x2=g2
+!!VRv897:+x2 +1 :2; g1=(g1+g2+1)/2
+!!VRy3:Sv897 :2 +x1; y3=(nn+v897/2)
+!!VRy2:Sy3 :v897; y2=(nn+v897/2)/v897; //guess 2
+!!VRy3:Sy2-v897;
+*; done if abs(g2-g1) <= 1
+!!FU512|y3>1/y3<-1:Px1/y2; otherwise continue
+
+!?FU513; calculate an arc from the tip of hex x1 to the tip of hex x2
+!!FU&x1=x2:E;
+; h=17(r-1)+t, where r=row (0 @ top, 10 @ bottom) & t=column (0 @ LHS, 16 @ RHS)
+; or r=h:17, t=h%17
+; measure X--> and Y (down) from top left corner of screen, in units of pixels
+
+;            (0)         (1)         (hex # is at tip of hex)
+;          ;     ;     ;     *
+;       o           o           o
+;       ;           ;           *
+;      (17)        (18)        (19)
+;    ;     ;     ;     ;     *
+;  o          o           o
+;  ;          ;           *
+;  o         (34)        (35)
+;    ;     ;     ;     *
+;       o           o
+
+; location of hex 0:  (58,85)
+; X-distance from (0) to (18) = 22, Y-distance = 42
+
+; for even r, x=44t+58, for odd r, x=44(t-1/2)+58 = 44t+36; y=42r+85
+!!VRy11:Sx1%17; t1
+!!VRy12:Sx2%17; t2
+!!VRy1:Sx1:17; r1
+!!VRy2:Sx2:17; r2
+!!VRy13:Sy12-y11;  14
+!!VRy3:Sy1%2; 0 even, 1 odd
+!!VRy4:Sy2%2;
+!!VRy5:S-1*y3+y11+y11*22+58; X1
+!!VRy6:S-1*y4+y12+y12*22+58; X2
+!!VRy7:Sy1*42+85; Y1
+!!VRy8:Sy2*42+85; Y2
+!!VRy9:Sy6-y5; dX
+!!VRy10:Sy8-y7; dY
+!!VRv151:Sy9*y9;
+!!VRy13:Sy10*y10;
+!!VRv151:+y13; L^2
+!!FU511:P; v897=L
+!!VRy14:Sv897:2; L/2
+!!VRy15:Sv151:2; L^2/2
+!!VRy16:Sy7+y8+1:2; Ym
+!!VRy17:Sy9*44+y14:v897; dX*44/L
+!!VRy18:Sy16-y17+50; possible Ymax
+!!VRy19:S-1; standard bendy (left looking from 1 to 2)
+!!VRy19&y18>555:S1;
+!!VRy20:Sy5+y6+1:2; Xm
+!!VRy21:Sy10*44+y14:v897; dY*44/L
+!!VRy22:Sy20+y21+32; possible Ymax
+!!VRy23:S1; standard bendx (left looking from 1 to 2)
+!!VRy23&y22>799:S-1;
+!!VRy24:S10; std delay
+!!VRy24&v897>400:S0;
+!!DO514/0/v897/8:Py5/y7/y9/y10/y14/y15/y19/y23/y24; X1,Y1,dX,dY,L/2,L^2/2,bendy dir.,bendx,delay
+
+!?FU514; x1=X1, x2=Y1, x3=dX, x4=dY, x5=L/2, x6=L^2/2, x7=bendy, x8=bendx, x9=delay,v151=L^2, v897=L, x16=t
+; Xt = X1 +(dX/L)*t, Yt = Yt +(dY/L)*t
+!!VRy1:Sx3*x16+x5:v897+x1; Xt
+!!VRy2:Sx4*x16+x5:v897+x2; Yt
+; s = 176*t*(L-t)/L^2 (176=4*44)
+!!VRy3:Sv897-x16*x16*176+x6:v151; s
+; Xs = Xt + (dY/L)*s, Ys = Yt - (dX/L)*s
+!!VRy4:Sx4*x8*y3+x5:v897+y1-32; Xs
+!!VRy5:Sx3*x7*y3+x5:v897+y2-14; Ys
+; plot FireBi.bmp at (xs,ys) where i=x16%4
+!!VRy6:Sx16:8%4; divide by DO increment
+!!VRz1:S^Mods/HiddenSpells/Data/FireB%Y6.bmp^;
+!!VRz2:S^Mask.bmp^;
+!!VRz3:S^Mods/HiddenSpells/Data/screen.bmp^;
+!!SN:Ev43/1/z3/z1/z2/y4/y5/64/64; call SaveCaptMask(left=y4,top=y5,width=64,height=64)
+!!SN:Ev39/1/z2/y4/y5/64/64/x9/0; call DrawBmp(left=y4,top=y5,width=64,height=64,Delay=x9 ms,IfKey=0)
+

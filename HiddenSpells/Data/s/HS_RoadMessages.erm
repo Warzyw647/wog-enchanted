@@ -1,0 +1,62 @@
+ZVSE
+
+* HS_RoadMessages, JHV, Oct., 2012
+
+* uses v1-v20 (temporary), v67, z410-z426
+
+!#VRv67:S410;
+
+!#VRz410:S^Vames sees graffiti written on the walls of this strange city:
+"Death to the Ice King and the traitors of the People's Liberation Front!  Signed, The Liberation Front of the People."^;
+!#VRz411:S^Suddenly, the city loudspeakers blare the words of the Ice King:
+"Every year, I will devour the weakest 10% of my people!  This will make us stronger!"^;
+!#VRz412:S^Vames sees more graffiti written on the walls of this strange city:
+"From behind the Portal, go east, then south, to find the Great Snail. He will help you if he can!"^;
+!#VRz413:S^Again, the city loudspeakers blare the words of the Ice King:
+"Bring me more gold this year than you brought me last year, and I will promote you! Fail, and I will punish you!"^;
+!#VRz414:S^Vames sees more graffiti written on the walls of this strange city:
+"Thirsty for water or wisdom? I know the cold code! Signed, Styx-Nero-Son"^;
+!#VRz415:S^Again, the city loudspeakers blare the words of the Ice King:
+"Some dare say that my people lack morale and loyalty!  Hah! I say, what fool is loyal? Fear is all I need!"^;
+!#VRz416:S^Vames sees more graffiti written on the walls of this strange city:
+"In the Hold of Time, it is always Autumn - the golden time of the Grail."^;
+!#VRz417:S^Again, the city loudspeakers blare the words of the Ice King:
+"I welcome strangers to my city--for as many days as they can last in the Arena!"^;
+!#VRz418:S^Vames sees more graffiti written on the walls:
+"Don't lose hope! Remember, the Ice King's giant Iron Minotaur seemed invincible, but a brave stranger with Ruse-blessed armor battered it with mighty waves! Someday the Ice King too will fall!"^;
+!#VRz419:S^Again, the city loudspeakers blare the words of the Ice King:
+"Fools say that the way to wealth is by growing or making useful things, with skill and patience! I know that the easiest way to wealth is not by making, but taking!"^;
+!#VRz420:S^Vames sees more graffiti written on the walls:
+"If a dozen monkeys jabber for a dozen days, the result is nonsense, but if 1000 monkeys jabber for 1000 days, surely one of them will speak wisdom?  Signed, Monkey 999"^;
+!#VRz421:S^Again, the city loudspeakers blare the words of the Ice King:
+"I have emptied my farms and factories of peasants, and sent them out to bring me plunder! Those who succeed bring me riches.  Those who fail, I need not feed!"^;
+!#VRz422:S^Vames sees more graffiti written on the walls:
+"In Pythagora, the slowest creatures can travel the fastest!"^;
+!#VRz423:S^Again, the city loudspeakers blare the words of the Ice King:
+"Why make 10% profit by farming and fabricating, when I can make 50% profit by loaning and trading worthless pieces of paper, or 100% by more direct means?"^;
+!#VRz424:S^Vames sees more graffiti written on the walls:
+"The seven-legged spider spins webs of ectoplasm."^;
+!#VRz425:S^The city loudspeakers announce:
+"Full thousands five of fair folk marched against the Ice King! None came alive out of the Ice Hold."^;
+!#VRz426:S^Vames sees more graffiti written on the walls:
+"Bloodwood cannot burn, although it yearns to."^;
+
+!?HM27&51/v67<427; random encounters (f51 set in Day1Day2)
+!!HE27:P?v1/?v2/?v3;
+!!FU&v3=1:E; surface only
+!!TRv1/v2/v3:T?v9/d/d/d/d/d/d/d;
+!!FU&v9<>7:E; on Roads only
+!!UN:Ev998/v999/v1000; f1=square N.A. for UN:I
+!!FU&1:E;
+!!VRv1:S0 T10;
+!!DO70/0/v1/1:P; get random number in v2
+!!FU&v2>5:E; 6% chance
+!!FU&v67>416/v2>2:E; 3% chance after z416
+!!VRz1:Szv67;
+!!UN:Iv998/v999/v1000/26/0; place LE
+!!LE998:D5/0 L1 M1/1 X0;
+!!VRv67:+1;
+
+!?FU70;
+!!VRv2:S0 R99;
+

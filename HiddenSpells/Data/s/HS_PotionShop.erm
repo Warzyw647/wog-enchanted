@@ -1,0 +1,45 @@
+ZVSE
+
+; HS_PotionShop, JHV, Mar.17/2017, adapted from
+; DC_PotionShop, JHV, Dec. 12, 2016
+; potions for HS are 64-65 & 118-119, Electrum 120, Dragon's Blood 127
+
+; uses z563 and FU9100 and TUT
+
+!#VRz563:S^Potion Store^;
+!#HT7/0:T563;
+
+!?TM2&v2392=1/v2391=1; day 1/once
+!!OB67/122/0:C?v2;
+!!FU9100:Pv2/0/64;
+!!FU9100:Pv2/1/63;
+!!FU9100:Pv2/2/65;
+!!FU9100:Pv2/3/118;
+!!FU9100:Pv2/4/119;
+!!FU9100:Pv2/5/120;
+!!FU9100:Pv2/6/127;
+
+!?TM2&v2393=1/v2388=1/v2396>1/v2391=1; monday/week 1 of month/month>1/once
+; Potion Shop prices increase
+!!UN:A63/1/d1000 A64/1/d1000 A65/1/d1000 A118/1/d1000 A119/1/d1000;
+!!UN:A120/1/d2000 A127/1/d2000;
+!!OB67/122/0:C?v2;
+!!FU9100:Pv2/0/64;
+!!FU9100:Pv2/1/63;
+!!FU9100:Pv2/2/65;
+!!FU9100:Pv2/3/118;
+!!FU9100:Pv2/4/119;
+!!FU9100:Pv2/5/120;
+!!FU9100:Pv2/6/127;
+
+!?FU9100;
+Control of black markets (OxFEA):
+x1 - market number (0..31) [Control number of BM (OB:C)]
+x2 - slot number (0..6)
+x3 - artifact ID (0..31)
+!!UN:C6919480/4/?y1;
+!!VRy1:+128644;
+!!UN:Cy1/4/?y2;
+!!VRy3:Sx1 *7 + x2 *4 + y2;
+!!UN:Cy3/4/x3;
+

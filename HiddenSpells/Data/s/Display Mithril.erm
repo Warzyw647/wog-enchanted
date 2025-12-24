@@ -1,0 +1,47 @@
+ZVSE
+!#UN:B0/1;  [Enable Mithril]
+
+;*** Display Mithril if Kingdom Overview Button is Right-clicked ***
+!?CM0;
+!!CM:I?y1; [Store right-click location in y1: y1=3 means Kingdom Overview Button clicked]
+
+!!OW:R-1/7/?y2; [Store current player's Mithril in y2]
+
+ [Set singular or plural of bar(s)]
+!!VRz-1:S^bars.^;
+!!VRz-1&y2=1:S^bar.^;
+
+ [Display current player's Mithril amount in a text box]
+!!IF&y1=3:Q1/7/y2/1^{Mithril}
+
+%Y2 shimmering %Z-1^;
+
+!!CM&y1=3:R0; [Disable standard right-click info. for Kingdom Overview button]
+
+
+;*** Display when Mithril is picked up ***
+!?OB79/7;  [Mithril is trigger]
+!!HE-1:B0/?z1; [Store hero's name in z1]
+
+!!ARv998/v999/v1000:V?y1; [Store value of Mithril bars in y1]
+
+!!OW:R-1/7/?y2; [Store current player's previous total Mithril in y2]
+!!VRy2:+y1; [Add new Mithril to previous Mithril - store in y2]
+
+ [Set up strings for use, depending on number of bars picked up (one or several)]
+!!VRz2&y2=1:S^bar^;
+!!VRz2&y2>1:S^bars^;
+!!VRz3&y1=1:S^bar^;
+!!VRz3&y1>1:S^bars^;
+!!VRz4:S^%Y1^;
+!!VRz4&y1=1:S^a^;
+
+ [Display amount of Mithril picked up and total amount owned]
+!!IF&1000:Q1/7/y1/1^{Mithril}
+
+%Z1 picks up %Z4 shimmering %Z3 of Mithril.
+
+{You now have %Y2 %Z2 of Mithril altogether.}
+
+(To check your total Mithril at any time, right-click on the Kingdom Overview button.)^;
+

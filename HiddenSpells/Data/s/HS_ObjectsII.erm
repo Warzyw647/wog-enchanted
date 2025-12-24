@@ -1,0 +1,938 @@
+ZVSE
+
+; HS_ObjectsII (Part II), JHV, Oct., 2012
+
+; uses v73-v76, temporarily v80 like in Arena, v84-v87, v99, v318, z220-z230, z476-z479, FU68, FU186-FU192, f181-f182, f373- f380
+
+; show all of map after Grail Built in Woodshire
+!?TH1; leave Town Hall
+!!CA72/72/1:B3/26; Grail Built? --> F1
+!!UN&1:S72/72/0/3/104;
+!!UN&1:S72/72/1/3/104;
+
+!#VRz216:S^Academy of Air^;
+!#OB55/77/0:SH216;
+!#VRz217:S^Air {Master}^;
+!#VRz218:S^Air {Master}
+In addition to Expert skill at ordinary Air Magic, a Master of Air can travel the stars to the Realm of Air, visit the Lost Temple, and learn an Elder Spell.^;
+
+!?OB55/77/0&1000;
+!!HE-1:N?y1 S15/?y3; HE#, Air
+!!VRy2:Sv313&1; check for Air Master
+!!IF:V1/0 V2/0;
+!!IF&y1<>27/y1<>29/y3>1:V1/1; (use Melodia for test)
+!!IF&y1=27/y2<>0:V2/1;
+!!IF&y1=29/y2<>0:V2/1;
+!!IF|1/2:Q1/27/23/1^You have learned all that we can teach you, but it is a pleasure to see a good student once again.^;
+!!FU|1/2:E;
+!!PO998:V3/?y4;
+!!VRy5:Sc0-1:7+1; week # (starts at 1)
+!!IF&y4=y5:M^Our instructors must meditate and restore their power before infusing more Air skill.^;
+!!FU&y4=y5:E;
+!!IF&y3=0:Q1/27/23/2^Welcome to the Academy of Air! For 1000 gold, we will teach you Basic Air Magic.  Do you wish to gain such skill?^;
+!!FU&-1/y3=0:E;
+!!IF&y3=1:Q1/27/23/2^Welcome to the Academy of Air! For 2000 gold, we will teach you Advanced Air Magic.  Do you wish to gain such skill?^;
+!!FU&-1/y3=1:E;
+!!IF&y3=2:Q1/27/23/2^Welcome to the Academy of Air! For 4000 gold, we will teach you Expert Air Magic.  Do you wish to gain such skill?^;
+!!FU&-1/y3=2:E;
+!!IF&y3=3:Q1/27/23/2^Welcome to the Academy of Air! For 6000 gold, we will invoke Serc to make you a Master of Air Magic.  Do you wish to gain such skill?^;
+!!FU&-1/y3=3:E;
+!!VRy4:Sy3*2000;
+!!VRy4&y3=0:S1000;
+!!OW:R-1/6/?y5;
+!!IF&y5<y4:Q1/27/23/1^Payment must be in advance. Your studies will start when you have the gold.^;
+!!FU&y5<y4:E;
+!!VRy4:*-1;
+!!OW:R-1/6/dy4;
+!!PO998:V3/y2;
+!!VRz2:S^chime_up.wav^;
+!!SN:Pz2;
+!!HE-1&y3<3:S15/d1;
+!!IF&y3<3:Q1/27/23/1^You have read the sacred scrolls and our masters have approved your qualifications. Your Air Magic level has increased!^;
+!!FU&y3<3:E;
+!!UN:G0/15/0/217 G0/15/3/218;
+!!VRv313:|1;
+!!VRy6:S360+v313; spclty picture # (revised UN44 & UN32)
+!!VRy7:S200+v313; spclty text Z #
+!!HE-1:N?y8;
+!!UN:G2/y8/1/y6 G2/y8/2/y7 G2/y8/3/y6;
+!!IF:Q1/27/23/1^Serc has accepted our invocation and blessed you! You are a Master of Air!^;
+!!FU&v313<15:E;
+!!SN:L^Era.dll^/?v3; v3=handle
+!!SN:Av3/^RedirectFile^/?v4; v4=FU address
+!!SN:Ev4/1/^SECSK32.def^/^JVSEC32.def^;
+!!SN:Ev4/1/^sskilbon.def^/^JVsklbon.def^;
+!!UN:C6685136/2/22090; do in GM0
+!!UN:C6684920/2/22090;
+
+!?FU77004; open Hero Screen
+!!HE-1:N?v2; HE#
+!!if&v2<>27; not GEM
+!!UN:G0/15/0/0 G0/15/3/0; air
+!!UN:G0/14/0/0 G0/14/3/0; fire
+!!UN:G0/16/0/0 G0/16/3/0; water
+!!UN:G0/17/0/0 G0/17/3/0; earth
+!!en;
+!!if&v2=27; GEM
+!!VRy1:Sv313&1;
+!!UN&y1=1:G0/15/0/217 G0/15/3/218; air
+!!VRy2:Sv313&2;
+!!UN&y2=2:G0/14/0/343 G0/14/3/344; fire
+!!VRy4:Sv313&4;
+!!UN&y4=4:G0/16/0/346 G0/16/3/347; water
+!!VRy8:Sv313&8;
+!!UN&y8=8:G0/17/0/340 G0/17/3/341; earth
+!!en;
+
+!?CM2; left-click on Hero in Hero list (in Hero Screen)
+!!CM:I?v1 F?v2;
+!!FU|v1<130/v1>137/v2=512:E;
+!!VRv1:-129;
+!!OW:H-1/2/v1; Hero # -> v2
+!!if&v2<>27; not GEM
+!!UN:G0/15/0/0 G0/15/3/0; air
+!!UN:G0/14/0/0 G0/14/3/0; fire
+!!UN:G0/16/0/0 G0/16/3/0; water
+!!UN:G0/17/0/0 G0/17/3/0; earth
+!!en;
+!!if&v2=27; GEM
+!!VRy1:Sv313&1;
+!!UN&y1=1:G0/15/0/217 G0/15/3/218; air
+!!VRy2:Sv313&2;
+!!UN&y2=2:G0/14/0/343 G0/14/3/344; fire
+!!VRy4:Sv313&4;
+!!UN&y4=4:G0/16/0/346 G0/16/3/347; water
+!!VRy8:Sv313&8;
+!!UN&y8=8:G0/17/0/340 G0/17/3/341; earth
+!!en;
+
+!#VRz220:S^Chief Engineer^;
+!#UN:G1/17/1/220;
+!#OB92/81/0:SH220;
+!#VRz221:S^Universal Fabricator^;
+!#OB85/81/0:SH221;
+!#OB86/81/0:SH221;
+!#OB87/81/0:SH221;
+!#OB88/81/0:SH221;
+!#OB89/81/0:SH221;
+!#OB90/81/0:SH221;
+!#OB91/81/0:SH221;
+
+!?OB92/81/0&1000; CF
+!!PO998:N?y1;
+!!FU&y1<1:E; exit if first visit to this object
+!!PO998:V3/?y1;
+!!VRy2:Sc0-1:7+1; week # (starts at 1)
+!!IF&y1=y2:Q1/21/17/1^You're back too soon! I have to run the cutters slow until I can refit them with new, highest quality gems.^;
+!!FU&y1=y2:E; exit if player came back same week
+!!VRy1:Sy2;
+!!OW:R-1/5/?y2;
+!!IF&y2<10:Q1/21/17/5/10/1^I warned you! I'm on strike until I get 10 gems to replace my cutter teeth with! I'm not going to wreck my beautiful fabricator machine by using worn-out cutters!^;
+!!FU&y2<10:E;
+!!IF:Q1/21/17/5/10/2^Did you bring me 10 gems?^;
+!!FU&-1:E;
+!!OW:R-1/5/d-10;
+!!IF:Q1/21/17/5/10/1^Good lads! You brought me the gems, so I'll give you my week's production. But more cutters and grinders are wearing out, so keep the gems coming! (How did you get that greedy blaggard to part with them? Nevermind, I shouldn't ask.)^;
+!!IF:Q80/8/v87/8/v86/8/v85/10^Just some final touches on your Artifact, or would you prefer two smaller ones instead?
+(1 Major Artifact or a Treasure and a Minor one?)
+Choose wisely!^;
+!!PO998:V3/y1;
+!!IF&v80=0:Q1/21/17/5/10/1^Fine, if you don't want it, you don't want it. Thanks for the Gems!^;
+!!HE-1&v80=1:A4/v87;
+!!HE-1&v80=2:A4/v86;
+!!HE-1&v80=2:A4/v85;
+
+!?OB92/81/0&1000; CF
+!!PO998:N?y1;
+!!FU&y1<>0:E;
+!!PO998:N1;
+!!IF:Q1/21/17/8/54/1^And who would you be, the new couriers? It's poor stuff I have for you to deliver, you'll be thinking, and next week it'll be even less, unless I get more hard, sharp gems for my cutters! These days, they all get sold to pay for his Coldness's wars, but I need some for the cutters and grinders my machine uses to shape parts!  Bring me at least ten next week or I'll have to shut down!^;
+!!HE-1:A4/54; Amulet of Undertaker
+!!VRy2:Sc0-1:7+1; week # (starts at 1)
+!!PO92/81/0:V3/y2;
+
+!#VRz222:S^Chief Gunner Gregory P. Navarone^;
+!#OB58/23/0:SH222;
+!#VRz223:S^Mark V Plasma Cannon, "The WARHAMMER"^;
+!#OB57/21/0:SH223;
+!#OB58/21/0:SH223;
+!#OB59/21/0:SH223;
+!#OB60/21/0:SH223;
+!#OB61/21/0:SH223;
+!#OB62/21/0:SH223;
+!#OB73/21/0:SH223;
+!#OB74/21/0:SH223;
+!#OB75/21/0:SH223;
+!#OB76/21/0:SH223;
+!#OB77/21/0:SH223;
+!#OB78/21/0:SH223;
+!#VRz224:S^Chief Gunner Anthony Q. Navarone^;
+!#OB77/23/0:SH224;
+!#VRz225:S^Chief Gunner^;
+!#UN:G1/9/1/225;
+
+!?OB58/23/0&1000; CG1, N=1
+!!PO998:N?y1;
+!!FU&y1<1:E;
+!!IF:Q1/21/9/1^Still admiring my gun? I know, it is hard to take your eyes off it.^;
+
+!?OB58/23/0&1000; CG1, N=0
+!!PO998:N?y1;
+!!FU&y1>0:E;
+!!IF:Q1/21/9/1^Impressive, isn't it? It's a {40K} hz Plasma Cannon, Mark V, affectionately known as "The {WARHAMMER}". Where it hits it's {bundolo} even if a void shield is in the way. Do you know what they say when a Titan Warlord {engine} gets hit by a blast from one of these babies? Two words. If you can guess them I will be one of your sponsors to enter the Shooters Guild!^;
+!!VRz-1:S^Enter what they say after a Titan Warlord gets hit
+by a blast from my Mark V Plasma Cannon:
+(two words of 10 lowercase letters total, with a space between them)^;
+!!VRz-2:S^What is the saying?^;
+!!VRz-3:S^..\Mods\HiddenSpells\Data\PlasmaGn.gif^;
+!!VRz-4:S^Plasma Cannon^;
+!!IF:D29/-1/-2/0/-3/0/0/0/-4/0/0/0/0/0/0/0;
+!!IF:E1/29;
+; get address of z1
+!!UN:V?y1/?y2;
+!!VRy3:S9597416+512;  Era
+!!UN:Cy3/4/?v3; get 1st four bytes of z1
+!!VRy3:+3;
+!!UN:Cy3/2/?v4; get 4th & 5th bytes of z1
+!!VRv4&v4=0:S1;
+!!VRy5:Sv3%v4;
+!!VRy3:+1;
+!!UN:Cy3/4/?v3; get 2nd four bytes of z1
+!!VRy3:+3;
+!!UN:Cy3/2/?v4; get 8th & 9th bytes of z1
+!!VRv4&v4=0:S1;
+!!VRy6:Sv3%v4;
+!!IF|y5<>14689/y6<>5004:Q1/21/9/1^Sorry, that's not it.^;
+!!FU|y5<>14689/y6<>5004:E;
+!!IF:Q1/21/9/1^Every time! Spoken like a true shooter. I'll be glad to sponsor you.^;
+!!PO998:N1;
+
+!?OB77/23/0&1000; CG2, N=1
+!!PO998:N?y1;
+!!FU&y1<1:E;
+!!IF:Q1/21/9/1^I'll bet you wish you had one of these. I'll bet I know whom you'd like to fire it at, too!^;
+
+!?OB77/23/0&1000; CG2, N=0
+!!PO998:N?y1;
+!!FU&y1>0:E;
+!!IF:Q1/21/9/1^My brother and I are lucky to be responsible for such fine {guns}! Say, if they made a movie about us, what do you think it would be titled? Four words. If you can guess them I will be one of your sponsors to enter the Shooters Guild!^;
+!!VRz-1:S^Enter what a movie about my brother and me
+and our 40K Mark V Plasma Cannons would be named:
+(Four words of 17 lowercase letters total, with three spaces)^;
+!!VRz-2:S^What should the movie title be?^;
+!!VRz-3:S^..\Mods\HiddenSpells\Data\PlasmaGn.gif^;
+!!VRz-4:S^Plasma Cannon^;
+!!IF:D30/-1/-2/0/-3/0/0/0/-4/0/0/0/0/0/0/0;
+!!IF:E1/30;
+; get address of z1
+!!UN:V?y1/?y2;
+!!VRy3:S9597416+512;  Era
+!!UN:Cy3/4/?v3; get 1st four bytes of z1
+!!VRy3:+3;
+!!UN:Cy3/2/?v4; get 4th & 5th bytes of z1
+!!VRv4&v4=0:S1;
+!!VRy5:Sv3%v4;
+!!VRy3:+1;
+!!UN:Cy3/4/?v3; get 2nd four bytes of z1
+!!VRy3:+3;
+!!UN:Cy3/2/?v4; get 8th & 9th bytes of z1
+!!VRv4&v4=0:S1;
+!!VRy6:Sv3%v4;
+!!VRy3:+1;
+!!UN:Cy3/4/?v3; get 3rd four bytes of z1
+!!VRy3:+3;
+!!UN:Cy3/2/?v4; get 12th & 13th bytes of z1
+!!VRv4&v4=0:S1;
+!!VRy7:Sv3%v4;
+!!IF|y5<>19988/y6<>7945/y7<>14080:Q1/21/9/1^Sorry, that's not it.^;
+!!FU|y5<>19988/y6<>7945/y7<>14080:E;
+!!IF:Q1/21/9/1^Right! You must be a war-movie buff. I'll be glad to sponsor you.^;
+!!PO998:N1;
+
+!#VRz226:S^Shooters Guild^;
+!#OB75/15/0:SH226;
+!#EA34:B10/0/102/115/1/1/1/1/1/1/1/1/1/1/1; Shoot Adjacent--disabled
+!#EA35:B10/0/102/115/1/1/1/1/1/1/1/1/1/1/1; Shoot Adjacent--disabled
+!#EA136:B12/0/102/115/1/1/1/1/1/1/1/1/1/1/1; Shoot Adjacent--disabled
+!#EA34:B11/0/105/61/1/1/1/1/1/1/1/1/1/1/1; No Range Penalty--disabled
+!#EA35:B11/0/105/61/1/1/1/1/1/1/1/1/1/1/1; No Range Penalty--disabled
+
+!?OB75/15/0; Shooters Guild
+!!PO58/23/0:N?y1;
+!!PO77/23/0:N?y2;
+!!IF|y1=0/y2=0:M^Sorry, you must have two sponsors to join our guild.^;
+!!FU|y1=0/y2=0:E;
+!!EA34:B10/?v3/d/d/d/d/d/d/d/d/d/d/d/d/d; shoot adj chk
+!!EA34:B11/?v4/d/d/d/d/d/d/d/d/d/d/d/d/d; no rng pnlty chk
+!!MA:X34/?v5;
+!!VRv5:&32768; shoot 2x chk
+!!VRz2:S^../Mods/HiddenSpells/Data/archery.gif^;
+!!VRz5:S^Shooters Guild - Advanced Archery Training^;
+!!VRz6:S^Shoot close opponents--5000 Gold^;
+!!VRz6&v3=1:S^(Already learned.)^;
+!!VRz7:S^Increased range--10,000 Gold^;
+!!VRz7&v4=1:S^(Already learned.)^;
+!!VRz8:S^Shoot twice as fast--15,000 Gold^;
+!!VRz8&v5<>0:S^(Already learned.)^;
+!!VRz9:S^^;
+!!HE-1:S1/?v6; Archery skill
+!!VRz9&v6<3:S^Improve your Archery Skill--2000 Gold^;
+!!VRz10:S^Here is what we could teach you (if anything):^;
+!!IF:D18/5/0/10/2/0/0/0/0/0/0/0/6/7/8/9;
+!!VRz-6:S^Shoot at adjacent foes.^;
+!!VRz-7:S^No distance penalty.^;
+!!VRz-8:S^Shoot twice per turn.^;
+!!VRz-9:S^+1 level.^;
+!!IF:F18/-6/-7/-8/-9/1;
+!!IF:E99/18; v99 1-4 or -1 for Cancel
+!!FU&v99=-1:E;
+!!FU&v99=1/v3<>0:E;
+!!FU&v99=2/v4<>0:E;
+!!FU&v99=3/v5<>0:E;
+!!FU&v99=4/v6>2:E;
+!!OW:R-1/6/?y3; gold
+!!IF:V1/0;
+!!IF&v99=1/y3<5000:V1/1;
+!!IF&v99=2/y3<10000:V1/1;
+!!IF&v99=3/y3<15000:V1/1;
+!!IF&v99=4/y3<2000:V1/1;
+!!IF&1:M^I'm sorry but you don't have the fee for that training.^;
+!!FU&1:E;
+!!if&v99=1;
+ !!EA34:B10/1/102/115/1/1/1/1/1/1/1/1/1/1/1; Shoot Adjacent--enabled
+ !!EA35:B10/1/102/115/1/1/1/1/1/1/1/1/1/1/1;
+ !!EA136:B12/1/102/115/1/1/1/1/1/1/1/1/1/1/1;
+ !!EA182:B12/1/102/115/1/1/1/1/1/1/1/1/1/1/1;
+ !!OW:R-1/6/d-5000;
+!!en;
+!!if&v99=2;
+ !!EA34:B11/1/105/61/1/1/1/1/1/1/1/1/1/1/1; No Rng Penalty--enabled
+ !!EA35:B11/1/105/61/1/1/1/1/1/1/1/1/1/1/1;
+ !!EA182:B13/1/105/61/1/1/1/1/1/1/1/1/1/1/1;
+ !!OW:R-1/6/d-10000;
+!!en;
+!!if&v99=3;
+ !!MA:X34/?y4 X35/?y5 X136/?y6 X182/?y7;
+ !!VRy4:|32768;
+ !!VRy5:|32768;
+ !!VRy6:|32768;
+ !!VRy7:|32768;
+ !!MA:X34/y4 X35/y5 X136/y6 X182/y7;
+ !!MA:N34/?y4 N35/?y5 N136/?y6 N182/?y7;
+ !!MA:N34/dy4 N35/dy5 N136/dy6 N182/dy7;
+ !!OW:R-1/6/d-15000;
+!!en;
+!!if&v99=4;
+ !!HE-1:S1/d1;
+ !!OW:R-1/6/d-2000;
+!!en;
+!!IF:M^Our fee has been paid and your training is complete!^;
+
+!#VRz227:S^Knu Knu's Macroscope^;
+!#OB15/33/0:H227;
+!#OB17/33/0:H227;
+!#OB19/33/0:H227;
+!#OB15/34/0:H227;
+!#OB16/34/0:H227;
+!#OB17/34/0:H227;
+!#OB18/34/0:H227;
+!#OB19/34/0:H227;
+!#VRz228:S^Knu Knu's Tower of Knowledge^;
+!#OB20/36/0:SH228;
+
+!?OB20/36/0; Knuie
+!!PO998:N?v1; 0=not visited
+!!FU&v1<>0:E;
+!!PO998:N1;
+!!VRz10:S^Hello again, my friends!
+Yes, I am a prisoner of the Ice King now, and he
+took Qubit, my quantum computer, to use as his Oracle,
+but he rarely bothers us--he prefers to think
+"straight from the gut".^;
+!!VRz12:S^Knu Knu the Sorceror^;
+!!VRz13:S^..\Mods\HiddenSpells\Data\KnuKnu.gif^;
+!!IF:D34/z10/0/z12/z13 ;
+!!IF:F34/0/0/0/0/0;
+!!IF:E99/34;
+!!VRz10:S^Elder magic? No, without Qubit I can't tell you
+much about that. See Qubit - if you can get into his
+Hold. He'll be glad to help you, for old times' sake.
+I've been studying mithril though, and found a way
+to infuse magical knowledge and mana from it.^;
+!!IF:D34/z10/0/z12/z13 ;
+!!IF:F34/0/0/0/0/0;
+!!IF:E99/34;
+
+!?OB20/36/0; Knuie
+!!VRz2:S^..\Mods\HiddenSpells\Data\KnuKnu.gif^;
+!!VRz5:S^I can turn your mithril into Knowledge and Mana,
+if you have some mithril to spare.^;
+!!VRz6:S^Infuse 1 Knowledge and 10 Mana from 2 Mithril^;
+!!VRz10:S^Knu Knu the Sorceror^;
+!!IF:D36/5/0/10/2/0/0/0/0/0/0/0/6;
+!!VRz-6:S^Exchange 2 mithril for +1K and +10 Spell Points^;
+!!IF:F36/-6/0/0/0/1;
+!!IF:E99/36; v99 1 or -1 for Cancel
+!!FU&v99=-1:E;
+!!OW:R-1/7/?y3; mithril
+!!IF&y3<2:M^I am sorry, you don't have enough mithril for me to work with.^;
+!!FU&y3<2:E;
+!!OW:R-1/7/d-2;
+!!HE-1:Fd/d/d/d1 Id10;
+!!IF:M^I've done it! Do you ever thank the Elder Gods that you have access to my magnificent dementia?^;
+
+!#VRz229:S^Ghost Wheel^;
+!#OB112/81/0:SH229;
+!#MA:D159/d15 A159/d15 M159/d20 E159/d20 P159/20; improve Ghosts
+
+!?OB112/81/0&181/1000; Ghost Wheel
+!!IF:M^I cannot cast another net until the last one fades!^;
+
+!?OB112/81/0&-181/1000; Ghost Wheel
+!!IF:Q1/21/159/2^I can cast an ethereal net to trap monsters from the Immaterium! Once trapped in our reality, they will thirst for your blood, but their own chaotic energy is a source of Mithril! Shall I cast my net?
+You may want to bring some {bait}!^;
+!!FU&-1:E;
+!!IF:V181/1 V182/1;
+!!HE-1:M8/0 N?v318 Wd2000; remove DD until Ghost defeated, save HE#, add movement to reach Net
+!!VRz2:S^derezz.wav^; build sound
+!!FU186:P118/82/0/1;
+!!SN:Pz2; casting sound
+!!VRv73:C118/81; NPC loc.
+!!UN:Iv73/v74/0/54/159; place Ghosts
+!!MW:Mv73/v74/0/?v75; convert cr  @ v73/v74/0 to wandering monster # v75
+!!MWv75:A3/1/0/0/1/1/0/0 A2/v318/0/0 A4/20; call MW0 b4 attack, search for HEv318
+!!VRy5:S0;
+!!HE-1:C0/0/?y3/?y4;
+!!VRy5|y3=0/y3=1:+y4;
+!!HE-1:C0/1/?y3/?y4;
+!!VRy5|y3=0/y3=1:+y4;
+!!HE-1:C0/2/?y3/?y4;
+!!VRy5|y3=0/y3=1:+y4;
+!!HE-1:C0/3/?y3/?y4;
+!!VRy5|y3=0/y3=1:+y4;
+!!HE-1:C0/4/?y3/?y4;
+!!VRy5|y3=0/y3=1:+y4;
+!!HE-1:C0/5/?y3/?y4;
+!!VRy5|y3=0/y3=1:+y4;
+!!HE-1:C0/6/?y3/?y4;
+!!VRy5|y3=0/y3=1:+y4;
+!!VRy2:S14+y5; Ghost count = 14 plus Pikemen/Halberds count
+!!VRv76:Sy2:5-1; 1/5 mithril -1 (minimum 1, +1 for taking any halbs/Pikes to the Ghost Wheel, +1 for every 5 Pikes/Halbs above that)
+*!MOv73/v74/0/1:B7/v76 Gy2 M1 R10/1 U1; v76 Mithril reward--B7 gives syntax error, use BA1 to allocate
+!!MOv73/v74/0/1:Gy2 M1 R10/1 U1; y2 monsters, message text=Timed Event 1, savage, can't flee
+
+!?FU186; cast Net
+; x1/x2/x3 = center location, x4=level (1-3)
+; level 1: net 4x4, map 5x5, +'s 3x3
+; level 2: net 6x6
+; level 3: net 8x8
+; +'s: 2*x4+1, upper left corner @ C-(x4,x4)
+!!VRy1:Sx1-x4;
+!!VRy2:Sx2-x4;
+!!VRy3:Sx4*2;
+!!DO187/0/y3/1:Py1/y2/x3/y3; do columns
+!!VRy4:Sy2-1; y @ top row of T's
+!!DO189/0/y3/1:Py1/y4/x3/6/0/1/0;
+!!VRy5:Sx2+x4+1; y @ bottom row of T's
+!!DO189/0/y3/1:Py1/y5/x3/6/2/1/0;
+!!VRy6:Sy1-1; x @ left column of |-'s
+!!DO189/0/y3/1:Py6/y2/x3/7/0/0/1;
+!!VRy7:Sx1+x4+1; x @ right column of -|'s
+!!DO189/0/y3/1:Py7/y2/x3/7/1/0/1;
+!!DO189/0/0/1:Py6/y4/x3/3/0/0/0; top left corner of net
+!!DO189/0/0/1:Py7/y4/x3/3/1/0/0; top right corner of net
+!!DO189/0/0/1:Py6/y5/x3/3/2/0/0; bottom left corner of net
+!!DO189/0/0/1:Py7/y5/x3/3/3/0/0; bottom right corner of net
+
+!?FU187; do column x16 (0-(NC-1))
+; x1/x2/x3 = upper left corner, x4 = NC-1
+!!VRy1:Sx1+x16;
+!!DO188/0/x4/1:Py1/x2/x3;
+
+!?FU188; do cell @ x1/x2+x16/x3
+!!VRy2:Sx2+x16;
+!!FU|x1<0/x1>=143/y2<0/y2>=143:E;
+!!VRy3:S2; ice river
+!!TRx1/y2/x3:Td/d/y3/4/d/d/d/d;
+
+!?FU189; do edge row or column
+;               x1 x2 x3    x4             x5           x6 x7
+; DO189/0/y3/1:Px0/y0/z/river subtype/river mirror bits/dx/dy
+!!VRv1&x16=0:Sx1;
+!!VRv2&x16=0:Sx2;
+!!VRv1|v1<0/v1>=v37/v2<0/v2>=v37:+x6;
+!!VRv2|v1<0/v1>=v37/v2<0/v2>=v37:+x7;
+!!FU|v1<0/v1>=v37/v2<0/v2>=v37:E;
+!!TRv1/v2/x3:T?y1/d/d/d/d/d/?y4/d; get terrain type & mirror byte
+!!VRy3:S2; river type
+!!VRy5:Sx5*4; shift mirror left 2 bits
+!!VRy4:&-13+y5; AND MB w/0xFF FF FF 03 and add river mirror bits
+!!VRy6:Sx4; river subtype
+!!VRy6&x4=3:Sy3%4; if corner, subtype=type mod 4
+!!TRv1/v2/x3:Td/d/y3/y6/d/d/y4/d;
+!!VRv1:+x6;
+!!VRv2:+x7;
+
+!?BA1&181;
+!!IF:V182/0; stop MW movement
+!!BM21:T?y1;  BA:M1/0 did not work here
+!!FU&y1<>159:E; exit if not Ghost battle
+!!HEv318:M8/1 O?y2; restore DD, get owner
+!!FU&y2<>3:E; exit if not Green
+!!OW:Ry2/7/dv76;
+!!IF:Q1/7/v76/1^The creatures fade away, but leave mithril behind!^;
+
+!?TM2&181; remove net next night
+!!IF:V181/0;
+!!DO190/0/4/1:P116/80/0/4; erase column of net
+!!FU&-182:E;
+!!IF:V182/0; stop MW movement
+!!UN:Ov73/v74/0;
+
+!?FU190; erase column @ x=x16, top-left=x1/x2/x3, #col-1=x4
+!!VRy1:Sx1+x16;
+!!DO191/0/x4/1:Py1/x2/x3; erase cell
+
+!?FU191; erase cell at x1/x2+x16/x3
+!!VRy2:Sx2+x16;
+!!FU|x1<0/x1>=v37/y2<0/y2>=v37:E;
+!!TRx1/y2/x3:Td/d/0/d/d/d/d/d; remove river
+
+!?HM-1&182;
+; move Monster one step also
+; collision check
+!!VRv1:Sv998-v73;
+!!VRv2:Sv999-v74;
+!!FU&v1=0/v2=0:E;
+!!VRv3:Sv1;
+!!VRv3&v1<0:*-1;
+!!VRv1&v1<>0:Sv1:v3;
+!!VRv4:Sv2;
+!!VRv4&v2<0:*-1;
+!!VRv2&v2<>0:Sv2:v4;
+!!VRv3:Sv73+v1; trial loc.s, check for too close to walls
+!!VRv4:Sv74+v2;
+!!VRv1:Sv3-118*v1; dx2
+!!VRv3&v1>=9:Sv73;
+!!VRv1&v1>=9:S0;
+!!VRv2:Sv4-82*v2; dy2
+!!VRv4&v2>=9:Sv74;
+!!VRv2&v2>=9:S0;
+!!VRv2:+v1; dy2+dx2
+!!FU&v2>=9:E;
+!!VRv73:Cv3/v4;
+!!MWv75:A1/v73/v74/v1000; move NPC
+
+!#VRz230:S^Oracle^;
+!#OB55/137/0:SH230;
+
+!?OB55/137/0&1000; Oracle--visit by not-GEM
+!!HE-1:N?y1;
+!!FU&y1=27:E;
+!!VRz10:S^I am the Eye of Earth, Wind, Fire, and Water!
+I see all and tell all, at the service of the Ice King!
+You are not on his authorized list so I must not
+answer you. Begone, before he appears in his wrath!^;
+!!VRz12:S^Qubit the Quantum Oracle^;
+!!VRz13:S^..\Mods\HiddenSpells\Data\Oracle.gif^;
+!!IF:D39/z10/0/z12/z13 ;
+!!IF:F39/0/0/0/0/0;
+!!IF:E99/39;
+
+!?OB55/137/0&1000; Oracle--2nd (N=1) uses v313 master flags from HS_Objects (I)
+!!HE-1:N?y1;
+!!FU&y1<>27/y1<>29:E;  (use Melodia for testing)
+!!PO998:N?v1;
+!!FU&v1<>1:E;
+!!if&v313=0;
+ !!IF:N20/47/20/50/20/53/20/56;
+ !!IF:N^You are not yet a Master of any Element. I cannot help you until you are.^;
+ !!SN:Q;
+!!en;
+!!VRy1:Sv313&1; air
+!!VRy2:Sv313&2; fire
+!!VRy4:Sv313&4; water
+!!VRy8:Sv313&8; earth
+!!VRv1:Cy8/y4/y2/y1;
+!!VRv1&v1=0:Cy4/y2/y1/0;
+!!VRv1&v1=0:Cy2/y1/0/0;
+!!VRv1&v1=0:Cy1/0/0/0;
+!!VRv2&v2=0:Cv3/v4/0;
+!!VRv2&v2=0:Cv3/0/0; v3 is old v4
+!!VRv3&v3=0:Cv4/0;
+!!VRz1:S^I will tell you all I know about the following:^;
+!!VRz12:S^Qubit the Quantum Oracle^;
+!!VRz13:S^..\Mods\HiddenSpells\Data\Oracle.gif^;
+!!VRz6:S^Lost Temple of Earth^;
+!!VRz6&v1=4:S^Lost Temple of Water^;
+!!VRz6&v1=2:S^Lost Temple of Fire^;
+!!VRz6&v1=1:S^Lost Temple of Air^;
+!!VRz7:S^^;
+!!VRz7&v2=4:S^Lost Temple of Water^;
+!!VRz7&v2=2:S^Lost Temple of Fire^;
+!!VRz7&v2=1:S^Lost Temple of Air^;
+!!VRz8:S^^;
+!!VRz8&v3=2:S^Lost Temple of Fire^;
+!!VRz8&v3=1:S^Lost Temple of Air^;
+!!VRz9:S^^;
+!!VRz9&v4=1:S^Lost Temple of Air^;
+!!IF:D37/1/0/12/13/0/0/0/0/0/0/0/6/7/8/9;
+!!VRz-6:S^Information on finding the Lost Earth Temple^;
+!!VRz-6&v1=4:S^Information on finding the Lost Water Temple^;
+!!VRz-6&v1=2:S^Information on finding the Lost Fire Temple^;
+!!VRz-6&v1=1:S^Information on finding the Lost Air Temple^;
+!!VRz-7:S^^;
+!!VRz-7&v2=4:S^Information on finding the Lost Water Temple^;
+!!VRz-7&v2=2:S^Information on finding the Lost Fire Temple^;
+!!VRz-7&v2=1:S^Information on finding the Lost Air Temple^;
+!!VRz-8:S^^;
+!!VRz-8&v3=2:S^Information on finding the Lost Fire Temple^;
+!!VRz-8&v3=1:S^Information on finding the Lost Air Temple^;
+!!VRz-9:S^^;
+!!VRz-9&v4=1:S^Information on finding the Lost Air Temple^;
+!!IF:F37/-6/-7/-8/-9/1;
+!!IF:E99/37; v99 1-4 or -1 for Cancel
+!!FU&v99=-1:E;
+!!VRv5:Svv99;
+!!VRz10&v5=1:S^You must find the Star of Air and use it
+to travel to the Realm of Air. The Lost Temple of Air
+was known as the Temple of the Cold Winds. It is hidden
+from the eye of the Ice King but will reveal itself
+to a Master of Air who comes close to it.^;
+!!VRz10&v5=2:S^You must find the Star of Fire and use it
+to travel to the Realm of Fire. The Lost Temple of Fire
+was known as the Temple of the Burning Rocks. It is hidden
+from the eye of the Ice King but will reveal itself
+to a Master of Fire who comes close to it.^;
+!!VRz10&v5=4:S^You must find the Water Star and use it
+to travel to the Water Realm. The Lost Temple of Water
+was known as the Temple of the Weeping Rocks. It is hidden
+from the eye of the Ice King but will reveal itself
+to a Master of Water who comes close to it.^;
+!!VRz10&v5=8:S^You must find the Star of Earth and use it
+to travel to the Realm of Earth. The Lost Temple of Earth
+was known as the Temple of the Golden Stone. It is hidden
+from the eye of the Ice King but will reveal itself
+to a Master of Earth who comes close to it.^;
+!!IF:D39/z10/0/z12/z13 ;
+!!IF:F39/0/0/0/0/0;
+!!IF:E99/39;
+!!VRz10:S^Also, please note that the Elder Gods have a...
+strange aversion for the Exit Spellbook button in combat.
+So you should avoid that if you don't want to ruffle them.
+(Exiting your Spellbook with ESC or Enter is fine
+And you can always press C as a sign of apology)^;
+!!IF:D39/z10/0/z12/z13 ;
+!!IF:F39/0/0/0/0/0;
+!!IF:E99/39;
+
+!?OB55/137/0&1000; Oracle--1st Gem visit
+!!PO998:N?v1; 0=not visited
+!!FU&v1<>0:E;
+!!HE-1:N?y1;
+!!FU&y1<>27/y1<>29:E; only Gem known by Qubit (use Melodia for testing)
+!!PO998:N1;
+!!VRz10:S^I am the Eye of Earth, Wind, Fire, and Water!
+I see all--oh, it's you! You still have those swords which
+I helped you find, but they may not be enough against the
+Ice King's Elder Magic and Otataral Orb. My calculations
+give you only a 4.6% chance--not recommended.^;
+!!VRz12:S^Qubit the Quantum Oracle^;
+!!VRz13:S^..\Mods\HiddenSpells\Data\Oracle.gif^;
+!!IF:D39/z10/0/z12/z13 ;
+!!IF:F39/0/0/0/0/0;
+!!IF:E99/39;
+!!VRz10:S^Your best chance is to find the Lost Temples and
+hope they will teach you some Elder Magic to match that
+of the Ice King. The Elder Gods are beyond even my
+prediction abilities, but I can help you find their Temples.^;
+!!IF:D39/z10/0/z12/z13 ;
+!!IF:F39/0/0/0/0/0;
+!!IF:E99/39;
+!!VRz10:S^First, Leora must become not just Expert, but
+a true Master of elemental magic. The Academies in the
+Elemental Holds will train her--for a price. If Leora
+lacks this training leave now, before the Ice King finds
+you--he comes here occasionally.^;
+!!IF:D39/z10/0/z12/z13 ;
+!!IF:F39/0/0/0/0/0;
+!!IF:E99/39;
+
+; In and Out of the Black Star (TR:P1 has no effect on black tiles)
+!#TR17/6/1:E0;
+!#TR20/3/1:E0;
+!?OB17/6/1;
+!!HE-1:P20/3/1;
+!?OB20/3/1;
+!!HE-1:P17/6/1;
+!#TR50/111/0:E0;
+!#TR53/108/0:E0;
+!?OB50/111/0;
+!!HE-1:P53/108/0;
+!?OB53/108/0;
+!!HE-1:P50/111/0;
+
+!#TR16/7/1:E0;
+!#TR49/112/0:E0;
+!?OB16/7/1;
+!!HE-1:P49/112/0;
+!?OB49/112/0;
+!!VRy1:Sv313&2;
+!!HE-1:N?y2;
+!!IF&y2<>27/y2<>29|y1=0:M^Only a Master of Fire can use the gate between the Stars of Fire!^;
+!!FU&y2<>27/y2<>29|y1=0:E;
+!!HE-1:P16/7/1;
+!!IF&-374/-382:V378/1;
+
+!#TR126/83/1:E0;
+!#TR110/89/0:E0;
+!?OB126/83/1;
+!!HE-1:P110/89/0;
+!?OB110/89/0;
+!!VRy1:Sv313&4;
+!!HE-1:N?y2;
+!!IF&y2<>27/y2<>29|y1=0:M^Only a Master of Water can use the gate between the Stars of Water!^;
+!!FU&y2<>27/y2<>29|y1=0:E;
+!!HE-1:P126/83/1;
+!!IF&-375/-383:V379/1;
+
+!#TR17/80/1:E0;
+!#TR72/97/0:E0;
+!?OB17/80/1;
+!!HE-1:P72/97/0;
+!?OB72/97/0;
+!!VRy1:Sv313&1;
+!!HE-1:N?y2;
+!!IF&y2<>27/y2<>29|y1=0:M^Only a Master of Air can use the gate between the Stars of Air!^;
+!!FU&y2<>27/y2<>29|y1=0:E;
+!!HE-1:P17/80/1;
+!!IF&-373/-381:V377/1;
+
+!#TR126/10/1:E0;
+!#TR37/52/0:E0;
+!?OB126/10/1;
+!!HE-1:P37/52/0;
+!?OB37/52/0;
+!!VRy1:Sv313&8;
+!!HE-1:N?y2;
+!!IF&y2<>27/y2<>29|y1=0:M^Only a Master of Earth can use the gate between the Stars of Earth!^;
+!!FU&y2<>27/y2<>29|y1=0:E;
+!!HE-1:P126/10/1;
+!!IF&-376/-384:V380/1;
+
+!#TR51/127/1:P1;
+!?HM27&377/-373; Gem in Air, 48/127
+!!VRv1:Sv998-48;
+!!FU|v1>2/v1<-2:E;
+!!VRv2:Sv999-127;
+!!FU|v2>2/v2<-2:E;
+!!VRz2:S^chime_up.wav^;
+!!SN:Pz2;
+!!UN:I51/127/1/158/0/145/0; (144/2 not found)
+!!VRz478:S^Cold Winds Temple of Air^;
+!!OB51/127/1:SH478;
+; built-in YS of AirTmpl.def doesn't work (except to distribute H478)
+!!TR48/127/1:E0; so add one manually (48/126 N.G. also)(part of volcano 158/0?)
+!!UN:R1;
+!!IF:V377/0;
+
+!?OB48/127/1; Air
+!!VRz2:S^Mods/HiddenSpells/Data/gong.wav^;
+!!SN:Ev34/1/z2; call PlayOnce
+!!VRz10:S^A demi-god of Life comes to my Temple to seek my aid?
+As breath is the ally of Life, I will give it.
+Let the Horn of the Winds be forged anew! Then in battle
+you may set the Eye of the Whirlwind amidst your foes!^;
+!!VRz12:S^Serc - Elder God of Air^;
+!!VRz13:S^..\Mods\HiddenSpells\Data\Serc.gif^;
+!!IF:D40/z10/0/z12/z13 ;
+!!IF:F40/0/0/0/0/0;
+!!IF&-373:E99/40;
+!!IF:V373/1;
+!!VRz10:S^To forge the Horn of the Winds, take 20 Mithril and
+1 Electrum to a Master Smith. While it glows hot from the
+forge, quench it in White Potion in the Cauldron of Magic!
+Don't forget some shinies for the Smith's wife!^;
+!!IF:D40/z10/0/z12/z13 ;
+!!IF:F40/0/0/0/0/0;
+!!IF:E99/40;
+!!VRz10:S^To cast the Whirlwind click on the face of the storm
+in your Spell Book. The spell is hidden, but you will
+know you have found it when you hear the next sound.
+(RMB for information, LMB to cast.) After casting it
+place the Eye and let the Whirlwind swirl around it.^;
+!!IF:D40/z10/0/z12/z13 ;
+!!IF:F40/0/0/0/0/0;
+!!IF:E99/40;
+!!IF:L^^;
+
+!#TR44/23/1:P1;
+!?HM27&378/-374; Gem in Fire, 44/26
+!!VRv1:Sv998-44;
+!!FU|v1>2/v1<-2:E;
+!!VRv2:Sv999-26;
+!!FU|v2>2/v2<-2:E;
+!!VRz2:S^chime_up.wav^;
+!!SN:Pz2;
+!!UN:I47/26/1/158/0/142/0;
+!!VRz477:S^Burning Rocks Temple of Fire^;
+!!TR44/26/1:E0;
+!!OB44/26/1:SH477;
+!!UN:R1;
+!!IF:V378/0;
+
+!?OB44/26/1; Fire
+!!VRz2:S^Mods/HiddenSpells/Data/gong.wav^;
+!!SN:Ev34/1/z2; call PlayOnce
+!!VRz10:S^A demi-god of Life comes to my Temple to seek my aid?
+As Fire gives energy to Life, so will I give it.
+Let the Staff of Fire be forged anew! Then in battle
+you may cast the Chain of Fire at your foes!^;
+!!VRz12:S^Thyr - Elder God of Fire^;
+!!VRz13:S^..\Mods\HiddenSpells\Data\Thyr.gif^;
+!!IF:D40/z10/0/z12/z13 ;
+!!IF:F40/0/0/0/0/0;
+!!IF&-374:E99/40;
+!!IF:V374/1;
+!!VRz10:S^To forge the Staff of Fire, take 20 Mithril and
+Bloodwood to a Master Smith. While it glows hot from the
+forge, quench it in Red Potion in the Cauldron of Magic!
+Don't forget to bring some spice for the Smith!^;
+!!VRz12:S^The Staff of Fire!^;
+!!VRz13:S^..\Mods\HiddenSpells\Data\FireStaf.gif^;
+!!IF:D40/z10/0/z12/z13 ;
+!!IF:F40/0/0/0/0/0;
+!!IF:E99/40;
+!!VRz10:S^To cast the Fire Chain click on my fiery mane
+in your Spell Book. The spell is hidden, but you will
+know you have found it when you hear the next sound.
+(RMB for information, LMB to cast.) After casting it
+select its first target on the battlefield.^;
+!!VRz14:S^Thyr - Elder God of Fire^;
+!!VRz15:S^..\Mods\HiddenSpells\Data\Thyr.gif^;
+!!IF:D50/z10/0/0/z15/z13/0/0/z14/z12/0/0 ;
+!!IF:F50/0/0/0/0/0;
+!!IF:E99/50;
+!!IF:L^^;
+
+!#TR104/110/1:P1;
+!?HM27&379/-375; Gem in Water, 102/110
+!!VRv1:Sv998-102;
+!!FU|v1>2/v1<-2:E;
+!!VRv2:Sv999-110;
+!!FU|v2>2/v2<-2:E;
+!!VRz2:S^chime_up.wav^;
+!!SN:Pz2;
+!!UN:I104/110/1/158/0/144/0;
+!!VRz476:S^Weeping Rocks Temple of Water^;
+!!OB104/110/1:SH476;
+!!TR102/110/1:E0;
+!!UN:R1;
+!!IF:V379/0;
+
+!?OB102/110/1; Water
+!!VRz2:S^Mods/HiddenSpells/Data/gong.wav^;
+!!SN:Ev34/1/z2; call PlayOnce
+!!VRz10:S^A demi-god of Life comes to my Temple to seek my aid?
+As Water gives Life its blood, so will I give it.
+Let the Mail of Water be forged anew! Then in battle
+you may cast the Wave of Fury at your foes!^;
+!!VRz12:S^Ruse - Elder God of Water^;
+!!VRz13:S^..\Mods\HiddenSpells\Data\Ruse.gif^;
+!!IF:D40/z10/0/z12/z13 ;
+!!IF:F40/0/0/0/0/0;
+!!IF&-375:E99/40;
+!!IF:V375/1;
+!!VRz10:S^To forge the Mail of Water, take 20 Mithril and
+any torso armor to a Master Smith. While it glows hot from the
+forge, quench it in Blue Potion in the Cauldron of Magic!
+Don't forget to bring the Smith a few gallons of Oder Water!^;
+!!IF:D40/z10/0/z12/z13 ;
+!!IF:F40/0/0/0/0/0;
+!!IF:E99/40;
+!!VRz10:S^Click on my glowing wave in your Spell Book.
+(RMB for information, LMB to cast.) The spell is hidden.
+You will have found it when you hear the next sound.
+Then start the wave at the top or side of the battlefield
+and it will sweep down weakening all in its path.^;
+!!IF:D40/z10/0/z12/z13 ;
+!!IF:F40/0/0/0/0/0;
+!!IF:E99/40;
+!!IF:L^^;
+
+!#TR102/27/1:P1;
+!?HM27&380/-376; Gem in Earth, 102/110
+!!VRv1:Sv998-100;
+!!FU|v1>2/v1<-2:E;
+!!VRv2:Sv999-27;
+!!FU|v2>2/v2<-2:E;
+!!VRz2:S^chime_up.wav^;
+!!SN:Pz2;
+!!UN:I102/27/1/158/0/141/0;
+!!VRz479:S^Golden Stone Temple of Earth^;
+!!OB100/25/1:SH479;
+!!TR100/27/1:E0;
+!!UN:R1;
+!!IF:V380/0;
+
+!?OB100/27/1; Earth
+!!VRz2:S^Mods/HiddenSpells/Data/gong.wav^;
+!!SN:Ev34/1/z2; call PlayOnce, no SN:P here because it makes the sound unrecognizable
+!!VRz10:S^A demi-god of Life comes to my Temple to seek my aid?
+As Earth gives Life its bones, so will I give it.
+Let the Shield of Earth be forged anew! Then in battle
+you may cast the Huorn Grove around your foes!^;
+!!VRz12:S^Dris - Elder God of Earth^;
+!!VRz13:S^..\Mods\HiddenSpells\Data\Dris.gif^;
+!!IF:D40/z10/0/z12/z13 ;
+!!IF:F40/0/0/0/0/0;
+!!IF&-376:E99/40;
+!!IF:V376/1;
+!!VRz10:S^To forge the Shield of Earth, take 20 Mithril and
+any shield to a Master Smith. While it glows hot from the
+forge, quench it in Green Potion in the Cauldron of Magic!
+Don't forget to bring some Crystals to harden the Shield!^;
+!!IF:D40/z10/0/z12/z13 ;
+!!IF:F40/0/0/0/0/0;
+!!IF:E99/40;
+!!VRz10:S^To cast the Huorn Grove click on my tree
+in your Spell Book. The spell is hidden, but you will
+know you have found it when you hear the following chime.
+(RMB for information, LMB to cast.) After casting it
+select a hex on which to center the Grove.^;
+!!IF:D40/z10/0/z12/z13 ;
+!!IF:F40/0/0/0/0/0;
+!!IF:E99/40;
+!!IF:L^^;
+
+!?TM1; Select new Artifacts for Fabricator, repeat every Monday
+!!OW:C?y-1;
+!!FU&y-1<>3:E; reroll at start of human player's turn
+!!VRy-1:Sc %7; set weekday (mon=1..sat=6,sun=0)
+!!FU&y-1<>1:E; execute only on Mondays
+!!VRv80:S2;
+!!DO68/1/500/1:P; Search for next Treasure Artifact, try at most 500 times
+!!VRv85:Sv87;
+!!UN:Av85/?y-2; Check if the Artifact is enabled in map settings
+!!UN:Av85/3/?y-3; Check the Artifact's class
+!!UN|y-2<>0/y-3<>v80:J6/v80/?v85; fall back to true random artifact in case fixed random doesn't return a correct result
+!!VRv80:S4;
+!!DO68/1/500/1:P; Search for next Minor Artifact, try at most 500 times
+!!VRv86:Sv87;
+!!UN:Av86/?y-2; Check if the Artifact is enabled in map settings
+!!UN:Av86/3/?y-3; Check the Artifact's class
+!!UN|y-2<>0/y-3<>v80:J6/v80/?v86; fall back to true random artifact in case fixed random doesn't return a correct result
+!!VRv80:S8;
+!!DO68/1/500/1:P; Search for next Major Artifact, try at most 500 times
+!!UN:Av87/?y-2; Check if the Artifact is enabled in map settings
+!!UN:Av87/3/?y-3; Check the Artifact's class
+!!UN|y-2<>0/y-3<>v80:J6/v80/?v87; fall back to true random artifact in case fixed random doesn't return a correct result
+
+!?FU68; select the next pseudo-random minor, treasure or major artifact enabled in map settings.
+!!VRy1:Sv84%v97+7; Candidate Artifact number
+!!VRv84:*v96%v69; Set next seed for Artifact selection
+!!UN:Ay1/?y2; Check if the Artifact is enabled in map settings
+!!UN:Ay1/3/?y3; Check the Artifact's class
+!!VRv87&y2=0/y3=v80:Sy1; If Artifact enabled and correct class, return result
+!!VRx16&y2=0/y3=v80:S647; and end loop
+

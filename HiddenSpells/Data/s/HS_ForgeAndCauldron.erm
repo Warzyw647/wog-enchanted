@@ -1,0 +1,351 @@
+ZVSE
+
+* HS_ForgeAndCauldron, JHV, Oct., 2012
+
+* uses v99, z231-z241, FU335-, f381-f384
+
+
+!#VRz231:S^Master Smith^;
+!#OB61/36/0:SH231;
+!#VRz232:S^Forge of Might^;
+!#OB61/37/0:SH232;
+!#OB62/37/0:SH232;
+!#OB63/37/0:SH232;
+!#OB64/37/0:SH232;
+!#VRz233:S^Cauldron of Magic^;
+!#OB72/46/0:SH233;
+!#VRz234:S^Horn of the Winds^;
+!#VRz235:S^{Horn of the Winds}
+With this magic horn equipped, the bearer can call upon Serc to cast the hidden spell known as the Eye of the Whirlwind.^;
+!#UN:A48/9/234 A48/10/235;
+!#VRz236:S^Staff of Fire^;
+!#VRz237:S^{Staff of Fire}
+With this magic staff equipped, the bearer can call upon Thyr to cast the hidden spell known as the Chain of Fire.^;
+!#UN:A50/9/236 A50/10/237;
+!#VRz238:S^Water Mail^;
+!#VRz239:S^{Water Mail}
+With this magic armor equipped, the bearer can call upon Ruse to cast the hidden spell known as the Wave of Fury.^;
+!#UN:A47/9/238 A47/10/239;
+!#VRz240:S^Shield of Earth^;
+!#VRz241:S^{Shield of Earth}
+With this magic shield equipped, the bearer can call upon Dris to cast the hidden spell known as the Huorn Grove.^;
+!#UN:A51/9/240 A51/10/241;
+
+!?OB61/36/0&1000; Master Smith
+!!OB62/36/0:T?v1 U?v2;
+!!FU&v1>0:E; exit if something on Forge
+!!VRz4:S^If you have aught to sell, lay it on my forge and I'll
+look at it and quote you a price, but I won't dicker!
+If you need something special (not that machine-made trash)
+you've come to the right place! Elder artifacts are my
+specialty--no job too difficult! Need something made?^;
+!!VRz5:S^The Master Smith^;
+!!VRz6:S^..\Data\ForgeLHS.gif^;
+!!VRz7:S^..\Data\MstSmith.jpg^;
+!!VRz8:S^..\Data\ForgeRHS.gif^;
+!!VRz9:S^The Forge of Might^;
+!!IF:D41/z4/0/z5/z6/z7/z8/0/z9/z9/z9 ;
+!!IF:F41/0/0/0/0/1;
+!!IF:E99/41;
+!!FU&v99=-1:E;
+!!VRy1&373/-381:S1; air
+!!VRy2&374/-382:S2; fire
+!!VRy4&375/-383:S4; water
+!!VRy8&376/-384:S8; earth
+!!VRv1:Cy8/y4/y2/y1;
+!!VRv1&v1=0:Cy4/y2/y1/0;
+!!VRv1&v1=0:Cy2/y1/0/0;
+!!VRv1&v1=0:Cy1/0/0/0;
+!!VRv2&v2=0:Cv3/v4/0;
+!!VRv2&v2=0:Cv3/0/0; v3 is old v4
+!!VRv3&v3=0:Cv4/0;
+!!IF&v1=0:M^You will need the permission of an Elder God for me to forge you a device that incorporates Elder Magic! The flames of my holy forge tell me you have none. You must speak to an Elder God--if you dare!^;
+!!SN&v1=0:Q;
+!!VRz1:S^The holy flames of my forge tell me that you have been
+blessed by an Elder God, so if you have my fee and
+the necessary materials I can make for you:^;
+!!VRz2:S^The Master Smith^;
+!!VRz3:S^..\Data\ForgeLHS.gif^;
+!!VRz4:S^..\Data\MstSmith.jpg^;
+!!VRz5:S^..\Data\ForgeRHS.gif^;
+!!VRz6:S^The Shield of Earth!^;
+!!VRz6&v1=4:S^The Mail of Water!^;
+!!VRz6&v1=2:S^The Staff of Fire!^;
+!!VRz6&v1=1:S^The Horn of the Winds!^;
+!!VRz7:S^^;
+!!VRz7&v2=4:S^The Mail of Water!^;
+!!VRz7&v2=2:S^The Staff of Fire!^;
+!!VRz7&v2=1:S^The Horn of the Winds!^;
+!!VRz8:S^^;
+!!VRz8&v3=2:S^The Staff of Fire!^;
+!!VRz8&v3=1:S^The Horn of the Winds!^;
+!!VRz9:S^^;
+!!VRz9&v4=1:S^The Horn of the Winds!^;
+!!VRz10:S^The Forge of Might^;
+!!IF:D37/1/0/2/3/4/5/0/10/10/10/0/6/7/8/9;
+!!VRy7:Sv68+1*20; required resources 20-100 based on difficulty
+!!VRy9:Sv68+1*10; required gold 10k-50k based on difficulty
+!!VRy10:Sy9*1000;
+!!VRz-6:S^20 Mithril, a Shield (equipped), Green Potion, %Y7 Crystals and %Y9K Gold^;
+!!VRz-6&v1=4:S^20 Mithril, torso Armor (equipped), Blue Potion, %Y7 Mercury and %9K Gold^;
+!!VRz-6&v1=2:S^20 Mithril, Bloodwood, Red Potion, %Y7 Sulfur and %Y9K Gold^;
+!!VRz-6&v1=1:S^20 Mithril, Electrum, White Potion, %Y7 Gems and %Y9K Gold^;
+!!VRz-7:S^^;
+!!VRz-7&v2=4:S^20 Mithril, Torso Armor (equipped), Blue Potion, %Y7 Mercury and %Y9K Gold^;
+!!VRz-7&v2=2:S^20 Mithril, Bloodwood, Red Potion, %Y7 Sulfur and %Y9K Gold^;
+!!VRz-7&v2=1:S^20 Mithril, Electrum, White Potion, %Y7 Gems and %Y9K Gold^;
+!!VRz-8:S^^;
+!!VRz-8&v3=2:S^20 Mithril, Bloodwood, Red Potion, %Y7 Sulfur and %Y9K Gold^;
+!!VRz-8&v3=1:S^20 Mithril, Electrum, White Potion, %Y7 Gems and %Y9K Gold^;
+!!VRz-9:S^^;
+!!VRz-9&v4=1:S^20 Mithril, Electrum, White Potion, %Y7 Gems and %Y9K Gold^;
+!!IF:F37/-6/-7/-8/-9/1;
+!!IF:E99/37; v99 1-4 or -1 for Cancel
+!!FU&v99=-1:E;
+!!VRv5:Svv99;
+!!if&v5=1; air
+  !!OW:R-1/7/?y1 R-1/6/?y2 R-1/5/?y11;
+  !!HE-1:A2/120/?y3/?y4 A2/64/?y5/?y6;
+  !!IF|y1<20/y3<1/y5<1/y11<y7:M^You don't have all the necessary components!^;
+  !!FU|y1<20/y3<1/y5<1/y11<y7:E;
+  !!IF&y1>=20/y2<y10/y3>0/y5>0/y11>=y7:M^You have the necessary components, but lack my fee!^;
+  !!FU&y1>=20/y2<y10/y3>0/y5>0/y11>=y7:E;
+  !!VRz1:S^Mods\HiddenSpells\Data\Forge2.wav^;
+  !!SN:Ev35/1/z1; call PlayLoop
+  !!IF:M^Very well. I'll get busy.^;
+  !!OW:R-1/6/?y11 R-1/5/?y9;
+  !!VRy9:-y7;
+  !!VRy11:-y10;
+  !!OW:R-1/6/y11 R-1/7/d-20 R-1/5/y9;
+  !!HE-1:A3/120/1/1; remove 1 Electrum
+  !!UN:R6/4000;
+  !!VRz1:S^Mods\HiddenSpells\Data\Forge2.wav^;
+  !!SN:Ev34/1/z1; call PlayOnce to end PlayLoop
+  !!SN:Ev36/1; call StopPlay [doesn't work in Era 2.46]
+  !!IF:M^The forging is finished. Now you must quench it!^;
+  !!IF:V381/1; 373 reset by Cauldron
+!!en;
+!!if&v5=2; fire
+  !!OW:R-1/7/?y1 R-1/6/?y2 R-1/3/?y11;
+  !!HE-1:A2/121/?y3/?y4 A2/63/?y5/?y6;
+  !!IF|y1<20/y3<1/y5<1/y11<y7:M^You don't have all the necessary components!^;
+  !!FU|y1<20/y3<1/y5<1/y11<y7:E;
+  !!IF&y1>=20/y2<y10/y3>0/y5>0/y11>=y7:M^You have the necessary components, but lack my fee!^;
+  !!FU&y1>=20/y2<y10/y3>0/y5>0/y11>=y7:E;
+  !!VRz1:S^Mods\HiddenSpells\Data\Forge2.wav^;
+  !!SN:Ev35/1/z1; call PlayLoop
+  !!IF:M^Very well. I'll get busy.^;
+  !!OW:R-1/6/?y11 R-1/3/?y9;
+  !!VRy9:-y7;
+  !!VRy11:-y10;
+  !!OW:R-1/6/y11 R-1/7/d-20 R-1/3/y9;
+  !!HE-1:A3/121/1/1; remove 1 Bloodwood
+  !!UN:R6/4000;
+  !!VRz1:S^Mods\HiddenSpells\Data\Forge2.wav^;
+  !!SN:Ev34/1/z1; call PlayOnce to end PlayLoop
+  !!SN:Ev36/1; call StopPlay [doesn't work in Era 2.46]
+  !!IF:M^The forging is finished. Now you must quench it!^;
+  !!IF:V382/1; 374 reset by Cauldron
+!!en;
+!!if&v5=4; water
+  !!OW:R-1/7/?y1 R-1/6/?y2 R-1/1/?y11;
+  !!HE-1:A1/?y3/5 A2/65/?y5/?y6;
+  !!IF:V1/0;
+  !!IF&y3>24/y3<32:V1/1;
+  !!IF&y3=40:V1/1;
+  !!IF&-1:M^You don't have useable armor equipped!^;
+  !!FU&-1:E;
+  !!IF|y1<20/y5<1/y11<y7:M^You don't have all the necessary components!^;
+  !!FU|y1<20/y3<1/y5<1/y11<y7:E;
+  !!IF&y1>=20/y2<y10/y3>0/y5>0/y11>=y7:M^You have the necessary components, but lack my fee!^;
+  !!FU&y1>=20/y2<y10/y3>0/y5>0/y11>=y7:E;
+  !!VRz1:S^Mods\HiddenSpells\Data\Forge2.wav^;
+  !!SN:Ev35/1/z1; call PlayLoop
+  !!IF:M^Very well. I'll get busy.^;
+  !!OW:R-1/6/?y11 R-1/1/?y9;
+  !!VRy9:-y7;
+  !!VRy11:-y10;
+  !!OW:R-1/6/y11 R-1/7/d-20 R-1/1/y9;
+  !!HE-1:A3/y3/1/1; remove armor
+  !!UN:R6/4000;
+  !!VRz1:S^Mods\HiddenSpells\Data\Forge2.wav^;
+  !!SN:Ev34/1/z1; call PlayOnce to end PlayLoop
+  !!SN:Ev36/1; call StopPlay [doesn't work in Era 2.46]
+  !!IF:V383/1; 375 reset by Cauldron
+!!en;
+!!if&v5=8; earth
+  !!OW:R-1/7/?y1 R-1/6/?y2 R-1/4/?y11;
+  !!HE-1:A1/?y3/4 A2/118/?y5/?y6;
+  !!IF:V1/0;
+  !!IF&y3>12/y3<19:V1/1;
+  !!IF|y3=34/y3=39:V1/1;
+  !!IF&-1:M^You don't have a useable shield equipped!^;
+  !!FU&-1:E;
+  !!IF|y1<20/y5<1/y11<y7:M^You don't have all the necessary components!^;
+  !!FU|y1<20/y3<1/y5<1/y11<y7:E;
+  !!IF&y1>=20/y2<y10/y3>0/y5>0/y11>=y7:M^You have the necessary components, but lack my fee!^;
+  !!FU&y1>=20/y2<y10/y3>0/y5>0/y11>=y7:E;
+  !!VRz1:S^Mods\HiddenSpells\Data\Forge2.wav^;
+  !!SN:Ev35/1/z1; call PlayLoop
+  !!IF:M^Very well. I'll get busy.^;
+  !!OW:R-1/6/?y11 R-1/4/?y9;
+  !!VRy9:-y7;
+  !!VRy11:-y10;
+  !!OW:R-1/6/y11 R-1/7/d-20 R-1/4/y9;
+  !!HE-1:A3/y3/1/1; remove shield
+  !!UN:R6/4000;
+  !!VRz1:S^Mods\HiddenSpells\Data\Forge2.wav^;
+  !!SN:Ev34/1/z1; call PlayOnce to end PlayLoop
+  !!SN:Ev36/1; call StopPlay [doesn't work in Era 2.46]
+  !!IF:M^The forging is finished. Now you must quench it!^;
+  !!IF:V384/1; 376 reset by Cauldron
+!!en;
+
+!?OB61/36/0&1000; Master Smith
+!!OB62/36/0:T?v1 U?v2;
+!!FU&v1<>5:E; exit if no artifact on Forge
+!!UN:Av2/1/?v3; full cost
+!!VRv3: :2;
+!!IF:Q1/8/v2/6/v3/2^Hmmm, I see you have brought me a used artifact - poor workmanship, I suspect it was machine-made - but I can put in in my scrap bin and perhaps find some use for it. I will offer you %V3 gold--deal?^;
+!!IF&-1:M^Take it away then, I have work to do, I can't spend all day dickering.^;
+!!FU&-1:E;
+!!OW:R-1/6/dv3;
+!!UN:O62/36/0;
+!!OB62/36/0:T0 U-1;
+
+!?OB72/46/0; Cauldron
+!!VRz-1:S^I am the Magic Cauldron of Ceridwen. From the vengeful spirits
+of the restless dead--victims of the Ice King's wars--I can raise
+soldiers to fight with you--for a price.^;
+!!VRz-2:S^A Warrior--2 Mithril^; 1
+!!VRz-3:S^A Mage--3 Mithril^; 2
+!!VRz-4:S^A Senior Warrior--4 Mithril^; 4
+!!VRz-5:S^A High Mage--5 Mithril^; 8
+!!VRz-6:S^^; 16
+!!VRz-7:S^^; 32
+!!VRz-8:S^^; 64
+!!VRz-9:S^^;  128
+!!VRz-10:S^Cancel^;  256
+!!VRz-6&381/373:S^Quench the Horn of the Winds^; 16
+!!VRz-7&382/374:S^Quench the Staff of Fire^; 32
+!!VRz-8&383/375:S^Quench the Water Mail^; 64
+!!VRz-9&384/376:S^Quench the Shield of Earth^; 128
+!!IF:G1/99/256/-1/-2/-3/-4/-5/-6/-7/-8/-9/-10;
+!!FU&v99=256:E;
+!!if&v99=1;
+  !!OW:R-1/7/?y1;
+  !!IF&y1<2:M^You do not have amount of mithril which I need for this task.^;
+  !!FU&y1<2:E;
+  !!OW:R-1/7/d-2;
+  !!HE-1:C2/6/1/1;
+  !!IF:Q1/21/6/1^It is accomplished!^;
+!!en;
+!!if&v99=2;
+  !!OW:R-1/7/?y1;
+  !!IF&y1<3:M^You do not have amount of mithril which I need for this task.^;
+  !!FU&y1<3:E;
+  !!OW:R-1/7/d-3;
+  !!HE-1:C2/34/1/1;
+  !!IF:Q1/21/34/1^It is accomplished!^;
+!!en;
+!!if&v99=4;
+  !!OW:R-1/7/?y1;
+  !!IF&y1<4:M^You do not have amount of mithril which I need for this task.^;
+  !!FU&y1<4:E;
+  !!OW:R-1/7/d-4;
+  !!HE-1:C2/7/1/1;
+  !!IF:Q1/21/7/1^It is accomplished!^;
+!!en;
+!!if&v99=8;
+  !!OW:R-1/7/?y1;
+  !!IF&y1<5:M^You do not have amount of mithril which I need for this task.^;
+  !!FU&y1<5:E;
+  !!OW:R-1/7/d-5;
+  !!HE-1:C2/35/1/1;
+  !!IF:Q1/21/35/1^It is accomplished!^;
+!!en;
+!!if&v99=16; air
+  !!HE-1:A2/64/?y1/?y2;
+  !!IF&y1<1:Q1/8/64/1^You do not have the necessary potion!^;
+  !!FU&y1<1:E;
+  !!IF:Q1/8/64/8/48/1^Pour out the potion and quench the Horn in it!^;
+  !!VRz2:S^Mods/HiddenSpells/Data/pouring.wav^;
+  !!SN:Ev34/1/z2; call PlayOnce
+  !!UN:R6/3000;
+  !!VRz2:S^steam.wav^;
+  !!SN:Pz2;
+  !!UN:R6/2000;
+  !!HE-1:A3/64/1/1; remove potion
+  !!HE-1:A4/48;
+  !!IF:Q1/8/48/1^It is accomplished!^;
+  !!IF:V373/0;
+!!en;
+!!if&v99=32; fire
+  !!HE-1:A2/63/?y1/?y2;
+  !!IF&y1<1:Q1/8/63/1^You do not have the necessary potion!^;
+  !!FU&y1<1:E;
+  !!IF:Q1/8/63/8/50/1^Pour out the potion and quench the Staff in it!^;
+  !!VRz2:S^Mods/HiddenSpells/Data/pouring.wav^;
+  !!SN:Ev34/1/z2; call PlayOnce
+  !!UN:R6/3000;
+  !!VRz2:S^steam.wav^;
+  !!SN:Pz2;
+  !!UN:R6/2000;
+  !!HE-1:A3/63/1/1; remove potion
+  !!HE-1:A4/50;
+  !!IF:Q1/8/50/1^It is accomplished!^;
+  !!IF:V374/0;
+!!en;
+!!if&v99=64; water
+  !!HE-1:A2/65/?y1/?y2;
+  !!IF&y1<1:Q1/8/65/1^You do not have the necessary potion!^;
+  !!FU&y1<1:E;
+  !!IF:Q1/8/65/8/47/1^Pour out the potion and quench the Mail in it!^;
+  !!VRz2:S^Mods/HiddenSpells/Data/pouring.wav^;
+  !!SN:Ev34/1/z2; call PlayOnce
+  !!UN:R6/3000;
+  !!VRz2:S^steam.wav^;
+  !!SN:Pz2;
+  !!UN:R6/2000;
+  !!HE-1:A3/65/1/1; remove potion
+  !!HE-1:A4/47;
+  !!IF:Q1/8/47/1^It is accomplished!^;
+  !!IF:V375/0;
+!!en;
+!!if&v99=128; earth
+  !!HE-1:A2/118/?y1/?y2;
+  !!IF&y1<1:Q1/8/118/1^You do not have the necessary potion!^;
+  !!FU&y1<1:E;
+  !!IF:Q1/8/118/8/51/1^Pour out the potion and quench the Shield in it!^;
+  !!VRz2:S^Mods/HiddenSpells/Data/pouring.wav^;
+  !!SN:Ev34/1/z2; call PlayOnce
+  !!UN:R6/3000;
+  !!VRz2:S^steam.wav^;
+  !!SN:Pz2;
+  !!UN:R6/2000;
+  !!HE-1:A3/118/1/1; remove potion
+  !!HE-1:A4/51;
+  !!IF:Q1/8/51/1^It is accomplished!^;
+  !!IF:V376/0;
+!!en;
+
+!?AE1&v998=48; put on Horn
+!!IF:V381/1;
+!?AE0&v998=48; take off Horn
+!!IF:V381/0;
+
+!?AE1&v998=50; put on Staff
+!!IF:V382/1;
+!?AE0&v998=50; take off Staff
+!!IF:V382/0;
+
+!?AE1&v998=47; put on mail
+!!IF:V383/1;
+!?AE0&v998=47; take off Mail
+!!IF:V383/0;
+
+!?AE1&v998=51; put on Shield
+!!IF:V384/1;
+!?AE0&v998=51; take off Shield
+!!IF:V384/0;
+
