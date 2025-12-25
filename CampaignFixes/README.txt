@@ -34,11 +34,15 @@ Map 1:
 - Slightly changed texts to eliminate 'him' when referring to the friend as the player may have picked a female friend's name.
 - Ratibor's text about Pitchfork fighting slightly shortened as it didn't fit the hint text field. 
 - When the friend goes back to the field, his or her home is labelled 'Home of Dan and family' (or the friend name selected by the player instead of Dan).
-TODO: Change default names to p.Twardowski/p.Twardowska (based on selected portrait) and Mefistofeles. Fix wrong spell displayed when Air Magic is selected (should display Disrupting Ray not Haste).
+- Changed default names to MrTwardowski/MsTwardowska (based on selected portrait) and Mefistofeles. From Polish legends. Changed "bible" from Kirr's cottage to "ERM manual".
+- Fix wrong spell displayed when Air Magic is selected (Haste was displayed while Disrupting Ray is given). Also fixed a typo there (was "choise" instead of "choice").
 Map 2:
 - Replaced some of multiple consecutive exclamation marks in hero Ufretin's text with 'One', 'ONE' and 'ELEVEN' to avoid error message about trying to interpret those as code.
 - Banned Air, Earth, Water and Fire Magic skills to make the magic choice from map 1 matter more.
-TODO: Change skills offered at map start to Intelligence/Tactics/Ballistics and ban those from level-ups, like in map 3. To make them more unique and slightly increase the chances of getting Archery at level-ups.
+- Changed skills offered at map start to Intelligence/Tactics/Ballistics and banned those from level-ups, like in map 3. To make them more unique and slightly increase the chances of getting Archery at level-ups.
 Map 3:
 - Banned Spellbinder's Hat and Magic Tomes (were available via Magic Wand) as they allowed the heroes to get the banned spells and meet after crossing the one-way portals.
-TODO: Give Gorynch 10 times more damage and Mind Immunity (with a MA:X flag, not with EA:B) for the final battle. When 1 hero visits a power-up on the map, give the skill to every player's hero and set the location to visited by every player's hero. Otherwise players are encouraged to spend a long time running around the map collecting all the +1/+2 power-ups. Perhaps give Orange heroes their level 8 troops if they fail to recruit. And give them at least a few stats. Such as 10 all, 20 in one stat related to what the heroes get from the Emissaries. 
+- Gave Gorynych 10 times more damage and Mind Immunity (with a MA:X flag, not with EA:B) for the final battle. Banned Black Orb Artifact to not trivialise the final battle too much by Blind-locking the Gorynych.
+- Companions also visit the free +1 power-ups and Learning Stones when one of them visits such an object. No need to run with everyone to every corner of the map for +1 stats.
+- Gave Orange and Purple their level 8 troops if they fail to recruit. Not giving Orange extra stats, don't want to risk making them much stronger than the next targets - the Inferno heroes.
+- Fixed main hero's starting troops. Was HE:C0/1/-1/1 instead of HE:C0/1/-1/0. 
