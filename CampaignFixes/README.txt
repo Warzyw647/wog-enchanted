@@ -23,4 +23,26 @@ Map 3:
 - Moved a few Trees, a Mountain and a Rock a bit near the area with Angels guarding Gold Mines and Lion Shield. This allows for (a bit hidden) path into that area. No path into that area was most likely an error, as Angel Wings, Flight and Dimension Door are not available on this map. 
 - Fixed Artificer, now works once per day even if the player has less gold than doubled upgrade price.
 Map 4:
-- AI given a daily event in all of their towns (not active for humans): +1000 Gold and +1 of each resource daily from each town. This allows the AI to mostly hire their army and develop their towns. Without it they were way too poor for their recruitment needs. This also lets the player influence the AI's progress by taking their towns, even the first 2 ones.   
+- AI given a daily event in all of their towns (not active for humans): +1000 Gold and +1 of each resource daily from each town. This allows the AI to mostly hire their army and develop their towns. Without it they were way too poor for their recruitment needs. This also lets the player influence the AI's progress by taking their towns, even the first 2 ones.
+
+Minor changes and fixes for In the Wake of Gods WoG campaign:
+Map 1:
+- Fixed wrong small/large letters used in video and image paths.
+- Converted avi animated images to gifs, as those seem better for compatibility with modern systems. If they flicker, try changing HD mod graphics mode settings.
+- Customized the friend's name (default Dan like previously).
+- Replaced 'Dan' in static messages with 'your friend'. Also changed Peasant creature name to the friend's name, visible in whining texts. 
+- Slightly changed texts to eliminate 'him' when referring to the friend as the player may have picked a female friend's name.
+- Ratibor's text about Pitchfork fighting slightly shortened as it didn't fit the hint text field. 
+- When the friend goes back to the field, his or her home is labelled 'Home of Dan and family' (or the friend name selected by the player instead of Dan).
+- Changed default names to MrTwardowski/MsTwardowska (based on selected portrait) and Mefistofeles. From Polish legends. Changed "bible" from Kirr's cottage to "ERM manual".
+- Fix wrong spell displayed when Air Magic is selected (Haste was displayed while Disrupting Ray is given). Also fixed a typo there (was "choise" instead of "choice").
+Map 2:
+- Replaced some of multiple consecutive exclamation marks in hero Ufretin's text with 'One', 'ONE' and 'ELEVEN' to avoid error message about trying to interpret those as code.
+- Banned Air, Earth, Water and Fire Magic skills to make the magic choice from map 1 matter more.
+- Changed skills offered at map start to Intelligence/Tactics/Ballistics and banned those from level-ups, like in map 3. To make them more unique and slightly increase the chances of getting Archery at level-ups.
+Map 3:
+- Banned Spellbinder's Hat and Magic Tomes (were available via Magic Wand) as they allowed the heroes to get the banned spells and meet after crossing the one-way portals.
+- Gave Gorynych 10 times more damage and Mind Immunity (with a MA:X flag, not with EA:B) for the final battle. Banned Black Orb Artifact to not trivialise the final battle too much by Blind-locking the Gorynych.
+- Companions also visit the free +1 power-ups and Learning Stones when one of them visits such an object. No need to run with everyone to every corner of the map for +1 stats.
+- Gave Orange and Purple their level 8 troops if they fail to recruit. Not giving Orange extra stats, don't want to risk making them much stronger than the next targets - the Inferno heroes.
+- Fixed main hero's starting troops. Was HE:C0/1/-1/1 instead of HE:C0/1/-1/0. 
