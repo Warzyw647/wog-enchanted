@@ -63,4 +63,5 @@ Map 1 (the only one):
 - Library name moved from z19 (used by Wyvern Gate) to z29.
 - Added creature experience manually at start of combat (gets updated after combat). Most likely it could not be awarded automatically because of hero level limit. Gave  10*enemy hp experience to each creature. Not taking enemy hp boost from creature experience into account. For example a Pikeman awards 100 xp, no matter if he's trained or not.
 - Upgrading Dwarf, Archers and Swordmen keeps their Creature Experience unchanged.
+- Initialized flags 501 (Knights of Ni) and 502 (Water Altar)
 
