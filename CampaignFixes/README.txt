@@ -65,3 +65,13 @@ Map 1 (the only one):
 - Upgrading Dwarf, Archers and Swordmen keeps their Creature Experience unchanged.
 - Initialized flags 501 (Knights of Ni) and 502 (Water Altar)
 
+Minor fixes for A life of A-D-V-E-N-T-U-R-E WoG campaign:
+Map 1:
+- Fixed wrong capitalisation of some of the variable initialisation script lines. This caused warning messages at map start.
+- Made Dima's Mill a working Windmill when it's built. It was named Object.
+Map 2:
+- Fixed hero name not transferred from map 1.
+- Added region label in mission start screen.
+Map 3:
+- Added region label in mission start screen.
+
