@@ -22,6 +22,7 @@ Map 3:
 - Fixed 1 wrong answer in the Obelisk Quiz. Now the actual correct answers to the Obelisk questions are accepted.
 - Moved a few Trees, a Mountain and a Rock a bit near the area with Angels guarding Gold Mines and Lion Shield. This allows for (a bit hidden) path into that area. No path into that area was most likely an error, as Angel Wings, Flight and Dimension Door are not available on this map. 
 - Fixed Artificer, now works once per day even if the player has less gold than doubled upgrade price.
+- Replaced hero portrait change in Mask Shop with showing crude mask pictures once when buying them. Because portrait change corrupts game saves and I did not find a workaround like for map 1 of Samaritan and WoG. Does not influence interactions with other objects, because those are done with hero w variables.  
 Map 4:
 - AI given a daily event in all of their towns (not active for humans): +1000 Gold and +1 of each resource daily from each town. This allows the AI to mostly hire their army and develop their towns. Without it they were way too poor for their recruitment needs. This also lets the player influence the AI's progress by taking their towns, even the first 2 ones.
 
@@ -72,6 +73,22 @@ Map 1:
 Map 2:
 - Fixed hero name not transferred from map 1.
 - Added region label in mission start screen.
+- Enabled Power of Gaia script. Was inactive. Replaced random part of the condition with dependency on number of regenerated Crystals. How this works now:
+1. Works only if main hero attacks an enemy who has Behemoths (any of the 3 types)
+2. Calculate the hero's "Behemoth Diplomacy" level as 12 plus levels of Luck, Leadership and Diplomacy, plus 1 for each type of Behemoth in the hero's army.
+Examples:
+Basic Luck, no Leadeship, no Diplomacy, no Behemoths, no Ancient Behemoths, no Ghost Behemoths in army. This adds up to 13 "Behemoth Diplomacy" (minimum possible, unless you use Market of Time to forget Luck, then you can go down to 12).
+Advanced Luck, Advanced Leadership, Basic Diplomacy, Behemoths and Ancient Behemoths in army but no Ghost Behemoths. That's 19 "Behemoth Diplomacy".
+Expert Luck, Expert Leadership, Expert Diplomacy, Behemoths, Ancient Behemoths and Ghost Behemoths in army. Result: 24 "Behemoth Diplomacy" (maximum possible).
+3. Compare "Behemoth Diplomacy" with number of Crystals left to regenerate. If your hero's "Behemoth Diplomacy" is higher, the effect triggers. If you have too many Crystals left not regenerated, the effect does not trigger.
+4. Now, if the effect triggers (see above), then from each of the enemy Behemoth stacks (all 3 types of Behemoths) 20% (rounded down) will join your hero before the fight.
+Originally, "Behemoth Diplomacy" was supposed to be compared with a random number between 1 and 36 and not with the number of Crystals left. But I guess comparing with non-regenerated Crystals makes sense story-wise. If you convince the Behemoths that you can complete the task, then some of them will join you.
+Also removed the requirement that the previous battle has to be fought by the human player. Replaced that with a check at start of script that the human player is involved (flag 1000) and that Ivor is the attacker.
+- Moved Peasants and Swordsmen next to one Arena and one Library. In their previous location, they invalidated these objects' types set when killed. The object types were set at map start with !#OB:T and !#OB:S. 
+- Brown Mushrooms are empty Objects. Only the other 4 colours are coded. Same as in WoG mission 2, but there Purple is unused and Brown gives Earth Magic. Unchanged.
+TODO: Add a loss condition: 100 Behemoths dead in all fights on the map. Requires a free v500- variable
+TODO: once added, test that loss condition (and don't forget to remove any temporary debug messages) 
 Map 3:
 - Added region label in mission start screen.
-
+- Built Taverns in AI towns. Without them, it takes them about 1.5 week to build it. Which gives the player a huge advantage due to starting with a hero.
+- Replaced VR:T with VR:R in week type randomization to prevent endless loops. Initialized "previous week type" variable v20 to -1 "none" to allow all week types on week 1.
