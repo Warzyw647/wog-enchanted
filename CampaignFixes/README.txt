@@ -3,6 +3,8 @@ All maps:
 - Experience, Spells and Secondary Skills are still transferred to the later maps, but Primary Skills are not, as they can be farmed infinitely at the Flea Markets. 
 Map 1:
 - Fixed a typo in the final_fight script which made the enemies land in the wrong garrison, resulting in no final fight at all.
+- Changed ground under first garrison to Rough, in case of AI acting more logically in some game versions and shooting the one stack with Antimagic.
+- Set starting hero's Experience to 0.
 Map 2:
 - Fixed Grand Elf army behind the Green Border Gate trying to increase weekly if they were defeated and a hero was standing in their place. This could lead to game crash.
 - Renamed central Inferno to "Not Hell Hole" as this is the one where the player actually has to build the Grail while the opening mission text claims the Grail has to be installed in Hell Hole.
@@ -28,6 +30,8 @@ Map 4:
 
 Minor changes and fixes for In the Wake of Gods WoG campaign:
 Map 1:
+- Set starting hero's Experience to 0 and level to 0 (level 1 given behind castle walls, upon visiting its inner garrison, next to the +1 stats, or in map 2 if castle not visited).
+- Secondary skills available: Learning, Archery, Estates, Scholar (can get one of those at level-up from level 0 to level 1).
 - Fixed wrong small/large letters used in video and image paths.
 - Converted avi animated images to gifs, as those seem better for compatibility with modern systems. If they flicker, try changing HD mod graphics mode settings.
 - Customised the friend's name.
@@ -50,6 +54,7 @@ Map 3:
 
 Minor changes and fixes for A life of A-D-V-E-N-T-U-R-E WoG campaign:
 Map 1 (the only one):
+- Set starting hero's Experience to 0.
 - Archer upgrade script next to Light Blue Tent takes gold only once. Also takes away 1 morale until next battle if the hero had less than 1000 gold when agreeing to the deal, for taking advantage of the archery instructor.
 - Message at Dwarf Ellam's house fixed. He no longer "walks into his house" if he's not in the army or if he got upgraded.
 - Luamesoum can be fought only once. If player did not help him but completed the quest, message about Xeja giving gold no longer repeats, message about seeing some knights train is displayed instead. No reaction at training field entrance if Luamesoum helped and Cavaliers already killed before getting the quest for them, because it's the same state as when Cavaliers are killed and then the training field has been visited.
@@ -67,6 +72,7 @@ Map 1 (the only one):
 
 Minor fixes for The Samaritan WoG campaign:
 Map 1:
+- Set starting hero's Experience to 0.
 - Fixed wrong capitalisation of some of the variable initialisation script lines. This caused warning messages at map start.
 - Made Dima's Mill a working Windmill when it's built. It was named Object.
 Map 2:
