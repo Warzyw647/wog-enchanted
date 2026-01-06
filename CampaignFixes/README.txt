@@ -30,7 +30,7 @@ Minor changes and fixes for In the Wake of Gods WoG campaign:
 Map 1:
 - Fixed wrong small/large letters used in video and image paths.
 - Converted avi animated images to gifs, as those seem better for compatibility with modern systems. If they flicker, try changing HD mod graphics mode settings.
-- Customized the friend's name (default Dan like previously).
+- Customised the friend's name.
 - Replaced 'Dan' in static messages with 'your friend'. Also changed Peasant creature name to the friend's name, visible in whining texts. 
 - Slightly changed texts to eliminate 'him' when referring to the friend as the player may have picked a female friend's name.
 - Ratibor's text about Pitchfork fighting slightly shortened as it didn't fit the hint text field. 
@@ -52,21 +52,20 @@ Minor changes and fixes for A life of A-D-V-E-N-T-U-R-E WoG campaign:
 Map 1 (the only one):
 - Archer upgrade script next to Light Blue Tent takes gold only once. Also takes away 1 morale until next battle if the hero had less than 1000 gold when agreeing to the deal, for taking advantage of the archery instructor.
 - Message at Dwarf Ellam's house fixed. He no longer "walks into his house" if he's not in the army or if he got upgraded.
-- Luamesoum can be fought only once. If player didn't help him but completed the quest, message about Xeja giving gold no longer repeats, message about seeing some knights train is displayed instead. No reaction at training field entrance if Luamesoum helped and Cavaliers already killed before getting the quest for them, because it's the same state as when Cavaliers are killed and then the training field has been visited.
-- Mad Monk not touched. He does crash the game if attacked twice and then given a turn. However, the second time he has just an Imp and this seems like an intended joke.
+- Luamesoum can be fought only once. If player did not help him but completed the quest, message about Xeja giving gold no longer repeats, message about seeing some knights train is displayed instead. No reaction at training field entrance if Luamesoum helped and Cavaliers already killed before getting the quest for them, because it's the same state as when Cavaliers are killed and then the training field has been visited.
 - Necromancer Aria given mana for 1 Meteor Shower. Seems fine story-wise, I think.
 - When exiting the Crypt, added a check if the "visited object" is a Subterranean Gate or a Hero. Proceed only if it's a Gate. Crypt exit script triggers only for human player and disabled the Gate for Purple player at map start. Just in case.
 - Strange Monastery, if player refuses to enter, exit script without processing rewards. Player can come back and visit the Monastery later. Added check to "provoke battle" and "disable/enable Tactics" script lines. Execute only if quest not completed yet. Disable/enable Tactics only if the hero has that skill.
 - Enabled creature experience, enemies get 1 level every (6-difficulty) weeks (first increase in week 2/3/4/5/6 at difficulty 200/160/130/100/80%), player gets creature xp from battles. Set Commanders as disabled, disabled leaving troops and Artifacts on the map. Set hero's starting experience to 0.
 - Mad Monk gets 1 War Zealot plus 1 Hierofant in battle, called Fnord and Gaidal Cain respectively. At start of each battle round (except Tactics round) cast Berserk on everyone on both sides of the battlefield with IF:L message "The madness of Fnord and Gaidal Cain affects you all.". Gave Mad Monk correct colour.
-- Increased Tactics from Advanced to Expert temporarily for the time of Monk encounters (If player has Advanced Tactics). This is to allow deploying a stack closer to the opponents than to allies and run towards them when Berserked. If hero has Expert Leadeship, give temporary +20 Defence instead, taken away after the Mad Monk encounter is done.
+- Increased Tactics from Advanced to Expert temporarily for the time of Monk encounters (If player has Advanced Tactics). This is to allow deploying a stack closer to the opponents than to allies and run towards them when Berserked. If hero has Expert Leadership, give temporary +20 Defence instead, taken away after the Mad Monk encounter is done.
 - Monk events disabled in the other exit from the Monk area to the north.
 - Library name moved from z19 (used by Wyvern Gate) to z29.
 - Added creature experience manually at start of combat (gets updated after combat). Most likely it could not be awarded automatically because of hero level limit. Gave  10*enemy hp experience to each creature. Not taking enemy hp boost from creature experience into account. For example a Pikeman awards 100 xp, no matter if he's trained or not.
-- Upgrading Dwarf, Archers and Swordmen keeps their Creature Experience unchanged.
-- Initialized flags 501 (Knights of Ni) and 502 (Water Altar)
+- Upgrading Dwarf, Archers and Swordsmen keeps their Creature Experience unchanged.
+- Initialised flags 501 (Knights of Ni) and 502 (Water Altar)
 
-Minor fixes for A life of A-D-V-E-N-T-U-R-E WoG campaign:
+Minor fixes for The Samaritan WoG campaign:
 Map 1:
 - Fixed wrong capitalisation of some of the variable initialisation script lines. This caused warning messages at map start.
 - Made Dima's Mill a working Windmill when it's built. It was named Object.
@@ -77,18 +76,22 @@ Map 2:
 1. Works only if main hero attacks an enemy who has Behemoths (any of the 3 types)
 2. Calculate the hero's "Behemoth Diplomacy" level as 12 plus levels of Luck, Leadership and Diplomacy, plus 1 for each type of Behemoth in the hero's army.
 Examples:
-Basic Luck, no Leadeship, no Diplomacy, no Behemoths, no Ancient Behemoths, no Ghost Behemoths in army. This adds up to 13 "Behemoth Diplomacy" (minimum possible, unless you use Market of Time to forget Luck, then you can go down to 12).
+Basic Luck, no Leadership, no Diplomacy, no Behemoths, no Ancient Behemoths, no Ghost Behemoths in army. This adds up to 13 "Behemoth Diplomacy" (minimum possible, unless you use Market of Time to forget Luck, then you can go down to 12).
 Advanced Luck, Advanced Leadership, Basic Diplomacy, Behemoths and Ancient Behemoths in army but no Ghost Behemoths. That's 19 "Behemoth Diplomacy".
 Expert Luck, Expert Leadership, Expert Diplomacy, Behemoths, Ancient Behemoths and Ghost Behemoths in army. Result: 24 "Behemoth Diplomacy" (maximum possible).
-3. Compare "Behemoth Diplomacy" with number of Crystals left to regenerate. If your hero's "Behemoth Diplomacy" is higher, the effect triggers. If you have too many Crystals left not regenerated, the effect does not trigger.
+3. Compare "Behemoth Diplomacy" with number of Crystals left to regenerate. If your hero's "Behemoth Diplomacy" is higher, the effect triggers. If too many Crystals did not get regenerated yet, the effect does not trigger.
 4. Now, if the effect triggers (see above), then from each of the enemy Behemoth stacks (all 3 types of Behemoths) 20% (rounded down) will join your hero before the fight.
 Originally, "Behemoth Diplomacy" was supposed to be compared with a random number between 1 and 36 and not with the number of Crystals left. But I guess comparing with non-regenerated Crystals makes sense story-wise. If you convince the Behemoths that you can complete the task, then some of them will join you.
 Also removed the requirement that the previous battle has to be fought by the human player. Replaced that with a check at start of script that the human player is involved (flag 1000) and that Ivor is the attacker.
 - Moved Peasants and Swordsmen next to one Arena and one Library. In their previous location, they invalidated these objects' types set when killed. The object types were set at map start with !#OB:T and !#OB:S. 
 - Brown Mushrooms are empty Objects. Only the other 4 colours are coded. Same as in WoG mission 2, but there Purple is unused and Brown gives Earth Magic. Unchanged.
-TODO: Add a loss condition: 100 Behemoths dead in all fights on the map. Requires a free v500- variable
-TODO: once added, test that loss condition (and don't forget to remove any temporary debug messages) 
+- Fixed Green Town deletion one day after all 4 'special' Obelisks (in the zone without towns) are visited. FU70 was not called. Removed temporary use of v91 in TM13, freed up for other use. 
+- Fixed v95 getting used for both letting Green into the neutral zone and checking if the Obelisk behind the Faerie Dragons was visited. Now v91 is used to unblock Green's one-way portals instead.
+- Added a loss condition: 150-350 (depending on selected game difficulty) Behemoths dead in all fights on the map.
+- Added an alternative win condition: gather 100 Ghost Behemoths. Also applies to AI. Standard win also allowed.
+- FU2 took 200 movement from Ivor after jumping off an Obelisk and jumping back on it. Now it also checks if Ivor has at least 200 movement. If he has less, takes all remaining movement, if he has at least 200, takes 200. This removes the possibility of getting negative movement, in case it had any consequences.
 Map 3:
 - Added region label in mission start screen.
 - Built Taverns in AI towns. Without them, it takes them about 1.5 week to build it. Which gives the player a huge advantage due to starting with a hero.
-- Replaced VR:T with VR:R in week type randomization to prevent endless loops. Initialized "previous week type" variable v20 to -1 "none" to allow all week types on week 1.
+- Replaced VR:T with VR:R in week type randomisation to prevent endless loops. Initialised "previous week type" variable v20 to -1 "none" to allow all week types on week 1.
+
