@@ -1,0 +1,14 @@
+ZVSE
+
+; After Right Click on Horse icon 'continue movement'
+; Display Leora's and Calladan's remaining movement
+
+!?CM0;
+!!CM:I?y-1;
+!!FU&y-1<>7:E;
+!!HE27:W?y-1; Leora's movement
+!!HE27:G?y-2;
+!!HE26:W?y-3; Calladan's movement
+!!HE26:G?y-4;
+!!IF:L^Leora's movement: %Y-1/%Y-2, Calladan's movement: %Y-3/%Y-4^;
+

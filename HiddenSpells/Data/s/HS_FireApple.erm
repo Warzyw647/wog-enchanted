@@ -1,0 +1,108 @@
+ZVSE
+
+; HS_FireApple, JHV, Mar.21, 2017
+
+; uses z381-z383, z586-z587, FU527, f427
+
+!#VRz586:S^Fire Apple^;
+!#OB34/45/1:SH586;
+!#VRz587:S^Tree of Fire^;
+!#HT141/249:T587;
+
+!#VRz381:S^Fire Dragon^;
+!#VRz382:S^Fire Dragons^;
+!#VRz383:S^Casts Fireballs.^;
+!#UN:G1/124/0/381 G1/124/1/382 G1/124/2/383;
+!#MA:A26/?y1 D26/?y2 E26/?y3 L26/?y4 M26/?y5 S26/?y6 X26/?y7 F26/?y8 I26/?y9 P26/?y10 X26/?y11;
+!#MA:A124/y1 B124/0 D124/y2 E124/y3 L124/y4 M124/y5 N124/0 O124/-1 S124/y6 X124/y7 F124/y8 I124/y9 P124/y10 X124/y11;
+!#MA:A124/d8 D124/d8 M124/d8 E124/d8 P124/d70 S124/d2 U124/-2; (no upgrd)
+!#EA124:O26; copy exp. lines
+!#EA124:B11/1/119/51/1/1/1/1/1/1/1/1/1/1/1; Immunity to L1-L3 hostile spells
+!#EA124:B12/1/97/21/100/100/100/100/100/100/100/100/100/100/100; exp. Fireball after attack
+!#EA124:B13/1/119/70/1/1/1/1/1/1/1/1/1/1/1; immune to hostile Fire Spells
+
+!#VRv4:S7994243+124; Era (2.4)
+!#VRv5:S7994051+124;
+!#VRv6:S7993859+124;
+!#UN:Cv4/1/9;
+!#UN:Cv5/1/8;
+!#UN:Cv6/1/3;
+
+!?GM0;
+!!VRv4:S7994243+124; Era (2.4)
+!!VRv5:S7994051+124;
+!!VRv6:S7993859+124;
+!!UN:Cv4/1/9;
+!!UN:Cv5/1/8;
+!!UN:Cv6/1/3;
+
+!?OB34/45/1&1000; Fire Apple
+!!IF:Q1^The apple pulsates with power temptingly, but powerful honey may be guarded by powerful bees. Will you try to take it?^;
+!!FU&-1:E;
+!!IF:Q1/21/124/1^Famous last words: you should have known better!^;
+!!IF:V427/1;
+!!HE-1:Tv998/v999/v1000/124/1;
+!!HE-1:O?y1;
+!!FU&y1<0:E;
+!!UN:O34/45/1;
+!!HE-1:Fd/d/?y1/d;
+!!VRy3:Sy1+3:5;
+!!VRy3&y3<10:S10;
+!!VRy5:Sy1+y3;
+!!VRy3&y5>127:S127-y1;
+!!HE-1:Fd/d/dy3/d;
+!!DO527/0/6/1:P;
+!!IF:Q1/33/y3/1^As your mouth stings from the hot apple, your power increases, along with the power of all your army troops!^;
+
+!?FU527; x16=troop slot
+!!HE-1:C0/x16/?y10/?y11;
+!!FU|y10<0/y11<1:E;
+!!VRv5:C0/y10/0;
+!!VRv5&y10>143:C1/d-143;
+!!PO5:V2/?y12; this will only work and happen once
+!!FU&y12>0:E; prevent multiple upgrades for troops of the same kind
+!!MA:Ey10/?y1;
+!!VRy3:Sy1+3:5;
+!!VRy3&y3<10:S10;
+!!MA:My10/dy3 Ey10/dy3;
+!!PO5:V2/1;
+
+!?BA0&1000/427;
+!!BA:B^BFfyrtre.pcx^;
+!!SN:L^Era.dll^/?y1; y1=handle
+!!SN:Ay1/^RedirectFile^/?y2; y2=FU address
+!!SN:Ey2/1/^OBSNS10.def^/^FireTree.def^;
+!!BA:M1/0/124/10 M1/1/124/10 M1/2/124/10 M1/3/124/10 M1/4/124/10 M1/5/-1/0 M1/6/-1/0;
+!!VRy1:S1 T1023;
+!!VRy2:R2/y1; set random seed for battle
+
+!?BF&1000/427;
+!!BF:C;
+!!BF:O33/73;
+; setup to add some obstacle codes
+!!UN:C6919200/4/?y28;
+!!VRy2:S112*7+y28+468; address of obstacle code for hex 7
+!!UN:Cy2/4/0; change 2 to 0 for passability
+!!VRy2:S112*25+y28+468;
+!!UN:Cy2/4/2; change 0 to 2 for impassability
+!!VRy2:S112*26+y28+468;
+!!UN:Cy2/4/2;
+!!VRy2:S112*41+y28+468;
+!!UN:Cy2/4/2;
+!!VRy2:S112*42+y28+468;
+!!UN:Cy2/4/2;
+!!VRy2:S112*43+y28+468;
+!!UN:Cy2/4/2;
+!!VRy2:S112*57+y28+468;
+!!UN:Cy2/4/2;
+!!VRy2:S112*61+y28+468;
+!!UN:Cy2/4/2;
+!!VRy2:S112*75+y28+468;
+!!UN:Cy2/4/2;
+
+!?BA1&1000/427;
+!!IF:V427/0;
+!!SN:L^Era.dll^/?y1; y1=handle
+!!SN:Ay1/^RedirectFile^/?y2; y2=FU address
+!!SN:Ey2/1/^OBSNS10.def^/^^;
+

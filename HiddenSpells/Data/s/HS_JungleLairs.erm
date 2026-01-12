@@ -1,0 +1,53 @@
+ZVSE
+
+** HS_JungleLairs, JHV, Sept. 29, 2012
+
+** uses v1478-v1479, z309-z310
+
+!#VRv1478:S1; index to DP monster table
+!#VRz309:S^Dragon Peak^;
+!#OB94/35/0:SHz309;
+
+!?OB94/35/0&1000; Dragon Peak
+!!PO998:V0/?v1;
+!!VRv2:Sc0-1:7+1; game week
+!!IF&v2<=v1:M^The lair is empty this week.^;
+!!FU&v2<=v1:E;
+!!PO998:V0/v2;
+!!VRv1:C108/109/26/82/27/83/168/155/151/135/133/132;
+!!VRy1:Svv1478;
+!!VRv1478:+1;
+!!VRv1478&v1478>12:S12;
+!!UN:N3/2/y1/1; plural name to z2
+!!IF:Q1/21/y1/1^You find a nest of %Z2!^;
+!!HE-1:Tv998/v999/v1000/y1/3;
+!!HE-1:O?v1; get owner (-1 if hero lost battle)
+!!FU&v1=-1:E;
+!!FU86:P1; exp+1 (FU86 in HS_Battles)
+!!IF:M^You find a young hatchling which you are able to tame.^;
+!!HE-1:C2/y1/1/1; add 1 to army
+
+!#VRv1479:S1; index to Cave monster table
+!#VRz310:S^Jungle Cave^;
+!#OB90/25/0:SHz310;
+
+!?OB90/25/0&1000; Jungle Cave
+!!PO998:V0/?v1;
+!!VRv2:Sc0-1:7+1; game week
+!!IF&v2<=v1:M^The lair is empty this week.^;
+!!FU&v2<=v1:E;
+!!PO998:V0/v2;
+!!VRv1:C107/102/80/81/130/96/110/07/111/156/127;
+!!VRy1:Svv1479;
+!!VRv1479:+1;
+!!VRv1479&v1479>11:S11;
+!!UN:N3/3/y1/0; singular name to z3
+!!UN:N3/2/y1/1; plural name to z2
+!!IF:Q1/21/y1/1^You find a lair of %Z2!^;
+!!HE-1:Tv998/v999/v1000/y1/3;
+!!HE-1:O?v1; get owner (-1 if hero lost battle)
+!!FU&v1=-1:E;
+!!FU86:P1; exp+1 (FU86 in HS_Battles)
+!!IF:M^You find a young %Z3 which you are able to tame.^;
+!!HE-1:C2/y1/1/1; add 1 to army
+

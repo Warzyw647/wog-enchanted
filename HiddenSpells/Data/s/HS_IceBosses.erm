@@ -1,0 +1,32 @@
+ZVSE
+
+; HS_IceBosses, JHV, Sept.14, 2025
+; add Ice Bosses to Ice Guards after two weeks
+; Ice Bosses defined in HS_Settings
+; uses f416-f417
+
+!?OB54/40&1000/416; Ice Guards
+!!IF:V417/1;
+
+!?BF&1000/417;
+!!BU:S51/4/65/1/-1/0;
+!!BU:E65/?y1; get new stack #
+;BMy1:E?y3 U4/?y4;
+;IF:M^stk=%Y1, E=%Y3, U4=%Y4^; stk=28, E=1, U4=0 despite EA:B10
+!!BMy1:E3;
+!!BU:S51/4/99/1/-1/0;
+!!BU:E99/?y1; get new stack #
+!!BMy1:E3;
+!!BU:S51/4/133/1/-1/0;
+!!BU:E133/?y1; get new stack #
+!!BMy1:E3;
+!!IF:V417/0;
+
+!?TM2&v2392=8/v2395=3; Day 8, Green
+; start adding Ice Bosses to Ice Guard Battles
+!!IF:V416/1;
+!!VRz2:S^Mods/HiddenSpells/Data/Interrup.wav^;
+!!SN:Ev34/1/z2; call PlayOnce
+!!IF:M^{Stand By For} {An} {Announcement} {From} {The} {Ice} {King!}^;
+!!IF:M^It has come to my attention that you are failing in your duty to guard my Holds! Therefore I have summoned motivators to whip you into shape. The motivators are also authorized to bring your spirits back from Valhalla if you fall, albeit in slightly different forms!^;
+

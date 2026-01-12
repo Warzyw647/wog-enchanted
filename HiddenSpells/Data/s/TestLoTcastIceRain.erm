@@ -1,0 +1,59 @@
+ZVSE
+
+* TestLoTcastIceRain, JHV, Oct. 20, 2012
+*uses v1-v26 temporarily in battles, z500
+
+!#VRz500:S^Ice Blast^;
+!#SS22:A500 N500; change "Inferno" to "Ice Blast"
+!#SS22:S4; change Inferno/Ice Blast Magic to Water (Fire=2)
+!#SN:L^Era.dll^/?y1; y1=handle
+!#SN:Ay1/^RedirectFile^/?y2; y2=FU address
+!#SN:Ey2/1/^C04SPF0.def^/^IceRain.def^;
+
+!?BG0&390; f390 set by Ice Hold
+!!BG:A?v21 N?v22 Q?v23;
+!!BMv22&v22>-1:T?v24;
+!!FU|v21=1/v21=8:E; exit if Hero cast or Wait
+!!FU&v24<>152/v24<>158:E; exit if not LoT or Sacred Ph
+!!HE84:I?y-1;
+!!FU&y-1<12:E; exit if not enough mana on Devoron to cast Inferno
+!!HE84:Id-12; Take 12 mana from Devoron for each Ice Blast (Inferno) cast
+* find Hex to cast on
+!!VRv25:C0/93; sum of target damage, best hex
+!!DO530/1/12/1:P19/22/25/28/31/32/53/56/59/62/65/66/v23; hexes, side
+!!DO530/1/12/1:P87/90/93/96/99/100/121/124/127/130/133/134/v23; hexes, side
+!!DO530/1/12/1:P155/158/161/164/167/168/21/57/94/131/157/126/v23; hexes, side
+!!DO530/1/12/1:P20/91/162/29/122/24/128/63/125/57/159/54/v23; hexes, side
+!!DO531/1/12/1:P40/44/47/74/78/81/105/108/112/139/142/146/v23; hexes, side
+!!BMv22:C22/v26/3/3/0;
+
+!?FU530; x1-x12 = hexes, x13=side (odd j central hex)
+!!VRy1:Sxx16; next target hex to check
+!!VRv1:Cy1/y1/y1/y1/y1/y1/y1/y1/y1/y1;
+!!VRv11:Cy1/y1/y1/y1/y1/y1/y1/y1/y1/0; v1-v19=chk hexes, v20=sum
+!!VRv1:Cd-35/d-34/d-33/d-19/d-18/d-17/d-16/d-2/d-1/d0;
+!!VRv11:Cd1/d2/d15/d16/d17/d18/d33/d34/d35; x1 + surrounding hexes
+!!DO532/0/9/1&x13=1:P;
+!!DO532/21/30/1&x13=0:P;
+!!VRv26&v20>v25:Sy1;
+!!VRv25&v20>v25:Sv20;
+
+!?FU531; x1-x12 = hexes, x13=side (even j central hex)
+!!VRy1:Sxx16; next target hex to check
+!!VRv1:Cy1/y1/y1/y1/y1/y1/y1/y1/y1/y1;
+!!VRv11:Cy1/y1/y1/y1/y1/y1/y1/y1/y1/0; v1-v19=chk hexes, v20=sum
+!!VRv1:Cd-35/d-34/d-33/d-18/d-17/d-16/d-15/d-2/d-1/d0;
+!!VRv11:Cd1/d2/d16/d17/d18/d19/d33/d34/d35; x1 + surrounding hexes
+!!DO532/0/9/1&x13=1:P;
+!!DO532/21/30/1&x13=0:P;
+!!VRv26&v20>v25:Sy1;
+!!VRv25&v20>v25:Sv20;
+
+!?FU532; v11-v17=target hexes, x16=stack, v20=sum of target cr's
+!!BMx16:N?y1 P?y2 H?y3 L?y4;
+!!FU&y1<1:E;
+!!VRy5:Sy3*y1-y4; total HP
+!!VRy5&y5>110:S110; damage to be done to this stack
+!!VRv20|y2=v1/y2=v2/y2=v3/y2=v4/y2=v5/y2=v6/y2=v7/y2=v8/y2=v9/y2=v10:+y5;
+!!VRv20|y2=v11/y2=v12/y2=v13/y2=v14/y2=v15/y2=v16/y2=v17/y2=v18/y2=v19:+y5;
+

@@ -1,0 +1,143 @@
+ZVSE
+
+; HS_IceApple, JHV, Mar.21, 2017
+
+; uses v1481-v1492 temp. for Gremlin dance
+; uses z584-z585, FU624-FU625, f425
+; reuses v27 for round count (set in HiddenSpells)
+
+!#VRz584:S^Ice Apple^;
+!#OB52/82/1:SH584;
+!#VRz585:S^Ice Tree^;
+!#HT141/131:T585;
+
+!?OB52/82/1&1000; Apple of Ice
+!!IF:Q1^Do you dare to pick a frozen apple from the Tree of Ice, where the Ice King gained much of his strength? The spirits trapped here warn you: do not awake those who quard the fruit on the Ice King's behalf! As they dance and gambol, they will raise us up to fight you, and laugh as we are killed and turned to ice to feed the Tree. Do not take the bait - do not unleash the Dancing Gremlins!^;
+!!FU&-1:E;
+!!IF:V425/1;
+!!EA173:B9/1/108/170/25/25/25/25/25/25/25/25/25/25/25;  enable summon clone Arctic SS (for Ice Apple)
+!!EA173:B10/1/108/13/10/10/10/10/10/10/10/10/10/10/10;  enable summon clone Archangel (-"-)
+!!HE-1:Tv998/v999/v1000/173/1;
+!!EA173:B9/0/108/170/25/25/25/25/25/25/25/25/25/25/25;  disable summon clone Arctic SS (for Ice Apple)
+!!EA173:B10/0/108/13/10/10/10/10/10/10/10/10/10/10/10;  disable summon clone Archangel (-"-)
+!!IF:V425/0;
+!!HE-1:O?y1;
+!!FU&y1<0:E;
+!!UN:O52/82/1;
+!!HE-1:F?y1/?y2/d/d;
+!!VRy3:Sy1+3:5;
+!!VRy3&y3<10:S10;
+!!VRy5:Sy1+y3;
+!!VRy3&y5>127:S127-y1;
+!!VRy4:Sy2+3:5;
+!!VRy4&y4<10:S10;
+!!VRy6:Sy2+y4;
+!!VRy4&y6>127:S127-y2;
+!!HE-1:Fdy3/dy4/d/d;
+!!DO625/0/6/1:P;
+!!IF:Q1/31/y3/32/y4/1^As your mouth burns from the cold of the freezing apple, your battle skill increases, as do the skills of all your army troops!^;
+
+!?FU625; x16=troop slot
+!!HE-1:C0/x16/?y10/?y11;
+!!FU|y10<0/y11<1:E;
+!!VRv5:C0/y10/0;
+!!VRv5&y10>143:C1/d-143;
+!!PO5:V0/?y12; this will only work and happen once
+!!FU&y12>0:E; prevent multiple upgrades for troops of the same kind
+!!MA:Ay10/?y1 Dy10/?y2;
+!!VRy3:Sy1+3:5;
+!!VRy3&y3<10:S10;
+!!VRy4:Sy2+3:5;
+!!VRy4&y4<10:S10;
+!!MA:Ay10/dy3 Dy10/dy4;
+!!PO5:V0/1;
+
+!?BA0&425;
+!!BA:B^BFsnwskl.pcx^;
+!!BA:M1/0/173/50 M1/1/173/50 M1/2/173/50 M1/3/173/50 M1/4/173/50 M1/5/-1/0 M1/6/-1/0;
+!!VRy1:S1 T1023;
+!!VRy2:R2/y1; set random seed for battle
+!!PO998:T0; specific flag for BF setup
+
+!?BF&425;
+!!BF:C;
+!!UN:C7721205/4/222;  no guards
+; setup to add some obstacle codes
+!!UN:C6919200/4/?y28;
+!!VRy2:S112*43+y28+468; address of obstacle code for hex 43
+!!UN:Cy2/4/2; change 0 to 2 for impassability
+!!VRy2:S112*44+y28+468;
+!!UN:Cy2/4/2;
+!!VRy2:S112*60+y28+468;
+!!UN:Cy2/4/2;
+!!VRy2:S112*76+y28+468;
+!!UN:Cy2/4/2;
+!!VRy2:S112*77+y28+468;
+!!UN:Cy2/4/2;
+!!VRy2:S112*108+y28+468;
+!!UN:Cy2/4/2;
+!!VRy2:S112*112+y28+468;
+!!UN:Cy2/4/2;
+!!VRy2:S112*129+y28+468;
+!!UN:Cy2/4/2;
+!!VRy2:S112*130+y28+468;
+!!UN:Cy2/4/2;
+
+;BR; (round count v27 saved is HS)
+
+!?FU77006&425/v27>1; chk Gremlin cloning status
+; Decision on what stack will move now.
+; SN:X Parameters (2): Side (0 - left, 1 - right) / Stack number (0-20)
+!!SN:X?y1/?y2;
+!!VRy3:Sy1*21+y2; actual stack #
+!!BMy3:T?y4;
+!!FU&y4<>173:E; exit if not Gremlin
+!!VRy5:Sy3+1*-1; EA stack #
+!!VRy6:S1 R2 %2; 2/3 chance
+!!EAy5:B9/y6/d/d/d/d/d/d/d/d/d/d/d/d/d;  summon clone Archmage
+!!VRy7:S1 R2 %2;
+!!EAy5:B10/y7/d/d/d/d/d/d/d/d/d/d/d/d/d; Archangel
+
+!?BG0&425; Dancing Gremlins
+!!BG:A?y1 E?y2 D?y3; act, target stack if any, target hex
+!!FU|y1<6/y1>7/y2<0:E;
+!!BMy2:T?y22;
+!!FU&y22<>173:E; Santa Gremlins have 80% chance to jump
+!!VRy23:S1 R99; 1-100
+!!FU&y23>80:E;
+!!VRi:Sy3%17; i, horizontal, 0-->16
+!!VRj:Sy3:17; j, vertical 0\\>10
+!!VRk:Sj%2; even or odd row
+!!IF:V3/1; temporary flag for move
+!!VRv1481:C-35/-34/-33/-18/-15/-2/2/16/19/33/34/35; even j loc.s from center
+!!VRv1484&k=1:Cd-1/d-1/d/d/d-1/d-1; odd j loc.s from center (L->R, T->B)
+!!VRy4:S0 T11;
+!!DO624/0/11/1:Py3/y2/y4/12; outer ring ninja move
+
+!!VRv1481&3:C-17/-16/-1/1/17/18; even j loc.s from center
+!!VRv1481&k=1/3:C-18/-17/d/d/16/17; odd j loc.s from center (L->R, T->B)
+!!VRy4&3:S0 T11;
+!!DO624/0/5/1&3:Py3/y2/y4/6; inner ring ninja move
+
+!!FU&3:E; no move possible
+!!BG:N?y21; get current stack
+!!BMy21&y21>-1/y21<42:P?y23 Py23; dummy move current stack to re-highlight it
+!!BU:R;
+
+!?FU624; x1=central hex, x2=ninja stack, x3=offset,x4=mod, x16=table index
+!!VRy3:Sx16+x3%x4;
+!!VRy1:Sy3+1481; index to loc.s table
+!!VRy2:Sx1+vy1; hex in ring around x1
+!!VRy21:Sy2%17;
+!!FU|y2<1/y2>185/y21<1/y21>15:E; invalid hex
+!!BU:Ey2/?y3; chk live stack on hex
+!!FU&y3>-1:E; hex occupied
+!!BU:Oy2/?y3; chk obst on hex
+!!FU&y3<>0:E; hex occupied
+!!VRz1:S^StayLive.82M^;
+!!SN:Pz1;
+!!BMx2:V22; prot. from air
+!!BMx2:Py2;
+!!IF:V3/0; signal move
+!!VRx16:S100; end loop
+
