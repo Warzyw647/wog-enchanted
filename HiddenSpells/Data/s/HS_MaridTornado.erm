@@ -1,0 +1,150 @@
+ZVSE
+
+; HS_MaridTornado, JHV, Mar.18, 2017, adapted from
+; DC_MaridCyclone, JHV, Dec. 4, 2016
+
+; uses z566-z569, z589-z593, FU176, FU66, v77 from Settings
+; implements Blue Pearl & Black Pearl (labels in Setup) for use as bonuses
+
+!#VRz566:S^Black Pearl^;
+!#VRz567:S^{%Z566}
+
+Strengthens psionic abilities so that they can overcome the resistance of even psionically-null creatures, such as Dragons, and adds +2 to all Primary Skills.^;
+!#UN:A93/9/566 A93/10/567;
+!#VRz568:S^Blue Pearl^;
+!#VRz569:S^{%Z568}
+
+Strengthens psionic control of electro-magnetic effects and adds +1 to all Primary Skills.^;
+!#UN:A79/9/568 A79/10/569;
+
+!#VRz589:S^Marid Tornado^;
+!#HT16/1:P0/589; (Dwarven Tres.->GrnVortM.def)
+!#VRz590:S^%Z589 (empty)^;
+!#HT16/1:P1/590;
+!#VRz591:S^Marid^;
+!#VRz592:S^Marids^;
+!#VRz593:S^Arch-Djinni. 9 casts. RC Defend For menu. Default: T-Bolt.^;
+!#UN:G1/182/0/591 G1/182/1/592 G1/182/2/593;
+; make Marid (Astral Spirit, 182) cast offensive or defensive spell
+!#UN:C7961145/1/8;
+!#UN:C7960957/1/7;
+!#UN:C7960769/1/3;
+!#MA:A182/20 B182/9 D182/20 E182/25 M182/20 O182/2 P182/150 S182/14;
+*#CB42/108/0:R4/0; Marid banks don't start with Crystals inherited from their underlying CB subtype (Dwarven Treasuries) - moved to Day1Day2
+*#CB54/119/0:R4/0;
+
+!?GM0;
+; make Marid (Astral Spirit, 182) cast offensive or defensive spell
+!!UN:C7961145/1/8;
+!!UN:C7960957/1/7;
+!!UN:C7960769/1/3;
+
+!?BF;
+!!SN:M7; delete slot 4
+!!SN:M7/42/0/0; create Era data slot #4, 42 values, numbers not strings, don't save data in Saved Game
+!!DO176/0/41/1:P; set Marid default spell if any
+
+
+!?FU176; x16=stack
+!!BMx16:N?y1 T?y2;
+!!FU&y1<1:E;
+!!BMx16&y2=182:E9 U4/57; Titan's TB
+!!SN:M7/x16/9; save spell count
+
+!?BG0&1000;
+!!BG:A?y1 N?y2;
+!!FU&y1<>10/y2<0/y2>51:E; exit if not cr-cast
+!!BMy2:T?y3 E?y4;
+!!FU&y3<>182/y4<1:E; exit if not Marid
+!!VRy4:-1;
+!!SN:M7/y2/y4; spell countdown
+
+; Special Melee/Ranged  Option for Marids
+
+!?CM4; mouse click on battlefield (both left- and right-)
+!!CM:I?y1 F?y2; loc. clicked, 2010 for Defend - type of click, 512 for r-c
+!!FU|y1<>2010/y2<>512:E; exit if not R-C on Defend
+!!BG:N?y1; get stack #
+!!BMy1&y1>-1:T?y2;
+!!FU|y1<0/y2<>182:E;
+!!CM:R0; disable standard click action
+!!VRz-1:S^Choose an Attack type^;
+!!VRz-2:S^Melee^; v10=1
+!!VRz-3:S^Ranged^; v10=2
+!!VRz-4:S^Cast Titan's Thunderbolt^; v10=4
+!!VRz-5:S^Cast Meteor Shower^; v10=8
+!!VRz-6:S^Cast Chain Lightning^; v10=16
+!!IF:G1/10/2/-1/-2/-3/-4/-5/-6;
+!!if&v10=1:;
+!!BMy1:F?y2; get "X" flag bits
+!!VRy2:&-5; get rid of 'shooter' bit
+!!BMy1:Fy2 E0; set "X" flag bits, zero cast countdown
+!!en:;
+!!if&v10=2:;
+!!BMy1:F?y2; get "X" flag bits
+!!VRy2:|4; add 'shooter' bit
+!!BMy1:Fy2 E0; set "X" flag bits, zero cast countdown
+!!en:;
+!!if&v10=4:;
+!!SN:M7/y1/?y3; get spell countdown
+!!BMy1:Ey3 U4/57; Titan's TB
+!!en:;
+!!if&v10=8:;
+!!SN:M7/y1/?y3; get spell countdown
+!!BMy1:Ey3 U4/23 N?y4; MS
+!!VRy4:*5:16+5; 0-3 5, 16-19 10, etc,--update Oct. 6, 2021
+!!CO-3:P4/y4; works--at y4=10, L2 P10 (default is L2 P1)--note, attackers (182 not 191) only
+!!en:;
+!!if&v10=16:;
+!!SN:M7/y1/?y3; get spell countdown
+!!BMy1:Ey3 U4/19 N?y4;; CL
+!!VRy4:*4:16+4; 0-3 4, 16-19 8, etc,--update Oct. 6, 2021
+!!CO-3:P4/y4;only slightly better than normal--Thor has improved CL
+!!en:;
+
+!?AE1&v998=93; artifact #93 put on (Black Pearl/Orb of Vuln)
+!!HE-1:Fd2/d2/d2/d2;
+!?AE0&v998=93; artifact #93 taken off
+!!HE-1:Fd-2/d-2/d-2/d-2;
+
+!?AE1&v998=79; artifact #79 put on (Blue Pearl/Orb of Firm)
+!!HE-1:Fd1/d1/d1/d1;
+!?AE0&v998=79; artifact #79 taken off
+!!HE-1:Fd-1/d-1/d-1/d-1;
+
+!?OB16/1&1000;
+!!OB998:R; enable
+!!PO998:N?y1;
+!!IF&y1>0:M^The Tornado is empty.^;
+!!OB998&y1>0:M-1/1/0; eliminate next message (there must be a std message)
+!!FU&y1>0:E;
+!!IF:Q1^Would you like to challenge the power of the Tornado?^;
+!!OB998&-1:S; disable (w/be no std message)
+!!FU&-1:E;
+!!VRy1:Sv77%23%17+12; instead of S12 T16 take next random number from the sequence, modulo 17, add 12. Okay, maybe not 17, because 647 = 1 mod 17. Take mod 23 first. Lower end more likely, but that's okay.
+!!FU66:P;
+!!CBv998/v999/v1000:G0/182/y1 G1/182/y1 G2/182/y1 G3/182/y1 G4/182/y1; Marids
+!!VRy11:Sv2389-3*3; weekly increment in Marids, starts in week 4
+!!CBv998/v999/v1000&v2389>3:G0/182/dy11 G1/182/dy11 G2/182/dy11 G3/182/dy11 G4/182/dy11;
+!!VRv2:C63/64/65/118/119/120/79; cr potion Art.#'s + Blue Pearl
+!!VRy9:Sv77%7+2; 2-8, instead of S0 T104%7, pick next bigish pseudo-random number from the sequence, then do modulo 7 and +2 like before
+!!FU66:P;
+!!VRy10:Svy9; art. #
+!!CBv998/v999/v1000:A1/?y3; y3=# of artifacts
+!!CBv998/v999/v1000&y3>0:A4/0; remove artifact #0
+!!CBv998/v999/v1000:A3/y10; add artifact, even if mini bank - strengthens creature bank refills compared to other options of spending Elektrum (Grails, Beacons)
+!!VRy2:Sy1+1:3;
+!!VRy3:Sy2*1000;
+!!CBv998/v999/v1000:M182/y2 R1/0 R4/dy2 R5/dy2 R6/y3; Marids, crystal, gems, gold (crystals and gems increases every time to better compete with other Elektrum uses like Grails and Lloyd Beacons)
+!!OB998:M-1/1/0; disable first message
+
+!?OB16/1&-1000;
+!!OB998:R; enable
+
+!$OB16/1;
+!!HE-1:O?y1;
+!!PO998&y1>-1:N1;
+
+!?FU66; pick next fixed-random number for Marid Tornado rewards and guard counts
+!!VRv77:*v96%v69+1;
+

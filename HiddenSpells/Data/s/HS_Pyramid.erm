@@ -1,0 +1,208 @@
+ZVSE
+
+; HS_Pyramid, JHV, Mar.19, 2017, from
+; TvH_Pyramid, JHV, July 6, 2017, adapted from
+; Asg_Pyramid, JHV, March 13, 2016, based on
+; HHA_Pyramid, JHV, Sept. 9, 2015
+
+; uses z607
+; uses v1600-v1631 for temporary use
+; uses FU1021-FU1024, f496
+
+!#VRz607:S^Pyramid of Power^;
+!#OB126/107/0:SH607;
+
+!?OB126/107/0&1000; Pyramid
+!!PO998:N?y1;
+!!IF&y1>0:M^This facility has been shut down by the Ice King due to unauthorized use.^;
+!!FU&y1>0:E;
+!!IF:Q1^Welcome to the Pyramid of Power!
+Beware! Only an Elite Warrior may walk the Path of Power. Do not attempt this without a powerful melee warrior in your army! (Led by a powerful god or godess.) If he or she succeeds in completing the path, they will gain +50 Hit Points, +10 Damage, +1 Speed, and a medal for courage. Do you wish to try?^;
+!!FU&-1:E;
+!!HE-1:N?v1628;
+!!IF&v1628<>27:M^Sorry, your god is not powerful enough.^;
+!!FU&v1628<>27:E;
+!!HE27:C0/0/?y1/d/d/2 C0/1/?y2/d/d/2 C0/2/?y3/d/d/2 C0/3/?y4/d/d/2 C0/4/?y5/d/d/2 C0/5/?y6/d/d/2 C0/6/?y7/d/d/2;
+!!IF&y1<>174/y2<>174/y3<>174/y4<>174/y5<>174/y6<>174/y7<>174:M^Sorry, you have no warrior who is powerful enough.^;
+!!FU&y1<>174/y2<>174/y3<>174/y4<>174/y5<>174/y6<>174/y7<>174:E;
+!!HEv1628:A2/4/?v1629/d A2/5/?v1630/d A2/6/?v1631/d;
+!!HEv1628:A-4 A-5 A-6; remove war machines (just in case)
+!!VRv1600:C0/0/0/0/0/0/0; preset v1600-v1606 to empty slots
+!!DO1021/0/6/1:P; check slots
+!!IF:V496/1;
+!!HE-1:R4/0 Tv998/v999/v1000/41/1; Titan
+!!IF:V496/0;
+!!HEv1628&v1629>0:A4/4;
+!!HEv1628&v1630>0:A4/5;
+!!HEv1628&v1631>0:A4/6;
+!!HEv1628:R4/1; re-enable Tactics
+!!SN:L^Era.dll^/?y1; y1=handle
+!!SN:Ay1/^RedirectFile^/?y2; y2=FU address
+!!SN:Ey2/1/^ObHGS00.def^/^^;
+!!HEv1628:O?y2;
+!!FU&y2<0:E;
+!!PO126/107/0:N1;
+!!VRz607:S^Pyramid of Power (visited)^;
+!!MA:P174/d50 M174/d10 E174/d10 S174/d1;
+!!DO1022/0/6/1:P; refill stacks 0-6 from v1600 table
+!!HE-1:A4/49; give Badge of Courage
+!!IF:Q1/8/49/1^Vames has won the prize!^;
+
+!?FU1021; x16=troop slot, 0-6
+!!HE-1:C0/x16/?y1/?y2/?y3/2; y1=type, y2=no., y3=exp
+!!EX-1/x16:R?y5/d/?y6/?y7; y5=0-1, 1 if has War Banner, y6=WB option, 0-7, y7=count
+!!HE-1&y1<>174:C0/x16/-1/0;
+!!FU&y2<1:E; empty slot
+!!VRy4:S1600+x16; index to slot-no. storage
+!!VRvy4:Sy2; save no. in v[1600+x16]
+!!VRy4:+7; index to type
+!!VRvy4:Sy1; save type in v[1607+x16]
+!!VRy4:+7; index to exp
+!!VRvy4:Sy3; save exp in v[1614+x16]
+!!VRy4:+7; index to WB flag
+!!VRy5:*16+y6*4+y7; combine flag & option & count
+!!VRvy4:Sy5; save WB flag/opt/# in v[1621+x16]
+
+!?FU1022; x16=stack #, 0-6 (troop slot)
+!!VRy4:S1600+x16; index to slot-no. storage
+!!VRy2:Svy4; get no. from v[1600+x16]
+!!FU&y2=0:E; empty
+!!VRy4:+7; index to type
+!!VRy1:Svy4; get type from v[1607+x16]
+!!VRy4:+7; index to exp
+!!VRy3:Svy4; get exp from v[1614+x16]
+!!HE-1:C0/x16/y1/y2/y3/2; fill troop slot
+!!VRy4:+7; index to WB flag
+!!VRy5:Svy4; get WB flag from v[1621+x16]
+!!VRy7:Sy5%4;
+!!VRy6:Sy5:4%16;
+!!VRy5: :64;
+!!FU&y5=0:E;
+!!EXv1628/x16:R1/156/y6/y7;
+
+!?BA0&496; Pyramid Spiral Battle
+!!SN:L^Era.dll^/?y1; y1=handle
+!!SN:Ay1/^RedirectFile^/?y2; y2=FU address
+!!SN:Ey2/1/^ObHGS00.def^/^ObBluFrS.def^; tombstone O61  R   --> Flame
+!!BA:B^PwrPyrBF.pcx^;
+!!HE128:O6/1 R0/-1 R4/0; Teal, neutral morale, no tactics
+!!BA:H1/128; defender (Pasis-->Illuminatus)
+
+!?BF&496;
+!!BF:C;
+!!BM0:P4 F?y1;
+!!VRy1:&-3; remove fly
+!!BM0:Fy1;
+!!BM21:P92 B4 N3 S16 M34/50/3 U3/32;
+!!BU:S121/3/63/1/-1/0; summon ME
+!!BM22:S0;
+!!BU:S53/3/131/1/-1/0; summon ES
+!!BM23:S0 M34/50/3;
+!!BU:S40/2/161/1/-1/0; summon Giant
+!!BM24:S0 M34/50/3;
+!!BU:S82/2/123/1/-1/0; summon RedD
+!!BM25:S0 M34/50/3;
+!!BU:S27/2/72/1/-1/0; summon GoldD
+!!BM26:S0;
+!!BU:S83/2/41/1/-1/0; summon BlackD
+!!BM27:S0;
+!!BU:S134/2/78/1/-1/0; summon FaerieD
+!!BM28:S0 M34/50/3;
+!!BU:S135/1/128/1/-1/0; summon RustD
+!!BM29:S0 M34/50/3;
+; add some obstacles to form spiral
+!!DO1023/21/27/1:P61;
+!!DO1023/57/59/1:P61;
+!!DO1023/109/110/1:P61;
+!!DO1023/141/146/1:P61;
+!!DO1023/173/181/1:P61;
+!!DO1023/11/29/18:P61;
+!!DO1023/37/37/1:P61;
+!!DO1023/44/46/2:P61;
+!!DO1023/54/62/8:P61;
+!!DO1023/64/81/17:P61;
+!!DO1023/70/73/3:P61;
+!!DO1023/76/79/3:P61;
+!!DO1023/87/90/3:P61;
+!!DO1023/94/97/3:P61;
+!!DO1023/99/99/1:P61;
+!!DO1023/103/106/3:P61;
+!!DO1023/113/115/2:P61;
+!!DO1023/121/124/3:P61;
+!!DO1023/130/132/2:P61;
+!!DO1023/138/148/10:P61;
+!!DO1023/156/165/9:P61;
+
+!?FU1023; x16=hex #, x1=OB#
+!!BF:Ox1/x16;
+
+!?BR&496/v997=0;
+!!BU:G2; Cursed Ground--moved from BF to here Oct. 7, 2021--JV
+
+!?BG0&496/1000;
+; Azure's get Prayer cast on them ~round 2 or 3--don't know how--Cursed Ground
+; + Illuminatus doesn't know any spells. Couldn't find an EA:B ability that
+; does it. Anyhoo, prevent moving here:
+!!BG:A?y1 Q?y2;
+!!FU&y1<>2/y1<>6|y2=0:E;
+!!BG:A3; chg walk to Defend for side 1
+
+!?BG1&496/1000;
+; setup to add some obstacle codes
+!!UN:C6919200/4/?v728;
+!!BM29:N?y1;
+!!if&y1<1;
+!!DO1024/141/144/1:P0; passible
+!!DO1024/106/124/18:P0;
+!!DO1024/73/90/17:P0;
+!!DO1024/57/59/1:P0;
+!!DO1024/76/94/18:P0;
+!!DO1024/109/110/1:P0;
+!!FU:E;
+!!en;
+!!BM28:N?y1;
+!!if&y1<1;
+!!DO1024/44/79/35:P0; passible
+!!DO1024/62/97/35:P0;
+!!DO1024/113/146/33:P0;
+!!DO1024/130/145/15:P0;
+!!FU:E;
+!!en;
+!!BM27:N?y1;
+!!if&y1<1;
+!!DO1024/22/27/1:P0; passible
+!!FU:E;
+!!en;
+!!BM26:N?y1;
+!!if&y1<1;
+!!DO1024/21/87/33:P0; passible
+!!DO1024/37/70/33:P0;
+!!FU:E;
+!!en;
+!!BM25:N?y1;
+!!if&y1<1;
+!!DO1024/103/138/35:P0; passible
+!!DO1024/121/156/35:P0;
+!!FU:E;
+!!en;
+!!BM24:N?y1;
+!!if&y1<1;
+!!DO1024/173/180/1:P0; passible
+!!FU:E;
+!!en;
+!!BM23:N?y1;
+!!if&y1<1;
+!!DO1024/115/181/33:P0; passible
+!!DO1024/132/165/33:P0;
+!!FU:E;
+!!en;
+!!BM22:N?y1;
+!!if&y1<1;
+!!DO1024/11/81/35:P0;
+!!DO1024/29/99/35:P0;
+!!en;
+
+!?FU1024; x16=hex #, x1=pass code (0 pass, 2 obstacle)
+!!VRy2:S112*x16+v728+468;
+!!UN:Cy2/4/x1;
+

@@ -1,0 +1,94 @@
+ZVSE
+
+; HS_FountainOfWisdom, JHV, Mar. 17, 2017
+
+; uses z562, z570-z579, Dialog 14, FU12930 (in HoH), and Memory Slot M6
+; requires TUT
+
+!#VRz570:S^../Fount/WntWisdm.gif^;
+!#VRz571:S^../Fount/FlwWisdm.gif^;
+!#VRz572:S^../Fount/KwlWisdm.gif^;
+!#VRz573:S^../Fount/CntWisdm.gif^;
+!#VRz574:S^../Fount/BndWisdm.gif^;
+!#VRz575:S^../Fount/ExpWisdm.gif^;
+!#VRz576:S^../Fount/HapWisdm.gif^;
+!#VRz577:S^../Fount/GratWsdm.gif^;
+!#VRz578:S^../Fount/MudWisdm.gif^;
+!#VRz579:S^../Fount/FtnWisdm.gif^; Lao Tse-Tung
+
+!#VRz562:S^Fountain of Wisdom^;
+!#OB109/28/0:SH562;
+
+!#SN:M6; delete slot 6
+!#SN:M6/9/0/1; create Era data slot #6, 9 values, numbers not strings, save data in Saved Game
+!#SN:M6/0/0 M6/1/1 M6/2/2 M6/3/3 M6/4/4 M6/5/5 M6/6/6 M6/7/7;
+!#SN:M6/8/8;
+
+!#PO109/28/0:B0/1157605502;
+!#PO109/28/0:B1/-163906468;
+!#PO109/28/0:N8; last selection no.
+
+!?OB109/28/0; FoW
+!!PO998:V0/?y1; last day used (L0)
+!!IF&v2392=y1:M^{Fountain of Wisdom}
+
+The Fountain is closed for the rest of the day. Meditate on what you have learned.^; L1
+!!FU&v2392=y1:E; L2
+!!PO998:V1/d1 V1/?y20; Q#, 1-3 (L3)
+!!IF&y20>3:M^{Fountain of Wisdom}
+NOTICE: unauthorized use of this device has been detected, so it is shut down by order of the Ice King!^; L4
+!!FU&y20>3:E; L5
+!!IF:Q1^{Fountain of Wisdom}
+This device was looted during the ransack of Ocean City, and brought here where only the Ice King and his servants can benefit from its teachings. Would you like to try?^;
+!!FU&-1:E; L7
+!!PO998:N?y1; L8
+!!VRy2:S0 Ry1; pick #, 0-y1 (L9)
+!!SN:M6/y1/?y3 M6/y2/?y4; y4=picked index #, 0-15 (L10)
+!!SN:M6/y1/y4 M6/y2/y3; switch pick w/last (L11)
+!!VRy6:Sy4+570; gif z-#  (L12)
+!!VRv1:C1157605502/-163906468/-413614767; (L13)
+!!VRy5:Svy20; (L14)
+!!VRz-1:S^To test your wisdom, please answer this:
+Every prime number which is of the form 4*N+1
+is the sum of two ___ (one word).^; L15
+!!VRz-1&y20=2:S^To test your wisdom, please answer this:
+If N is an integer, N*N+1 is never a multiple of 3,
+but if (P*Q)*(P*Q)+1 is always a multiple of 3 for
+all integers P which are not multiples of 3, then
+Q must be a ___ ___ (two words).^; L16
+!!VRz-1&y20=3:S^To test your wisdom, please answer this:
+The quantity (N-1)!+1 (where (n)! is the factorial
+of n) is divisible by the ineger N if and only if
+N is  ___ (one word).^; L17
+!!VRz-2:S^What is the answer (lower-case letters only)?^; L18
+!!VRz-3:Szy6; L19
+!!VRz-4:S^Lao Tze-Tung^; L20
+!!IF:D14/-1/-2/0/-3/579/0/0/0/-4/0/0/0/0/0/0; L21
+!!IF:E1/14; L22
+* get address of z1
+!!VRv2:S9597416+512;  Era
+!!VRv3:Sv2+128;
+!!VRv4:S1;
+!!DO12930/v2/v3/1:P1/?v4;
+!!VRz5:S^FORGET.WAV^;
+!!SN&v4<>y5:Pz5;
+!!IF&v4<>y5:Q1^That answer is not acceptable. Do you want to try again?^;
+!!SN&v4<>y5/1:G22;
+!!PO998&v4<>y5:V1/d-1;reset for same puzzle
+!!if&v4=y5:;
+!!UN:J6/8/?y8 J6/8/?y9 J6/8/?y10;
+!!VRz5:S^BUILDTWN.WAV^;
+!!SN:Pz5;
+!!IF&y20=1:Q1/8/y8/1^Congratulations! You have won a prize!^;
+!!IF&y20=2:Q1/8/y8/8/y9/1^Congratulations! You have won a big prize!^;
+!!IF&y20=3:Q1/8/y8/8/y9/8/y10/1^Congratulations! You have won a grand prize!^;
+!!HE-1:A4/y8;
+!!HE-1&y20=2:A4/y9;
+!!HE-1&y20=3:A4/y9 A4/y10;
+!!UN:R1;
+!!en:;
+!!PO109/28/0:V0/v2392; last day used
+!!VRy1:-1;
+!!PO109/28/0&y1>-1:Ny1;
+!!PO109/28/0&y1<0:N8; start over
+

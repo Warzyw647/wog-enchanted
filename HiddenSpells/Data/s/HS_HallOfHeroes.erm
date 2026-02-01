@@ -1,0 +1,125 @@
+ZVSE
+
+; HS_HallOfHeroes, JHV, Mar. 14, 2017
+
+; uses z520-z559, Dialog 11, FU12930, and Memory Slots M4 & M5
+; requires TUT
+
+!#VRz520:S^../Hall/H971.gif^;
+!#VRz521:S^../Hall/H116.gif^;
+!#VRz522:S^../Hall/H509.gif^;
+!#VRz523:S^../Hall/H103.gif^;
+!#VRz524:S^../Hall/H138.gif^;
+!#VRz525:S^../Hall/H499.gif^;
+!#VRz526:S^../Hall/H133.gif^;
+!#VRz527:S^../Hall/H122.gif^;
+!#VRz528:S^../Hall/H712.gif^;
+!#VRz529:S^../Hall/H282.gif^;
+!#VRz530:S^../Hall/H185.gif^;
+!#VRz531:S^../Hall/H787.gif^;
+!#VRz532:S^../Hall/H118.gif^;
+!#VRz533:S^../Hall/H237.gif^;
+!#VRz534:S^../Hall/H176.gif^;
+!#VRz535:S^../Hall/H171.gif^;
+
+!#VRz539:S^Hall of Heroes^;
+!#OB35/125/0:SH539;
+
+!#VRz540:S^Ancient Female Samurai Warrior (2 words)^;
+!#VRz541:S^British Navy Vice Admiral (2 words)^;
+!#VRz542:S^USA Basketball Champion (2 words)^;
+!#VRz543:S^Viking Explorer (3 words __ the __)^;
+!#VRz544:S^Mongolian Conquerer (2 words)^;
+!#VRz545:S^Roman Bridge Defender (2 words)^;
+!#VRz546:S^Spartan King and Warrior (1 word)^;
+!#VRz547:S^Russian Cosmonaut (2 words)^;
+!#VRz548:S^Muslim Leader Against the Crusades (1 word)^;
+!#VRz549:S^Zulu War Leader (2 words)^;
+!#VRz550:S^Ancient Chinese General (2 words)^;
+!#VRz551:S^Female French War Leader (3 words __ of __)^;
+!#VRz552:S^USA General and President (2 words)^;
+!#VRz553:S^Hindu Warrior Prince, Great Bowman (1 word)^;
+!#VRz554:S^India Leader (1 word)^;
+!#VRz555:S^Serbian NBA Player (2 words)^;
+
+!#SN:M4; delete slot 4
+!#SN:M4/16/0/1; create Era data slot #4, 16 values, numbers not strings, save data in Saved Game
+!#SN:M4/0/0 M4/1/1 M4/2/2 M4/3/3 M4/4/4 M4/5/5 M4/6/6 M4/7/7;
+!#SN:M4/8/8 M4/9/9 M4/10/10 M4/11/11 M4/12/12 M4/13/13 M4/14/14 M4/15/15;
+
+!#SN:M5; delete slot 5
+!#SN:M5/16/0/1; create Era data slot #5, 16 values, numbers not strings, save data in Saved Game
+!#SN:M5/0/971042960;
+!#SN:M5/1/1165054582;
+!#SN:M5/2/-509009604;
+!#SN:M5/3/-1035362432;
+!#SN:M5/4/-1382700452;
+!#SN:M5/5/-499026894;
+!#SN:M5/6/1337062070;
+!#SN:M5/7/1228370664;
+!#SN:M5/8/-712020228;
+!#SN:M5/9/-282391403;
+!#SN:M5/10/-1850396385;
+!#SN:M5/11/787067791;
+!#SN:M5/12/1186357632;
+!#SN:M5/13/-237781063;
+!#SN:M5/14/-1760917327;
+!#SN:M5/15/1714808468;
+!#PO35/125/0:N15; last selection no.
+
+!?OB35/125/0; HoH
+!!PO998:V0/?y1; last day used (L0)
+!!IF&v2392=y1:M^{Hall of Heroes}
+
+The Hall is closed for the rest of the day.^; L1
+!!FU&v2392=y1:E; L2
+!!IF:Q1^{Hall of Heroes}
+This device was looted during the ransack of Greenholme, and brought here where only the Ice King and his servants can enjoy its game. Would you like to try?^;
+!!FU&-1:E; L4
+!!PO998:N?y1; L5
+!!VRy2:S0 Ry1; pick #, 0-y1 (L6)
+!!SN:M4/y1/?y3 M4/y2/?y4; y4=picked index #, 0-15 (L7)
+!!SN:M4/y1/y4 M4/y2/y3; switch pick w/last (L8)
+!!SN:M5/y4/?y5; answer code #  (L9)
+!!VRy6:Sy4+520; gif z-#  (L10)
+!!VRy7:Sy4+540; clue z-# (L11)
+!!VRz-1:S^Type the name of the Hero shown below, using
+only lower-case letters (example: john smith).^; L12
+!!VRz-2:S^Who is it?^; L13
+!!VRz-3:Szy6; L14
+!!VRz-4:Szy7; L14
+!!IF:D11/-1/-2/0/-3/0/0/0/-4/0/0/0/0/0/0/0; L16
+!!IF:E1/11; L17
+* get address of z1
+!!VRv2:S9597416+512;  Era
+!!VRv3:Sv2+128;
+!!VRv4:S1;
+!!DO12930/v2/v3/1:P1/?v4;
+!!VRz5:S^FORGET.WAV^;
+!!SN&v4<>y5:Pz5;
+!!IF&v4<>y5:Q1^That answer is not acceptable. Do you want to try again?^;
+!!SN&v4<>y5/1:G17;
+!!if&v4=y5:;
+!!VRz5:S^BUILDTWN.WAV^;
+!!SN:Pz5;
+!!VRy8:S1 R6; 1-7
+!!VRy8&y8=2:S6; ore->gold
+!!VRy9:S10;
+!!VRy9&y8=6:S5000;
+!!IF:Q1/y8/y9/1^Congratulations! You have won a prize!^;
+!!OW:R-1/y8/dy9;
+!!UN:R2;
+!!en:;
+!!PO998:V0/v2392; last day used
+!!VRy1:-1;
+!!PO998&y1>-1:Ny1;
+!!PO998&y1<0:N15; start over
+
+!?FU12930; x16 = z-variable next token address (stop at 0 value), x1=init., x2=return
+!!UN:Cx16/1/?y1;
+!!VRx16&y1=0:+512;
+!!VRx2&y1=0:Sx1;
+!!FU&y1=0:E;
+!!VRx2:Sx1*y1+y1;
+!!VRx1:Sx2;
+

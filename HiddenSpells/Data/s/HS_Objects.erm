@@ -1,0 +1,887 @@
+ZVSE
+
+; HS_Objects (Part I), JHV, Oct., 2012
+
+; uses v99, v311-v313, v780-v797, z201-z218, z311-z347, FU177-FU179, FU311-FU322, FU870-FU881, and f368
+
+!#VRz311:S^Fruit Tree^;
+!#OB129/139/0:SH311;
+!#OB35/83/0:SH311;
+!#OB25/98/0:SH311;
+!#OB1/79/0:SH311;
+
+!?OB129/139/0; Fruit Tree
+!!FU320:P;
+
+!?OB35/83/0; Fruit Tree
+!!FU320:P;
+
+!?OB25/98/0; Fruit
+!!FU320:P;
+
+!?OB1/79/0; Fruit
+!!FU320:P;
+
+!?FU320;
+!!PO998:V3/?y1;
+!!VRy2:Sc0-1:7+1; week # (starts at 1)
+!!IF&y1=y2:M^The fruit has already been picked this week.^;
+!!FU&y1=y2:E;
+!!PO998:V3/y2;
+!!VRz2:S^chime_up.wav^;
+!!SN:Pz2;
+!!IF:M^After eating the delicious fruit, you feel blessed with new energy, which will allow you to move farther before resting!^;
+!!HE-1:Y65/500/7/2; add 500 movement
+
+!#VRz312:S^Gold Bug^;
+!#OB33/117/0:H312;
+!#OB34/117/0:H312;
+!#OB35/117/0:H312;
+!#OB36/117/0:H312;
+!#OB37/117/0:H312;
+!#OB33/118/0:H312;
+!#OB34/118/0:H312;
+!#OB35/118/0:H312;
+!#OB36/118/0:H312;
+!#OB37/118/0:H312;
+!#OB38/118/0:H312;
+!#OB32/119/0:H312;
+!#OB33/119/0:H312;
+!#OB34/119/0:H312;
+!#OB35/119/0:H312;
+!#OB36/119/0:H312;
+!#OB37/119/0:H312;
+!#OB38/119/0:H312;
+
+!?TM2&v2393=1/v2395=3; Mondays, Grn
+!!OB39/119/0:T?y1;
+!!FU&y1<>79:E; exit if square empty
+!!AR39/119/0:V?y2;
+!!VRy2:+50;    +5000 gold
+!!AR39/119/0:Vy2;
+
+!?TM2&v2393=1/v2395=3; Mondays, Green
+!!OB39/119/0:T?y1;
+!!FU&y1<>0:E; exit if square not empty
+!!UN:I39/119/0/79/6;
+!!AR39/119/0:V50;  5000 gold
+
+!#VRz313:S^Fire Pillar^;
+!#OB46/44/0:SH313;
+!#VRz314:S^Bloodwood^;
+!#VRz315:S^{Bloodwood}
+This magic wood withstands heat and channels Fire Magic.^;
+!#UN:A121/9/314;
+!#UN:A121/10/315;
+
+!?OB46/44/0&1000;
+!!PO998:N?v2;
+!!FU&v2>0:E;
+!!PO998:N1;
+!!IF:Q1/8/121/1^The pillar and some blocks behind it are made of a reddish wood which somehow feeds the sorcerous flames without being consumed.  You take one of the blocks for analysis.^;
+!!HE-1:A4/121;
+
+!?OB46/44/0&1000;
+!!PO998:N?v2;
+!!FU&v2=0:E;
+!!PO998:V3/?y1;
+!!VRy2:Sc0-1:7+1; week # (starts at 1)
+!!IF&y1=y2:M^The Fire God Thyr speaks out of the sorcerous flame:
+"Go back. So much of my fire in so short a time could destroy you!^;
+!!FU&y1=y2:E;
+!!IF:Q1^The Fire God Thyr speaks out of the sorcerous flame:
+"I can strengthen the fires within you and your people, by burning some of your earth: +3 Attack, for -1 Defense.  Are you willing?^;
+!!FU&-1:E;
+!!PO998:V3/y2;
+!!MA:A6/d3 D6/d-1 A7/d3 D7/d-1 A174/d3 D174/d-1 A34/d3 D34/d-1 A35/d3 D35/d-1 A136/d3 D136/d-1;
+
+!#VRz316:S^Whorlstone of Gems^;
+!#OB8/4/0:SH316;
+
+!?OB8/4/0; Whorlstone
+!!PO998:V3/?y1;
+!!VRy2:Sc0-1:7+1; week # (starts at 1)
+!!IF&y1=y2:M^There are no more gems from the whorlstone this week.^;
+!!FU&y1=y2:E;
+!!PO998:V3/y2;
+!!VRz2:S^CrysBell.wav^;
+!!SN:Pz2;
+!!IF:Q1/5/10/1^Tapping the whorlstone produces 10 gems!^;
+!!OW:R-1/5/d10; +10 gems
+
+!#VRz317:S^Alchemy Mixer^;
+!#OB83/123/0:SH317;
+!#VRz318:S^White Potion^;
+!#VRz319:S^{White Potion}
+This magic potion adds 10 Health but -1 Speed to a selected creature (Ctrl-LMB).^;
+!#UN:A64/9/318 A64/10/319 A64/1/6000;
+!#VRz320:S^Red Potion^;
+!#VRz321:S^{Red Potion}
+This magic potion adds 5 Attack but -2 Defense ability to a selected creature (Ctrl-LMB).^;
+!#UN:A63/9/320 A63/10/321 A63/1/6000;
+!#VRz322:S^Blue Potion^;
+!#VRz323:S^{Blue Potion}
+This magic potion adds 5 Defense but -2 Damage ability to a selected creature (Ctrl-LMB).^;
+!#UN:A65/9/322 A65/10/323 A65/1/6000;
+!#VRz324:S^Green Potion^;
+!#VRz325:S^{Green Potion}
+This magic potion adds 2 Speed but -2 Attack to a selected creature (Ctrl-LMB).^;
+!#UN:A118/9/324 A118/10/325 A118/1/6000;
+!#VRz326:S^Black Potion^;
+!#VRz327:S^{Black Potion}
+This magic potion adds 5 Damage ability but -3 Health to a selected creature (Ctrl-LMB).^;
+!#UN:A119/9/326 A119/10/327 A119/1/6000;
+!#VRz328:S^Alchemy Distiller^;
+!#OB88/114/0:SH328;
+
+!?OB83/123/0; Alchemy Mixer
+!!PO998:V3/?y1;
+!!VRy2:Sc0-1:7+1; week # (starts at 1)
+!!VRz4:S^No more alchemy can be done this week.^;
+!!VRz5:S^Alchemy Distillery^;
+!!VRz6:S^..\Mods\HiddenSpells\Data\Alchemy.gif^;
+!!IF:D19/4/0/5/6 ;
+!!IF:F19/0/0/0/0/0;
+!!IF&y1=y2:E2/19;
+!!FU&y1=y2:E;
+!!VRz-1:S^Alchemy Mixer Options:^;
+!!VRz-2:S^White Potion (HP+10 S-1)^; v99=1
+!!VRz-3:S^Red Potion (A+5 D-2)^; v99=2
+!!VRz-4:S^Blue Potion (D+5 Dm-2)^; v99=4
+!!VRz-5:S^Green Potion (S+2 A-2)^; v99=8
+!!VRz-6:S^Black Potion (Dm+5 HP-3)^; v99=16
+!!VRz-7:S^Cancel^; v99=32
+!!IF:G1/99/32/-1/-2/-3/-4/-5/-6/-7;
+!!FU&v99=32:E;
+!!VRv99&v99=16:S14; PO:N takes 0-15
+!!PO998:V3/y2;
+!!VRz2:S^AlchStr2.wav^;
+!!SN:Pz2;
+!!UN:R6/8000;
+!!VRz2:S^AlchMgic.wav^;
+!!SN:Pz2;
+!!UN:R6/5500;
+!!VRz2:S^steam.wav^;
+!!SN:Pz2;
+!!UN:R6/2000;
+!!VRz4:S^The potion is ready to be distilled.^;
+!!IF:D19/4/0/5/6 ;
+!!IF:E2/19;
+!!PO88/114/0:Nv99;
+
+!?OB88/114/0; Alchemy Distiller
+!!PO998:N?y1;
+!!VRz4:S^There is no potion ready to be distilled.^;
+!!VRz5:S^Alchemy Distillery^;
+!!VRz6:S^..\Mods\HiddenSpells\Data\Alchemy.gif^;
+!!IF:D19/z4/0/z5/z6 ;
+!!IF:F19/0/0/0/0/0;
+!!IF&y1=0:E2/19;
+!!FU&y1=0:E;
+!!VRz2:S^Mods/HiddenSpells/Data/pouring.wav^;
+!!SN:Ev34/1/z2; call PlayOnce, no SN:P here because it makes the pouring sound unrecognizable
+!!PO998:N0;
+!!VRy2:S64; White
+!!VRy2&y1=2:S63; Red
+!!VRy2&y1=4:S65; Blue
+!!VRy2&y1=8:S118; Green
+!!VRy2&y1=14:S119; Black
+!!HE-1:A4/y2;
+!!IF:Q1/8/y2/1^You get a flask of alchemical potion from the distiller.^;
+
+!?CM2; Hero Screen
+!!CM:F?y1 I?y2;
+!!FU|y1<>4/y2<11/y2>44:E; exit if not Ctrl-LMB on misc. or bp slot
+!!VRy3:Sy2-2;
+!!VRy3&y2>39:-19; convert CM:I to HE:A2
+!!HE-1:A1/?y4/y3; get artifact #
+!!FU&y4<>63/y4<>64/y4<>65/y4<>118/y4<>119/y4<>120:E;
+!!CM:R0;
+!!if&y4=120;
+!!HE27:Fd/d/d2/d;
+!!VRz2:S^chime_up.wav^;
+!!SN:Pz2;
+!!IF:Q1/8/y4/21/128/1^The Electrum has its effect!^;
+!!HE-1&y2<40:A3/y4/1/1; delete from misc.
+!!HE-1&y2>39:A3/y4/1/0; delete from backpack
+!!UN:R3/-1;
+!!FU:E;
+!!en;
+!!VRz-1:S^Select a creature from the army to apply the potion to:^;
+!!VRz-2:S^^; 1 y5
+!!VRz-3:S^^; 2 y6
+!!VRz-4:S^^; 4 y7
+!!VRz-5:S^^; 8 y8
+!!VRz-6:S^^; 16 y9
+!!VRz-7:S^^; 32 y10
+!!VRz-8:S^^; 64 y11
+!!VRz-9:S^Cancel^;  128
+!!HE-1:C0/0/?y5/?y15 C0/1/?y6/?y16 C0/2/?y7/?y17 C0/3/?y8/?y18 C0/4/?y9/?y19 C0/5/?y10/?y20 C0/6/?y11/?y21;
+!!UN&y5>-1/y15>-1:N3/-2/y5/0; get name
+!!UN&y6>-1/y16>-1/y6<>y5:N3/-3/y6/0;
+!!UN&y7>-1/y17>-1/y7<>y5/y7<>y6:N3/-4/y7/0;
+!!UN&y8>-1/y18>-1/y8<>y5/y8<>y6/y8<>y7:N3/-5/y8/0;
+!!UN&y9>-1/y19>-1/y9<>y5/y9<>y6/y9<>y7/y9<>y8:N3/-6/y9/0;
+!!UN&y10>-1/y20>-1/y10<>y5/y10<>y6/y10<>y7/y10<>y8/y10<>y9:N3/-7/y10/0;
+!!UN&y11>-1/y21>-1/y11<>y5/y11<>y6/y11<>y7/y11<>y8/y11<>y9/y11<>y10:N3/-8/y11/0;
+!!IF:G1/99/128/-1/-2/-3/-4/-5/-6/-7/-8/-9;
+!!FU&v99=128:E;
+!!VRy12:Sy5;
+!!VRy12&v99=2:Sy6;
+!!VRy12&v99=4:Sy7;
+!!VRy12&v99=8:Sy8;
+!!VRy12&v99=16:Sy9;
+!!VRy12&v99=32:Sy10;
+!!VRy12&v99=64:Sy11;
+!!MA:Sy12/?y20 Dy12/?y21 My12/?y22 Ay12/?y23 Py12/?y24 Ey12/?y25;
+!!MA&y4=64:Py12/d10 Sy12/d-1;
+!!MA&y4=64/y20<3:Sy12/y20;
+!!MA&y4=63:Ay12/d5 Dy12/d-2;
+!!MA&y4=63/y21<3:Dy12/y21;
+!!MA&y4=65:Dy12/d5 My12/d-2 Ey12/d-2;
+!!MA&y4=65/y22<3:My12/y22 Ey12/y25;
+!!MA&y4=118:Sy12/d2 Ay12/d-2;
+!!MA&y4=118/y23<3:Ay12/y23;
+!!MA&y4=119:My12/d5 Ey12/d5 Py12/d-3;
+!!MA&y4=119/y24<3:Py12/y24;
+!!VRz2:S^chime_up.wav^;
+!!SN:Pz2;
+!!IF:Q1/8/y4/21/y12/1^The potion has its effect!^;
+!!HE-1&y2<40:A3/y4/1/1; delete from misc.
+!!HE-1&y2>39:A3/y4/1/0; delete from backpack
+!!UN:R3/-1;
+
+!#VRz329:S^Astrological Orb^;
+!#OB107/119/0:SH329;
+!#VRv797:S0;
+
+!?OB107/119/0; Horoscope
+!!PO998:V3/?y1;
+!!VRy2:Sc; day # (starts at 1)
+!!IF&y1=y2:M^No more astrology can be done today.^;
+!!FU&y1=y2:E;
+!!PO998:V3/y2;
+!!FU177:P; chose next seed
+!!VRv1:S0 R11;
+!!VRv1:+870; function # for event
+!!FUv1:P;
+
+!?FU177;
+!!VRv1:Sv780+780; index to seeds
+!!VRv2:Svv1;
+!!VRv1:R1/v2; set new seed from list
+!!VRv780:-1;
+!!FU178&v780<1:P;
+
+!?FU178; set up 16 random seeds
+!!VRv1:S0 T1024; pick random # based on PC clock
+!!VRv2:R1/v1; set seed
+!!VRv780:S16;
+!!DO179/781/796/1:P; fill v781-v796 with seeds
+
+!?FU179; x16= v-index
+!!VRvx16:S0 R256;
+
+!#FU178:P; initialize first random seeds
+
+!?FU870; default horoscope
+!!IF:M^The moon phase suggests the need to cut through apparent obstacles that can block your high-destiny pathway. Adding to the murky conditions of the Moon being void in its home sign of Cancer, confusion is the name of the game since the Sun makes a frictional link with Neptune while Venus clashes with Uranus. Play it safe regarding money matters and business affairs.^;
+
+!?FU871; Jupiter
+!!VRy1:Sv797 &1;
+!!FU870&y1<>0:P;
+!!FU&y1<>0:E;
+!!VRv797:|1;
+!!IF:Q1/32/3/11/1/1^Jupiter ascends to the 7th House and blesses you with +3 Defense and +1 Luck!^;
+!!HE-1:Fd/d3/d/d;
+!!HE-1:R1/d1;
+
+!?FU872; Neptune
+!!VRy1:Sv797 &2;
+!!FU870&y1<>0:P;
+!!FU&y1<>0:E;
+!!VRv797:|2;
+!!IF:Q1/34/3/1^Neptune trines Chiron and Sol enters into discerning Scorpio! You are blessed with +3 Knowledge!^;
+!!HE-1:Fd/d/d/d3;
+
+!?FU873; Mars and Jupiter
+!!VRy1:Sv797 &4;
+!!FU870&y1<>0:P;
+!!FU&y1<>0:E;
+!!VRv797:|4;
+!!IF:Q1/33/3/14/1/1^The conjunction of Mars and Jupiter into crafty Libra blesses you with +3 Power and +1 Morale!^;
+!!HE-1:Fd/d/d3/d;
+!!HE-1:R0/d1;
+
+!?FU874; Saturn
+!!VRy1:Sv797 &8;
+!!FU870&y1<>0:P;
+!!FU&y1<>0:E;
+!!VRv797:|8;
+!!IF:N31/-1/32/-1/33/-1/34/-1;
+!!IF:N^The descent of dour Saturn into the 5th House curses you!^;
+!!HE-1:Fd-1/d-1/d-1/d-1;
+
+!?FU875; Mars
+!!VRy1:Sv797 &16;
+!!FU870&y1<>0:P;
+!!FU&y1<>0:E;
+!!VRv797:|16;
+!!IF:Q1/31/5/1^Mars' move into adventurous Sagittarius and your 8th House of Transformation blesses you with +5 Attack!^;
+!!HE-1:Fd5/d/d/d;
+
+!?FU876; Mercury
+!!VRy1:Sv797 &32;
+!!FU870&y1<>0:P;
+!!FU&y1<>0:E;
+!!VRv797:|32;
+!!IF:N31/2/32/2/33/2/34/2;
+!!IF:N^Mercury enters Scorpio and your 6th House of Self-Improvement!^;
+!!HE-1:Fd2/d2/d2/d2;
+
+!?FU877; Mars
+!!VRy1:Sv797 &64;
+!!FU870&y1<>0:P;
+!!FU&y1<>0:E;
+!!VRv797:|64;
+!!IF:M^Mars conjuncts the karmic North Lunar Node in your 4th House of Security. Woodshire natives gain +10 HP!^;
+!!MA:P6/d10 P7/d10 P174/d10 P34/d10 P35/d10 P136/d10;
+!!HE-1:R0/d1;
+
+!?FU878; Earth
+!!VRy1:Sv797 &128;
+!!FU870&y1<>0:P;
+!!FU&y1<>0:E;
+!!HE-1:S17/?y2 N?y4;
+!!VRv797&y2>1/y4<>27|y2>2:|128;
+!!FU870&y2>1/y4<>27|y2>2:P;
+!!FU&y2>1/y4<>27|y2>2:E;
+!!VRy2:+1;
+!!VRy3:S53+y2;
+!!IF:Q1/20/y3/1^The stars say you are destined to become a Master of Earth!^;
+!!HE-1:S17/y2;
+
+!?FU879; Fire
+!!VRy1:Sv797 &256;
+!!FU870&y1<>0:P;
+!!FU&y1<>0:E;
+!!HE-1:S14/?y2 N?y4;
+!!VRv797&y2>1/y4<>27|y2>2:|256;
+!!FU870&y2>1/y4<>27|y2>2:P;
+!!FU&y2>1/y4<>27|y2>2:E;
+!!VRy2:+1;
+!!VRy3:S44+y2;
+!!IF:Q1/20/y3/1^The stars say you are destined to become a Master of Fire!^;
+!!HE-1:S14/y2;
+
+!?FU880; Air
+!!VRy1:Sv797 &512;
+!!FU870&y1<>0:P;
+!!FU&y1<>0:E;
+!!HE-1:S15/?y2 N?y4;
+!!VRv797&y2>1/y4<>27|y2>2:|512;
+!!FU870&y2>1/y4<>27|y2>2:P;
+!!FU&y2>1/y4<>27|y2>2:E;
+!!VRy2:+1;
+!!VRy3:S47+y2;
+!!IF:Q1/20/y3/1^The stars say you are destined to become a Master of Air!^;
+!!HE-1:S15/y2;
+
+!?FU881; Water
+!!VRy1:Sv797 &1024;
+!!FU870&y1<>0:P;
+!!FU&y1<>0:E;
+!!HE-1:S16/?y2 N?y4;
+!!VRv797&y2>1/y4<>27|y2>2:|1024;
+!!FU870&y2>1/y4<>27|y2>2:P;
+!!FU&y2>1/y4<>27|y2>2:E;
+!!VRy2:+1;
+!!VRy3:S50+y2;
+!!IF:Q1/20/y3/1^The stars say you are destined to become a Master of Water!^;
+!!HE-1:S16/y2;
+
+!#VRz330:S^Electrum Generator^;
+!#OB125/100/0:SH330;
+!#VRz331:S^Electrum^;
+!#VRz332:S^{Electrum}
+This magic liquid provides energy at a very high density. It is said that Gods drink it for their Power (Ctrl-LMB).^;
+!#UN:A120/9/331 A120/10/332 A120/1/10000;
+
+!?OB125/100/0; Electrum Generator
+!!PO998:V3/?y1;
+!!VRy2:Sc0-1:7+1; week # (starts at 1)
+!!IF&y1=y2:M^There is no more electrum available this week.^;
+!!FU&y1=y2:E;
+!!PO998:V3/y2;
+!!VRz2:S^AlchStr2.wav^;
+!!SN:Pz2;
+!!IF:Q1/8/120/1^The generator has produced electrum!^;
+!!HE-1:A4/120; add 1 Electrum
+
+!#VRz333:S^Time-Space Singularity Locator 9B^;
+!#OB7/80/0:SH333;
+
+!?OB7/80/0; Locator, N=1
+!!PO998:N?y1;
+!!FU&y1<>1:E;
+!!OB17/88/0:T?y3; check for hole at final site (T124)
+!!VRz4:S^No more singularities have been detected.
+Locator 9B shutting down.^;
+!!VRz5:Sz333;
+!!VRz6:S^..\Mods\HiddenSpells\Data\MachineU.gif^;
+!!IF:D21/z4/0/z5/z6 ;
+!!IF:F21/0/0/0/0/0;
+!!IF&y3=124:E2/21;
+!!FU&y3=124:E; exit if at max loc.s
+!!OBv311/v312/0:T?y3; check for hole at last site (T124)
+!!VRz4:S^The previous singularity has not been removed.
+Its strong signal prevents detection of others.
+Locator 9B shutting down.^;
+!!IF:D21/z4/0/z5/z6 ;
+!!IF&y3<>124:E2/21;
+!!FU&y3<>124:E; exit if previous Grail not dug
+!!PO998:V3/?y1;
+!!VRy12:Sc0-1:7+1; week # (starts at 1)
+!!IF&y1=y12:M^Too soon to restart singularity search. Capacitors must completely discharge.^;
+!!FU&y1=y12:E;
+!!PO998:V3/y12;
+!!OB17/88/0:T?y3; check for hole at last site (T124)
+!!HE-1:A2/120/?y1/?y2;
+!!VRz4:S^Locator 9B online --- power low.
+Add electrum to this unit for more locations.
+(No electrum detected, unit shuts down.)^;
+!!IF:D21/z4/0/z5/z6 ;
+!!IF:F21/0/0/0/0/0;
+!!IF&y1<1:E2/21;
+!!FU&y1<1:E; exit if no Electrum
+!!VRz4:S^Locator 9B online --- power low.
+Add electrum to this unit for more locations.
+Will you provide Electrum for another location?^;
+!!IF:D26/z4/0/z5/z6;
+!!IF:F26/0/0/0/0/1;
+!!IF:E2/26;
+!!FU&v2=-1:E;
+!!VRz2:S^AlchMgic.wav^;
+!!SN:Pz2;
+!!HE-1:A3/120/1/1; delete 1 Electrum
+!!PO998:V3/y12;
+!!FU311:P;
+
+!?FU311; Grail 2
+!!OB24/121/0:T?y1;
+!!FU312&y1=124:P;
+!!FU&y1=124:E;
+!!VRv311:C24/121;
+!!UN:I24/121/0/36/0;
+!!VRz4:S^Beneath the Icy Crown and between the eyes
+Dig for the Grail - for there it lies.^;
+!!IF:D21/z4/0/z5/z6;
+!!IF:F21/0/0/0/0/0;
+!!IF:E2/21;
+
+!?FU312; Grail 3
+!!OB85/63/0:T?y1;
+!!FU313&y1=124:P;
+!!FU&y1=124:E;
+!!VRv311:C85/63;
+!!UN:I85/63/0/36/0;
+!!VRz4:S^Find where the wizard and the swamp frog stare
+At a shield of blue in a swampy lair.
+There in the middle you must dig a pit
+For the Grail will sit at the bottom of it.^;
+!!IF:D21/z4/0/z5/z6 ;
+!!IF:F21/0/0/0/0/0;
+!!IF:E2/21;
+
+!?FU313; Grail 4
+!!OB59/65/0:T?y1;
+!!FU314&y1=124:P;
+!!FU&y1=124:E;
+!!VRv311:C59/65;
+!!UN:I59/65/0/36/0;
+!!VRz4:S^Find the face of the fool who worries not
+In the place that's not cold but very hot.
+Dig at the nose as the fool would do
+And he'll sneeze a Grail without fail for you.^;
+!!IF:D21/z4/0/z5/z6 ;
+!!IF:F21/0/0/0/0/0;
+!!IF:E2/21;
+
+!?FU314; Grail 5
+!!OB12/32/0:T?y1;
+!!FU315&y1=124:P;
+!!FU&y1=124:E;
+!!VRv311:C12/32;
+!!UN:I12/32/0/36/0;
+!!VRz4:S^Three cossacks dance in a land I know
+And there lies a leaf as white as snow.
+Focus on the leaf as the wise men do
+And knowledge of the Grail will come to you.^;
+!!IF:D21/z4/0/z5/z6 ;
+!!IF:F21/0/0/0/0/0;
+!!IF:E2/21;
+
+!?FU315; Grail 6
+!!OB72/88/0:T?y1;
+!!FU316&y1=124:P;
+!!FU&y1=124:E;
+!!VRv311:C72/88;
+!!UN:I72/88/0/36/0;
+!!VRz4:S^A stone house feels the rays of a star
+In a place where magic pours into a jar.
+Knock at the doorway with your spade
+And in your hands will the Grail be laid.^;
+!!IF:D21/z4/0/z5/z6 ;
+!!IF:F21/0/0/0/0/0;
+!!IF:E2/21;
+
+!?FU316; Grail 7
+!!OB41/23/0:T?y1;
+!!FU317&y1=124:P;
+!!FU&y1=124:E;
+!!VRv311:C41/23;
+!!UN:I41/23/0/36/0;
+!!VRz4:S^Two flowers grow near a field of weed
+Proof of the Earth's vast fertility yield.
+One flower hids a treasure in its roots.
+Dig for the Grail where you see green shoots.^;
+!!IF:D21/z4/0/z5/z6 ;
+!!IF:F21/0/0/0/0/0;
+!!IF:E2/21;
+
+!?FU317; Grail 8
+!!OB77/31/0:T?y1;
+!!FU318&y1=124:P;
+!!FU&y1=124:E;
+!!VRv311:C77/31;
+!!UN:I77/31/0/36/0;
+!!VRz4:S^A sword in a stone and a crooked staff
+Lie where Might and Magic are combined by craft.
+The roots of the clover grow down deep
+There where the Grail may be found to sleep.^;
+!!IF:D21/z4/0/z5/z6 ;
+!!IF:F21/0/0/0/0/0;
+!!IF:E2/21;
+
+!?FU319; Grail 9
+!!OB17/88/0:T?y1;
+!!FU&y1=124:E;
+!!VRv311:C17/88;
+!!UN:I17/88/0/36/0;
+!!VRz4:S^Find the long-tongued snake, and near its tail,
+Where the arrows meet you will find the Grail.^;
+!!IF:D21/z4/0/z5/z6 ;
+!!IF:F21/0/0/0/0/0;
+!!IF:E2/21;
+
+!?OB7/80/0; Locator, N=0
+!!PO998:N?v1;
+!!FU&v1=1:E; exit if Locator visited
+!!PO998:N1;  set N of current position to 1
+!!VRy2:Sc0-1:7+1; week # (starts at 1)
+!!PO998:V3/y2;
+!!VRz2:S^AlchMgic.wav^;
+!!SN:Pz2;
+!!VRz4:S^Locator 9B commencing singularity search ...
+Probing 8 dimensions of time and space ...
+Singularity detected!^;
+!!VRz5:Sz333;
+!!VRz6:S^..\Mods\HiddenSpells\Data\MachineU.gif^;
+!!IF:D22/z4/0/z5/z6 ;
+!!IF:F22/0/0/0/0/0;
+!!IF:E2/22;
+!!UN:O116/24/0; just in case of premature digging
+!!UN:I116/24/0/36/0; place Grail
+!!VRv311:C116/24;
+!!VRz4:S^Find the place where the Minotaur died.
+Find where he lies with a hole in his side.
+Dig at his knee, he'll not feel the flea,
+And there I will swear the Grail will be.^;
+!!IF:D22/z4/0/z5/z6 ;
+!!IF:E2/22;
+!!VRz4:S^Power low ... electrum needed.
+More singularities sensed, but unable to lock on.
+Locator 9B shutting down.^;
+!!IF:D22/z4/0/z5/z6 ;
+!!IF:E2/22;
+
+!#VRz334:S^Earth Densifier^;
+!#OB18/21/0:SH334;
+
+!?OB18/21/0&1000;
+!!PO998:V3/?y1;
+!!VRy2:Sc0-1:7+1; week # (starts at 1)
+!!IF&y1=y2:M^The Earth God Dris speaks out of the crushing waves of density:
+"Go back. So much of my strength in so short a time could destroy you!^;
+!!FU&y1=y2:E;
+!!IF:Q1^The Earth God Dris speaks out of the crushing waves of density:
+"I can compress and strengthen the earth within you and your people, by using up some of your force: +3 Defense, for -1 Damage.  Are you willing?^;
+!!FU&-1:E;
+!!PO998:V3/y2;
+!!DO321/6/11/1:P0/3/-1/0/0/6/7/174/34/35/136;
+
+!?FU321; xx16=cr# (x16=6-15max), x1=dA, x2=dD, x3=dDM, x4=dP, x5=dS
+!!VRy6:Sxx16;
+!!MA:Ay6/?y1 Dy6/?y2 My6/?y3 Py6/?y4 Sy6/?y5 Ey6/?y7;
+!!MA:Ay6/dx1 Dy6/dx2 My6/dx3 Ey6/dx3 Py6/dx4 Sy6/dx5;
+!!MA&y1<3:Ay6/y1;
+!!MA&y2<3:Dy6/y2;
+!!MA&y3<3:My6/y3 Ey6/y7;
+!!MA&y4<3:Py6/y4;
+!!MA&y5<3:Sy6/y5;
+
+!#VRz335:S^Tide Generator^;
+!#OB105/20/0:SH335;
+
+!?OB105/20/0&1000;
+!!PO998:V3/?y1;
+!!VRy2:Sc0-1:7+1; week # (starts at 1)
+!!IF&y1=y2:M^The Sea God Ruse speaks out of the surging waters:
+"Go back. So much of my energy in so short a time could destroy you!^;
+!!FU&y1=y2:E;
+!!IF:Q1^The Sea God Ruse speaks out of the surging waters:
+"I can add energy to the water within you and your people, by using up some of your air velocity: +5 Health, for -1 Speed.  Are you willing?^;
+!!FU&-1:E;
+!!PO998:V3/y2;
+!!DO321/6/11/1:P0/0/0/5/-1/6/7/174/34/35/136;
+
+!#VRz336:S^Wind Generator^;
+!#OB46/103/0:SH336;
+
+!?OB46/103/0&1000;
+!!PO998:V3/?y1;
+!!VRy2:Sc0-1:7+1; week # (starts at 1)
+!!IF&y1=y2:M^The Air God Serc speaks out of the swirling winds:
+"Go back. So much of my kinetic velocity in so short a time could sweep your matter apart!^;
+!!FU&y1=y2:E;
+!!IF:Q1^The Air God Serc speaks out of the swirling winds:
+"I can increase the kinetic velocity of you and your people, by using up some of your heat energy: +2 Speed, for -1 Attack.  Are you willing?^;
+!!FU&-1:E;
+!!PO998:V3/y2;
+!!DO321/6/11/1:P-1/0/0/0/2/6/7/174/34/35/136;
+
+!#VRz337:S^Force Multiplier^;
+!#OB32/62/0:SH337;
+!#OB33/62/0:SH337;
+!#OB34/62/0:SH337;
+!#OB35/62/0:SH337;
+!#OB36/62/0:SH337;
+!#OB37/62/0:SH337;
+!#OB36/61/0:SH337;
+!#OB36/63/0:SH337;
+!#OB37/61/0:SH337;
+!#OB37/63/0:SH337;
+!#VRz338:S^Chief Forcifier^;
+!#OB38/62/0:SH338;
+!#TR26/62/0:E0;
+
+!?OB38/62/0&1000;
+!!PO998:V3/?y1;
+!!VRy2:Sc0-1:7+1; week # (starts at 1)
+!!IF&y1=y2:M^The Chief Forcifier says:
+"Come back another time. Too much force multiplication is not good for the body!^;
+!!FU&y1=y2:E;
+!!IF:Q1^The Chief Forcifier says:
+"My Force Multiplier can attune vacuum energy to the auras of you and your people, but the process will reduce your life energy: +3 Damage, for -2 Health.  Are you willing?^;
+!!FU&-1:E;
+!!IF:M^Very well. Stand on the target while I scan your auras.^;
+!!IF:V368/1;
+!!PO998:V3/y2;
+
+!?OB26/62/0&368;
+!!IF:V368/0;
+!!VRz1:S^Mods/HiddenSpells/Data/ForcerB1.bmp^;
+!!SN:Ev39/1/z1/321/226/280/78/100/0; call DrawBmp(left=321,top=226,width=280,height=78,Delay=0.1s,IfKey=0)
+!!VRz2:S^LaserHit.wav^;
+!!SN:Pz2;
+!!DO322/0/47/1:P;
+!!DO321/6/11/1:P0/0/3/-2/0/6/7/174/34/35/136;
+
+!?FU322; plot ForcerB[y1]
+!!VRy1:Sx16%3+2; 2-3-4
+!!VRz1:S^Mods/HiddenSpells/Data/ForcerB%Y1.bmp^;
+!!SN:Ev39/1/z1/321/226/280/78/100/0; call DrawBmp(left=321,top=226,width=280,height=78,Delay=0.1s,IfKey=0)
+
+!#VRz339:S^Academy of Earth^;
+!#OB19/16/0:SH339;
+!#VRv313:S0; bit flags for Air(1), Fire(2), Water(4), & Earth(8)
+!#VRz340:S^Earth {Master}^;
+!#VRz341:S^Earth {Master}
+In addition to Expert skill at ordinary Earth Magic, a Master of Earth can travel the stars to the Realm of Earth, visit the Lost Temple, and learn an Elder Spell.^;
+!#VRz201:S^Master of Air!^;
+!#VRz202:S^Master of Fire!^;
+!#VRz203:S^Master of Air and Fire!^;
+!#VRz204:S^Master of Water!^;
+!#VRz205:S^Master of Air and Water!^;
+!#VRz206:S^Master of Fire and Water!^;
+!#VRz207:S^Master of Air, Fire, and Water!^;
+!#VRz208:S^Master of Earth!^;
+!#VRz209:S^Master of Air and Earth!^;
+!#VRz210:S^Master of Fire and Earth!^;
+!#VRz211:S^Master of Air, Fire, and Earth!^;
+!#VRz212:S^Master of Water and Earth!^;
+!#VRz213:S^Master of Air, Water, and Earth!^;
+!#VRz214:S^Master of Fire, Water and Earth!^;
+!#VRz215:S^Master of Air, Fire, Water and Earth!^;
+
+!?OB19/16/0&1000;
+!!HE-1:N?y1 S17/?y3; HE#, Earth
+!!VRy2:Sv313&8; check for Earth Master
+!!IF:V1/0 V2/0;
+!!IF&y1<>27/y1<>29/y3>1:V1/1; (use Melodia for test)
+!!IF&y1=27/y2<>0:V2/1;
+!!IF&y1=29/y2<>0:V2/1;
+!!IF|1/2:Q1/27/23/1^You have learned all that we can teach you, but it is a pleasure to see a good student once again.^;
+!!FU|1/2:E;
+!!PO998:V3/?y4;
+!!VRy5:Sc0-1:7+1; week # (starts at 1)
+!!IF&y4=y5:M^Our instructors must meditate and restore their power before infusing more Earth skill.^;
+!!FU&y4=y5:E;
+!!IF&y3=0:Q1/27/23/2^Welcome to the Academy of Earth! For 1000 gold, we will teach you Basic Earth Magic.  Do you wish to gain such skill?^;
+!!FU&-1/y3=0:E;
+!!IF&y3=1:Q1/27/23/2^Welcome to the Academy of Earth! For 2000 gold, we will teach you Advanced Earth Magic.  Do you wish to gain such skill?^;
+!!FU&-1/y3=1:E;
+!!IF&y3=2:Q1/27/23/2^Welcome to the Academy of Earth! For 4000 gold, we will teach you Expert Earth Magic.  Do you wish to gain such skill?^;
+!!FU&-1/y3=2:E;
+!!IF&y3=3:Q1/27/23/2^Welcome to the Academy of Earth! For 6000 gold, we will invoke Dris to make you a Master of Earth Magic.  Do you wish to gain such skill?^;
+!!FU&-1/y3=3:E;
+!!VRy4:Sy3*2000;
+!!VRy4&y3=0:S1000;
+!!OW:R-1/6/?y5;
+!!IF&y5<y4:Q1/27/23/1^Payment must be in advance. Your studies will start when you have the gold.^;
+!!FU&y5<y4:E;
+!!VRy4:*-1;
+!!OW:R-1/6/dy4;
+!!PO998:V3/y2;
+!!VRz2:S^chime_up.wav^;
+!!SN:Pz2;
+!!HE-1&y3<3:S17/d1;
+!!IF&y3<3:Q1/27/23/1^You have read the sacred scrolls and our masters have approved your qualifications. Your Earth Magic level has increased!^;
+!!FU&y3<3:E;
+!!UN:G0/17/0/340 G0/17/3/341;
+!!VRv313:|8;
+!!VRy6:S360+v313; spclty picture # (revised UN44 & UN32)
+!!VRy7:S200+v313; spclty text Z #
+!!HE-1:N?y8;
+!!UN:G2/y8/1/y6 G2/y8/2/y7 G2/y8/3/y6;
+!!IF:Q1/27/23/1^Dris has accepted our invocation and blessed you! You are a Master of Earth!^;
+!!FU&v313<15:E;
+!!SN:L^Era.dll^/?v3; v3=handle
+!!SN:Av3/^RedirectFile^/?v4; v4=FU address
+!!SN:Ev4/1/^SECSK32.def^/^JVSEC32.def^; works in Era 2.3
+!!SN:Ev4/1/^sskilbon.def^/^JVsklbon.def^;
+*!SN:Ev4/1/^Secskill.def^/^JVSecskl.def^;  doesn't work in Era 2.3, use UN:C instead
+*!SN:Ev4/1/^SECSK82.def^/^JVSEC82.def^;   doesn't work in Era 2.3
+!!UN:C6685136/2/22090; secskill-->JVcskill--do in GM0 also
+!!UN:C6684920/2/22090; secsk82-->JVcsk82--do in GM0 also
+
+!#VRz342:S^Academy of Fire^;
+!#OB51/48/0:SH342;
+!#VRz343:S^Fire {Master}^;
+!#VRz344:S^Fire {Master}
+In addition to Expert skill at ordinary Fire Magic, a Master of Fire can travel the stars to the Realm of Fire, visit the Lost Temple, and learn an Elder Spell.^;
+
+!?OB51/48/0&1000;
+!!HE-1:N?y1 S14/?y3; HE#, Fire skill
+!!VRy2:Sv313&2; check for Fire Master
+!!IF:V1/0 V2/0;
+!!IF&y1<>27/y1<>29/y3>1:V1/1; (use Melodia for testing)
+!!IF&y1=27/y2<>0:V2/1;
+!!IF&y1=29/y2<>0:V2/1;
+!!IF|1/2:Q1/27/23/1^You have learned all that we can teach you, but it is a pleasure to see a good student once again.^;
+!!FU|1/2:E;
+!!PO998:V3/?y4;
+!!VRy5:Sc0-1:7+1; week # (starts at 1)
+!!IF&y4=y5:M^Our instructors must meditate and restore their power before infusing more Fire skill.^;
+!!FU&y4=y5:E;
+!!IF&y3=0:Q1/27/23/2^Welcome to the Academy of Fire! For 1000 gold, we will teach you Basic Fire Magic.  Do you wish to gain such skill?^;
+!!FU&-1/y3=0:E;
+!!IF&y3=1:Q1/27/23/2^Welcome to the Academy of Fire! For 2000 gold, we will teach you Advanced Fire Magic.  Do you wish to gain such skill?^;
+!!FU&-1/y3=1:E;
+!!IF&y3=2:Q1/27/23/2^Welcome to the Academy of Fire! For 4000 gold, we will teach you Expert Fire Magic.  Do you wish to gain such skill?^;
+!!FU&-1/y3=2:E;
+!!IF&y3=3:Q1/27/23/2^Welcome to the Academy of Fire! For 6000 gold, we will invoke Thyr to make you a Master of Fire Magic.  Do you wish to gain such skill?^;
+!!FU&-1/y3=3:E;
+!!VRy4:Sy3*2000;
+!!VRy4&y3=0:S1000;
+!!OW:R-1/6/?y5;
+!!IF&y5<y4:Q1/27/23/1^Payment must be in advance. Your studies will start when you have the gold.^;
+!!FU&y5<y4:E;
+!!VRy4:*-1;
+!!OW:R-1/6/dy4;
+!!PO998:V3/y2;
+!!VRz2:S^chime_up.wav^;
+!!SN:Pz2;
+!!HE-1&y3<3:S14/d1;
+!!IF&y3<3:Q1/27/23/1^You have read the sacred scrolls and our masters have approved your qualifications. Your Fire Magic level has increased!^;
+!!FU&y3<3:E;
+!!UN:G0/14/0/343 G0/14/3/344;
+!!VRv313:|2;
+!!VRy6:S360+v313; spclty picture # (revised UN44 & UN32)
+!!VRy7:S200+v313; spclty text Z #
+!!HE-1:N?y8;
+!!UN:G2/y8/1/y6 G2/y8/2/y7 G2/y8/3/y6;
+!!IF:Q1/27/23/1^Thyr has accepted our invocation and blessed you! You are a Master of Fire!^;
+!!FU&v313<15:E;
+!!SN:L^Era.dll^/?v3; v3=handle
+!!SN:Av3/^RedirectFile^/?v4; v4=FU address
+!!SN:Ev4/1/^SECSK32.def^/^JVSEC32.def^;
+!!SN:Ev4/1/^sskilbon.def^/^JVsklbon.def^;
+!!UN:C6685136/2/22090; do in GM0
+!!UN:C6684920/2/22090;
+
+!#VRz345:S^Academy of Water^;
+!#OB124/25/0:SH345;
+!#VRz346:S^Water {Master}^;
+!#VRz347:S^Water {Master}
+In addition to Expert skill at ordinary Water Magic, a Master of Water can travel the stars to the Realm of Water, visit the Lost Temple, and learn an Elder Spell.^;
+
+!?OB124/25/0&1000;
+!!HE-1:N?y1 S16/?y3; HE#, Water
+!!VRy2:Sv313&4; check for Water Master
+!!IF:V1/0 V2/0;
+!!IF&y1<>27/y1<>29/y3>1:V1/1; (use Melodia for test)
+!!IF&y1=27/y2<>0:V2/1;
+!!IF&y1=29/y2<>0:V2/1;
+!!IF|1/2:Q1/27/23/1^You have learned all that we can teach you, but it is a pleasure to see a good student once again.^;
+!!FU|1/2:E;
+!!PO998:V3/?y4;
+!!VRy5:Sc0-1:7+1; week # (starts at 1)
+!!IF&y4=y5:M^Our instructors must meditate and restore their power before infusing more Water skill.^;
+!!FU&y4=y5:E;
+!!IF&y3=0:Q1/27/23/2^Welcome to the Academy of Water! For 1000 gold, we will teach you Basic Water Magic.  Do you wish to gain such skill?^;
+!!FU&-1/y3=0:E;
+!!IF&y3=1:Q1/27/23/2^Welcome to the Academy of Water! For 2000 gold, we will teach you Advanced Water Magic.  Do you wish to gain such skill?^;
+!!FU&-1/y3=1:E;
+!!IF&y3=2:Q1/27/23/2^Welcome to the Academy of Water! For 4000 gold, we will teach you Expert Water Magic.  Do you wish to gain such skill?^;
+!!FU&-1/y3=2:E;
+!!IF&y3=3:Q1/27/23/2^Welcome to the Academy of Water! For 6000 gold, we will invoke Ruse to make you a Master of Water Magic.  Do you wish to gain such skill?^;
+!!FU&-1/y3=3:E;
+!!VRy4:Sy3*2000;
+!!VRy4&y3=0:S1000;
+!!OW:R-1/6/?y5;
+!!IF&y5<y4:Q1/27/23/1^Payment must be in advance. Your studies will start when you have the gold.^;
+!!FU&y5<y4:E;
+!!VRy4:*-1;
+!!OW:R-1/6/dy4;
+!!PO998:V3/y2;
+!!VRz2:S^chime_up.wav^;
+!!SN:Pz2;
+!!HE-1&y3<3:S16/d1;
+!!IF&y3<3:Q1/27/23/1^You have read the sacred scrolls and our masters have approved your qualifications. Your Water Magic level has increased!^;
+!!FU&y3<3:E;
+!!UN:G0/16/0/346 G0/16/3/347;
+!!VRv313:|4;
+!!VRy6:S360+v313; spclty picture # (revised UN44 & UN32)
+!!VRy7:S200+v313; spclty text Z #
+!!HE-1:N?y8;
+!!UN:G2/y8/1/y6 G2/y8/2/y7 G2/y8/3/y6;
+!!IF:Q1/27/23/1^Ruse has accepted our invocation and blessed you! You are a Master of Water!^;
+!!FU&v313<15:E;
+!!SN:L^Era.dll^/?v3; v3=handle
+!!SN:Av3/^RedirectFile^/?v4; v4=FU address
+!!SN:Ev4/1/^SECSK32.def^/^JVSEC32.def^;
+!!SN:Ev4/1/^sskilbon.def^/^JVsklbon.def^;
+!!UN:C6685136/2/22090; do in GM0
+!!UN:C6684920/2/22090;
+
