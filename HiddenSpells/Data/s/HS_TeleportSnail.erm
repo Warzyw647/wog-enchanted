@@ -157,7 +157,7 @@ ZVSE
 ; Assuming 1920x1080 screen resolution, 1365x768 source size in HD mod, HD version of XFiles.dll from 
 !!VRy1:-560; cancel offset from MouseGet in HD XFiles.dll
 !!VRy1&y1<0:S0;
-!!VRy2:-240; cancel offset from MouseGet in HD
+!!VRy2:-229; cancel offset from MouseGet in HD
 !!VRy2&y2<0:S0;
 !!VRy5:Sy1*2-1665*y5; (2dx)^2
 ;!VRy5:Sy1-832*y5; (dx)^2
@@ -184,12 +184,11 @@ ZVSE
 ; MousePut does that, but takes arguments offset by 1920-800-1120
 ; So I need to pass an X of 1392-1120=272 to MousePut in order to land the cursor at the center of the hero.
 ; Actual Y that I want: 517 (because it's 11.5 tiles from the top edge, each tile 45 px high)
-; hypothesis to check below
-; MouseGet returns that with an offset of (1080-600)/2=240
-; So virtual Y that I want is 517+240=757
-; MousePut does that, but takes arguments offset by 1080-600=480
-; So I need to pass a Y of 757-480=277 to MousePut in order to land the cursor at the center of the hero.
-  !!SN:Ev41/1/272/277;
+; MouseGet returns that with an offset of (1080-622)/2=229
+; So virtual Y that I want is 517+229=746
+; MousePut does that, but takes arguments offset by 1080-622=458
+; So I need to pass a Y of 746-458=288 to MousePut in order to land the cursor at the center of the hero.
+  !!SN:Ev41/1/272/288;
 !!en;
 ; (can't check y3=0 here, spell click not cleared)
 
