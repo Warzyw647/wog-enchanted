@@ -151,8 +151,14 @@ ZVSE
 
 !?TL0&58;
 !!SN:Ev65/1/?y1/?y2/?y3/?y4; call MouseGet(x,y,lmb,rmb)
+;!IF:L^DBG: x: %Y1, y: %Y2, center HD: 832x517, center SD: 295x269^;
 ; 2*x center: for 1920x1080 resolution, axb source size in HD mod it's 1665 (each tile is 45 px, center of first tile on the left is at 22 or 23 px)
 ; 2*x center for original 800x600 resolution: 591
+; Assuming 1920x1080 screen resolution, 1365x768 source size in HD mod, HD version of XFiles.dll from 
+!!VRy1:-560; cancel offset from MouseGet in HD XFiles.dll
+!!VRy1&y1<0:S0;
+!!VRy2:-240; cancel offset from MouseGet in HD
+!!VRy2&y2<0:S0;
 !!VRy5:Sy1*2-1665*y5; (2dx)^2
 ;!VRy5:Sy1-832*y5; (dx)^2
 ; 2*y center for 1920x1080 res is 1035, for 800x600 it's 539
@@ -165,7 +171,25 @@ ZVSE
 ;!IF:L^dbg: dx2: %Y5, dy2: %Y6, 2sqdist: %Y7/99224^;
 !!if&y7>99224; 
 ;!if&y7>24806; 
-  !!SN:Ev41/1/799/517; Mouseput(x,y)--move mouse pointer to center (assume 1920x1080 sceen resolution, so 832/517 is the correct destination, but MousePut knows at most 799x599; it's 296/270 for 800x600)
+; MousePut(x,y)--move mouse pointer to center (assume 1920x1080 screen resolution, so 832/517 is the correct destination; it's 296/270 for 800x600)
+; Okay, here's the math.
+; Assumptions:
+; 1920x1080 screen resolution,
+; 1365x768 source size in HD mod, 32-bit stretchable mode (tested on HD mod 4.202RC5, bilinear shrapnel x2 filter)
+; XFiles.dll used is the one from JV's box.com folder, the one mentioned in file "XFiles for HD Mod-README.txt"
+; Calculations:
+; Actual X I want: 832 (because it's 18.5 tiles from the left edge, each tile 45 px wide)
+; MouseGet returns this with an offset of (1920-800)/2=560
+; So virtual X that I want: 832+560=1392
+; MousePut does that, but takes arguments offset by 1920-800-1120
+; So I need to pass an X of 1392-1120=272 to MousePut in order to land the cursor at the center of the hero.
+; Actual Y that I want: 517 (because it's 11.5 tiles from the top edge, each tile 45 px high)
+; hypothesis to check below
+; MouseGet returns that with an offset of (1080-600)/2=240
+; So virtual Y that I want is 517+240=757
+; MousePut does that, but takes arguments offset by 1080-600=480
+; So I need to pass a Y of 757-480=277 to MousePut in order to land the cursor at the center of the hero.
+  !!SN:Ev41/1/272/277;
 !!en;
 ; (can't check y3=0 here, spell click not cleared)
 
