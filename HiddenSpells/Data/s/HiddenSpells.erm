@@ -212,41 +212,41 @@ ZVSE
 !!SN:Xv325; (hint text address) to address buffer
 !!UN:Cv325/1/?y8;
 !!VRv2:Cy1/y2/y3/y4/v325/y8; for debugging
-!!if&y4<>0/y1>209/y1<285/y2>107/y2<157/60/383/-375; Mouse on left half of Water picture, RMB click
+!!if&y4<>0/y1>1120/y1<1230/y2>438/y2<509/60/383/-375; Mouse on left half of Water picture, RMB click
  !!IF:V59/0; disable FU77 Enter-check
  !!IF:M^{Wave of Fury} - unleashes the warren of Ruse to sweep a wave of icy magic diagonally down and across the battlefield from top or side to bottom or side.  All the properties of troops which it sweeps over are reduced by 15%-30% depending on your Water Magic skill.  Click the hex where you wish the right side of the wave to start (must be along an edge of the field).  For attackers, the wave sweeps diagonally to the right and down, and for defenders, to the left and down. Costs 20 mana. May only be cast once per battle round.^;
  !!IF:V59/1;
 !!en;
-!!if&y4<>0/y1>209/y1<285/y2>107/y2<157/63/381/-373; Mouse on left half of Air picture, RMB click
+!!if&y4<>0/y1>1120/y1<1230/y2>438/y2<509/63/381/-373; Mouse on left half of Air picture, RMB click
  !!IF:V59/0; disable FU77 Enter-check
  !!IF:M^{Eye of the Whirwind} - unleashes the warren of Serc to sweep a vortex of storm magic around the designated spot.  All the troops which it sweeps over are blown outwards, and 10%-25% (depending on your Air Magic skill) are blown entirely away.  If obstacles or other troops block them from moving the damage is increased by 10%.  Also they lose 1-4 Speed (to a minimum of 2). Click the hex where you wish to center the vortex (a troop there will be unaffected). Costs 20 mana. May only be cast once per battle round.^;
  !!IF:V59/1;
 !!en;
-!!if&y4<>0/y1>209/y1<285/y2>107/y2<157/65/382/-374; Mouse on left half of Fire picture, RMB click
+!!if&y4<>0/y1>1120/y1<1230/y2>438/y2<509/65/382/-374; Mouse on left half of Fire picture, RMB click
  !!IF:V59/0; disable FU77 Enter-check
  !!IF:M^{Chain of Fire} - unleashes the warren of Thyr to hurl a ball of fiery magic at the designated foe.  After striking the first target, it proceeds to the next, until its force (which depends on your Fire Magic skill and Spell Power) is exhausted.  Costs 20 mana. May only be cast once per battle round.^;
  !!IF:V59/1;
 !!en;
-!!if&y4<>0/y1>209/y1<285/y2>107/y2<157/68/384/-376; Mouse on left half of Earth picture, RMB click
+!!if&y4<>0/y1>1120/y1<1230/y2>438/y2<509/68/384/-376; Mouse on left half of Earth picture, RMB click
  !!IF:V59/0; disable FU77 Enter-check
  !!IF:M^{Huorn Grove} - unleashes the warren of Dris to plant a grove of Huorns around the designated location.  The Huorns can guard a friend or bind a foe in place (until they are defeated).  Each unoccupied spot around the target will have Power/6 Huorns, plus 1 for each level of Earth Magic. Costs 20 mana. May only be cast once per battle round.^;
  !!IF:V59/1;
 !!en;
 !!if&y3=0; get hint just before LMB click if poss.
  !!SN:X?z10; buffer address to z10 address
- !!if&y1>209/y1<285/y2>107/y2<157/60/-61/383/-375; Mouse on left half of Water picture
+ !!if&y1>1120/y1<1230/y2>438/y2<509/60/-61/383/-375; Mouse on left half of Water picture
   !!IF:L^^; make noise
   !!IF:V61/1;
  !!en;
- !!if&y1>209/y1<285/y2>107/y2<157/65/-61/382/-374; Mouse on left half of Fire picture
+ !!if&y1>1120/y1<1230/y2>438/y2<509/65/-61/382/-374; Mouse on left half of Fire picture
   !!IF:L^^; make noise
   !!IF:V61/1;
  !!en;
- !!if&y1>209/y1<285/y2>107/y2<157/63/-61/381/-373; Mouse on left half of Air picture
+ !!if&y1>1120/y1<1230/y2>438/y2<509/63/-61/381/-373; Mouse on left half of Air picture
   !!IF:L^^; make noise
   !!IF:V61/1;
  !!en;
- !!if&y1>209/y1<285/y2>107/y2<157/68/-61/384/-376; Mouse on left half of Earth picture
+ !!if&y1>1120/y1<1230/y2>438/y2<509/68/-61/384/-376; Mouse on left half of Earth picture
   !!IF:L^^; make noise
   !!IF:V61/1;
  !!en;
@@ -264,7 +264,7 @@ ZVSE
   !!IF:V60/0 V61/0 V63/0 V65/0 V68/0;
   !!SN:Q; exit
  !!en;
- !!if&y1>209/y1<285/y2>107/y2<157/60/383/-375; click on left half of Water picture
+ !!if&y1>1120/y1<1230/y2>438/y2<509/60/383/-375; click on left half of Water picture
   !!BG:Q?y9; side
   !!HE-10&y9=0:I?y10/1; mana
   !!HE-20&y9=1:I?y10/1;
@@ -279,7 +279,7 @@ ZVSE
   !!SN:Ev41/1/58/85; put mouse on hex 0
   !!SN:Ev66/1/13/1052; Enter to exit Spell Book
  !!en;
- !!if&y1>209/y1<285/y2>107/y2<157/63/381/-373; click on left half of Air picture
+ !!if&y1>1120/y1<1230/y2>438/y2<509/63/381/-373; click on left half of Air picture
   !!BG:Q?y9; side
   !!HE-10&y9=0:I?y10/1; mana
   !!HE-20&y9=1:I?y10/1;
@@ -294,7 +294,7 @@ ZVSE
   !!SN:Ev41/1/58/85; put mouse on hex 0
   !!SN:Ev66/1/13/1052; Enter to exit Spell Book
  !!en;
- !!if&y1>209/y1<285/y2>107/y2<157/65/382/-374; click on left half of Fire picture
+ !!if&y1>1120/y1<1230/y2>438/y2<509/65/382/-374; click on left half of Fire picture
   !!BG:Q?y9; side
   !!HE-10&y9=0:I?y10/1; mana
   !!HE-20&y9=1:I?y10/1;
@@ -315,7 +315,7 @@ ZVSE
   !!HEv1296&v1296<>-2/v1294>0:A126;
   !!SN:Ev66/1/13/1052; Enter to exit Spell Book
  !!en;
- !!if&y1>209/y1<285/y2>107/y2<157/68/384/-376; click on left half of Earth picture
+ !!if&y1>1120/y1<1230/y2>438/y2<509/68/384/-376; click on left half of Earth picture
   !!BG:Q?y9; side
   !!HE-10&y9=0:I?y10/1; mana
   !!HE-20&y9=1:I?y10/1;
@@ -433,8 +433,14 @@ ZVSE
 !!VRz1:S^Mods/HiddenSpells/Data/WaveQ%Y6.bmp^;
 !!VRz2:S^Mask.bmp^;
 !!VRz3:S^screen.bmp^;
-!!SN:Ev43/1/z3/z1/z2/y2/y3/144/96; call SaveCaptMask(left=y2,top=y3,width=144,height=96)
-!!SN:Ev39/1/z2/y2/y3/144/96/40/0; call DrawBmp(left=y2,top=y3,width=144,height=96,Delay=40 ms,IfKey=0)
+; Recalculate like for Iceball in HS_Arena
+; Supply X*1920/1365-163 instead of X and Y*1080/768-126 instead of Y to the drawing functions (plus 30,30 px found experimentally)
+!!VRy4:Sy2*1920:1365-131;
+!!VRy4&y4<0:S0;
+!!VRy5:Sy3*1080:768-94;
+!!VRy5&y5<0:S0;
+!!SN:Ev43/1/z3/z1/z2/y4/y5/144/96; call SaveCaptMask(left=y4,top=y5,width=144,height=96)
+!!SN:Ev39/1/z2/y4/y5/144/96/40/0; call DrawBmp(left=y4,top=y5,width=144,height=96,Delay=40 ms,IfKey=0)
 ; For LHS, end wave if on bottom row (10) or last occupied column (15) of even row
 !!VRz1:S^Mods\HiddenSpells\Data\River.wav^;
 !!SN&x4=0/x1=15/y1=0|x2=10:Ev34/1/z1; call PlayOnce
@@ -466,6 +472,12 @@ ZVSE
 !!VRz1:S^Mods/HiddenSpells/Data/WaveQ%Y7.bmp^;
 !!VRz2:S^Mask.bmp^;
 !!VRz3:S^screen.bmp^;
+; Recalculate like for Iceball in HS_Arena
+; Supply X*1920/1365-163 instead of X and Y*1080/768-126 instead of Y to the drawing functions
+!!VRy5:*1920:1365-131;
+!!VRy5&y5<0:S0;
+!!VRy6:*1080:768-94;
+!!VRy6&y6<0:S0;
 !!SN:Ev43/1/z3/z1/z2/y5/y6/144/96; call SaveCaptMask(left=y5,top=y6,width=144,height=96)
 !!SN:Ev39/1/z2/y5/y6/144/96/40/0; call DrawBmp(left=y5,top=y6,width=144,height=96,Delay=40 ms,IfKey=0)
 
@@ -529,6 +541,12 @@ ZVSE
 !!VRk:Sj%2;
 !!VRy2:S-1*k+i+i*22+58-90; Xw
 !!VRy3:Sj*42+85-63; Yw
+; Recalculate like for Iceball in HS_Arena
+; Supply X*1920/1365-163 instead of X and Y*1080/768-126 instead of Y to the drawing functions
+!!VRy2:*1920:1365-131;
+!!VRy2&y2<0:S0;
+!!VRy3:*1080:768-94;
+!!VRy3&y3<0:S0;
 !!VRz1:S^Mods/HiddenSpells/Data/vortex21.bmp^;
 !!VRz2:S^Mask0.bmp^;
 !!SN:Ev40/1/z1/z2/y2/y3/180/180; call SaveMask(left=y2,top=y3,width=180,height=180)
@@ -576,7 +594,9 @@ ZVSE
 !!VRy1:Sv10%6;
 !!VRv10:+1;
 !!VRz1:S^Mask%Y1.bmp^;
-!!SN:Ev39/1/z1/x1/x2/180/180/v11/0; call DrawBmp(left=y2,top=y3,width=180,height=180,Delay=v11/1000 sec.,IfKey=0)
+!!VRy2:Sx1;
+!!VRy3:Sx2;
+!!SN:Ev39/1/z1/y2/y3/180/180/v11/0; call DrawBmp(left=y2,top=y3,width=180,height=180,Delay=v11/1000 sec.,IfKey=0)
 !!VRv11&v11>55:-10;
 !!VRv11&v11<60:S0;
 !!FU523&v10<201:Px1/x2;
@@ -687,6 +707,12 @@ ZVSE
 !!VRz1:S^screen.bmp^;
 !!SN:Ev38/1/z1/0/0/800/556; call CaptureScreen(left=0,top=0,width=800,height=556)
 !!DO525/0/11/1:Py2/y3;
+; Recalculate like for Iceball in HS_Arena
+; Supply X*1920/1365-163 instead of X and Y*1080/768-126 instead of Y to the drawing functions
+!!VRy2:*1920:1365-131;
+!!VRy2&y2<0:S0;
+!!VRy3:*1080:768-94;
+!!VRy3&y3<0:S0;
 !!SN:Ev39/1/z2/y2/y3/141/131/2000/0; call DrawBmp last time to allow more time for sound
 !!VRv1281:C-17/-16/-1/1/17/18; even j loc.s from center
 !!VRv1281&k=1:C-18/-17/d/d/16/17; odd j loc.s from center (L->R, T->B)
@@ -700,8 +726,16 @@ ZVSE
 !!VRz1:S^Mods/HiddenSpells/Data/Tree%X16.bmp^;
 !!VRz2:S^Mask.bmp^;
 !!VRz3:S^screen.bmp^;
-!!SN:Ev43/1/z3/z1/z2/x1/x2/141/131; call SaveCaptMask(left=x1,top=x2,width=141,height=131)
-!!SN:Ev39/1/z2/x1/x2/141/131/200/0; call DrawBmp(left=x1,top=x2,width=141,height=131,Delay=0.2 sec.,IfKey=0)
+!!VRy2:Sx1;
+!!VRy3:Sx2;
+; Recalculate like for Iceball in HS_Arena
+; Supply X*1920/1365-163 instead of X and Y*1080/768-126 instead of Y to the drawing functions
+!!VRy2:*1920:1365-131;
+!!VRy2&y2<0:S0;
+!!VRy3:*1080:768-94;
+!!VRy3&y3<0:S0;
+!!SN:Ev43/1/z3/z1/z2/y2/y3/141/131; call SaveCaptMask(left=y2,top=y3,width=141,height=131)
+!!SN:Ev39/1/z2/y2/y3/141/131/200/0; call DrawBmp(left=y2,top=y3,width=141,height=131,Delay=0.2 sec.,IfKey=0)
 
 !?FU526; x1=central hex, x2=# of DS, x3=side, x16=table index
 !!VRy1:Sx16+1280; index to loc.s table
