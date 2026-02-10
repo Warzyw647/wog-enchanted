@@ -27,6 +27,6 @@ ZVSE
 !!IF:V416/1;
 !!VRz2:S^Mods/HiddenSpells/Data/Interrup.wav^;
 !!SN:Ev34/1/z2; call PlayOnce
-!!IF:M^{Stand By For} {An} {Announcement} {From} {The} {Ice} {King!}^;
-!!IF:M^It has come to my attention that you are failing in your duty to guard my Holds! Therefore I have summoned motivators to whip you into shape. The motivators are also authorized to bring your spirits back from Valhalla if you fall, albeit in slightly different forms!^;
+!!IF:M^{Uwaga, uwaga!} {Posłuchajcie} {Ogłoszenia} {Jego} {Mroźności} {Króla} {Lodu!}^;
+!!IF:M^Doniesiono mi że się obijacie miast strzec mych Dominiów! Przyzwałem więc motywatorów by wybatożyli wam głupoty ze łbów. Motywatorzy mają też pozwolenie by sprowadzać wasze duchy spowrotem z Valhalli gdybyście się wywalili, choć w nieco zmienionych formach!^;
 

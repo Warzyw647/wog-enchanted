@@ -160,18 +160,18 @@ ZVSE
 !!DO306/0/6/1:Pv6015; fill attacker's troop slots
 !!OB72/73/1:T?y8; chk for blocking Hero
 !!if&y8=34; another Hero blocking
-  !!IF:M^The Red Warrior arrogantly says, "You are in my way! I call on {Devoron} to remove this pest!^;
+  !!IF:M^Czerwononosy Wojownik arogancko oznajmia, "Stoisz mi na drodze! Wołam {DerWollschweina} by zająl sie tym robakiem!^;
   !!HE72/73/1:B0/?z7; name
-  !!IF:M^Caught within Devoron's Triple Wards and outside Woodshire's hallowed walls, %Z7 is swept away by Devoron's Red Magic!^;
+  !!IF:M^Złapany przez Czerwonomagiczną świnię DerWollschweina w otwartym terenie, poza zbawczymi murami Zielonej Góry, bohater %Z7 zostaje zmieciony z powierzchni ziemi!^;
   !!VRz8:S^Mods/HiddenSpells/Data/MEDUKILL.WAV^;
   !!SN:Ev34/1/z8;
   !!HE72/73/1:K;
 !!en;
 !!CA72/72/1:H0/?y6 H1/?y7; 0/garrison, 1/visiting
 !!if&y7>-1/y6>-1; another Hero blocking
-  !!IF:M^The Red Warrior arrogantly says, "You are in my way! I call on {Devoron} to remove this pest!^;
+  !!IF:M^Czerwononosy Wojownik arogancko oznajmia, "Stoisz mi na drodze! Wołam {DerWollschweina} by zająl sie tym robakiem!^;
   !!HEy7:B0/?z7; name
-  !!IF:M^Caught within Devoron's Triple Wards and outside Woodshire's hallowed walls, %Z7 is swept away by Devoron's Red Magic!^;
+  !!IF:M^Złapany przez Czerwonomagiczną świnię DerWollschweina w otwartym terenie, poza zbawczymi murami Zielonej Góry, bohater %Z7 zostaje zmieciony z powierzchni ziemi!^;
   !!VRz8:S^Mods/HiddenSpells/Data/MEDUKILL.WAV^;
   !!SN:Ev34/1/z8;
   !!HEy7:K;
@@ -297,7 +297,7 @@ ZVSE
 !!FU&v1=0:E;
 * give experience credits = 1*exp, use gold for now
 !!VRv1:Sv6002+500*1; exp=creature HP+500
-!!IF:Q1/6/v1/1^You have won some spoils from the defeated army!^;
+!!IF:Q1/6/v1/1^Przetrząsnąwszy sakiewki pokonanej armii znajdujesz nieco złota!^;
 !!OW:R3/6/dv1;
 !!BA:H1/?v2;
 !!FU86&v2<0:P1; count battle exp for no Hero

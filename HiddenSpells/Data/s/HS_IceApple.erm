@@ -6,13 +6,13 @@ ZVSE
 ; uses z584-z585, FU624-FU625, f425
 ; reuses v27 for round count (set in HiddenSpells)
 
-!#VRz584:S^Ice Apple^;
+!#VRz584:S^Szara Reneta^;
 !#OB52/82/1:SH584;
-!#VRz585:S^Ice Tree^;
+!#VRz585:S^Północna Jabłoń^;
 !#HT141/131:T585;
 
 !?OB52/82/1&1000; Apple of Ice
-!!IF:Q1^Do you dare to pick a frozen apple from the Tree of Ice, where the Ice King gained much of his strength? The spirits trapped here warn you: do not awake those who quard the fruit on the Ice King's behalf! As they dance and gambol, they will raise us up to fight you, and laugh as we are killed and turned to ice to feed the Tree. Do not take the bait - do not unleash the Dancing Gremlins!^;
+!!IF:Q1^Czy odważysz sie zerwać Szarą Renetę z Północnej Jabłoni, gdzie król Lodu posiadł tak wiele ze swej siły? Duchy uwięzione tutaj ostrzegają Cię: nie budź tych którzy strzegą owoców w imieniu króla Lodu! Tańcząc i brykając, staną do walki i będą rechotać gdy będziemy ginąć i obracać się w lód by nakarmić Jabłoń. Nie bierz przynęty - nie wywołuj Tańczących z Chrisami!^;
 !!FU&-1:E;
 !!IF:V425/1;
 !!EA173:B9/1/108/170/25/25/25/25/25/25/25/25/25/25/25;  enable summon clone Arctic SS (for Ice Apple)
@@ -35,7 +35,7 @@ ZVSE
 !!VRy4&y6>127:S127-y2;
 !!HE-1:Fdy3/dy4/d/d;
 !!DO625/0/6/1:P;
-!!IF:Q1/31/y3/32/y4/1^As your mouth burns from the cold of the freezing apple, your battle skill increases, as do the skills of all your army troops!^;
+!!IF:Q1/31/y3/32/y4/1^Gdy zimna Szara Reneta parzy Twoje usta, Twe umiejętności bojowe oraz umiejętności bojowe Twojej armii wzrastają!^;
 
 !?FU625; x16=troop slot
 !!HE-1:C0/x16/?y10/?y11;

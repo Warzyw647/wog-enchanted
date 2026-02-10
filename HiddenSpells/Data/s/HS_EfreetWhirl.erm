@@ -7,9 +7,9 @@ ZVSE
 ; uses z564-z565, v78 from Setup and FU65
 ; reuses week v2389 from Tut
 
-!#VRz564:S^Efreet Whirlwind^;
+!#VRz564:S^Wirek Frytek^;
 !#HT16/3:P0/564; (Imp Cache->OrgTnd2.def)
-!#VRz565:S^%Z564 (empty)^;
+!#VRz565:S^%Z564 (pusty)^;
 !#HT16/3:P1/565;
 *#CB53/52/0:R1/0; Efeet banks don't start with Mercury inherited from their underlying CB subtype (Imp Cache) - moved to Day1Day2
 *#CB52/60/0:R1/0;
@@ -17,10 +17,10 @@ ZVSE
 !?OB16/3&1000;
 !!OB998:R; enable
 !!PO998:N?y1;
-!!IF&y1>0:M^The Whirlwind is empty.^;
+!!IF&y1>0:M^W Wirku nie ma Frytek.^;
 !!OB998&y1>0:M-1/1/0; eliminate next message (there must be a std message)
 !!FU&y1>0:E;
-!!IF:Q1^Would you like to challenge the power of the Whirlwind?^;
+!!IF:Q1^Czy chciałbyć zmierzyć się z Frytkami z Wirku?^;
 !!OB998&-1:S; disable (w/be no std message)
 !!FU&-1:E;
 !!VRy1:Sv78%13+9; instead of S9 T12 take next random number from the sequence, modulo 13, add 9

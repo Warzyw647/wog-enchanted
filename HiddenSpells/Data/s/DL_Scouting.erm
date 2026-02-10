@@ -6,17 +6,17 @@ ZVSE
 
 ; uses z273-z276, universal Timer 1, FU97
 
-!#VRz276:S^{Scouting}^;     [Set yellow skill name]
+!#VRz276:S^{Podglądactwo}^;     [Set yellow skill name]
 
-!#VRz273:S^{Basic} {Scouting}
+!#VRz273:S^{Podst.} {Podglądactwo}
 
-Basic Scouting allows your hero to see 1 square further into the shroud and gain +10% movement.^;
-!#VRz274:S^{Advanced} {Scouting}
+Okulary +1 i +10% ruchu.^;
+!#VRz274:S^{Zaawans.} {Podglądactwo}
 
-Advanced Scouting allows your hero to see 2 squares further into the shroud and gain +20% movement.^;
-!#VRz275:S^{Expert} {Scouting}
+Okulary +2 i +20% ruchu.^;
+!#VRz275:S^{Expert} {Podglądactwo}
 
-Expert Scouting allows your hero to see 3 squares further into the shroud and gain +30% movement.^;
+Okulary +3 i +30% ruchu.^;
 !#UN:G0/3/0/276;     [Set yellow skill name for Scouting]
 !#UN:G0/3/1/273 G0/3/2/274 G0/3/3/275;     [Set skill texts for Scouting]
 

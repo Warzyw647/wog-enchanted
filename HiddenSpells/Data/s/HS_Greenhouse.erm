@@ -5,19 +5,19 @@ ZVSE
 ; uses z514-z516, Dialog 12
 ; also uses v415-v417 & f415
 
-!#VRz514:S^Greenhouse^;
+!#VRz514:S^Szklarnia^;
 !#OB29/20/0:SH514;
-!#VRz515:S^Bouquet of Flowers^;
-!#VRz516:S^{Bouquet of Flowers}
-This beautiful bouquet may please a fair lady, and bring you much luck.^;
+!#VRz515:S^Bukiet Kwiatów^;
+!#VRz516:S^{Bukiet Kwiatów}
+Ten bukiet zadowoli piękną damę i przyniesie Ci dużo szczęścia.^;
 !#UN:A46/9/515 A46/10/516;
 
 !?OB29/20/0; Greenhouse
-!!VRz4:S^Welcome to this Greenhouse, where beautiful flowers
-are grown. Would you like a bouquet to please a lady?
-The Ice King demands that we make a huge profit, or
-he will reduce our head count--literally--so we must
-charge 10,000 gold for our product.^;
+!!VRz4:S^Witajcie w Szklarni, gdzie hodujemy piękne kwiaty.
+Chcesz kupić śliczny bukiet by oszołomić dziewczynę?
+Król Lodu wymaga od nas ogomnych zysków, albo
+zetnei nam główki--dosłownie--więc musimy żądać
+po 10,000 złotych za nasze produkty.^;
 !!VRz5:S^Bouquet of Flowers^;
 !!VRz6:S^..\Data\Bouquet.gif^;
 !!IF:D12/z4/0/z5/z6/0/0/0;
@@ -25,12 +25,12 @@ charge 10,000 gold for our product.^;
 !!IF:E99/12;
 !!FU&v99=-1:E;
 !!OW:R-1/6/?y3; gold
-!!IF&y3<10000:Q1/6/10000/8/46/1^You do not have enough gold to pay us, sorry.^;
+!!IF&y3<10000:Q1/6/10000/8/46/1^Nie masz tyle pieniędzy by nam zapłacić, przykro nam.^;
 !!FU&y3<10000:E;
 !!HE-1:A4/46;
 !!OW:R-1/6/d-10000;
 !!UN:R1 R2;
-!!IF:Q1/6/10000/8/46/1^Take the flowers, with our thanks for the gold.^;
+!!IF:Q1/6/10000/8/46/1^Weź kwiaty i nasze podziękowania za złoto.^;
 
 !?OB52/0&1000; Mermaid
 !!OBv998/v999/v1000:S; disable tentatively (prevents normal message)
@@ -42,12 +42,12 @@ charge 10,000 gold for our product.^;
 !!VRy5:Sy1*1170+7093+y4; address of Visited flags (0x1AB0+0x105=7093)
 !!UN:Cy5/4/?y6;
 !!VRy6:&32768; check for Mermaid bit
-!!IF&y6>0:M^You have already been blessed with perfect luck for your next battle. Until the blessing is used it cannot be restored.^;
+!!IF&y6>0:M^Zostaliście pobłogosławieni perfekcyjnym szczęściem w następnej bitwie. Dopóki błogosławieństwo onie wygaśnie, nie można go odnowić.^;
 !!FU&y6>0:E;
 !!HEy1:A2/46/?y7/d;
-!!IF&y7<1:M^You have no gift for me? Then begone!^;
+!!IF&y7<1:M^A gdzie prezent dla mnie? Idź sobie!^;
 !!FU&y7<1:E;
-!!IF:Q1/8/46/11/100/1^Oh! You brought me a lovely gift of flowers! Thank you, and in gratitude I give you my blessing of perfect luck for one battle!^;
+!!IF:Q1/8/46/11/100/1^Ojejciu, jakie śliczne kwiatuszki! Dziękuję bardzo! Z wdzięczności daję Ci moje błogosławiństwo perfekcyjnego szczęścia na jedną bitwę!^;
 !!HEy1:A-46;
 !!OBv415/v416/v417:M-1/1/0 R; disable next message (there must be a message to disable, none if obj disabled)
 !!IF:V415/0;

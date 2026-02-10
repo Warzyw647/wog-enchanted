@@ -6,24 +6,24 @@ ZVSE
 ; uses z566-z569, z589-z593, FU176, FU66, v77 from Settings
 ; implements Blue Pearl & Black Pearl (labels in Setup) for use as bonuses
 
-!#VRz566:S^Black Pearl^;
+!#VRz566:S^Czarna Perła^;
 !#VRz567:S^{%Z566}
 
-Strengthens psionic abilities so that they can overcome the resistance of even psionically-null creatures, such as Dragons, and adds +2 to all Primary Skills.^;
+Czarna Kulka, tylko jeszcze daje +2 do statów.^;
 !#UN:A93/9/566 A93/10/567;
-!#VRz568:S^Blue Pearl^;
+!#VRz568:S^Niebieska Perła^;
 !#VRz569:S^{%Z568}
 
-Strengthens psionic control of electro-magnetic effects and adds +1 to all Primary Skills.^;
+Mocno kopie (prądem) i dodaje +1 do statystyk.^;
 !#UN:A79/9/568 A79/10/569;
 
-!#VRz589:S^Marid Tornado^;
+!#VRz589:S^Tornado Mirydów^;
 !#HT16/1:P0/589; (Dwarven Tres.->GrnVortM.def)
-!#VRz590:S^%Z589 (empty)^;
+!#VRz590:S^%Z589 (puste)^;
 !#HT16/1:P1/590;
-!#VRz591:S^Marid^;
-!#VRz592:S^Marids^;
-!#VRz593:S^Arch-Djinni. 9 casts. RC Defend For menu. Default: T-Bolt.^;
+!#VRz591:S^Miryd^;
+!#VRz592:S^Mirydy^;
+!#VRz593:S^Arcy-Dżiny. 9 czarów. Menu pod PPM Obrona. Domyślnie prąd^;
 !#UN:G1/182/0/591 G1/182/1/592 G1/182/2/593;
 ; make Marid (Astral Spirit, 182) cast offensive or defensive spell
 !#UN:C7961145/1/8;
@@ -68,12 +68,12 @@ Strengthens psionic control of electro-magnetic effects and adds +1 to all Prima
 !!BMy1&y1>-1:T?y2;
 !!FU|y1<0/y2<>182:E;
 !!CM:R0; disable standard click action
-!!VRz-1:S^Choose an Attack type^;
-!!VRz-2:S^Melee^; v10=1
-!!VRz-3:S^Ranged^; v10=2
-!!VRz-4:S^Cast Titan's Thunderbolt^; v10=4
-!!VRz-5:S^Cast Meteor Shower^; v10=8
-!!VRz-6:S^Cast Chain Lightning^; v10=16
+!!VRz-1:S^Wybierz typ ataku^;
+!!VRz-2:S^Wręcz^; v10=1
+!!VRz-3:S^Strzał^; v10=2
+!!VRz-4:S^Piorun Tytana^; v10=4
+!!VRz-5:S^Meteor^; v10=8
+!!VRz-6:S^Łącze Piorunów^; v10=16
 !!IF:G1/10/2/-1/-2/-3/-4/-5/-6;
 !!if&v10=1:;
 !!BMy1:F?y2; get "X" flag bits
@@ -115,10 +115,10 @@ Strengthens psionic control of electro-magnetic effects and adds +1 to all Prima
 !?OB16/1&1000;
 !!OB998:R; enable
 !!PO998:N?y1;
-!!IF&y1>0:M^The Tornado is empty.^;
+!!IF&y1>0:M^Tornado jest puste.^;
 !!OB998&y1>0:M-1/1/0; eliminate next message (there must be a std message)
 !!FU&y1>0:E;
-!!IF:Q1^Would you like to challenge the power of the Tornado?^;
+!!IF:Q1^Czy chciałbyś zwyzywać Tornado?^;
 !!OB998&-1:S; disable (w/be no std message)
 !!FU&-1:E;
 !!VRy1:Sv77%23%17+12; instead of S12 T16 take next random number from the sequence, modulo 17, add 12. Okay, maybe not 17, because 647 = 1 mod 17. Take mod 23 first. Lower end more likely, but that's okay.
