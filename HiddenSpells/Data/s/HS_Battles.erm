@@ -63,7 +63,7 @@ ZVSE
 
 !?BG1&205;
 !!UN&v1297>0:Cv1297/2/26708; restore "Th"
-!!VRz10:S^The High Enchanter spell does 600 damage at each strike.^;
+!!VRz10:S^Czar Wysokiego Czarodzieja bije po 600 w każdy cel.^;
 !!BU:Mz10;
 !!IF:V205/0;
 
@@ -77,7 +77,7 @@ ZVSE
 !!BG:N?v1; stack
 !!BMv1:T?v2;
 !!FU&v2<>136:E;
-!!IF:Q1/21/136/1^Leora, thank you for your gifts.  In this desperate struggle, we ask that you stint not your power, but use it on each of us, in turn.^;
+!!IF:Q1/21/136/1^Halyna dzięki Ci za Twe dary.  W tej godzinie próby, proszę nie trwoń swojej mocy, lecz używaj jej na każdym z nas, po kolei.^;
 !!IF:V201/0;
 
 !?BG0&1000/202;
@@ -88,7 +88,7 @@ ZVSE
 !!BG:N?v1; stack
 !!BMv1:T?v2;
 !!FU&v2<>174:E;
-!!IF:Q1/21/174/1^Leora, if it be thy will, shield us to reduce the power of the foe's strikes.^;
+!!IF:Q1/21/174/1^Halyna, jeśli taka Twa wola, osłoń nas tarczą, by zredukować siłę wrogich ciosów.^;
 !!IF:V202/0;
 
 !?BG0&1000/203;
@@ -99,7 +99,7 @@ ZVSE
 !!BG:N?v1; stack
 !!BMv1:T?v2;
 !!FU&v2<>34:E;
-!!IF:Q1/21/34/1^Leora, we ask for your Blessing, that if we die, it will be in glory.^;
+!!IF:Q1/21/34/1^Halyna, prosimy o Twe Błogosławieństwo, by jeśli zginiemy, było to w chwale.^;
 !!IF:V203/0;
 
 !?BG0&1000/204;
@@ -110,7 +110,7 @@ ZVSE
 !!BG:N?v1; stack
 !!BMv1:T?v2;
 !!FU&v2<>6:E;
-!!IF:Q1/21/6/1^Leora, if you can, we ask you to heal our wounds that we may fight to the last.^;
+!!IF:Q1/21/6/1^Halyna, jeśli możesz, prosimy byś uleczyła nasze rany, abyśmy mogli walczyć do ostatniego oddechu.^;
 !!IF:V204/0;
 
 ; casting for each stack per round
@@ -214,29 +214,29 @@ ZVSE
 !!if&y3<5/v1477=>5;
 !!EA34:F76/-1/?v1; v1=line for ability 76/any
 !!EA34&v1>-1:Bv1/1/76/24/30/30/30/30/30/40/40/40/40/40/50;  30/40/50% chance to deflect 25% of damage
-!!IF:Q1/21/34/1^After the lessons of the experience are shared, the junior Mages see a way to improve their ability to deflect blows!^;
+!!IF:Q1/21/34/1^Po wymianie zebranych doświadczeń młodsi Magowie zauważają sposób na poprawę swoich umiejętności parowania ciosów!^;
 !!en;
 !!if&y3<10/v1477=>10;
 !!EA6:F76/-1/?v1; v1=line for ability 76/any
 !!EA6&v1>-1:Bv1/1/76/24/30/30/30/30/30/40/40/40/40/40/50;  30/40/50% chance to deflect 25% of damage
-!!IF:Q1/21/6/1^After the lessons of the experience are shared, the junior Warriors see a way to improve their ability to deflect blows!^;
+!!IF:Q1/21/6/1^Po wymianie zebranych doświadczeń młodsi Wojownicy zauważają sposób na poprawę swoich umiejętności parowania ciosów!^;
 !!en;
 !!if&y3<15/v1477=>15;
 !!EA34:F76/-1/?v1; v1=line for ability 76/any
 !!EA34&v1>-1:Bv1/1/76/24/35/35/35/35/35/45/45/45/45/45/55;  35/45/55% chance to deflect 30% of damage
-!!IF:Q1/21/34/1^After the lessons of the experience are shared, the junior Mages have gained more ability to deflect blows!^;
+!!IF:Q1/21/34/1^Po wymianie zebranych doświadczeń młodsi Magowie poprawili swoje umiejętności parowania ciosów!^;
 !!en;
 !!if&y3<20/v1477=>20;
 !!EA6:F76/-1/?v1; v1=line for ability 76/any
 !!EA6&v1>-1:Bv1/1/76/24/35/35/35/35/35/45/45/45/45/45/55;  35/45/55% chance to deflect 30% of damage
-!!IF:Q1/21/6/1^After the lessons of the experience are shared, the junior Warriors see a better way to deflect blows!^;
+!!IF:Q1/21/6/1^Po wymianie zebranych doświadczeń młodsi Wojownicy poprawili swoje umiejętności parowania ciosów!^;
 !!en;
 !!if&y3<25/v1477=>25;
 !!DO87/0/6/1:P26/34/35; chk Calladan
 !!DO87/0/6/1:P27/34/35; chk Leora
 !!DO94/0/6/1:P72/72/1/34/35; chk Woodshire
 !!CA72/72/1:B6/41; build upgraded level 5
-!!IF:Q1/21/34/21/35/1^After the lessons of the experience are shared, the junior Mages have gained enough wisdom to become High Mages!^;
+!!IF:Q1/21/34/21/35/1^Po wymianie zebranych doświadczeń młodsi Magowie zyskali wystarczającą mądrość by stać się Wysokimi Magami!^;
 !!UN:R1;
 !!en;
 !!if&y3<30/v1477=>30;
@@ -244,35 +244,35 @@ ZVSE
 !!DO87/0/6/1:P27/6/7; chk Leora
 !!DO94/0/6/1:P72/72/1/6/7; chk Woodshire
 !!CA72/72/1:B6/40; build upgraded level 5
-!!IF:Q1/21/6/21/7/1^After the lessons of the experience are shared, the junior Warriors have gained enough battle knowledge to become Senior Warriors!^;
+!!IF:Q1/21/6/21/7/1^Po wymianie zebranych doświadczeń młodsi Wojownicy zyskali wystarczającą wiedzę praktyczną by zostać Starszymi Wojownikami!^;
 !!UN:R1;
 !!en;
 !!if&y3<35/v1477=>35;
 !!EA35:F112/-1/?v1; v1=line for ability 112/(any)
 !!EA35&v1>-1:Bv1/1/112/19/100/100/100/100/100/100/100/100/100/100/100; Chain Lightning before attack
-!!IF:Q1/21/35/1^After the lessons of the experience are shared, the High Mages have gained enough wisdom to learn Chain Lightning!^;
+!!IF:Q1/21/35/1^Po wymianie zebranych doświadczeń Wysocy Magowie zyskali wystarczającą mądrość by nauczyć się Łącza Piorunów!^;
 !!en;
 !!if&y3<40/v1477=>40;
 !!EA7:F101/-1/?v1; v1=line for ability 101/(any)
 !!EA7&v1>-1:Bv1/1/101/61/5/7/10/12/15/17/20/22/25/27/30; Death Blow 5-30% (each blow)
 !!EA174:F101/-1/?v1; v1=line for ability 101/(any)
 !!EA174&v1>-1:Bv1/1/101/61/5/8/10/13/15/18/20/23/25/28/30; Death Blow 5-30% (each blow)
-!!IF:Q1/21/7/1^After the lessons of the experience are shared, the Senior Warriors see a way to improve their ability to deal Death Blows!^;
+!!IF:Q1/21/7/1^Po wymianie zebranych doświadczeń Starsi Wojownicy zauważają sposób na poprawę swych umiejętności zadawania Śmiertelnych Ciosów!^;
 !!en;
 !!if&y3<45/v1477=>45;
 !!EA35:F76/-1/?v1; v1=line for ability 76/any
 !!EA35&v1>-1:Bv1/1/76/39/45/45/45/45/45/55/55/55/55/55/65;  45/55/65% chance to deflect 40% of damage
-!!IF:Q1/21/35/1^After the lessons of the experience are shared, the High Mages see a way to improve their ability to deflect blows!^;
+!!IF:Q1/21/35/1^Po wymianie zebranych doświadczeń Wysocy Magowie zauważają sposób na poprawę swoich umiejętności parowania ciosów!^;
 !!en;
 !!if&y3<50/v1477=>50;
 !!EA7:F76/-1/?v1; v1=line for ability 76/any
 !!EA7&v1>-1:Bv1/1/76/39/45/45/45/45/45/55/55/55/55/55/65;  45/55/65% chance to deflect 40% of damage
-!!IF:Q1/21/7/1^After the lessons of the experience are shared, the Senior Warriors see a way to improve their ability to deflect blows!^;
+!!IF:Q1/21/7/1^Po wymianie zebranych doświadczeń Starsi Wojownicy zauważają sposób na dalszą poprawę swych umiejętności zadawania Śmiertelnych Ciosów!^;
 !!en;
 !!if&y3<55/v1477=>55;
 !!EA35:F112/-1/?v1; v1=line for ability 112/(any)
 !!EA35&v1>-1:Bv1/1/112/57/100/100/100/100/100/100/100/100/100/100/100; TTB before attack
-!!IF:Q1/21/35/1^After the lessons of the experience are shared, the High Mages have gained enough wisdom to learn the Titan's Thunderbolt!^;
+!!IF:Q1/21/35/1^Po wymianie zebranych doświadczeń Wysocy Magowie zyskali wystarczającą mądrość by nauczyć się ciskać Pioruny Tytana!^;
 !!en;
 !!if&y3<60/v1477=>60;
 !!EA7:F101/-1/?v1; v1=line for ability 101/(any)
@@ -281,63 +281,63 @@ ZVSE
 !!EA174&v1>-1:Bv1/1/101/61/10/13/15/18/20/23/25/28/30/33/35; Death Blow 10-35% (each blow)
 !!EA174:F115/-1/?v1; v1=line for ability 115/-1, or empty line if none, -1 if no free lines
 !!EA174&v1>-1:Bv1/1/115/53/0/0/1/1/1/2/2/2/3/3/3; Enchant w/Haste (3=expert--match Jalery)
-!!IF:Q1/21/7/1^After the lessons of the experience are shared, the Senior Warriors see a way to improve their ability to deal Death Blows!^;
+!!IF:Q1/21/7/1^Po wymianie zebranych doświadczeń Starsi Wojownicy poprawiają swoje Śmiertelne Ciosy!^;
 !!en;
 !!if&y3<65/v1477=>65;
 !!EA35:F76/-1/?v1; v1=line for ability 76/any
 !!EA35&v1>-1:Bv1/1/76/44/50/50/50/50/50/60/60/60/60/60/70;  50/60/70% chance to deflect 45% of damage
-!!IF:Q1/21/35/1^After the lessons of the experience are shared, the High Mages see a way to improve their ability to deflect blows!^;
+!!IF:Q1/21/35/1^Po wymianie zebranych doświadczeń Wysocy Magowie poprawiają swoje parowanie ciosów!^;
 !!en;
 !!if&y3<70/v1477=>70;
 !!EA7:F76/-1/?v1; v1=line for ability 76/any
 !!EA7&v1>-1:Bv1/1/76/44/50/50/50/50/50/60/60/60/60/60/70;  50/60/70% chance to deflect 45% of damage
-!!IF:Q1/21/7/1^After the lessons of the experience are shared, the Senior Warriors see a way to improve their ability to deflect blows!^;
+!!IF:Q1/21/7/1^Po wymianie zebranych doświadczeń Starsi Wojownicy poprawiają swoje parowanie ciosów!^;
 !!en;
 !!if&y3<75/v1477=>75;
 !!EA35:F76/-1/?v1; v1=line for ability 76/any
 !!EA35&v1>-1:Bv1/1/76/49/55/55/55/55/55/65/65/65/65/65/75;  55/65/75% chance to deflect 50% of damage
-!!IF:Q1/21/35/1^After the lessons of the experience are shared, the High Mages see a way to improve further their ability to deflect blows!^;
+!!IF:Q1/21/35/1^Po wymianie zebranych doświadczeń Wysocy Magowie jeszcze bardziej poprawiają swoje parowanie ciosów!^;
 !!en;
 !!if&y3<80/v1477=>80;
 !!EA7:F76/-1/?v1; v1=line for ability 76/any
 !!EA7&v1>-1:Bv1/1/76/49/55/55/55/55/55/65/65/65/65/65/75;  55/65/75% chance to deflect 50% of damage
-!!IF:Q1/21/7/1^After the lessons of the experience are shared, the Senior Warriors see a way to improve further  their ability to deflect blows!^;
+!!IF:Q1/21/7/1^Po wymianie zebranych doświadczeń Starsi Wojownicy jeszcze bardziej poprawiają swoje parowanie ciosów!^;
 !!en;
 !!if&y3<85/v1477=>85;
 !!EA174:B12/1/103/37/25/25/25/25/25/35/35/35/35/35/45;  resist 20/30/40% of spell damage
-!!IF:Q1/21/174/1^After much practice, Vames has improved his resistance to spell damage!^;
+!!IF:Q1/21/174/1^Po wielu ćwiczeniach, Vames poprawił swoją odporność na czary obrażające!^;
 !!en;
 !!if&y3<90/v1477=>90;
 !!EA174:B12/1/103/37/30/30/30/30/30/40/40/40/40/40/50;  resist 20/30/40% of spell damage
-!!IF:Q1/21/174/1^Vames has strengthened his resistance to spell damage further!^;
+!!IF:Q1/21/174/1^Vames jeszcze bardziej poprawił swoją odporność na obrażanie czarami!^;
 !!en;
 !!if&y3<95/v1477=>95;
 !!HE27:M48/1;
-!!IF:Q1/21/128/9/48/1^For all her efforts, the Elder Gods have awarded Leora a new power!^;
+!!IF:Q1/21/128/9/48/1^Za wszystkie wysiłki, Starsi Bogowie dali Halynie nową moc!^;
 !!en;
 !!if&y3<100/v1477=>100;
 !!HE27:M38/1;
-!!IF:Q1/21/128/9/38/1^In admiration of her dedication, the Elder Gods have awarded Leora another new power!^;
+!!IF:Q1/21/128/9/38/1^W podziwie dla jej determinacji, Starsi Bogowie dali Halynie kolejną nową mod!^;
 !!en;
 !!if&y3<110/v1477=>110;
 !!HE27:M9/1;
-!!IF:Q1/21/128/9/9/1^In return for her faithful service, the Elder Gods have given Leora another new power!^;
+!!IF:Q1/21/128/9/9/1^Za jej oddanie, Starsi Bogowie dali Halynie jeszcze jedną nową moc!^;
 !!en;
 !!if&y3<120/v1477=>120;
 !!HE27:S18/3;
-!!IF:Q1/21/128/20/59/1^In recognition of her thorough mastery of Life spells, the Elemental Acadamies have awarded Leora the credential of Expert Scholar!^;
+!!IF:Q1/21/128/20/59/1^W uznaniu dla jej mistrzostwa zaklęć Życia, Akademie Żywiołów nadały Halynie uprawnienia Eksperckiego Nauczyciela Czarów!^;
 !!en;
 !!if&y3<130/v1477=>130;
 !!HE27:S24/3;
-!!IF:Q1/21/128/20/77/1^For outstanding achievement in the field of excellence, the Elemental Acadamies have awarded Leora the certificate of Expert Intelligence!^;
+!!IF:Q1/21/128/20/77/1^Za niebywałe osiągnięcia w dziedzinie doskonałości, Akademie Żywiołów nadały Halynie certyfikat Eksperta Inteligencji!^;
 !!en;
 !!if&y3<140/v1477=>140;
 !!HE27:S25/3;
-!!IF:Q1/21/128/20/80/1^In recognition of the speed and skill with which she casts spells, the Elemental Acadamies have awarded Leora the credential of Expert Sorcery!^;
+!!IF:Q1/21/128/20/80/1^W uznaniu szybkości i umiejętności z jakimi rzuca ona czary, Akademie Żywiołów nadały Halynie uprawnienia Eksperta Czaroznawstwa!^;
 !!en;
 !!if&y3<150/v1477=>150;
 !!HE27:A4/72;
-!!IF:Q1/21/128/8/72/1^The Elder Gods have rewarded Leora with their ultimate prize: the Cloak of Levitation!^;
+!!IF:Q1/21/128/8/72/1^Starsi Bogowie nagrodzili Halynę ich ostateczną nagrodą: Zimową Kurtką Lewitacji!^;
 !!en;
 
 !?FU87; x16=troop, x1=HE#, x2=cr#, x3=new cr#
@@ -354,8 +354,8 @@ ZVSE
 !!VRy4:Sx16+1*-1;
 !!EAy4:E?y5/2/d/d;
 !!HE27:C0/y3/y1/1/y5/2;
-!!IF&y1=174:Q1/21/128/1^{Leora}:  Vames was badly wounded, but I have healed him!^;
-!!IF&y1=136:Q1/21/128/1^{Leora}:  Jalery was badly wounded, but I have healed him!^;
+!!IF&y1=174:Q1/21/128/1^{Halyna}:  Vames mocno oberwał, ale go uleczyłam!^;
+!!IF&y1=136:Q1/21/128/1^{Halyna}:  Jalery mocno oberwał, ale go uleczyłam!^;
 !!UN:R1;
 
 !?HL-1&v2392>1; Hero Level Up (at Tree of K)
