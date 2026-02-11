@@ -5,30 +5,30 @@ ZVSE
 
 ; uses v30-v65, v98-v99, z191, FU88-FU92, and flags 56-58 (and flag 51 from Messages)
 
-!#VRz191:S^Pyth the Teleportation Snail^;
+!#VRz191:S^Pyth Ślimak Teleportacji^;
 !#OB136/66/0:SH191;
 ; --> Cr 126
 !#UN:G1/126/1/191;
 
 !?OB136/66/0&-56; Snail, first visit
-!!IF:M^A giant snail-like creature, shimmering with magical wards, projects its thoughts at you!^;
-!!IF:Q1/21/126/1^Do not hurt poor Pyth, stranger! I serve the Ice King, but only as a slave, and while death would free me from him, the sundering of his wards would bring his wrath upon you, and he would only enslave another of my kind to replace me!^;
-!!IF:Q1/21/126/1^My people live on a far world, where, to compensate for our slow motion and fragility, we evolved the ability to teleport dangerous creatures away from us.  The Ice King has set powerful spells upon me, engraved on my carapace, which force me to do his will.^;
-!!IF:Q1/21/126/1^Which is, that upon demand I teleport him, or any of his servants who know the code numbers, into one of the Holds.  Also, each time I must give some of my power to the transportees, so they may teleport themselves back out (over a short distance and for one use only).^;
-!!IF:Q1/21/126/1^His spells prevent me from telling anyone the numbers of the Holds, but during my imprisonment I have pondered the numbers and thought of clues which the spells will not prevent me from communicating. I will give them to anyone who opposes the Ice King's tyranny!^;
-!!IF:Q1/21/126/1^For example, I can tell you this:  since the Hold of Fire is close to the Beast Hold, its number is close to the number of the Beast Hold, and can be expressed in a formula which uses these numbers: 6 and 25, and also in a similar formula with these numbers: 6, 15, and 20, or with these: 6, 9, 12, 12, and 16.^;
-!!IF:Q1/21/126/1^The formula is ... ahhh! ... I can not say it, the spells prevent me!  You must work it out for yourself.  Try other Holds and I will give you other examples.  The formula is always of the same type.^;
+!!IF:M^Ogromna, ślimakopodobna istota, błyszcząca magicznymi runami wysyła Ci swoje myśli!^;
+!!IF:Q1/21/126/1^Nie krzywdź biednego Pytha, nieznajomy! Służę Królowi Lodu jedynie jako niewolnik i o ile śmierć uwolniłaby mnie od niego, to naruszenie jego run sprowadziłoby na Ciebie jego gniew, a on tylko zniewoliłby kolejnego z mojego rodzaju by mnie zastąpić!^;
+!!IF:Q1/21/126/1^Moi pobratymcy żyją na odległym świecie, gdzie, by skompensować naszą powolność i delikatność, wyewoluowaliśmy zdolność teleportowania drapieżników daleko od nas.  Król Lodu umieścił na mnie potężne czary, wyryte na mojej skorupie, zmuszające mnie do wykonywania jego rozkazów.^;
+!!IF:Q1/21/126/1^To jest, by na żądanie teleportować jego samego lub jego sług znających odpowiednie kody do jednego z jego Dominiów.  Ponadto, za każdym razem muszę oddać część mojej mocy transportowanym, by mogli wyteleportować się spowrotem na zewnątrz (na krótki dystans i tylko jednokrotnego użytku).^;
+!!IF:Q1/21/126/1^Jego czary powstrzymują mnie przed powiedzeniem komukolwiek numerów Dominiów, ale podczas swojego uwięzienia myślałem nad numerami i wymyśliłem wskazówki których czary nie zabronią mi wypowiedzieć. Dam je każdemu kto walczy z tyranią Króla Lodu!^;
+!!IF:Q1/21/126/1^Na przykład, mogę Ci powiedzieć to:  ponieważ Dominium Ognia jest blisko Dominium Bestii, jego numer również jest blisko numeru Dominium Bestii, i może być przedstawiony we wzorze który używa następujących liczb: 6 i 25, oraz w podobnym wzorze z użyciem liczb: 6, 15 i 20, a także z tymi: 6, 9, 12, 12 i 16.^;
+!!IF:Q1/21/126/1^Ten wzór to ... aaAA! ... Nie mogę powiedzieć, czary mnie powstrzymują!  Musisz sam go wykombinować.  Spróbuj z innymi Dominiami, a podam Ci inne przykłady.  Wzór jest zawsze tego samego typu.^;
 !!IF:V56/1;
 
 !?OB136/66/0&56; Snail, after first visit
 ; set up radio-button (G1) dialog box: radio-buttons/use v99 for results/initial state
 ; /z# has header/z# has 1st item description/etc.
-!!VRz-1:S^Pyth, Master of accessible closed Holds, at your service:
-(Some Holds are open, some are only accessible from other Holds.)^;
-!!VRz-2:S^Send you to a Hold^; v99=1 FU88
-!!VRz-3:S^(Whisper) Give clues for North Holds^; v99=2  FU90
-!!VRz-4:S^(Whisper) Give clues for South Holds^; v99=4  FU91
-!!VRz-5:S^Cancel^; v99=8
+!!VRz-1:S^Pyth, Mistrz dostępnych, zamkniętych Dominiów, do usług:
+(Niektóre Dominia sa otwarte, inne są dostępne jedynie z innych Dominiów.)^;
+!!VRz-2:S^Podwózka do Dominium^; v99=1 FU88
+!!VRz-3:S^(Szept) Wskazówki do Płn. Dominiów^; v99=2  FU90
+!!VRz-4:S^(Szept) Wskazówki do Płd. Dominiów^; v99=4  FU91
+!!VRz-5:S^Anuluj^; v99=8
 !!IF:G1/99/1/-1/-2/-3/-4/-5;
 !!FU&v99=8:E;
 !!FU88&v99=1:P;
@@ -36,11 +36,11 @@ ZVSE
 !!FU91&v99=4:P;
 
 !?FU88; Holds
-!!VRz-1:S^Enter the number of the Hold twice, for verification.
-(If the code is 123--which it isn't--enter 123123)^;
-!!VRz-2:S^What is the code?^;
+!!VRz-1:S^Wpisz numer Dominium dwukrotnie, dla weryfikacji.
+(Jeśli kodem jest 123--a nie jest--wpisz 123123)^;
+!!VRz-2:S^Podaj kod?^;
 !!VRz-3:S^..\Mods\HiddenSpells\Data\Snail.bmp^;
-!!VRz-4:S^Pyth, the Snail of Teleportation^;
+!!VRz-4:S^Pyth, Ślimak Teleportacji^;
 !!IF:D42/-1/-2/0/-3/0/0/0/-4/0/0/0/0/0/0/0;
 !!IF:E1/42;
 ; get address of z1
@@ -54,7 +54,7 @@ ZVSE
 !!VRv1:C7069/9297/12435/7498/12242/2634/5392/0/8842/10970;
 !!VRv11:C4509/983/6780/3666/6421/1845/5232/-1;
 !!DO89/1/17/1:Py5;
-!!IF&v18<1:Q1/21/126/1^I am sorry, that is not a correct code. I cannot transport you.^;
+!!IF&v18<1:Q1/21/126/1^Przepraszam, to nie jest poprawny kod. Nie mogę Cię przetransportować.^;
 !!FU&v18<1:E;
 !!VRv1:C13/35/69/122/26/40/54/87/120/3;
 !!VRv11:C37/54/99/120/130/120/55;
@@ -62,7 +62,7 @@ ZVSE
 !!VRv1:C68/20/59/29/45/67/57/68/50/97;
 !!VRv11:C87/88/104/80/98/126/140;
 !!VRy7:Svv18;
-!!IF:Q1/21/126/1^Here you go!  Remember, the teleportation spell I have given you for your exit will only work once, and for a radius of three steps or less, so use it well!^;
+!!IF:Q1/21/126/1^Voilà!  Pamiętaj, zaklęcie teleportacji które dałem Ci byś mógł wyjść zadziała tylko raz i tylko w promieniu 3 kroków, więc użyj go dobrze!^;
 !!OBy6/y7/0:T?y8;
 !!VRy6&y8=34:-1; move destination left if the other Hero is on it
 !!HE-1:Py6/y7/0;
@@ -75,18 +75,18 @@ ZVSE
 !!VRx16:S99; end DO
 
 !?FU90; North Holds clues
-!!VRz-1:S^Which accessible closed Hold?
-(Some Holds are open, some are only accessible from other Holds.)^;
-!!VRz2:S^The Hold of Gems^; v98=1
-!!VRz3:S^The Hold of Earth^; v98=2
-*!VRz4:S^The Forge Hold^; v98=4
+!!VRz-1:S^Które dostępne zamknięte Dominium?
+(Niektóre Dominia sa otwarte, inne są dostępne jedynie z innych Dominiów.)^;
+!!VRz2:S^Dominium Klejnotów^; v98=1
+!!VRz3:S^Dominium Ziemi^; v98=2
+*!VRz4:S^Dominium Kuźni^; v98=4
 !!VRz4:S^^; v98=4
-!!VRz5:S^The Hold of Water^; v98=8
-*!VRz6:S^The Hold of Knowledge^; v98=16
+!!VRz5:S^Dominium Wody^; v98=8
+*!VRz6:S^Dominium Wiedzy^; v98=16
 !!VRz6:S^^; v98=16
-!!VRz7:S^The Hold of Force^; v98=32
-!!VRz8:S^The Hold of Fire^; v98=64
-!!VRz9:S^Cancel^; v98=128
+!!VRz7:S^Dominium Siły^; v98=32
+!!VRz8:S^Dominium Ognia^; v98=64
+!!VRz9:S^Anuluj^; v98=128
 !!IF:G1/98/0/-1/2/3/4/5/6/7/8/9;
 !!FU&v98=128:E;
 !!FU92&v98=1:P2/11/20/11/12/16;
@@ -98,20 +98,20 @@ ZVSE
 !!FU92&v98=64:P8/6/25/6/15/20;
 
 !?FU91; South Holds clues
-!!VRz-1:S^Which accessible closed Hold?
-(Some Holds are open, some are only accessible from other Holds.)^;
-*!VRz2:S^The Hold of Time^; v98=1
+!!VRz-1:S^Które dostępne zamknięte Dominium?
+(Niektóre Dominia sa otwarte, inne są dostępne jedynie z innych Dominiów.)^;
+*!VRz2:S^Dominium Czasu^; v98=1
 !!VRz2:S^^; v98=1
-!!VRz3:S^The Hold of Travel^; v98=2
-!!VRz4:S^The Hold of Air^; v98=4
-*!VRz5:S^The Hold of Fabrication^; v98=8
+!!VRz3:S^Dominium Podróży^; v98=2
+!!VRz4:S^Dominium Powietrza^; v98=4
+*!VRz5:S^Dominium Fabryki^; v98=8
 !!VRz5:S^^; v98=8
-*!VRz6:S^The Hold of the Ghost Wheel^; v98=16
+*!VRz6:S^Dominium Koła Duchów^; v98=16
 !!VRz6:S^^; v98=16
-!!VRz7:S^The Hold of Power^; v98=32
-!!VRz8:S^The Hold of Astrology^; v98=64
-!!VRz9:S^The Hold of the Oracle^; v98=128
-!!VRz10:S^Cancel^; v98=256
+!!VRz7:S^Dominium Potęgi^; v98=32
+!!VRz8:S^Dominium Astrologii^; v98=64
+!!VRz9:S^Dominium Wyroczni^; v98=128
+!!VRz10:S^Anuluj^; v98=256
 !!IF:G1/98/0/-1/2/3/4/5/6/7/8/9/10;
 !!FU&v98=256:E;
 !!FU92&v98=1:P2/5/26/3/4/26;
@@ -125,9 +125,9 @@ ZVSE
 
 !?FU92; x1=z#, x2 & x3 = 1st pair, x4 & x5 & x6 ... = 2nd set
 !!VRz-1:Szx1;
-!!IF&x7=0:M^The number of %Z-1 can be expressed in a formula which uses these numbers: %X2 and %X3, and also in a similar formula with these numbers: %X4, %X5, and %X6.^;
-!!IF&x7<>0/x8=0:M^The number of %Z-1 can be expressed in a formula which uses these numbers: %X2 and %X3, and also in a similar formula with these numbers: %X4, %X5, %X6, and %X7.^;
-!!IF&x8<>0:M^The number of %Z-1 can be expressed in a formula which uses these numbers: %X2 and %X3, and also in a similar formula with these numbers: %X4, %X5, %X6, %X7, and %X8.^;
+!!IF&x7=0:M^Numer %Z-1 może być wyrażony wzorem który używa tych liczb: %X2 i %X3, oraz podobnym wzorem z tymi liczbami: %X4, %X5 i %X6.^;
+!!IF&x7<>0/x8=0:M^Numer %Z-1 może być wyrażony wzorem który używa tych liczb: %X2 i %X3, oraz podobnym wzorem z tymi liczbami: %X4, %X5, %X6 i %X7.^;
+!!IF&x8<>0:M^Numer %Z-1 może być wyrażony wzorem który używa tych liczb: %X2 i %X3, oraz podobnym wzorem z tymi liczbami: %X4, %X5, %X6, %X7 i %X8.^;
 
 !?MG0; Adv Map Spell Cast (pre-cast)
 !!OW:A-1/?v9; get active Hero # (note HE-1 doesn't always work)--JHV
