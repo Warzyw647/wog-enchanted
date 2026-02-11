@@ -8,8 +8,8 @@ ZVSE
 !#TR114/128/0:E0;
 !#TR102/128/0:E0;
 !?OB114/128/0&1000;
-!!IF:M^Follow the arrow, {straight} and true,
-and Alchemy's Hold you will go to.^;
+!!IF:M^Podążaj za strzałką, {prosto} i pewnie,
+a do Dominium Alchemii dotrzesz - tam coś ... .^;
 !!VRv148:C-1/0; step change
 !!IF:V367/1;
 !!HE-1:N?y-1;
@@ -25,8 +25,8 @@ and Alchemy's Hold you will go to.^;
 
 !?OB102/128/0&1000;
 !!TR114/128/0:E0;
-!!IF&-367:M^Your path from the star was crooked, so,
-To Alchemy's Hold you will not go.^;
+!!IF&-367:M^Od gwiazdy do gwiazdy ze ścieżki zboczyłeś,
+czym do Dominium Alchemii drogę zmyliłeś.^;
 !!FU&-367:E;
 !!HE-1:N?y-1;
 !!FU64:Py-1/85/124/0;
@@ -39,8 +39,8 @@ To Alchemy's Hold you will not go.^;
 !#HT12/3:T308; delete hint text for blank campfire 12/3
 !#OB122/111/0:S;
 !?OB114/103/0&1000;
-!!IF:M^From star to star you must go true,
-Or the Hold of Gold will be closed to you.^;
+!!IF:M^Od gwiazdy do gwiazdy podążaj niezachwianie,
+albo droga do Dominium Złota zamkniętą pozostanie.^;
 !!VRv148:C1/1; step change
 !!IF:V367/1;
 !!HE-1:N?y-1;
@@ -49,8 +49,8 @@ Or the Hold of Gold will be closed to you.^;
 
 !?OB122/111/0&1000;
 !!TR114/103/0:E0;
-!!IF&-367:M^From star straight to star you did not walk,
-So the gate to Gold will not unlock.^;
+!!IF&-367:M^Od gwiazdy do gwiazdy na ścieżce Twej wahanie,
+więc droga do Złota otwarta nie zostanie.^;
 !!FU&-367:E;
 !!HE-1:N?y-1;
 !!FU64:Py-1/48/129/0;
@@ -61,8 +61,8 @@ So the gate to Gold will not unlock.^;
 !#TR132/93/0:E0;
 !#OB132/93/0:S;
 !?OB127/88/0&1000;
-!!IF:M^Tap each heel twice on the golden way,
-And home you will bound without delay.^;
+!!IF:M^Dwukrotnie stuknij obcasami na złotej drodze,
+a do domu trafisz na jednej nodze.^;
 !!VRv148:C1/1; step change
 !!IF:V367/1;
 !!HE-1:N?y-1;
@@ -71,8 +71,8 @@ And home you will bound without delay.^;
 
 !?OB132/93/0&1000;
 !!TR127/88/0:E0;
-!!IF&-367:M^From hither to yon you wandered wrong,
-So back to your home you will not roam.^;
+!!IF&-367:M^Z punktu A do punktu B poszedłeś źle,
+więc w domu dziś nie będzie Cię.^;
 !!FU&-367:E;
 !!HE-1:N?y-1;
 !!FU64:Py-1/72/73/1;
@@ -84,7 +84,7 @@ So back to your home you will not roam.^;
 !!OBx2/x3/x4&y1=34:U?y2;
 !!if&y1=34/y2<>x1:;
  !!HEx1:B0/?z7; name
- !!IF:M^The destination is occupied by another soul! %Z7 cannot re-materialize!^;
+ !!IF:M^Punkt docelowy jest zajęty przez inną duszyczkę! %Z7 nie może się zmaterializować!^;
  !!VRz8:S^MEDUKILL.WAV^;
  !!SN:Pz8;
  !!HEx1:K; prevent heroes from banging

@@ -8,15 +8,15 @@ ZVSE
 ; uses PO3/0/z:N
 ; reuses round counter v27
 
-!#VRz517:S^Leprechaun King^;
+!#VRz517:S^Król Leprekaunów^;
 !#HT96/0:T517; (Temple)
-!#VRz518:S^Jug of Poteen^;
-!#VRz519:S^{Jug of Poteen}
-This powerful liquor is bound to increase your soldiers' morale, when used wisely.^;
+!#VRz518:S^Dzban Bimbru^;
+!#VRz519:S^{Dzban Bimbru}
+Ten mocny alkohol mądrze użyty na pewno zwiększy morale żołnierzy.^;
 !#UN:A52/9/518 A52/10/519;
-!#VRz560:S^Poteen Still^;
+!#VRz560:S^Bimbrownia^;
 !#HT141/120:T560;
-!#VRz561:S^Poteen Pot^;
+!#VRz561:S^Gar Bimbru^;
 !#HT141/25:T561;
 
 !?OB96/0&1000; Temple disquised as Leprehaun garden
@@ -31,25 +31,25 @@ This powerful liquor is bound to increase your soldiers' morale, when used wisel
 !!VRy6:&67109120; check for Temple bits
 !!IF&y6>0:M^You have already been blessed with enhanced morale for your next battle. Until the blessing is used it cannot be restored.^;
 !!FU&y6>0:E;
-!!VRz1:S^Did you think to catch myself, Oberon, King of faeries,
-fays, leprechauns, gnomes, bogles, and halfings?!
-Begone, before I put a murrain on you,
-the likes of which you'll not soon forget!^;
-!!VRz2:S^King Oberon^;
+!!VRz1:S^Myślisz że złapiesz mnie, Oczymura, Króla rusałek,
+nimf, leprakaunów, gnomów, impów i niziołków?!
+Zjeżdżaj stąd zanim tak cię o....,
+że długo tego nie zapomnisz!^;
+!!VRz2:S^Król Oczymur^;
 !!VRz3:S^../Data/DwrfKing.gif^;
-!!VRz7:S^King Oberon^;
+!!VRz7:S^Król Oczymur^;
 !!IF:D13/z1/0/z2/z3/0/0/0/z7;
 !!IF:F13/0/0/0/0/0;
 !!IF:E2/13;
 !!HEy1:A2/52/?y7/d;
 !!FU&y7<1:E;
-!!IF:Q1/8/52/14/100/1^Oh wait! is that a jug of poteen I see, and will I have a dram or two? Don't mind if I do, and in exchange I give you my blessing of great morale for one battle!^;
+!!IF:Q1/8/52/14/100/1^Zaczekaj! Czy dobrze widzę to co widzę? Masz Dzban Bimbru? Mogę dostać łyka lub dwa? Z więlką chęcią... a w zamian dam Ci moje błogosławieństwo cudownych morali na jedną bitwę!^;
 !!HEy1:A-52;
 !!OBv415/v416/v417:M-1/1/0 R; disable next message (there must be a message to disable, none if obj disabled)
 !!IF:V415/0;
 !!PO415:N?y21 N1; description flag
 !!FU&y21>0:E;
-!!IF:M^All of your troops will have 100% morale bursts for the first five rounds of your next battle (not including Tactics rounds), normal+50% morale bursts for the next five, and then normal morale bursts. (This description of the enhanced morale effect will not be repeated the next time you visit me with poteen.)^;
+!!IF:M^Wszystkie Twoje jednostki będą miały 100% szans na Morale przez pierwsze pięć rund walki (nie licząc fazy Taktyki), potem 50% szans na morale przez kolejne pięć tur, a potem zwykłe szanse na morale. (Ten opis podrasowanych Morali nie będzie powtórzony gdy kolejny raz przyjdziesz do mnie z bimbrem. Wracaj prędko!)^;
 
 !?HM-1&415;
 !!OBv415/v416/v417:R; re-enable
@@ -107,25 +107,25 @@ the likes of which you'll not soon forget!^;
 !!UN:C4605372/4/328;
 
 !?OB19/31/0; Knu Knu's Still
-!!VRz4:S^This is my still, where I make the royal poteen.
-"Be still my heart" or my heart will be stilled,
-the Ice King says. As usual he charges an exorbitant
-fee--20,000 gold for a jug. I don't suppose you
-want to buy some? It would help make my quota.^;
-!!VRz5:S^Poteen Distillery^;
+!!VRz4:S^Oto moja destylarnia, gdzie pędzę królewską gorzałkę.
+"Musisz pędzić moje złotko" albo zostanę przepędzony bez mojego złotka,
+jak mówi Król Lodu. Jak zwykle żąda niebotycznych
+cen--20,000 złotych za dzbanek. Nie chciałbyś przypadkiem
+trochę kupić? Pomoże mi to wypełnić plan.^;
+!!VRz5:S^Bimbrownia^;
 !!VRz6:S^..\Data\poteen.gif^;
 !!VRz7:S^..\Data\KnuKnu.gif^;
-!!VRz8:S^Poteen Jug^;
-!!VRz9:S^Knu Knu the Brewer^;
+!!VRz8:S^Dzban Gorzałki^;
+!!VRz9:S^Knu Knu, Bimbrownik^;
 !!IF:D15/z4/0/z5/z6/z7/z6/0/z8/z9/z8/0;
 !!IF:F15/0/0/0/0/1;
 !!IF:E99/15;
 !!FU&v99=-1:E;
 !!OW:R-1/6/?y3; gold
-!!IF&y3<20000:Q1/6/20000/8/52/1^You don't have enough gold, unfortunately. I'd give you a taste, but he makes me account for every drop.^;
+!!IF&y3<20000:Q1/6/20000/8/52/1^Jesteś za biedny, niestety. Dałbym Ci spróbować, ale on rozlicza mnie z każdej kropli.^;
 !!FU&y3<20000:E;
 !!HE-1:A4/52;
 !!OW:R-1/6/d-20000;
 !!UN:R1 R2;
-!!IF:Q1/6/20000/8/52/1^Thanks for the gold, and here's your poteen. Don't drink it all in one place!^;
+!!IF:Q1/6/20000/8/52/1^Dzięki za złoto, oto twoja gorzałka. Nie wypij całej naraz!^;
 
