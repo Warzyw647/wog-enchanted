@@ -16,12 +16,12 @@ ZVSE
 *'5'-'9' = 53-57, P=80
 
 !?FU77003&v27>-1; keystroke, v27 is round number
-!!SN:X?y1; y1 � key code
+!!SN:X?y1; y1 — key code
 !!FU&y1<53:E; exit, if the keycode is <5
 !!FU&y1>57/y1<>80:E; exit if keycode >9 and not P
 !!SN:L^Era.dll^/?y2; get address of Era library in y2
-!!SN:Ay2/^GetGameState^/?y3; y3 � address of function GetGameState
-!!SN:Ey3/1/?y4; y4 � ID of parent dialog, y5 � ID of current dialog
+!!SN:Ay2/^GetGameState^/?y3; y3 — address of function GetGameState
+!!SN:Ey3/1/?y4; y4 — ID of parent dialog, y5 — ID of current dialog
 !!FU&y5<>4662240:E; exit if not in battle screen
 !!BA:Hv2220/?v2222; get active Hero if any
 !!FU&v2222=-2:E; exit if none
@@ -100,28 +100,28 @@ ZVSE
 !!CM:I?v1 F?v2;
 !!FU|v1<>2008/v2<>512:E; exit if not RMB on CS
 !!CM:R0;
-!!IF:M^{Spell Hotkeys:}
+!!IF:M^{Skróty Klawiszowe Czarów:}
 
-5 = Quicksand
-6 = Cure
-7 = Bless
-8 = Shield
-9 = Haste
-P = Precision
+5 = Lotne Piaski
+6 = Uleczenie
+7 = Błogosławieństwo
+8 = Tarcza
+9 = Przyspieszenie
+P = Precyzja
 
-Requirements: The casting side must have a Hero who knows the spell and has enough mana to cast it (the check assumes the standard Manual value). If the Hero does not have mass ability and casts it on a creature who is immune to it, the spell will be resisted but the (actual) mana cost will still be deducted. Non-mass spells are cast on the current (high-lighted) creature. Precision must be cast on a shooter. Also, spell-casting must be enabled for the casting side. (Calladan can only cast once per round. Leora can cast many times but not always.) If any of these requirements is missing, the hotkeys will not respond.^;
+Wymagania: Bohater ma wystarczająco dużo many (nie licząc redukcji Magów itp.) i zna zaklęcie. Jeśli bohater nie ma masowej wersji czaru i rzuci go na niewrażliwą jednostkę, to czar zostanie odparty, ale (rzeczywisty) koszt rzucenia czaru zostanie poniesiony. Czary nie-masowe są rzucane na aktywną jednostkę. Precyzja może być rzucona tylko na oddział strzelający. No i bohater musi mieć możliwość czarowania. (Zbyszko może czarować raz na turę, Halyna wiele razy ale nie zawsze.) Jeśli dowolny z tych warunków nie jest spełniony, klawisze nie zadziałają.^;
 
 !?BA0&1000/-650; first-time hotkey notice
 !!IF:V650/1;
-!!IF:M^Right-click the Cast Spell button at the bottom of the Combat Screen to re-read this information.
+!!IF:M^Kliknij PPM na przycisk Rzucania Czaru na Ekranie Walki by ponownie przeczytać te informacje.
 
-{Spell Hotkeys:}
-5 = Quicksand
-6 = Cure
-7 = Bless
-8 = Shield
-9 = Haste
-P = Precision
+{Skróty Klawiszowe Czarów::}
+5 = Lotne Piaski
+6 = Uleczenie
+7 = Błogosławieństwo
+8 = Tarcza
+9 = Przyspieszenie
+P = Precyzja
 
-Requirements: The casting side must have a Hero who knows the spell and has enough mana to cast it (the check assumes the standard Manual value). If the Hero does not have mass ability and casts it on a creature who is immune to it, the spell will be resisted but the (actual) mana cost will still be deducted. Non-mass spells are cast on the current (high-lighted) creature. Precision must be cast on a shooter. Also, spell-casting must be enabled for the casting side. (Calladan can only cast once per round. Leora can cast many times but not always.) If any of these requirements is missing, the hotkeys will not respond.^;
+Wymagania: Bohater ma wystarczająco dużo many (nie licząc redukcji Magów itp.) i zna zaklęcie. Jeśli bohater nie ma masowej wersji czaru i rzuci go na niewrażliwą jednostkę, to czar zostanie odparty, ale (rzeczywisty) koszt rzucenia czaru zostanie poniesiony. Czary nie-masowe są rzucane na aktywną jednostkę. Precyzja może być rzucona tylko na oddział strzelający. No i bohater musi mieć możliwość czarowania. (Zbyszko może czarować raz na turę, Halyna wiele razy ale nie zawsze.) Jeśli dowolny z tych warunków nie jest spełniony, klawisze nie zadziałają.^;
 

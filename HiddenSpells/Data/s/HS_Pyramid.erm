@@ -9,21 +9,21 @@ ZVSE
 ; uses v1600-v1631 for temporary use
 ; uses FU1021-FU1024, f496
 
-!#VRz607:S^Pyramid of Power^;
+!#VRz607:S^Piramida Potęgi^;
 !#OB126/107/0:SH607;
 
 !?OB126/107/0&1000; Pyramid
 !!PO998:N?y1;
-!!IF&y1>0:M^This facility has been shut down by the Ice King due to unauthorized use.^;
+!!IF&y1>0:M^Ta lokacja została zamknięta przez Lodowego Króla z uwagi na nieuprawnione użycie.^;
 !!FU&y1>0:E;
-!!IF:Q1^Welcome to the Pyramid of Power!
-Beware! Only an Elite Warrior may walk the Path of Power. Do not attempt this without a powerful melee warrior in your army! (Led by a powerful god or godess.) If he or she succeeds in completing the path, they will gain +50 Hit Points, +10 Damage, +1 Speed, and a medal for courage. Do you wish to try?^;
+!!IF:Q1^Witaj w Piramidzie Potęgi!
+Uwaga! Jedynie Elitarny Wojownik może wkroczyć na Ścieżkę Potęgi. Nie próbuj tego bez potężnego wojownika biegłego w walce wręcz w swojej armii! (Prowadzonej przez potężnego boga lub boginię.) Jeśli on lub ona podoła Ścieżce, dostanie +50 Punktów życia, +10 Obrażeń, +1 Szybkości i medal za odwagę. Chcesz spróbować?^;
 !!FU&-1:E;
 !!HE-1:N?v1628;
-!!IF&v1628<>27:M^Sorry, your god is not powerful enough.^;
+!!IF&v1628<>27:M^Wybacz, Twój bóg nie jest wystarczająco potężny.^;
 !!FU&v1628<>27:E;
 !!HE27:C0/0/?y1/d/d/2 C0/1/?y2/d/d/2 C0/2/?y3/d/d/2 C0/3/?y4/d/d/2 C0/4/?y5/d/d/2 C0/5/?y6/d/d/2 C0/6/?y7/d/d/2;
-!!IF&y1<>174/y2<>174/y3<>174/y4<>174/y5<>174/y6<>174/y7<>174:M^Sorry, you have no warrior who is powerful enough.^;
+!!IF&y1<>174/y2<>174/y3<>174/y4<>174/y5<>174/y6<>174/y7<>174:M^Wybacz, nie masz w armii wystarczająco potężnego wojownika.^;
 !!FU&y1<>174/y2<>174/y3<>174/y4<>174/y5<>174/y6<>174/y7<>174:E;
 !!HEv1628:A2/4/?v1629/d A2/5/?v1630/d A2/6/?v1631/d;
 !!HEv1628:A-4 A-5 A-6; remove war machines (just in case)
@@ -42,11 +42,11 @@ Beware! Only an Elite Warrior may walk the Path of Power. Do not attempt this wi
 !!HEv1628:O?y2;
 !!FU&y2<0:E;
 !!PO126/107/0:N1;
-!!VRz607:S^Pyramid of Power (visited)^;
+!!VRz607:S^Piramida Potęgi (odwiedzona)^;
 !!MA:P174/d50 M174/d10 E174/d10 S174/d1;
 !!DO1022/0/6/1:P; refill stacks 0-6 from v1600 table
 !!HE-1:A4/49; give Badge of Courage
-!!IF:Q1/8/49/1^Vames has won the prize!^;
+!!IF:Q1/8/49/1^Vames zdobywa nagrodę!^;
 
 !?FU1021; x16=troop slot, 0-6
 !!HE-1:C0/x16/?y1/?y2/?y3/2; y1=type, y2=no., y3=exp

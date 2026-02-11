@@ -4,14 +4,14 @@ ZVSE
 
 ; uses z501-z502, FU540, flag 390
 
-!#VRz501:S^Otataral Orb^;
-!#VRz502:S^{Otataral Orb}
-When equipped in battle, this orb supresses all but Elder magic.^;
+!#VRz501:S^Bardzo Czerwona Kulka^;
+!#VRz502:S^{Bardzo Czerwona Kulka}
+Blokuje całą magię poza Starożytną.^;
 !#UN:A126/9/501;
 !#UN:A126/10/502;
 
 !?OB72/73/0&1000; Ice Hold
-!!IF:Q1/21/152/1^What is this? Mortals dare enter my Hold? Guards! Destroy them! Devoron! Aid me!^;
+!!IF:Q1/21/152/1^Cóż to? Śmiertelnicy odważyli się wkroczyć do mego Dominium? Straż! Zniszczyć ich! DerWollschwein! Wspomóż mnie!^;
 !!IF:V390/1;
 
 !?BA0&390
@@ -50,8 +50,8 @@ When equipped in battle, this orb supresses all but Elder magic.^;
 !!BA:H0/?y1; attacker
 !!HEy1:O?y2;
 !!FU&y2<>3:E; lost if not Green
-!!IF:Q1/21/152/1^The Ice King is dead!^;
-!!IF:Q1/21/136/21/174/1^Long live the new kings!^;
+!!IF:Q1/21/152/1^Król Lodu umarł!^;
+!!IF:Q1/21/136/21/174/1^Niech żyją nowi królowie!^;
 ; scoring bonus
 !!VRv1:Sc;
 !!VRy1:Sv1:10;
