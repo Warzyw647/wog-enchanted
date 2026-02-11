@@ -29,19 +29,19 @@ ZVSE
 !!HE84:F40/40/30/30 I600; Set Devoron's stats
 !!IF:M^Dramatis Personae:
 
-Devoron, Red God of Destruction, who aids the Ice King.
+{DerWollschwein}, Czerwony Bóg Zniszczenia, który wspomaga Króla Lodu.
 
-The Ice King, whose greed cannot be satisfied until he owns everything.
+{Król Lodu}, którego chciwość nie może być zaspokojona dopóki nie posiądzie wszystkiego.
 
-Leora, Green Goddess of Life, who guides and protects Woodshire and its people. Leora may cast multiple defensive spells per battle round.
+{Halyna}, Zielona Bogini Życia (przez Ż z kropką), która prowadzi i chroni Zieloną Górę i jej lud. Halyna może rzucać wiele ochronnych zaklęć w jednej rundzie bitwy.
 
-Jalery, the High Enchanter of Woodshire, and Vames, the War Leader. (Together in times past they won the Swords of Night and Day!)
+{Jalery}, Wysoki Czarodziej Zielonej Góry, oraz {Vames}, Przywódca Wojenny. (Razem, w minionych czasach, zdobyli Miecze Dnia i Nocy!)
 
-Calladan, a minor Life god who served Greenholme ere it was whelmed.
+{Zbyszko}, pomniejszy bóg Życia (przez Ż z kropką), który służył Gorzowowi Wielkopolskiemu, dopóki nie został przytłoczony.
 
-The Sun Warrior, who serves the Golden Sword of Day.
+{Wojownik Słońca}, służący Złotemu Mieczowi Dnia.
 
-The Moon Guard, who serves the Black Sword of Night.^;
+{Strażnik Księżyca}, służący Czarnemu Mieczowi Nocy.^;
 
 !?TM2&v2392>1/v2395=3; Day >1, Green
 !!OW:R3/6/d-3950; reduce 4000/day to 50/day
@@ -51,10 +51,10 @@ The Moon Guard, who serves the Black Sword of Night.^;
 
 !?TM2&v2392=2/v2395=3; Day 2
 !!IF:V201/0 V202/0 V203/0 V204/0; no more battle prayers
-!!IF:Q1/21/128/1^{Leora}:  Hear me, my children!  You have defeated the Ice King's forces, but he will send stronger and stronger armies, and he carries an Otataral Orb which would prohibit all my defensive magics, if he should lead an army himself.  Also he knows Elder Magic which is unaffected by the Orb, so withstanding his sieges only delays your doom!^;
-!!IF:Q1/21/136/1^{Jalery}:  Perhaps if we accepted his challenge to send champions through his portal to fight in his arena, we might find a source of Elder Magic somewhere in his City of Holds?^;
-!!IF:Q1/21/174/1^{Vames}:  Your magic is needed here to defend the castle.  I will go, with a few of the junior mages.^;
-!!IF:Q1/21/136/1^{Jalery}:  Take both swords.  You will need them!^;
-!!IF:Q1/21/128/1^{Leora}:  I will be with you to help as much as I can. My nephew Calladan is spying in the City now and will tell us what he learns. We must go swiftly, before the attacks grow too powerful for Jalery to withstand!^;
+!!IF:Q1/21/128/1^{Halyna}:  Posłuchajcie, moje dzieci!  Pokonaliście siły Króla Lodu, lecz przyśle on większe i większe armie. On sam nosi Bardzo Czerwoną Kulkę, która zablokuje całą moją ochronną magię, gdyby poprowadził armię osobiście.  Poza tym, zna on Starożytną Magię, niewrażliwą na efekt jego Bardzo Czerwonej Kulki. Odpieranie jego oblężeń jedynie odwleka naszą zgubę!^;
+!!IF:Q1/21/136/1^{Jalery}:  Może... Gdybyśmy podjęli jego wyzwanie i wysłali naszych czempionów przez portal na jego arenę, znaleźlibyśmy źródło Starożytnej Magii gdzieś w jego Mieście Dominiów?^;
+!!IF:Q1/21/174/1^{Vames}:  Twoja magia jest potrzebna tutaj, do obrony zamku.  Ja pójdę, z paroma młodszymi magami.^;
+!!IF:Q1/21/136/1^{Jalery}:  Weź oba miecze.  Będziesz ich potrzebował!^;
+!!IF:Q1/21/128/1^{Halyna}:  Będę z Wami by pomagać z całych sił. Mój siostrzeniec Zbyszko szpieguje teraz w Mieście Dominiów i powie nam czego się dowiedział. Ruszajmy prędko, nim coraz silniejsze ataki przytłoczą Jalery'ego!^;
 !!IF:V51/1; set flag to display messages randomly on roads
 
