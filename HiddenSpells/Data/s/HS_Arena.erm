@@ -24,26 +24,26 @@ ZVSE
 !!VRz1:S^../Mods/HiddenSpells/Data/ArenaSwd.gif^;
 !!VRz2:S^../Mods/HiddenSpells/Data/Arena.jpg^;
 !!VRz3:S^../Mods/HiddenSpells/Data/ArenaSwd.gif^;
-!!VRz5:S^Arena Gladiator Gate - Today is a good day to die!
-You see one tiny box with a coin symbol and three boxes with numbers.
-The smallest has number %V81 on it and a drawing of a few Mithril bars.
-The middle one has number %V82 and 500 gold coin pictures.
-The largest is numbered %V83 and also has symbols '1k$' on it.^;
-!!VRz6:S^Exotic wild beasts in the Arena^;
-!!VRz7:S^Catch the bouncing Gremlins--if you can!^;
-!!VRz8:S^Kiss the Ice King's Daughters.^;
-!!VRz9:S^The Death Guards^;
-!!VRz10:S^What will you face?^;
+!!VRz5:S^Brama Areny Gladiatorów - To dobry dzień by zginąć!
+Widzisz malutką skrzynkę z obrazem monety i trzy z liczbami.
+Najmniejsza ma numer %V81 i rysunek kilku sztabek Mithrilu.
+Średnia ma numer %V82 i 500 rysunków monety.
+Największa ma numer %V83 oraz symbol '1kPLN'.^;
+!!VRz6:S^Egzotyczne dzikie bestie^;
+!!VRz7:S^Złap skaczące Gremliny--jeśli potrafisz!^;
+!!VRz8:S^Pocałuj córki Króla Lodu.^;
+!!VRz9:S^Strażnicy Lodu^;
+!!VRz10:S^Z kim się zmierzysz?^;
 !!IF:D5/5/0/10/1/2/3/0/0/0/0/0/6/7/8/9;
-!!VRz-6:S^If you survive, skin and butcher the beasts for 1 gold per pound.^;
-!!VRz-7:S^The Ice King laughs at their merry antics--especially if you die!^;
-!!VRz-8:S^Their kisses are cold, sloppy and deadly!^;
-!!VRz-9:S^The Ice King's workers of the month!^;
+!!VRz-6:S^Jeśli przetrwasz, oskóruj i opraw bestie za 1 PLN za kilogram.^;
+!!VRz-7:S^Król Lodu śmieje się z ich radosnych skoków--a Ty giniesz!^;
+!!VRz-8:S^Ich pocałunki są zimne, mokre i śmiertelne!^;
+!!VRz-9:S^Najlepsi pracownicy miesiąca!^;
 !!IF:F5/-6/-7/-8/-9/1;
 !!IF:E99/5; v99 1-4 or -1 for Cancel
 !!FU&v99=-1:E;
 !!PO998:V3/y2;
-!!IF&-275:M^Notice: no damage spells are allowed in the Arena, by order of the Ice King! (Unless you know any Elder spells, ha ha!)^;
+!!IF&-275:M^Uwaga: czary obrażające są zabronione na Arenie, z rozkazu Króla Lodu! (Chyba że znasz Ukryte Czary, ha ha!)^;
 !!IF:V275/1;
 !!FU330&v99=4:P;
 !!FU7027&v99=3:P;
@@ -57,7 +57,7 @@ The largest is numbered %V83 and also has symbols '1k$' on it.^;
 !!IF:V270/0;
 !!HE-1:O?y1;
 !!FU&y1<>3:E;
-!!IF:Q1/8/v83/6/1000/1^The great and generous Ice King rewards you for your victory, stranger. Next time you may not be so lucky!^;
+!!IF:Q1/8/v83/6/1000/1^Wielki i szczodry król Lodu przyznaje Ci zwycięstwo, nieznajomy. Następnym razem możesz nie mieć tyle szczęścia!^;
 !!OW:R-1/6/d1000;
 !!HE-1:A4/v83;
 
@@ -151,7 +151,7 @@ The largest is numbered %V83 and also has symbols '1k$' on it.^;
 !!HEv156:S19/v158; restore Tactics skill
 !!HEv156&v159>0:A4/6; restore Tent
 !!VRy7:S3 R3; 3-6
-!!IF:Q1/21/173/8/v81/7/y7/1^The Gremlins dropped an Artifact and some Mithril!^;
+!!IF:Q1/21/173/8/v81/7/y7/1^Gremliny porzuciły Artefakt i trochę Mithrilu!^;
 !!OW:R-1/7/dy7;
 !!HE-1:A4/v81;
 
@@ -406,7 +406,7 @@ The largest is numbered %V83 and also has symbols '1k$' on it.^;
 !!IF:V274/0;
 !!HE-1:O?y1;
 !!FU&y1<>3:E;
-!!IF:Q1/6/v317/1^We can use the meat and hides in our war effort, so we will pay you %V317 gold for them.^;
+!!IF:Q1/6/v317/1^Mięso i skóry przydadzą się nam na wojnie, więc zapłacimy za nie %V317 PLN.^;
 !!OW:R-1/6/dv317;
 
 !?BA0&274;
@@ -476,12 +476,12 @@ The largest is numbered %V83 and also has symbols '1k$' on it.^;
 !!IF:V609/0;
 !!HE-1:O?y1;
 !!FU&y1<>3:E;
-!!IF:Q1/8/v82/6/500/1^The Ice King says, "You won? Good, I have too many daughters and am happy to get rid of a few. Take some gold and this piece of junk as a reward."^;
+!!IF:Q1/8/v82/6/500/1^Król Lodu mówi, "Zwyciężyłeś? W porządku, i tak mam za dużo córek i chętnie się kilku pozbędę. Weź to złoto i ten badziew jako nagrodę."^;
 !!OW:R-1/6/d500;
 !!HE-1:A4/v82;
 
-!#VRz480:S^Ice Maiden^;
-!#VRz481:S^Ice Maidens^;
+!#VRz480:S^Lodowa Panna^;
+!#VRz481:S^Lodowe Panny^;
 !#UN:G1/123/0/480; (Ice Elemental)
 !#UN:G1/123/1/481;
 !#MA:S123/8;
