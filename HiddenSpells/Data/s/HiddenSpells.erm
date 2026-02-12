@@ -8,8 +8,8 @@ ZVSE
 ; NOTE: hidden Fire spell requires ChainFire2 script (in same map)
 ; added v1297 calculation for CL damage address here (must be after Settings uses v1-v40)
 
-!#VRz348:S^Huorn^;
-!#VRz349:S^Huorns^;
+!#VRz348:S^Puszczowiec^;
+!#VRz349:S^Puszczowcy^;
 !#UN:G1/22/0/348 G1/23/0/348 G1/22/1/349 G1/22/1/349;
 
 !?PI; set up XFiles dll (XFiles.dll in EraPlugins)
@@ -214,22 +214,22 @@ ZVSE
 !!VRv2:Cy1/y2/y3/y4/v325/y8; for debugging
 !!if&y4<>0/y1>1120/y1<1230/y2>438/y2<509/60/383/-375; Mouse on left half of Water picture, RMB click
  !!IF:V59/0; disable FU77 Enter-check
- !!IF:M^{Wave of Fury} - unleashes the warren of Ruse to sweep a wave of icy magic diagonally down and across the battlefield from top or side to bottom or side.  All the properties of troops which it sweeps over are reduced by 15%-30% depending on your Water Magic skill.  Click the hex where you wish the right side of the wave to start (must be along an edge of the field).  For attackers, the wave sweeps diagonally to the right and down, and for defenders, to the left and down. Costs 20 mana. May only be cast once per battle round.^;
+ !!IF:M^{Fala Furii} - wyzwala gniew Ruse w postaci fali lodowatej magii, płynącej po skosie w dół przez pole bitwy, z góry lub boku do boku lub dołu.  Wszystkie statystyki jednostek zmytych Falą spadają o 15%-30% w zależności od Twojego poziomu Magii Wody.  Kliknij w pole z którego chcesz wystartować prawy koniec fali (musi być na brzegu pola bitwy).  Dla atakujących, Fala spływa w dół i w prawo, a dla broniących się w dół i w lewo. Kosztuje 20 Many. Może być rzucona tylko raz na turę bitwy.^;
  !!IF:V59/1;
 !!en;
 !!if&y4<>0/y1>1120/y1<1230/y2>438/y2<509/63/381/-373; Mouse on left half of Air picture, RMB click
  !!IF:V59/0; disable FU77 Enter-check
- !!IF:M^{Eye of the Whirwind} - unleashes the warren of Serc to sweep a vortex of storm magic around the designated spot.  All the troops which it sweeps over are blown outwards, and 10%-25% (depending on your Air Magic skill) are blown entirely away.  If obstacles or other troops block them from moving the damage is increased by 10%.  Also they lose 1-4 Speed (to a minimum of 2). Click the hex where you wish to center the vortex (a troop there will be unaffected). Costs 20 mana. May only be cast once per battle round.^;
+ !!IF:M^{Oko Cyklonu} - wyzwala gniew Serca w postaci wiru burzowej magii dookoła wskazanego punktu.  Wszystkie oddziały nad którymi powieje Cyklon zostają zdmuchnięte na zewnątrz i tracą 10%-25% swojej liczebności w zależności od Twojego poziomu Magii Powietrza.  Jeśli przeszkody lub inne oddziały uniemożliwiają ruch, obrażenia są zwiększone o 10 punktów procentowych.  Tracą także 1-4 Szybkości (minimalnie do 2). Kliknij w miejsce w którym chcesz ustawić Oko Cyklonu (oddział w tym miejscu będzie bezpieczny). Kosztuje 20 Many. Może być rzucone tylko raz na turę bitwy.^;
  !!IF:V59/1;
 !!en;
 !!if&y4<>0/y1>1120/y1<1230/y2>438/y2<509/65/382/-374; Mouse on left half of Fire picture, RMB click
  !!IF:V59/0; disable FU77 Enter-check
- !!IF:M^{Chain of Fire} - unleashes the warren of Thyr to hurl a ball of fiery magic at the designated foe.  After striking the first target, it proceeds to the next, until its force (which depends on your Fire Magic skill and Spell Power) is exhausted.  Costs 20 mana. May only be cast once per battle round.^;
+ !!IF:M^{Łącze Ognia} - wyzwala gniew Thyra w postaci kuli ognistej magii w wybranego przeciwnika.  Po uderzeniu w cel, odbija się w następny i w kolejny, podobnie jak standardowe Łącze Piorunów. Efektywność czaru zależy od Twojego poziomu Magii Ognia i Mocy.  Kosztuje 20 Many. Może być rzucone tylko raz na turę bitwy.^;
  !!IF:V59/1;
 !!en;
 !!if&y4<>0/y1>1120/y1<1230/y2>438/y2<509/68/384/-376; Mouse on left half of Earth picture, RMB click
  !!IF:V59/0; disable FU77 Enter-check
- !!IF:M^{Huorn Grove} - unleashes the warren of Dris to plant a grove of Huorns around the designated location.  The Huorns can guard a friend or bind a foe in place (until they are defeated).  Each unoccupied spot around the target will have Power/6 Huorns, plus 1 for each level of Earth Magic. Costs 20 mana. May only be cast once per battle round.^;
+ !!IF:M^{Zagajnik Puszczowców} - wyzwala gniew Drisa w postaci zasadzenia zagajnika Puszczowców dookoła wskazanego miejsca.  Puszczowcy mogą strzec sojusznika lub wiązać przeciwnika w miejscu (dopóki stoją).  Na każdym wolnym polu dookoła celu pojawi się Moc/6 Puszczowców, plus 1 za każdy poziom Magii Ziemi. Kosztuje 20 Many. Może być rzucony tylko raz na turę bitwy.^;
  !!IF:V59/1;
 !!en;
 !!if&y3=0; get hint just before LMB click if poss.
@@ -269,7 +269,7 @@ ZVSE
   !!HE-10&y9=0:I?y10/1; mana
   !!HE-20&y9=1:I?y10/1;
   !!IF:V59/0; disable FU77 Enter-check
-  !!IF&y10<20:M^You do not have 20 mana to cast the spell with, sorry.^;
+  !!IF&y10<20:M^Niestety, nie masz 20 Many potrzebnych na ten czar.^;
   !!IF:V59/1;
   !!SN&y10<20:Q;
   !!IF:V62/1; enable Wave spell
@@ -284,7 +284,7 @@ ZVSE
   !!HE-10&y9=0:I?y10/1; mana
   !!HE-20&y9=1:I?y10/1;
   !!IF:V59/0; disable FU77 Enter-check
-  !!IF&y10<20:M^You do not have 20 mana to cast the spell with, sorry.^;
+  !!IF&y10<20:M^Niestety, nie masz 20 Many potrzebnych na ten czar.^;
   !!IF:V59/1;
   !!SN&y10<20:Q;
   !!IF:V64/1; enable vortex spell
@@ -299,7 +299,7 @@ ZVSE
   !!HE-10&y9=0:I?y10/1; mana
   !!HE-20&y9=1:I?y10/1;
   !!IF:V59/0; disable FU77 Enter-check
-  !!IF&y10<20:M^You do not have 20 mana to cast the spell with, sorry.^;
+  !!IF&y10<20:M^Niestety, nie masz 20 Many potrzebnych na ten czar.^;
   !!IF:V59/1;
   !!SN&y10<20:Q;
   !!IF:V66/1; enable fire spell
@@ -320,7 +320,7 @@ ZVSE
   !!HE-10&y9=0:I?y10/1; mana
   !!HE-20&y9=1:I?y10/1;
   !!IF:V59/0; disable FU77 Enter-check
-  !!IF&y10<20:M^You do not have 20 mana to cast the spell with, sorry.^;
+  !!IF&y10<20:M^Niestety, nie masz 20 Many potrzebnych na ten czar.^;
   !!IF:V59/1;
   !!SN&y10<20:Q;
   !!IF:V69/1; enable Huorn spell
@@ -513,7 +513,7 @@ ZVSE
 ; For RHS Hero clicked hex is for RHS of wave and must be along top or RHS of BF
 !!FU&y4=1/j<>0/i<>16:E;
 !!UN:R5/4/88; show Tome of Water
-!!VRz8:S^Click to start the {Wave} here.^;
+!!VRz8:S^kliknij by wypuścić {Falę} stąd.^;
 !!MM:Mz8;
 
 ; test Eye of the Whirlwind, JHV, Aug. 23, 2012
@@ -637,7 +637,7 @@ ZVSE
 !!UN:R5/2/0; cancel
 !!FU|i<1/i>15:E;
 !!UN:R5/4/87; show Tome of Air
-!!VRz8:S^Click to center the {Whirlwind} here.^;
+!!VRz8:S^Kliknij by umieścić oko {Cyklonu} tutaj.^;
 !!MM:Mz8;
 
 !?MM0&66; Chain Fire
@@ -651,7 +651,7 @@ ZVSE
 !!FU&y1=y5:E;
 !!VRi:Sy3%17; i, horizontal, 0-->16
 !!UN:R5/4/86; show Tome of Fire
-!!VRz8:S^Click to cast {Chain of Fire} here.^;
+!!VRz8:S^Kliknij by rzucić {Łącze Ognia} tutaj.^;
 !!MM:Mz8;
 !!IF:V67/1;
 
@@ -676,7 +676,7 @@ ZVSE
 !!MM:D?y3; hex
 !!FU|y3<1/y3>185:E; exit if not on valid hex
 !!UN:R5/4/89; show Tome of Earth
-!!VRz8:S^Click to cast {Huorn Grove} here.^;
+!!VRz8:S^Kliknij by zasadzić {Zagajnik Puszczowców} tutaj.^;
 !!MM:Mz8;
 !!IF:V70/1;
 
