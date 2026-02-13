@@ -10,11 +10,11 @@ ZVSE
 !!UN&1:S72/72/0/3/104;
 !!UN&1:S72/72/1/3/104;
 
-!#VRz216:S^Academy of Air^;
+!#VRz216:S^Akademia Powietrza^;
 !#OB55/77/0:SH216;
-!#VRz217:S^Air {Master}^;
-!#VRz218:S^Air {Master}
-In addition to Expert skill at ordinary Air Magic, a Master of Air can travel the stars to the Realm of Air, visit the Lost Temple, and learn an Elder Spell.^;
+!#VRz217:S^{Mistrz} Powietrza^;
+!#VRz218:S^{Mistrz} Powietrza
+Poza umiejętnościami Eksperta Magii Powietrza, Mistrz Powietrza może podróżować między gwiazdami do Krainy Powietrza, odwiedzić Zagubioną Świątynię i nauczyć się Starożytnego Zaklęcia.^;
 
 !?OB55/77/0&1000;
 !!HE-1:N?y1 S15/?y3; HE#, Air
@@ -23,24 +23,24 @@ In addition to Expert skill at ordinary Air Magic, a Master of Air can travel th
 !!IF&y1<>27/y1<>29/y3>1:V1/1; (use Melodia for test)
 !!IF&y1=27/y2<>0:V2/1;
 !!IF&y1=29/y2<>0:V2/1;
-!!IF|1/2:Q1/27/23/1^You have learned all that we can teach you, but it is a pleasure to see a good student once again.^;
+!!IF|1/2:Q1/27/23/1^Umiesz już wszystko czego mogliśmy cię nauczyć, ale zawsze miło zobaczyć ponownie dobrego studenta. Weź sobie krówkę^;
 !!FU|1/2:E;
 !!PO998:V3/?y4;
 !!VRy5:Sc0-1:7+1; week # (starts at 1)
-!!IF&y4=y5:M^Our instructors must meditate and restore their power before infusing more Air skill.^;
+!!IF&y4=y5:M^Nasi instruktorzy muszą pomedytować i zregenerować swoją moc zanim będą w stanie wczarować w ciebie więcej Magii Powietrza.^;
 !!FU&y4=y5:E;
-!!IF&y3=0:Q1/27/23/2^Welcome to the Academy of Air! For 1000 gold, we will teach you Basic Air Magic.  Do you wish to gain such skill?^;
+!!IF&y3=0:Q1/27/23/2^Witaj w Akademii Powietrza! Za 1000 złotych nauczymy cię Podstawowej Magii Powietrza.  Czy chcesz posiąść tę umiejętność?^;
 !!FU&-1/y3=0:E;
-!!IF&y3=1:Q1/27/23/2^Welcome to the Academy of Air! For 2000 gold, we will teach you Advanced Air Magic.  Do you wish to gain such skill?^;
+!!IF&y3=1:Q1/27/23/2^Witaj w Akademii Powietrza! Za 2000 złotych nauczymy cię Zaawansowanej Magii Powietrza.  Czy chcesz posiąść tę umiejętność?^;
 !!FU&-1/y3=1:E;
-!!IF&y3=2:Q1/27/23/2^Welcome to the Academy of Air! For 4000 gold, we will teach you Expert Air Magic.  Do you wish to gain such skill?^;
+!!IF&y3=2:Q1/27/23/2^Witaj w Akademii Powietrza! Za 4000 złotych nauczymy cię Eksperckiej Magii Powietrza.  Czy chcesz posiąść tę umiejętność?^;
 !!FU&-1/y3=2:E;
-!!IF&y3=3:Q1/27/23/2^Welcome to the Academy of Air! For 6000 gold, we will invoke Serc to make you a Master of Air Magic.  Do you wish to gain such skill?^;
+!!IF&y3=3:Q1/27/23/2^Witaj w Akademii Powietrza! Za 6000 złotych wezwiemy Serca by zrobił z ciebie Mistrza Magii Powietrza.  Czy chcesz posiąść tę umiejętność?^;
 !!FU&-1/y3=3:E;
 !!VRy4:Sy3*2000;
 !!VRy4&y3=0:S1000;
 !!OW:R-1/6/?y5;
-!!IF&y5<y4:Q1/27/23/1^Payment must be in advance. Your studies will start when you have the gold.^;
+!!IF&y5<y4:Q1/27/23/1^Płatność tylko z góry! Twoje studia rozpoczną się gdy zapłacisz.^;
 !!FU&y5<y4:E;
 !!VRy4:*-1;
 !!OW:R-1/6/dy4;
@@ -48,7 +48,7 @@ In addition to Expert skill at ordinary Air Magic, a Master of Air can travel th
 !!VRz2:S^chime_up.wav^;
 !!SN:Pz2;
 !!HE-1&y3<3:S15/d1;
-!!IF&y3<3:Q1/27/23/1^You have read the sacred scrolls and our masters have approved your qualifications. Your Air Magic level has increased!^;
+!!IF&y3<3:Q1/27/23/1^Przeczytałeś święte zwoje, a nasi mistrzowie zatwierdzili twoje kwalifikacje. Twój poziom Magii Powietrza zwiększa się!^;
 !!FU&y3<3:E;
 !!UN:G0/15/0/217 G0/15/3/218;
 !!VRv313:|1;
@@ -56,7 +56,7 @@ In addition to Expert skill at ordinary Air Magic, a Master of Air can travel th
 !!VRy7:S200+v313; spclty text Z #
 !!HE-1:N?y8;
 !!UN:G2/y8/1/y6 G2/y8/2/y7 G2/y8/3/y6;
-!!IF:Q1/27/23/1^Serc has accepted our invocation and blessed you! You are a Master of Air!^;
+!!IF:Q1/27/23/1^Serc zaakceptował nasze wezwanie i pobłogosławił cię! Jesteś teraz Mistrzem Magii Powietrza!^;
 !!FU&v313<15:E;
 !!SN:L^Era.dll^/?v3; v3=handle
 !!SN:Av3/^RedirectFile^/?v4; v4=FU address
