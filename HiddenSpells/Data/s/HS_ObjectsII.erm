@@ -106,10 +106,10 @@ Poza umiejętnościami Eksperta Magii Powietrza, Mistrz Powietrza może podróż
 !!UN&y8=8:G0/17/0/340 G0/17/3/341; earth
 !!en;
 
-!#VRz220:S^Chief Engineer^;
+!#VRz220:S^Główny Inżynier^;
 !#UN:G1/17/1/220;
 !#OB92/81/0:SH220;
-!#VRz221:S^Universal Fabricator^;
+!#VRz221:S^Maszyna która może wszystko na literę A^;
 !#OB85/81/0:SH221;
 !#OB86/81/0:SH221;
 !#OB87/81/0:SH221;
@@ -123,21 +123,21 @@ Poza umiejętnościami Eksperta Magii Powietrza, Mistrz Powietrza może podróż
 !!FU&y1<1:E; exit if first visit to this object
 !!PO998:V3/?y1;
 !!VRy2:Sc0-1:7+1; week # (starts at 1)
-!!IF&y1=y2:Q1/21/17/1^You're back too soon! I have to run the cutters slow until I can refit them with new, highest quality gems.^;
+!!IF&y1=y2:Q1/21/17/1^Wracasz zbyt wcześnie! Muszę powoli obracać szlifierki kątowe póki nie wstawię im nowych klejnotów najwyższej jakości.^;
 !!FU&y1=y2:E; exit if player came back same week
 !!VRy1:Sy2;
 !!OW:R-1/5/?y2;
-!!IF&y2<10:Q1/21/17/5/10/1^I warned you! I'm on strike until I get 10 gems to replace my cutter teeth with! I'm not going to wreck my beautiful fabricator machine by using worn-out cutters!^;
+!!IF&y2<10:Q1/21/17/5/10/1^Ostrzegałem! Strajkuję dopóki nie dostanę 10 klejnotów by wstawić je do szlifierek kątowych! Nie zezłomuję mojej pięknej maszyny przez mielenie zużytymi klejnotami!^;
 !!FU&y2<10:E;
-!!IF:Q1/21/17/5/10/2^Did you bring me 10 gems?^;
+!!IF:Q1/21/17/5/10/2^Masz dla mnie 10 klejnotów?^;
 !!FU&-1:E;
 !!OW:R-1/5/d-10;
-!!IF:Q1/21/17/5/10/1^Good lads! You brought me the gems, so I'll give you my week's production. But more cutters and grinders are wearing out, so keep the gems coming! (How did you get that greedy blaggard to part with them? Nevermind, I shouldn't ask.)^;
-!!IF:Q80/8/v87/8/v86/8/v85/10^Just some final touches on your Artifact, or would you prefer two smaller ones instead?
-(1 Major Artifact or a Treasure and a Minor one?)
-Choose wisely!^;
+!!IF:Q1/21/17/5/10/1^Dobre dzieciaki! Przynieśliście mi klejnoty, więc dam wam produkcję z tego tygodnia. Lecz kolejne szlifierki i mielarki się zużywają, więc przynoście kolejne klejnoty! (Jak przekonaliście tego durnego zgreda do oddania klejnotów? Zresztą nieważne, nie powinienem pytać.)^;
+!!IF:Q80/8/v87/8/v86/8/v85/10^Ostatnie szlify i Artefakt jest gotowy, a może wolisz żeby go przeciąć na dwa mniejsze?
+(1 Artefakt Główny czy 1 Pomniejszy i 1 Skarb?)
+Wybierz mądrze!^;
 !!PO998:V3/y1;
-!!IF&v80=0:Q1/21/17/5/10/1^Fine, if you don't want it, you don't want it. Thanks for the Gems!^;
+!!IF&v80=0:Q1/21/17/5/10/1^W porządku, nie chcesz to nie. Dzięki za klejnoty!^;
 !!HE-1&v80=1:A4/v87;
 !!HE-1&v80=2:A4/v86;
 !!HE-1&v80=2:A4/v85;
@@ -146,14 +146,14 @@ Choose wisely!^;
 !!PO998:N?y1;
 !!FU&y1<>0:E;
 !!PO998:N1;
-!!IF:Q1/21/17/8/54/1^And who would you be, the new couriers? It's poor stuff I have for you to deliver, you'll be thinking, and next week it'll be even less, unless I get more hard, sharp gems for my cutters! These days, they all get sold to pay for his Coldness's wars, but I need some for the cutters and grinders my machine uses to shape parts!  Bring me at least ten next week or I'll have to shut down!^;
+!!IF:Q1/21/17/8/54/1^A wy to kto, nowi kurierzy? Mam dla was słabej jakości rzeczy do dostarczenia, a w przyszłym tygodniu będzie jeszcze gorzej, chyba że dostanę więcej twardych, ostrych klejnotów do moich szlifierek kątowych! Ostatnio wszystkie są sprzedawane by opłacać wojny jego Mroźności, ale potrzebuję trochę do szlifierek i mielarek któryc moja maszyna używa do kształtowania części!  Przynieście mi przynajmniej dziesięć w przyszłym tygodniu albo będę musiał zamknąć maszynę!^;
 !!HE-1:A4/54; Amulet of Undertaker
 !!VRy2:Sc0-1:7+1; week # (starts at 1)
 !!PO92/81/0:V3/y2;
 
-!#VRz222:S^Chief Gunner Gregory P. Navarone^;
+!#VRz222:S^Naczelny Strzelec Gregory P. Navarone^;
 !#OB58/23/0:SH222;
-!#VRz223:S^Mark V Plasma Cannon, "The WARHAMMER"^;
+!#VRz223:S^Armata Plazmowa Mark V, "WARHAMMER"^;
 !#OB57/21/0:SH223;
 !#OB58/21/0:SH223;
 !#OB59/21/0:SH223;
@@ -166,26 +166,26 @@ Choose wisely!^;
 !#OB76/21/0:SH223;
 !#OB77/21/0:SH223;
 !#OB78/21/0:SH223;
-!#VRz224:S^Chief Gunner Anthony Q. Navarone^;
+!#VRz224:S^Naczelny Strzelec Anthony Q. Navarone^;
 !#OB77/23/0:SH224;
-!#VRz225:S^Chief Gunner^;
+!#VRz225:S^Naczelny Strzelec^;
 !#UN:G1/9/1/225;
 
 !?OB58/23/0&1000; CG1, N=1
 !!PO998:N?y1;
 !!FU&y1<1:E;
-!!IF:Q1/21/9/1^Still admiring my gun? I know, it is hard to take your eyes off it.^;
+!!IF:Q1/21/9/1^Nadal podziwiasz moją armatę? Wiem, wiem, trudno oderwać od niej wzrok.^;
 
 !?OB58/23/0&1000; CG1, N=0
 !!PO998:N?y1;
 !!FU&y1>0:E;
-!!IF:Q1/21/9/1^Impressive, isn't it? It's a {40K} hz Plasma Cannon, Mark V, affectionately known as "The {WARHAMMER}". Where it hits it's {bundolo} even if a void shield is in the way. Do you know what they say when a Titan Warlord {engine} gets hit by a blast from one of these babies? Two words. If you can guess them I will be one of your sponsors to enter the Shooters Guild!^;
-!!VRz-1:S^Enter what they say after a Titan Warlord gets hit
-by a blast from my Mark V Plasma Cannon:
-(two words of 10 lowercase letters total, with a space between them)^;
-!!VRz-2:S^What is the saying?^;
+!!IF:Q1/21/9/1^Imponujące, co nie? To jest {40K} hz Armata Plazmowa Mark V, czule zwana "{WARHAMMER}". Tam gdzie strzeli jest {bum} nawet jeśli na drodze stoi tarcza próżniowa. Wiesz co mówią gdy {silnik} Tytana klasy Warlord oberwie z jednego z tych cudeniek? Dwa słowa (odpowiedz po Angielsku). Jeśli je zgadniesz, poręczę za ciebie w Gildii Strzelców!^;
+!!VRz-1:S^Wpisz co mówią gdy Tytan klasy Warlord oberwie
+z mojej Armaty Plazmowej Mark V:
+(2 słowa, w sumie 10 małych liter, rozdzielone spacją)^;
+!!VRz-2:S^Jakie to powiedzenie?^;
 !!VRz-3:S^..\Mods\HiddenSpells\Data\PlasmaGn.gif^;
-!!VRz-4:S^Plasma Cannon^;
+!!VRz-4:S^Armata Plazmowa^;
 !!IF:D29/-1/-2/0/-3/0/0/0/-4/0/0/0/0/0/0/0;
 !!IF:E1/29;
 ; get address of z1
@@ -204,22 +204,22 @@ by a blast from my Mark V Plasma Cannon:
 !!VRy6:Sv3%v4;
 !!IF|y5<>14689/y6<>5004:Q1/21/9/1^Sorry, that's not it.^;
 !!FU|y5<>14689/y6<>5004:E;
-!!IF:Q1/21/9/1^Every time! Spoken like a true shooter. I'll be glad to sponsor you.^;
+!!IF:Q1/21/9/1^Za każdym razem! Powiedziane jak prawdziwy strzelec. Chętnie za ciebie poręczę.^;
 !!PO998:N1;
 
 !?OB77/23/0&1000; CG2, N=1
 !!PO998:N?y1;
 !!FU&y1<1:E;
-!!IF:Q1/21/9/1^I'll bet you wish you had one of these. I'll bet I know whom you'd like to fire it at, too!^;
+!!IF:Q1/21/9/1^Założę się że też chciałbyś taką mieć. I założę się że wiem w kogo byś wycelował!^;
 
 !?OB77/23/0&1000; CG2, N=0
 !!PO998:N?y1;
 !!FU&y1>0:E;
-!!IF:Q1/21/9/1^My brother and I are lucky to be responsible for such fine {guns}! Say, if they made a movie about us, what do you think it would be titled? Four words. If you can guess them I will be one of your sponsors to enter the Shooters Guild!^;
-!!VRz-1:S^Enter what a movie about my brother and me
-and our 40K Mark V Plasma Cannons would be named:
-(Four words of 17 lowercase letters total, with three spaces)^;
-!!VRz-2:S^What should the movie title be?^;
+!!IF:Q1/21/9/1^Ja i mój brat mamy szczęście że opiekujemy się takimi fajnymi {działami}! Powiedz, gdyby zrobili film o nas, jak by go zatytułowali? Cztery słowa (odpowiedz po Angielsku). Jeśli zgadniesz, poręczę za ciebie w Gildii Strzelców!^;
+!!VRz-1:S^Wpisz jak byłby nazwany film o mnie, moim bracie
+i naszej Armacie Plazmowej Mark V 40K:
+(Cztery słowa, w sumie 17 małych liter z trzema spacjami)^;
+!!VRz-2:S^Jak byłby zatytułowany film?^;
 !!VRz-3:S^..\Mods\HiddenSpells\Data\PlasmaGn.gif^;
 !!VRz-4:S^Plasma Cannon^;
 !!IF:D30/-1/-2/0/-3/0/0/0/-4/0/0/0/0/0/0/0;
@@ -246,10 +246,10 @@ and our 40K Mark V Plasma Cannons would be named:
 !!VRy7:Sv3%v4;
 !!IF|y5<>19988/y6<>7945/y7<>14080:Q1/21/9/1^Sorry, that's not it.^;
 !!FU|y5<>19988/y6<>7945/y7<>14080:E;
-!!IF:Q1/21/9/1^Right! You must be a war-movie buff. I'll be glad to sponsor you.^;
+!!IF:Q1/21/9/1^Dokładnie! Musisz być fanem filmów wojennych. Chętnie za ciebie poręczę.^;
 !!PO998:N1;
 
-!#VRz226:S^Shooters Guild^;
+!#VRz226:S^Gildia Strzelców^;
 !#OB75/15/0:SH226;
 !#EA34:B10/0/102/115/1/1/1/1/1/1/1/1/1/1/1; Shoot Adjacent--disabled
 !#EA35:B10/0/102/115/1/1/1/1/1/1/1/1/1/1/1; Shoot Adjacent--disabled
@@ -260,29 +260,29 @@ and our 40K Mark V Plasma Cannons would be named:
 !?OB75/15/0; Shooters Guild
 !!PO58/23/0:N?y1;
 !!PO77/23/0:N?y2;
-!!IF|y1=0/y2=0:M^Sorry, you must have two sponsors to join our guild.^;
+!!IF|y1=0/y2=0:M^Niestety, dwóch członków Gildii musi za ciebie poręczyć być mógł do nas dołączyć.^;
 !!FU|y1=0/y2=0:E;
 !!EA34:B10/?v3/d/d/d/d/d/d/d/d/d/d/d/d/d; shoot adj chk
 !!EA34:B11/?v4/d/d/d/d/d/d/d/d/d/d/d/d/d; no rng pnlty chk
 !!MA:X34/?v5;
 !!VRv5:&32768; shoot 2x chk
 !!VRz2:S^../Mods/HiddenSpells/Data/archery.gif^;
-!!VRz5:S^Shooters Guild - Advanced Archery Training^;
-!!VRz6:S^Shoot close opponents--5000 Gold^;
-!!VRz6&v3=1:S^(Already learned.)^;
-!!VRz7:S^Increased range--10,000 Gold^;
-!!VRz7&v4=1:S^(Already learned.)^;
-!!VRz8:S^Shoot twice as fast--15,000 Gold^;
-!!VRz8&v5<>0:S^(Already learned.)^;
+!!VRz5:S^Gildia Strzelców - Zaawansowany Trening Łuczniczy^;
+!!VRz6:S^Strzał w zwarciu--5000 złotych^;
+!!VRz6&v3=1:S^(Już umiesz.)^;
+!!VRz7:S^Zwiększony zasięg--10,000 złotych^;
+!!VRz7&v4=1:S^(Już umiesz.)^;
+!!VRz8:S^Szybsze strzelanie--15,000 złotych^;
+!!VRz8&v5<>0:S^(Już umiesz.)^;
 !!VRz9:S^^;
 !!HE-1:S1/?v6; Archery skill
-!!VRz9&v6<3:S^Improve your Archery Skill--2000 Gold^;
-!!VRz10:S^Here is what we could teach you (if anything):^;
+!!VRz9&v6<3:S^Szkolenie w Łucznictwie--2000 złotych^;
+!!VRz10:S^Oto czego możemy cię nauczyć (jeśli czegokolwiek):^;
 !!IF:D18/5/0/10/2/0/0/0/0/0/0/0/6/7/8/9;
-!!VRz-6:S^Shoot at adjacent foes.^;
-!!VRz-7:S^No distance penalty.^;
-!!VRz-8:S^Shoot twice per turn.^;
-!!VRz-9:S^+1 level.^;
+!!VRz-6:S^Strzał w zwarciu.^;
+!!VRz-7:S^Brak kar za dystans.^;
+!!VRz-8:S^Podwójny strzał.^;
+!!VRz-9:S^+1 poziom.^;
 !!IF:F18/-6/-7/-8/-9/1;
 !!IF:E99/18; v99 1-4 or -1 for Cancel
 !!FU&v99=-1:E;
@@ -296,7 +296,7 @@ and our 40K Mark V Plasma Cannons would be named:
 !!IF&v99=2/y3<10000:V1/1;
 !!IF&v99=3/y3<15000:V1/1;
 !!IF&v99=4/y3<2000:V1/1;
-!!IF&1:M^I'm sorry but you don't have the fee for that training.^;
+!!IF&1:M^Niestety, nie stać cię na to szkolenie.^;
 !!FU&1:E;
 !!if&v99=1;
  !!EA34:B10/1/102/115/1/1/1/1/1/1/1/1/1/1/1; Shoot Adjacent--enabled
@@ -326,9 +326,9 @@ and our 40K Mark V Plasma Cannons would be named:
  !!HE-1:S1/d1;
  !!OW:R-1/6/d-2000;
 !!en;
-!!IF:M^Our fee has been paid and your training is complete!^;
+!!IF:M^Fakturka opłacona, trening ukończony!^;
 
-!#VRz227:S^Knu Knu's Macroscope^;
+!#VRz227:S^Makroskop Knu Knu^;
 !#OB15/33/0:H227;
 !#OB17/33/0:H227;
 !#OB19/33/0:H227;
@@ -337,60 +337,59 @@ and our 40K Mark V Plasma Cannons would be named:
 !#OB17/34/0:H227;
 !#OB18/34/0:H227;
 !#OB19/34/0:H227;
-!#VRz228:S^Knu Knu's Tower of Knowledge^;
+!#VRz228:S^Wieża Wiedzy Knu Knu^;
 !#OB20/36/0:SH228;
 
 !?OB20/36/0; Knuie
 !!PO998:N?v1; 0=not visited
 !!FU&v1<>0:E;
 !!PO998:N1;
-!!VRz10:S^Hello again, my friends!
-Yes, I am a prisoner of the Ice King now, and he
-took Qubit, my quantum computer, to use as his Oracle,
-but he rarely bothers us--he prefers to think
-"straight from the gut".^;
-!!VRz12:S^Knu Knu the Sorceror^;
+!!VRz10:S^Witajcie ponownie, przyjaciele!
+Owszem, jestem teraz więźniem Króla Lodu, i zabrał Kubita,
+mój komputer kwantowy, by używać go jako Wyroczni,
+ale rzadko nas niepokoi--woli działać instynktownie.^;
+!!VRz12:S^Knu Knu, Czarnoksiężnik^;
 !!VRz13:S^..\Mods\HiddenSpells\Data\KnuKnu.gif^;
 !!IF:D34/z10/0/z12/z13 ;
 !!IF:F34/0/0/0/0/0;
 !!IF:E99/34;
-!!VRz10:S^Elder magic? No, without Qubit I can't tell you
-much about that. See Qubit - if you can get into his
-Hold. He'll be glad to help you, for old times' sake.
-I've been studying mithril though, and found a way
-to infuse magical knowledge and mana from it.^;
+!!VRz10:S^Starożytna Magia? Nie, bez Kubita niewiele
+umiem o tym powiedzieć. Odwiedź Kubita - o ile zdołasz
+wejść do jego Dominium. Chętnie ci pomoże, przez wzgląd na dawne czasy.
+Ja natomiast studiowałem Mithril i znalazłem sposób by
+włożyć go do głowy, zwiększając w ten sposób magiczną wiedzę i manę.^;
 !!IF:D34/z10/0/z12/z13 ;
 !!IF:F34/0/0/0/0/0;
 !!IF:E99/34;
 
 !?OB20/36/0; Knuie
 !!VRz2:S^..\Mods\HiddenSpells\Data\KnuKnu.gif^;
-!!VRz5:S^I can turn your mithril into Knowledge and Mana,
-if you have some mithril to spare.^;
-!!VRz6:S^Infuse 1 Knowledge and 10 Mana from 2 Mithril^;
-!!VRz10:S^Knu Knu the Sorceror^;
+!!VRz5:S^Mogę zamienić twój Mithrill w Wiedzę i Manę,
+jeśli masz go w nadmiarze.^;
+!!VRz6:S^Włożę ci 2 sztabki Mithrilu do głowy^;
+!!VRz10:S^Knu Knu, Czarnoksiężnik^;
 !!IF:D36/5/0/10/2/0/0/0/0/0/0/0/6;
-!!VRz-6:S^Exchange 2 mithril for +1K and +10 Spell Points^;
+!!VRz-6:S^Wymiana 2 Mithrilu na 1 Wiedzy i 10 Many^;
 !!IF:F36/-6/0/0/0/1;
 !!IF:E99/36; v99 1 or -1 for Cancel
 !!FU&v99=-1:E;
 !!OW:R-1/7/?y3; mithril
-!!IF&y3<2:M^I am sorry, you don't have enough mithril for me to work with.^;
+!!IF&y3<2:M^Niestety, masz za mało Mithrilu bym mógł go zmieścić w twojej głowie.^;
 !!FU&y3<2:E;
 !!OW:R-1/7/d-2;
 !!HE-1:Fd/d/d/d1 Id10;
-!!IF:M^I've done it! Do you ever thank the Elder Gods that you have access to my magnificent dementia?^;
+!!IF:M^Zrobione! Czy dziękujesz czasem Starszym Bogom za moją cudowną demencję?^;
 
-!#VRz229:S^Ghost Wheel^;
+!#VRz229:S^Koło Duchów^;
 !#OB112/81/0:SH229;
 !#MA:D159/d15 A159/d15 M159/d20 E159/d20 P159/20; improve Ghosts
 
 !?OB112/81/0&181/1000; Ghost Wheel
-!!IF:M^I cannot cast another net until the last one fades!^;
+!!IF:M^Nie mogę rzucić kolejnej sieci póki poprzednie się nie rozwieje!^;
 
 !?OB112/81/0&-181/1000; Ghost Wheel
-!!IF:Q1/21/159/2^I can cast an ethereal net to trap monsters from the Immaterium! Once trapped in our reality, they will thirst for your blood, but their own chaotic energy is a source of Mithril! Shall I cast my net?
-You may want to bring some {bait}!^;
+!!IF:Q1/21/159/2^Mogę rzucić niematerialną sieć by złapać potwory z Immaterium! Raz złapane w naszej rzeczywistości, będą pożądać twojej krwi, lecz ich własna chaotyczna energia jest źródłem Mithrilu! Mam rzucić swoją sieć?
+Polecam wziąć {przynętę}!^;
 !!FU&-1:E;
 !!IF:V181/1 V182/1;
 !!HE-1:M8/0 N?v318 Wd2000; remove DD until Ghost defeated, save HE#, add movement to reach Net
@@ -480,7 +479,7 @@ You may want to bring some {bait}!^;
 !!HEv318:M8/1 O?y2; restore DD, get owner
 !!FU&y2<>3:E; exit if not Green
 !!OW:Ry2/7/dv76;
-!!IF:Q1/7/v76/1^The creatures fade away, but leave mithril behind!^;
+!!IF:Q1/7/v76/1^Stwory rozmywają się, ale pozostawiają Mithril!^;
 
 !?TM2&181; remove net next night
 !!IF:V181/0;
@@ -529,11 +528,11 @@ You may want to bring some {bait}!^;
 !?OB55/137/0&1000; Oracle--visit by not-GEM
 !!HE-1:N?y1;
 !!FU&y1=27:E;
-!!VRz10:S^I am the Eye of Earth, Wind, Fire, and Water!
-I see all and tell all, at the service of the Ice King!
-You are not on his authorized list so I must not
-answer you. Begone, before he appears in his wrath!^;
-!!VRz12:S^Qubit the Quantum Oracle^;
+!!VRz10:S^Jam jest Oko Ziemi, Wiatru, Ognia i Wody!
+Widzę wszystko i wszystko mówię, na służbie Króla Lodu!
+Nie jesteś na jego liście upoważnionych, więc nie mogę
+ci odpowiedzieć. Odejdź, nim pojawi się w swym gniewie!^;
+!!VRz12:S^Kubit, Kwantowa Wyrocznia^;
 !!VRz13:S^..\Mods\HiddenSpells\Data\Oracle.gif^;
 !!IF:D39/z10/0/z12/z13 ;
 !!IF:F39/0/0/0/0/0;
@@ -546,7 +545,7 @@ answer you. Begone, before he appears in his wrath!^;
 !!FU&v1<>1:E;
 !!if&v313=0;
  !!IF:N20/47/20/50/20/53/20/56;
- !!IF:N^You are not yet a Master of any Element. I cannot help you until you are.^;
+ !!IF:N^Nie jesteś jeszcze Mistrzem żadnego Żywiołu. Nie mogę ci pomóc póki nim nie zostaniesz.^;
  !!SN:Q;
 !!en;
 !!VRy1:Sv313&1; air
@@ -560,68 +559,68 @@ answer you. Begone, before he appears in his wrath!^;
 !!VRv2&v2=0:Cv3/v4/0;
 !!VRv2&v2=0:Cv3/0/0; v3 is old v4
 !!VRv3&v3=0:Cv4/0;
-!!VRz1:S^I will tell you all I know about the following:^;
-!!VRz12:S^Qubit the Quantum Oracle^;
+!!VRz1:S^Mogę powiedzieć ci wszystko co wiem o:^;
+!!VRz12:S^Kubit, Kwantowa Wyrocznia^;
 !!VRz13:S^..\Mods\HiddenSpells\Data\Oracle.gif^;
-!!VRz6:S^Lost Temple of Earth^;
-!!VRz6&v1=4:S^Lost Temple of Water^;
-!!VRz6&v1=2:S^Lost Temple of Fire^;
-!!VRz6&v1=1:S^Lost Temple of Air^;
+!!VRz6:S^Zaginiona Świątynia Ziemi^;
+!!VRz6&v1=4:S^Zaginiona Świątynia Wody^;
+!!VRz6&v1=2:S^Zaginiona Świątynia Ognia^;
+!!VRz6&v1=1:S^Zaginiona Świątynia Powietrza^;
 !!VRz7:S^^;
-!!VRz7&v2=4:S^Lost Temple of Water^;
-!!VRz7&v2=2:S^Lost Temple of Fire^;
-!!VRz7&v2=1:S^Lost Temple of Air^;
+!!VRz7&v2=4:S^Zaginiona Świątynia Wody^;
+!!VRz7&v2=2:S^Zaginiona Świątynia Ognia^;
+!!VRz7&v2=1:S^Zaginiona Świątynia Powietrza^;
 !!VRz8:S^^;
-!!VRz8&v3=2:S^Lost Temple of Fire^;
-!!VRz8&v3=1:S^Lost Temple of Air^;
+!!VRz8&v3=2:S^Zaginiona Świątynia Ognia^;
+!!VRz8&v3=1:S^Zaginiona Świątynia Powietrza^;
 !!VRz9:S^^;
-!!VRz9&v4=1:S^Lost Temple of Air^;
+!!VRz9&v4=1:S^Zaginiona Świątynia Powietrza^;
 !!IF:D37/1/0/12/13/0/0/0/0/0/0/0/6/7/8/9;
-!!VRz-6:S^Information on finding the Lost Earth Temple^;
-!!VRz-6&v1=4:S^Information on finding the Lost Water Temple^;
-!!VRz-6&v1=2:S^Information on finding the Lost Fire Temple^;
-!!VRz-6&v1=1:S^Information on finding the Lost Air Temple^;
+!!VRz-6:S^Jak znaleźć Zaginioną Świątynię Ziemi^;
+!!VRz-6&v1=4:S^Jak znaleźć Zaginioną Świątynię Wody^;
+!!VRz-6&v1=2:S^Jak znaleźć Zaginioną Świątynię Ognia^;
+!!VRz-6&v1=1:S^Jak znaleźć Zaginioną Świątynię Powietrza^;
 !!VRz-7:S^^;
-!!VRz-7&v2=4:S^Information on finding the Lost Water Temple^;
-!!VRz-7&v2=2:S^Information on finding the Lost Fire Temple^;
-!!VRz-7&v2=1:S^Information on finding the Lost Air Temple^;
+!!VRz-7&v2=4:S^Jak znaleźć Zaginioną Świątynię Wody^;
+!!VRz-7&v2=2:S^Jak znaleźć Zaginioną Świątynię Ognia^;
+!!VRz-7&v2=1:S^Jak znaleźć Zaginioną Świątynię Powietrza^;
 !!VRz-8:S^^;
-!!VRz-8&v3=2:S^Information on finding the Lost Fire Temple^;
-!!VRz-8&v3=1:S^Information on finding the Lost Air Temple^;
+!!VRz-8&v3=2:S^Jak znaleźć Zaginioną Świątynię Ognia^;
+!!VRz-8&v3=1:S^Jak znaleźć Zaginioną Świątynię Powietrza^;
 !!VRz-9:S^^;
-!!VRz-9&v4=1:S^Information on finding the Lost Air Temple^;
+!!VRz-9&v4=1:S^Jak znaleźć Zaginioną Świątynię Powietrza^;
 !!IF:F37/-6/-7/-8/-9/1;
 !!IF:E99/37; v99 1-4 or -1 for Cancel
 !!FU&v99=-1:E;
 !!VRv5:Svv99;
-!!VRz10&v5=1:S^You must find the Star of Air and use it
-to travel to the Realm of Air. The Lost Temple of Air
-was known as the Temple of the Cold Winds. It is hidden
-from the eye of the Ice King but will reveal itself
-to a Master of Air who comes close to it.^;
-!!VRz10&v5=2:S^You must find the Star of Fire and use it
-to travel to the Realm of Fire. The Lost Temple of Fire
-was known as the Temple of the Burning Rocks. It is hidden
-from the eye of the Ice King but will reveal itself
-to a Master of Fire who comes close to it.^;
-!!VRz10&v5=4:S^You must find the Water Star and use it
-to travel to the Water Realm. The Lost Temple of Water
-was known as the Temple of the Weeping Rocks. It is hidden
-from the eye of the Ice King but will reveal itself
-to a Master of Water who comes close to it.^;
-!!VRz10&v5=8:S^You must find the Star of Earth and use it
-to travel to the Realm of Earth. The Lost Temple of Earth
-was known as the Temple of the Golden Stone. It is hidden
-from the eye of the Ice King but will reveal itself
-to a Master of Earth who comes close to it.^;
+!!VRz10&v5=1:S^Musisz znaleźć Gwiazdę Powietrza i użyć jej
+by dostać się do Krainy Powietrza. Zaginiona Świątynia Powietrza
+była znana jako Świątynia Zimnych Wiatrów. Jest ukryta
+przez wzrokiem Króla Lodu, ale pokaże się
+Mistrzowi Powietrza który podejdzie blisko.^;
+!!VRz10&v5=2:S^Musisz znaleźć Gwiazdę Ognia i użyć jej
+by dostać się do Krainy Ognia. Zaginiona Świątynia Ognia
+była znana jako Świątynia Płonących Skał. Jest ukryta
+przez wzrokiem Króla Lodu, ale pokaże się
+Mistrzowi Ognia który podejdzie blisko.^;
+!!VRz10&v5=4:S^Musisz znaleźć Gwiazdę Wody i użyć jej
+by dostać się do Krainy Wody. Zaginiona Świątynia Wody
+była znana jako Świątynia Płaczących Skał. Jest ukryta
+przez wzrokiem Króla Lodu, ale pokaże się
+Mistrzowi Wody który podejdzie blisko.^;
+!!VRz10&v5=8:S^Musisz znaleźć Gwiazdę Ziemi i użyć jej
+by dostać się do Krainy Ziemi. Zaginiona Świątynia Ziemi
+była znana jako Świątynia Złotych Kamieni. Jest ukryta
+przez wzrokiem Króla Lodu, ale pokaże się
+Mistrzowi Ziemi który podejdzie blisko.^;
 !!IF:D39/z10/0/z12/z13 ;
 !!IF:F39/0/0/0/0/0;
 !!IF:E99/39;
-!!VRz10:S^Also, please note that the Elder Gods have a...
-strange aversion for the Exit Spellbook button in combat.
-So you should avoid that if you don't want to ruffle them.
-(Exiting your Spellbook with ESC or Enter is fine
-And you can always press C as a sign of apology)^;
+!!VRz10:S^Pamiętaj że Starsi Bogowie mają...
+dziwną awersję do przycisku Wyjdź w Księgi Czarów w bitwie.
+Więc lepiej go unikaj jeśli nie chcesz ich wkurzyć.
+(Wychodzenie z Księgi Czarów przy użyciu ESC czy Entera jest OK,
+i zawsze możesz wcisnąć C na znak przeprosin)^;
 !!IF:D39/z10/0/z12/z13 ;
 !!IF:F39/0/0/0/0/0;
 !!IF:E99/39;
@@ -632,28 +631,28 @@ And you can always press C as a sign of apology)^;
 !!HE-1:N?y1;
 !!FU&y1<>27/y1<>29:E; only Gem known by Qubit (use Melodia for testing)
 !!PO998:N1;
-!!VRz10:S^I am the Eye of Earth, Wind, Fire, and Water!
-I see all--oh, it's you! You still have those swords which
-I helped you find, but they may not be enough against the
-Ice King's Elder Magic and Otataral Orb. My calculations
-give you only a 4.6% chance--not recommended.^;
+!!VRz10:S^Jam jest Oko Ziemi, Wiatru, Ognia i Wody!
+Widzę wszystko i wszystko--ah, to ty! Nadal masz te miecze które
+pomogłem ci znaleźć, ale one mogą nie wystarczyć przeciwko
+Starożytnej Magii Króla Lodu i jego Bardzo Czerwonej Kulce.
+Moje obliczenia dają ci tylko 4.6% szans--nie polecane.^;
 !!VRz12:S^Qubit the Quantum Oracle^;
 !!VRz13:S^..\Mods\HiddenSpells\Data\Oracle.gif^;
 !!IF:D39/z10/0/z12/z13 ;
 !!IF:F39/0/0/0/0/0;
 !!IF:E99/39;
-!!VRz10:S^Your best chance is to find the Lost Temples and
-hope they will teach you some Elder Magic to match that
-of the Ice King. The Elder Gods are beyond even my
-prediction abilities, but I can help you find their Temples.^;
+!!VRz10:S^Twoją największą szansą jest znalezienie Zaginionych Świątyń
+i liczenie że nauczą cię nieco Starszej Magii by zróœnoważyć tę którą ma Król Lodu.
+Starsi Bogowie wymykają się nawet moim predykcjom,
+ale mogę pomóc ci znaleźć ich Świątynie.^;
 !!IF:D39/z10/0/z12/z13 ;
 !!IF:F39/0/0/0/0/0;
 !!IF:E99/39;
-!!VRz10:S^First, Leora must become not just Expert, but
-a true Master of elemental magic. The Academies in the
-Elemental Holds will train her--for a price. If Leora
-lacks this training leave now, before the Ice King finds
-you--he comes here occasionally.^;
+!!VRz10:S^Najpierw, Halyna musi zostać nie tylko Ekspertem,
+lecz prawdziwym Mistrzem magii żywiołów. Akademie
+w Dominiach Żywiołów wyszkolą ją--za opłatą. Jeśli Halynie
+brak tego treningu teraz, odejdź, nim Król Lodu cię
+znajdzie--czasami tu przychodzi.^;
 !!IF:D39/z10/0/z12/z13 ;
 !!IF:F39/0/0/0/0/0;
 !!IF:E99/39;
@@ -679,7 +678,7 @@ you--he comes here occasionally.^;
 !?OB49/112/0;
 !!VRy1:Sv313&2;
 !!HE-1:N?y2;
-!!IF&y2<>27/y2<>29|y1=0:M^Only a Master of Fire can use the gate between the Stars of Fire!^;
+!!IF&y2<>27/y2<>29|y1=0:M^Jedynie Mistrz Ognia może użyć bramy między Gwiazdami Ognia!^;
 !!FU&y2<>27/y2<>29|y1=0:E;
 !!HE-1:P16/7/1;
 !!IF&-374/-382:V378/1;
@@ -691,7 +690,7 @@ you--he comes here occasionally.^;
 !?OB110/89/0;
 !!VRy1:Sv313&4;
 !!HE-1:N?y2;
-!!IF&y2<>27/y2<>29|y1=0:M^Only a Master of Water can use the gate between the Stars of Water!^;
+!!IF&y2<>27/y2<>29|y1=0:M^Jedynie Mistrz Wody może użyć bramy między Gwiazdami Wody!^;
 !!FU&y2<>27/y2<>29|y1=0:E;
 !!HE-1:P126/83/1;
 !!IF&-375/-383:V379/1;
@@ -703,7 +702,7 @@ you--he comes here occasionally.^;
 !?OB72/97/0;
 !!VRy1:Sv313&1;
 !!HE-1:N?y2;
-!!IF&y2<>27/y2<>29|y1=0:M^Only a Master of Air can use the gate between the Stars of Air!^;
+!!IF&y2<>27/y2<>29|y1=0:M^Jedynie Mistrz Powietrza może użyć bramy między Gwiazdami Powietrza!^;
 !!FU&y2<>27/y2<>29|y1=0:E;
 !!HE-1:P17/80/1;
 !!IF&-373/-381:V377/1;
@@ -715,7 +714,7 @@ you--he comes here occasionally.^;
 !?OB37/52/0;
 !!VRy1:Sv313&8;
 !!HE-1:N?y2;
-!!IF&y2<>27/y2<>29|y1=0:M^Only a Master of Earth can use the gate between the Stars of Earth!^;
+!!IF&y2<>27/y2<>29|y1=0:M^Jedynie Mistrz Ziemi może użyć bramy między Gwiazdami Ziemi!^;
 !!FU&y2<>27/y2<>29|y1=0:E;
 !!HE-1:P126/10/1;
 !!IF&-376/-384:V380/1;
@@ -729,7 +728,7 @@ you--he comes here occasionally.^;
 !!VRz2:S^chime_up.wav^;
 !!SN:Pz2;
 !!UN:I51/127/1/158/0/145/0; (144/2 not found)
-!!VRz478:S^Cold Winds Temple of Air^;
+!!VRz478:S^Świątynia Zimnych Wiatrów^;
 !!OB51/127/1:SH478;
 ; built-in YS of AirTmpl.def doesn't work (except to distribute H478)
 !!TR48/127/1:E0; so add one manually (48/126 N.G. also)(part of volcano 158/0?)
@@ -739,28 +738,28 @@ you--he comes here occasionally.^;
 !?OB48/127/1; Air
 !!VRz2:S^Mods/HiddenSpells/Data/gong.wav^;
 !!SN:Ev34/1/z2; call PlayOnce
-!!VRz10:S^A demi-god of Life comes to my Temple to seek my aid?
-As breath is the ally of Life, I will give it.
-Let the Horn of the Winds be forged anew! Then in battle
-you may set the Eye of the Whirlwind amidst your foes!^;
-!!VRz12:S^Serc - Elder God of Air^;
+!!VRz10:S^Pół-bogini Życia przychodzi do mojej Świątyni szukać mego wsparcia?
+Tak jak oddech jest sojusznikiem Życia, udzielę go.
+Niechaj Róg Wiatru zostanie wykuty na nowo! Z nim, podczas bitwy
+możesz umieścić Oko Cyklonu wśród swoich wrogów!^;
+!!VRz12:S^Serc - Starszy Bóg Powietrza^;
 !!VRz13:S^..\Mods\HiddenSpells\Data\Serc.gif^;
 !!IF:D40/z10/0/z12/z13 ;
 !!IF:F40/0/0/0/0/0;
 !!IF&-373:E99/40;
 !!IF:V373/1;
-!!VRz10:S^To forge the Horn of the Winds, take 20 Mithril and
-1 Electrum to a Master Smith. While it glows hot from the
-forge, quench it in White Potion in the Cauldron of Magic!
-Don't forget some shinies for the Smith's wife!^;
+!!VRz10:S^By wykuć Róg Wiatrów, weź 20 Mithrilu oraz
+1 Elektrum do Mistrza Kowalskiego. Póki świeci z gorąca
+kuźni, schłódź go Białą Miksturą w Kociołku Magii!
+Nie zapomnij paru błyskotek dla żony Kowala!^;
 !!IF:D40/z10/0/z12/z13 ;
 !!IF:F40/0/0/0/0/0;
 !!IF:E99/40;
-!!VRz10:S^To cast the Whirlwind click on the face of the storm
-in your Spell Book. The spell is hidden, but you will
-know you have found it when you hear the next sound.
-(RMB for information, LMB to cast.) After casting it
-place the Eye and let the Whirlwind swirl around it.^;
+!!VRz10:S^By rzucić Oko Cyklonu, kliknij na twarz wiatru
+W twojej Księdze Czarów. Czar jest ukryty, ale będziesz wiedzieć
+że go znalazłaś gdy usłyszysz następujący dźwięk.
+(PPM informacja, LPM rzucanie.) Po rzuceniu
+umieść Oko i pozwól Cyklonowi zawirować wokół niego.^;
 !!IF:D40/z10/0/z12/z13 ;
 !!IF:F40/0/0/0/0/0;
 !!IF:E99/40;
@@ -775,7 +774,7 @@ place the Eye and let the Whirlwind swirl around it.^;
 !!VRz2:S^chime_up.wav^;
 !!SN:Pz2;
 !!UN:I47/26/1/158/0/142/0;
-!!VRz477:S^Burning Rocks Temple of Fire^;
+!!VRz477:S^Świątynia Płonących Skał^;
 !!TR44/26/1:E0;
 !!OB44/26/1:SH477;
 !!UN:R1;
@@ -784,31 +783,31 @@ place the Eye and let the Whirlwind swirl around it.^;
 !?OB44/26/1; Fire
 !!VRz2:S^Mods/HiddenSpells/Data/gong.wav^;
 !!SN:Ev34/1/z2; call PlayOnce
-!!VRz10:S^A demi-god of Life comes to my Temple to seek my aid?
-As Fire gives energy to Life, so will I give it.
-Let the Staff of Fire be forged anew! Then in battle
-you may cast the Chain of Fire at your foes!^;
-!!VRz12:S^Thyr - Elder God of Fire^;
+!!VRz10:S^Pół-bogini Życia przychodzi do mojej Świątyni szukać mego wsparcia?
+Tak jak Ogień daje Życiu energię, udzielę go.
+Niechaj Laska Ognia zostanie wykuta na nowo! Z nią, podczas bitwy
+możesz ciskać Łącze Ognia na swych wrogów!^;
+!!VRz12:S^Thyr - Starszy Bóg Ognia^;
 !!VRz13:S^..\Mods\HiddenSpells\Data\Thyr.gif^;
 !!IF:D40/z10/0/z12/z13 ;
 !!IF:F40/0/0/0/0/0;
 !!IF&-374:E99/40;
 !!IF:V374/1;
-!!VRz10:S^To forge the Staff of Fire, take 20 Mithril and
-Krwistodrzew to a Master Smith. While it glows hot from the
-forge, quench it in Red Potion in the Cauldron of Magic!
-Don't forget to bring some spice for the Smith!^;
+!!VRz10:S^By wykuć Laskę Ognia, zanieś 20 Mithrilu oraz
+Krwistodrzew do Mistrza Kowalskiego. Póki świeci z gorąca
+kuźni, schłódź ją Czerwoną Miksturą w Kociołku Magii!
+Nie zapomnij zabrać worka przypraw dla Kowala!^;
 !!VRz12:S^The Staff of Fire!^;
 !!VRz13:S^..\Mods\HiddenSpells\Data\FireStaf.gif^;
 !!IF:D40/z10/0/z12/z13 ;
 !!IF:F40/0/0/0/0/0;
 !!IF:E99/40;
-!!VRz10:S^To cast the Fire Chain click on my fiery mane
-in your Spell Book. The spell is hidden, but you will
-know you have found it when you hear the next sound.
-(RMB for information, LMB to cast.) After casting it
-select its first target on the battlefield.^;
-!!VRz14:S^Thyr - Elder God of Fire^;
+!!VRz10:S^By rzucić Łące Ognia, kliknij na moją ognistą grzywę
+w Księdze Czarów. Czar jest ukryty, ale będziesz wiedzieć
+że go znalazłaś gdy usłyszysz następujący dźwięk.
+(PPM informacja, LPM rzucanie.) Po rzuceniu
+wybierz pierwszy cel na polu bitwy.^;
+!!VRz14:S^Thyr - Starszy Bóg Ognia^;
 !!VRz15:S^..\Mods\HiddenSpells\Data\Thyr.gif^;
 !!IF:D50/z10/0/0/z15/z13/0/0/z14/z12/0/0 ;
 !!IF:F50/0/0/0/0/0;
@@ -824,7 +823,7 @@ select its first target on the battlefield.^;
 !!VRz2:S^chime_up.wav^;
 !!SN:Pz2;
 !!UN:I104/110/1/158/0/144/0;
-!!VRz476:S^Weeping Rocks Temple of Water^;
+!!VRz476:S^Świątynia Płaczących Skał^;
 !!OB104/110/1:SH476;
 !!TR102/110/1:E0;
 !!UN:R1;
@@ -833,28 +832,29 @@ select its first target on the battlefield.^;
 !?OB102/110/1; Water
 !!VRz2:S^Mods/HiddenSpells/Data/gong.wav^;
 !!SN:Ev34/1/z2; call PlayOnce
-!!VRz10:S^A demi-god of Life comes to my Temple to seek my aid?
-As Water gives Life its blood, so will I give it.
-Let the Mail of Water be forged anew! Then in battle
-you may cast the Wave of Fury at your foes!^;
-!!VRz12:S^Ruse - Elder God of Water^;
+!!VRz10:S^Pół-bogini Życia przychodzi do mojej Świątyni szukać mego wsparcia?
+Tak jak Woda daje Życiu krew, udzielę go.
+Niechaj Pancerz Wody zostanie wykuty na nowo! Z nim, podczas bitwy
+możesz wylać Falę Furii na swych wrogów!^;
+!!VRz12:S^Ruse - Starszy Bóg Wody^;
 !!VRz13:S^..\Mods\HiddenSpells\Data\Ruse.gif^;
 !!IF:D40/z10/0/z12/z13 ;
 !!IF:F40/0/0/0/0/0;
 !!IF&-375:E99/40;
 !!IF:V375/1;
-!!VRz10:S^To forge the Mail of Water, take 20 Mithril and
-any torso armor to a Master Smith. While it glows hot from the
-forge, quench it in Blue Potion in the Cauldron of Magic!
-Don't forget to bring the Smith a few gallons of Oder Water!^;
+!!VRz10:S^By wykuć Pancerz Wody, zanieś 20 Mithrilu oraz
+dowolny pancerz do Mistrza Kowalskiego. Póki świeci z gorąca
+kuźni, schłódź go Niebieską Miksturą w Kociołku Magii!
+Nie zapomnij przynieść Kowalowi kilku wiader wody z Odry!^;
 !!IF:D40/z10/0/z12/z13 ;
 !!IF:F40/0/0/0/0/0;
 !!IF:E99/40;
-!!VRz10:S^Click on my glowing wave in your Spell Book.
-(RMB for information, LMB to cast.) The spell is hidden.
-You will have found it when you hear the next sound.
-Then start the wave at the top or side of the battlefield
-and it will sweep down weakening all in its path.^;
+!!VRz10:S^Kliknij moją błyszczącą falę w Księdze Czarów.
+Czar jest ukryty, ale będziesz wiedzieć
+że go znalazłaś gdy usłyszysz następujący dźwięk.
+(PPM informacja, LPM rzucanie.) Po rzuceniu
+wybierz skąd ma wystartować fala na górze lub boku pola bitwy
+a spłynie ona, osłabiając wszystko na swej drodze.^;
 !!IF:D40/z10/0/z12/z13 ;
 !!IF:F40/0/0/0/0/0;
 !!IF:E99/40;
@@ -869,7 +869,7 @@ and it will sweep down weakening all in its path.^;
 !!VRz2:S^chime_up.wav^;
 !!SN:Pz2;
 !!UN:I102/27/1/158/0/141/0;
-!!VRz479:S^Golden Stone Temple of Earth^;
+!!VRz479:S^Świątynia Złotych Kamieni^;
 !!OB100/25/1:SH479;
 !!TR100/27/1:E0;
 !!UN:R1;
@@ -878,28 +878,28 @@ and it will sweep down weakening all in its path.^;
 !?OB100/27/1; Earth
 !!VRz2:S^Mods/HiddenSpells/Data/gong.wav^;
 !!SN:Ev34/1/z2; call PlayOnce, no SN:P here because it makes the sound unrecognizable
-!!VRz10:S^A demi-god of Life comes to my Temple to seek my aid?
-As Earth gives Life its bones, so will I give it.
-Let the Shield of Earth be forged anew! Then in battle
-you may cast the Huorn Grove around your foes!^;
-!!VRz12:S^Dris - Elder God of Earth^;
+!!VRz10:S^Pół-bogini Życia przychodzi do mojej Świątyni szukać mego wsparcia?
+Tak jak Ziemia daje Życiu kości, udzielę go.
+Niechaj Tarcza Ziemi zostanie wykuta na nowo! Z nią, podczas bitwy
+możesz zasadzić Zagajnik Puszczowców dokoła twych wrogów!^;
+!!VRz12:S^Dris - Starszy Bóg Ziemi^;
 !!VRz13:S^..\Mods\HiddenSpells\Data\Dris.gif^;
 !!IF:D40/z10/0/z12/z13 ;
 !!IF:F40/0/0/0/0/0;
 !!IF&-376:E99/40;
 !!IF:V376/1;
-!!VRz10:S^To forge the Shield of Earth, take 20 Mithril and
-any shield to a Master Smith. While it glows hot from the
-forge, quench it in Green Potion in the Cauldron of Magic!
-Don't forget to bring some Crystals to harden the Shield!^;
+!!VRz10:S^By wykuć Tarczę Ziemi, zanieś 20 Mithrilu oraz
+dowolną tarczę do Mistrza Kowalskiego. Póki świeci z gorąca
+kuźni, schłódź ją Zieloną Miksturą w Kociołku Magii!
+Nie zapomnij wziąć nieco Kryształów by utwardzić Tarczę!^;
 !!IF:D40/z10/0/z12/z13 ;
 !!IF:F40/0/0/0/0/0;
 !!IF:E99/40;
-!!VRz10:S^To cast the Huorn Grove click on my tree
-in your Spell Book. The spell is hidden, but you will
-know you have found it when you hear the following chime.
-(RMB for information, LMB to cast.) After casting it
-select a hex on which to center the Grove.^;
+!!VRz10:S^By rzucić Zagajnik Puszczowców, kliknij w moje drzewo
+w Księdze Czarów. Czar jest ukryty, ale będziesz wiedzieć
+że go znalazłaś gdy usłyszysz następujący dźwięk.
+(PPM informacja, LPM rzucanie.) Po rzuceniu
+wybierz pole które ma zostać środkiem Zagajnika.^;
 !!IF:D40/z10/0/z12/z13 ;
 !!IF:F40/0/0/0/0/0;
 !!IF:E99/40;
