@@ -253,14 +253,17 @@ ZVSE
  !!SN:Q; exit
 !!el; LMB clicked, check last hint in z10
  !!VRz-1:S^Exit^;
- !!if&z10=z-1;
+ !!VRz-7:S^Wyjście^;
+ !!VRz-8:S^Wyjscie^;
+ !!if|z10=z-1/z10=z-7/z10=z-8;
   !!UN:C5168326/4/434630; turn off TL triggers
   !!UN:C7825648/2/5492; restore old code
   !!IF:V59/0 V60/0 V61/0  V63/0 V65/0 V68/0;
   !!SN:Q; exit
  !!en;
  !!VRz-1:S^All Spells^;
- !!if&z10=z-1;
+ !!VRz-7:S^Wszystkie dziedziny^;
+ !!if|z10=z-1/z10=z-7;
   !!IF:V60/0 V61/0 V63/0 V65/0 V68/0;
   !!SN:Q; exit
  !!en;
@@ -336,22 +339,29 @@ ZVSE
  !!VRz-4:S^Water Spells^;
  !!VRz-5:S^All Spells^;
  !!VRz-6:S^Next Page^;
- !!if&z10=z-1; click on Air tab
+ !!VRz-7:S^Magia powietrza^;
+ !!if|z10=z-1/z10=z-7; click on Air tab
   !!IF:V60/0 V61/0 V63/1 V65/0 V68/0;
  !!en;
- !!if&z10=z-2; click on Earth tab
+ !!VRz-7:S^Magia ziemi^;
+ !!if|z10=z-2/z10=z-7; click on Earth tab
   !!IF:V60/0 V61/0 V63/0 V65/0 V68/1;
  !!en;
- !!if&z10=z-3; click on Fire tab
+ !!VRz-7:S^Magia ognia^;
+ !!if|z10=z-3/z10=z-7; click on Fire tab
   !!IF:V60/0 V61/0 V63/0 V65/1 V68/0;
  !!en;
- !!if&z10=z-4; click on Water tab
+ !!VRz-7:S^Magia wody^;
+ !!if|z10=z-4/z10=z-7; click on Water tab
   !!IF:V60/1 V61/0 V63/0 V65/0 V68/0;
  !!en;
- !!if&z10=z-5; click on All tab
+ !!VRz-7:S^Wszystkie dziedziny^;
+ !!if|z10=z-5/z10=z-7; click on All tab
   !!IF:V60/0 V61/0 V63/0 V65/0 V68/0;
  !!en;
- !!if&z10=z-6; click on Next Page tab
+ !!VRz-7:S^Następna strona^;
+ !!VRz-8:S^Nastepna strona^;
+ !!if|z10=z-6/z10=z-7/z10=z-8; click on Next Page tab
   !!IF:V60/0 V61/0 V63/0 V65/0 /V68/0;
  !!en;
  !!SN:Q; quit event to stop trigger searches
