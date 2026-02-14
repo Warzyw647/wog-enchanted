@@ -4,24 +4,24 @@ ZVSE
 * SND_SwordsOfNightAndDay, JHV, May 2011
 * uses v27, v28, v6055, v6057, v6155, v6157, v7095-v7105, z306, z384-z387, z447, FU71, FU73-FU75, Flags 23-24 & 185-188
 
-!#VRz384:S^ZÅ‚oty Miecz Dnia^;
-!#VRz385:S^{ZÅ‚oty Miecz Dnia}
-+3 A, +3 D, +3 P +6 K, odpornoÅ›Ä‡ na Armageddon, przywoÅ‚uje Wojownika SÅ‚oÅ„ca.  W poÅ‚Ä…czeniu z Mieczem Nocy daje Jaleremu i Vamesowi wielokrotny ruch.^;
+!#VRz384:S^Z³oty Miecz Dnia^;
+!#VRz385:S^{Z³oty Miecz Dnia}
++3 A, +3 D, +3 P +6 K, odpornoœæ na Armageddon, przywo³uje Wojownika S³oñca.  W po³¹czeniu z Mieczem Nocy daje Jaleremu i Vamesowi wielokrotny ruch.^;
 !#UN:A128/9/384;
 !#UN:A128/10/385;
 !#VRz386:S^Czarny Miecz Nocy^;
 !#VRz387:S^{Czarny Miecz Nocy}
-+3 A & D, pozwala kontratakowaÄ‡ przeciwko stworzeniom powstrzymujÄ…cym kontratak, PrzywoÅ‚uje StraÅ¼nika KsiÄ™Å¼yca.  W poÅ‚Ä…czeniu z Mieczem Dnia daje Jaleremu i Vamesowi wielokrotny ruch.^;
++3 A & D, pozwala kontratakowaæ przeciwko stworzeniom powstrzymuj¹cym kontratak, Przywo³uje Stra¿nika Ksiê¿yca.  W po³¹czeniu z Mieczem Dnia daje Jaleremu i Vamesowi wielokrotny ruch.^;
 !#UN:A157/9/386;
 !#UN:A157/10/387;
-!#VRz306:S^Wojownik SÅ‚oÅ„ca^;
+!#VRz306:S^Wojownik S³oñca^;
 !#UN:G1/164/0/306;
 !#MA:S164/10 P164/200 X164/?v1;
 !#VRv1:|4194304; "summoned"
 !#MA:X164/v1;
 !#EA164:F119/-1/?v4; v4=line for ability 119/any, or empty line if none, -1 if no free lines
 !#EA164&v4>-1:Bv4/1/119/65/1/1/1/1/1/1/1/1/1/1/1;  immunity to hostile air (works for TLB)
-!#VRz447:S^StraÅ¼nik KsiÄ™Å¼yca^;
+!#VRz447:S^Stra¿nik Ksiê¿yca^;
 !#UN:G1/166/0/447;
 !#MA:S166/10 P166/200 X166/?v1;
 !#VRv1:|4194304; "summoned"

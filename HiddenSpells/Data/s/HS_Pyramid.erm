@@ -9,21 +9,21 @@ ZVSE
 ; uses v1600-v1631 for temporary use
 ; uses FU1021-FU1024, f496
 
-!#VRz607:S^Piramida PotÄ™gi^;
+!#VRz607:S^Piramida Potêgi^;
 !#OB126/107/0:SH607;
 
 !?OB126/107/0&1000; Pyramid
 !!PO998:N?y1;
-!!IF&y1>0:M^Ta lokacja zostaÅ‚a zamkniÄ™ta przez Lodowego KrÃ³la z uwagi na nieuprawnione uÅ¼ycie.^;
+!!IF&y1>0:M^Ta lokacja zosta³a zamkniêta przez Lodowego Króla z uwagi na nieuprawnione u¿ycie.^;
 !!FU&y1>0:E;
-!!IF:Q1^Witaj w Piramidzie PotÄ™gi!
-Uwaga! Jedynie Elitarny Wojownik moÅ¼e wkroczyÄ‡ na ÅšcieÅ¼kÄ™ PotÄ™gi. Nie prÃ³buj tego bez potÄ™Å¼nego wojownika biegÅ‚ego w walce wrÄ™cz w swojej armii! (Prowadzonej przez potÄ™Å¼nego boga lub boginiÄ™.) JeÅ›li on lub ona podoÅ‚a ÅšcieÅ¼ce, dostanie +50 PunktÃ³w Å¼ycia, +10 ObraÅ¼eÅ„, +1 SzybkoÅ›ci i medal za odwagÄ™. Chcesz sprÃ³bowaÄ‡?^;
+!!IF:Q1^Witaj w Piramidzie Potêgi!
+Uwaga! Jedynie Elitarny Wojownik mo¿e wkroczyæ na Œcie¿kê Potêgi. Nie próbuj tego bez potê¿nego wojownika bieg³ego w walce wrêcz w swojej armii! (Prowadzonej przez potê¿nego boga lub boginiê.) Jeœli on lub ona podo³a Œcie¿ce, dostanie +50 Punktów ¿ycia, +10 Obra¿eñ, +1 Szybkoœci i medal za odwagê. Chcesz spróbowaæ?^;
 !!FU&-1:E;
 !!HE-1:N?v1628;
-!!IF&v1628<>27:M^Wybacz, TwÃ³j bÃ³g nie jest wystarczajÄ…co potÄ™Å¼ny.^;
+!!IF&v1628<>27:M^Wybacz, Twój bóg nie jest wystarczaj¹co potê¿ny.^;
 !!FU&v1628<>27:E;
 !!HE27:C0/0/?y1/d/d/2 C0/1/?y2/d/d/2 C0/2/?y3/d/d/2 C0/3/?y4/d/d/2 C0/4/?y5/d/d/2 C0/5/?y6/d/d/2 C0/6/?y7/d/d/2;
-!!IF&y1<>174/y2<>174/y3<>174/y4<>174/y5<>174/y6<>174/y7<>174:M^Wybacz, nie masz w armii wystarczajÄ…co potÄ™Å¼nego wojownika.^;
+!!IF&y1<>174/y2<>174/y3<>174/y4<>174/y5<>174/y6<>174/y7<>174:M^Wybacz, nie masz w armii wystarczaj¹co potê¿nego wojownika.^;
 !!FU&y1<>174/y2<>174/y3<>174/y4<>174/y5<>174/y6<>174/y7<>174:E;
 !!HEv1628:A2/4/?v1629/d A2/5/?v1630/d A2/6/?v1631/d;
 !!HEv1628:A-4 A-5 A-6; remove war machines (just in case)
@@ -42,11 +42,11 @@ Uwaga! Jedynie Elitarny Wojownik moÅ¼e wkroczyÄ‡ na ÅšcieÅ¼kÄ™ PotÄ™gi. Nie prÃ³
 !!HEv1628:O?y2;
 !!FU&y2<0:E;
 !!PO126/107/0:N1;
-!!VRz607:S^Piramida PotÄ™gi (odwiedzona)^;
+!!VRz607:S^Piramida Potêgi (odwiedzona)^;
 !!MA:P174/d50 M174/d10 E174/d10 S174/d1;
 !!DO1022/0/6/1:P; refill stacks 0-6 from v1600 table
 !!HE-1:A4/49; give Badge of Courage
-!!IF:Q1/8/49/1^Vames zdobywa nagrodÄ™!^;
+!!IF:Q1/8/49/1^Vames zdobywa nagrodê!^;
 
 !?FU1021; x16=troop slot, 0-6
 !!HE-1:C0/x16/?y1/?y2/?y3/2; y1=type, y2=no., y3=exp

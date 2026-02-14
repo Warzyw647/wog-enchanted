@@ -13,13 +13,13 @@ ZVSE
 ; uses z730-z731, z753-z759
 !#VRz730:S^Latarnia Lloyda^;
 !#VRz731:S^Statua Transportu (odwiedzona)^; probably a leftover from "300"
-!#VRz753:S^Brak--wyjÅ›cie^;
-!#VRz754:S^Brak--wyjÅ›cie^;
-!#VRz755:S^Brak--wyjÅ›cie^;
-!#VRz756:S^Brak--wyjÅ›cie^;
-!#VRz757:S^Brak--wyjÅ›cie^;
-!#VRz758:S^Brak--wyjÅ›cie^;
-!#VRz759:S^Brak--wyjÅ›cie^;
+!#VRz753:S^Brak--wyjœcie^;
+!#VRz754:S^Brak--wyjœcie^;
+!#VRz755:S^Brak--wyjœcie^;
+!#VRz756:S^Brak--wyjœcie^;
+!#VRz757:S^Brak--wyjœcie^;
+!#VRz758:S^Brak--wyjœcie^;
+!#VRz759:S^Brak--wyjœcie^;
 
 !#OB32/92/0:SH730;
 
@@ -29,10 +29,10 @@ ZVSE
 !!PO998:N?y1;
 !!FU&y1<>1:E;
 !!VRz4:S^Uwierzytelnianie ...
-Zarejestrowano na Ciebie %V2002 PunktÃ³w Teleportacyjnych.
-Kliknij PPM na przycisk Rzucania Czaru by aktywowaÄ‡ LatarniÄ™.
-OsiÄ…gnÄ…Å‚eÅ› limit liczby PunktÃ³w Teleportacyjnych.
-(Nie moÅ¼na dodaÄ‡ wiÄ™cej lokalizacji, maszyna wyÅ‚Ä…cza siÄ™.)^;
+Zarejestrowano na Ciebie %V2002 Punktów Teleportacyjnych.
+Kliknij PPM na przycisk Rzucania Czaru by aktywowaæ Latarniê.
+Osi¹gn¹³eœ limit liczby Punktów Teleportacyjnych.
+(Nie mo¿na dodaæ wiêcej lokalizacji, maszyna wy³¹cza siê.)^;
 !!VRz5:S^Latarnia Lloyda^;
 !!VRz6:S^..\Mods\HiddenSpells\Data\machineB.gif^;
 !!IF:D25/z4/0/z5/z6 ;
@@ -41,10 +41,10 @@ OsiÄ…gnÄ…Å‚eÅ› limit liczby PunktÃ³w Teleportacyjnych.
 !!FU&v2002>5:E; exit if at max loc.s
 !!HE-1:A2/120/?y1/?y2;
 !!VRz4:S^Uwierzytelnianie ...
-Zarejestrowano na Ciebie %V2002 PunktÃ³w Teleportacyjnych.
-Kliknij PPM na przycisk Rzucania Czaru by aktywowaÄ‡ LatarniÄ™.
-PrzynieÅ› Elektrum do tej maszyny by zdobyÄ‡ wiÄ™cej lokalizacji.
-(Nie wykryto Elektrum, maszyna wyÅ‚Ä…cza siÄ™.)^;
+Zarejestrowano na Ciebie %V2002 Punktów Teleportacyjnych.
+Kliknij PPM na przycisk Rzucania Czaru by aktywowaæ Latarniê.
+Przynieœ Elektrum do tej maszyny by zdobyæ wiêcej lokalizacji.
+(Nie wykryto Elektrum, maszyna wy³¹cza siê.)^;
 !!VRz5:S^Latarnia Lloyda^;
 !!VRz6:S^..\Mods\HiddenSpells\Data\machineB.gif^;
 !!IF:D25/z4/0/z5/z6 ;
@@ -52,9 +52,9 @@ PrzynieÅ› Elektrum do tej maszyny by zdobyÄ‡ wiÄ™cej lokalizacji.
 !!IF&y1<1:E2/25;
 !!FU&y1<1:E; exit if no Electrum
 !!VRz4:S^Uwierzytelnianie ...
-Zarejestrowano na Ciebie %V2002 PunktÃ³w Teleportacyjnych.
-Kliknij PPM na przycisk Rzucania Czaru by aktywowaÄ‡ LatarniÄ™.
-Czy oddasz Elektrum za dodatkowÄ… lokacjÄ™?^;
+Zarejestrowano na Ciebie %V2002 Punktów Teleportacyjnych.
+Kliknij PPM na przycisk Rzucania Czaru by aktywowaæ Latarniê.
+Czy oddasz Elektrum za dodatkow¹ lokacjê?^;
 !!VRz5:S^Latarnia Lloyda^;
 !!VRz6:S^..\Mods\HiddenSpells\Data\machineB.gif^;
 !!IF:D26/z4/0/z5/z6 ;
@@ -65,7 +65,7 @@ Czy oddasz Elektrum za dodatkowÄ… lokacjÄ™?^;
 !!SN:Pz2;
 !!HE-1:A3/120/1/1; delete 1 Electrum
 !!VRv2002:+1;
-!!VRz4:S^Teraz jest zarejestrowanych na Ciebie %V2002 PunktÃ³w Teleportacyjnych.^;
+!!VRz4:S^Teraz jest zarejestrowanych na Ciebie %V2002 Punktów Teleportacyjnych.^;
 !!VRz5:S^Latarnia Lloyda^;
 !!VRz6:S^..\Mods\HiddenSpells\Data\machineB.gif^;
 !!IF:D24/z4/0/z5/z6 ;
@@ -79,20 +79,20 @@ Czy oddasz Elektrum za dodatkowÄ… lokacjÄ™?^;
 !!VRv2002:S2; set starting # of available teleport loc.s
 !!VRz2:S^AlchMgic.wav^;
 !!SN:Pz2;
-!!VRz4:S^Trwa rejestracja PunktÃ³w Teleportacyjnych ...
+!!VRz4:S^Trwa rejestracja Punktów Teleportacyjnych ...
 Wydano kod autoryzacyjny Gamma-Alfa-Omikron.
 Zarejestrowano na Ciebie dwa Punkty Teleportacyjne.
-kliknij PPM na przycisk Rzucania Czaru by aktywowaÄ‡ LatarniÄ™.
-PrzynieÅ› Elektrum do tej maszyny by zdobyÄ‡ wiÄ™cej lokalizacji.^;
+kliknij PPM na przycisk Rzucania Czaru by aktywowaæ Latarniê.
+Przynieœ Elektrum do tej maszyny by zdobyæ wiêcej lokalizacji.^;
 !!VRz5:S^Latarnia Lloyda^;
 !!VRz6:S^..\Mods\HiddenSpells\Data\machineB.gif^;
 !!IF:D24/z4/0/z5/z6 ;
 !!IF:F24/0/0/0/0/0;
 !!IF:E2/24;
 !!VRz4:S^UWAGA: zgodnie z naszym regulaminem, sekcja Rodzina i Przyjaciele
-Twoja lista lokalizacji jest dostÄ™pna dla wszystkich ktÃ³rych wskaÅ¼esz.
-MogÄ… zarÃ³wno teleportowaÄ‡ siÄ™ do Twoich PunktÃ³w Teleportacyjnych
-jak i dodawaÄ‡ nowe lokalizacje do listy.^;
+Twoja lista lokalizacji jest dostêpna dla wszystkich których wska¿esz.
+Mog¹ zarówno teleportowaæ siê do Twoich Punktów Teleportacyjnych
+jak i dodawaæ nowe lokalizacje do listy.^;
 !!VRz5:S^Latarnia Lloyda^;
 !!VRz6:S^..\Mods\HiddenSpells\Data\machineB.gif^;
 !!IF:D24/z4/0/z5/z6 ;
@@ -106,11 +106,11 @@ jak i dodawaÄ‡ nowe lokalizacje do listy.^;
 ; set up radio button (G1) dialog box: use v1 for results/initial state/
 ; z# has header/z# has 1st item description/etc.
 !!VRz-1:S^Menu teleportacyjne Latarni Lloyda:^;
-!!VRz-2:S^(Ustaw nowÄ… lokalizacjÄ™.)--niestety, obecnie niedostÄ™pne.^; v99=1
-!!VRz-2&v2002>v2003:S^Ustaw aktualnÄ… lokalizacjÄ™ jako nowy Punkt Teleportacyjny.^; v99=1
-!!VRz-3:S^(PrzenieÅ› siÄ™ do istniejÄ…cego Punktu Teleportacyjnego.)--niestety, Å¼adnych nie masz.^; v99=2
-!!VRz-3&v2003>0:S^PrzenieÅ› siÄ™ do istniejÄ…cego Punktu Teleportacyjnego.^; v99=2
-!!VRz-4:S^WyjdÅº z menu.^; v99=4
+!!VRz-2:S^(Ustaw now¹ lokalizacjê.)--niestety, obecnie niedostêpne.^; v99=1
+!!VRz-2&v2002>v2003:S^Ustaw aktualn¹ lokalizacjê jako nowy Punkt Teleportacyjny.^; v99=1
+!!VRz-3:S^(Przenieœ siê do istniej¹cego Punktu Teleportacyjnego.)--niestety, ¿adnych nie masz.^; v99=2
+!!VRz-3&v2003>0:S^Przenieœ siê do istniej¹cego Punktu Teleportacyjnego.^; v99=2
+!!VRz-4:S^WyjdŸ z menu.^; v99=4
 !!IF:G1/99/2/-1/-2/-3/-4;
 !!FU&v99=4:E;
 !!FU456&v99=1/v2002>v2003:P; set new dest.
@@ -120,10 +120,10 @@ jak i dodawaÄ‡ nowe lokalizacje do listy.^;
 !!OW:A-1/?v2;
 !!VRv2&v2<0:S26;
 !!HEv2:I?v3/1;
-!!IF&v3<20:M^Niestety, nie masz Many na TeleportacjÄ™.^;
+!!IF&v3<20:M^Niestety, nie masz Many na Teleportacjê.^;
 !!FU&v3<20:E;
 !!HEv2:M8/?v3;
-!!IF&v3=1:Q1^Uwaga: uÅ¼ycie Latarni Lloyda usuwa tymczasowe Wrota WymiarÃ³w Pytha. KontynuowaÄ‡?^;
+!!IF&v3=1:Q1^Uwaga: u¿ycie Latarni Lloyda usuwa tymczasowe Wrota Wymiarów Pytha. Kontynuowaæ?^;
 !!FU&v3=1/-1:E;
 !!IF&v3=1:V51/1; set flag to display messages randomly on roads
 ; set up radio button (G1) dialog box: use v1 for results/initial state/
@@ -144,7 +144,7 @@ jak i dodawaÄ‡ nowe lokalizacje do listy.^;
 !!OBv4/v5/v6:T?y9;
 !!if&y9=34; another Hero on destination
   !!HEv2:B0/?z7; name
-  !!IF:M^Punkt docelowy jest zajÄ™ty przez innÄ… duszyczkÄ™! %Z7 nie moÅ¼e siÄ™ zmaterializowaÄ‡!^;
+  !!IF:M^Punkt docelowy jest zajêty przez inn¹ duszyczkê! %Z7 nie mo¿e siê zmaterializowaæ!^;
   !!VRz8:S^MEDUKILL.WAV^;
   !!SN:Pz8;
   !!HEv2:K;
@@ -160,9 +160,9 @@ jak i dodawaÄ‡ nowe lokalizacje do listy.^;
 !!VRz-2:S^Wpisz opis tego Punktu Teleportacyjnego:^; -->z1
 !!VRz-3:S^Opcje:^;
 !!VRz-4:S^..\Mods\HiddenSpells\Data\machineB.gif^;
-!!VRz-8:S^Wybieraj Punkty Teleportacyjne mÄ…drze--nie moÅ¼na ich zmieniÄ‡.^;
-!!VRz2:S^Zapisz aktualnÄ… pozycjÄ™.^; v1=1
-!!VRz3:S^Anuluj wybÃ³r i wyjdÅº.^; v1=2
+!!VRz-8:S^Wybieraj Punkty Teleportacyjne m¹drze--nie mo¿na ich zmieniæ.^;
+!!VRz2:S^Zapisz aktualn¹ pozycjê.^; v1=1
+!!VRz3:S^Anuluj wybór i wyjdŸ.^; v1=2
 !!IF:D7/-1/-2/-3/0/-4/0/0/-8/-8/-8/0/2/3/0/0; [Set up custom dialogue box]
 !!IF:F7/0/0/0/0/0; [Disable Cancel button]
 !!IF:E1/7; [Display Custom Dialogue] selected option 1-4 in v1

@@ -20,7 +20,7 @@ ZVSE
 !!IF&y1>0:M^W Wirku nie ma Frytek.^;
 !!OB998&y1>0:M-1/1/0; eliminate next message (there must be a std message)
 !!FU&y1>0:E;
-!!IF:Q1^Czy chciaÅ‚byÄ‡ zmierzyÄ‡ siÄ™ z Frytkami z Wirku?^;
+!!IF:Q1^Czy chcia³byæ zmierzyæ siê z Frytkami z Wirku?^;
 !!OB998&-1:S; disable (w/be no std message)
 !!FU&-1:E;
 !!VRy1:Sv78%13+9; instead of S9 T12 take next random number from the sequence, modulo 13, add 9

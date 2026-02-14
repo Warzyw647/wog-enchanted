@@ -63,7 +63,7 @@ ZVSE
 
 !?BG1&205;
 !!UN&v1297>0:Cv1297/2/26708; restore "Th"
-!!VRz10:S^Czar Wysokiego Czarodzieja bije po 600 w kaÅ¼dy cel.^;
+!!VRz10:S^Czar Wysokiego Czarodzieja bije po 600 w ka¿dy cel.^;
 !!BU:Mz10;
 !!IF:V205/0;
 
@@ -77,7 +77,7 @@ ZVSE
 !!BG:N?v1; stack
 !!BMv1:T?v2;
 !!FU&v2<>136:E;
-!!IF:Q1/21/136/1^Halyna dziÄ™ki Ci za Twe dary.  W tej godzinie prÃ³by, proszÄ™ nie trwoÅ„ swojej mocy, lecz uÅ¼ywaj jej na kaÅ¼dym z nas, po kolei.^;
+!!IF:Q1/21/136/1^Halyna dziêki Ci za Twe dary.  W tej godzinie próby, proszê nie trwoñ swojej mocy, lecz u¿ywaj jej na ka¿dym z nas, po kolei.^;
 !!IF:V201/0;
 
 !?BG0&1000/202;
@@ -88,7 +88,7 @@ ZVSE
 !!BG:N?v1; stack
 !!BMv1:T?v2;
 !!FU&v2<>174:E;
-!!IF:Q1/21/174/1^Halyna, jeÅ›li taka Twa wola, osÅ‚oÅ„ nas tarczÄ…, by zredukowaÄ‡ siÅ‚Ä™ wrogich ciosÃ³w.^;
+!!IF:Q1/21/174/1^Halyna, jeœli taka Twa wola, os³oñ nas tarcz¹, by zredukowaæ si³ê wrogich ciosów.^;
 !!IF:V202/0;
 
 !?BG0&1000/203;
@@ -99,7 +99,7 @@ ZVSE
 !!BG:N?v1; stack
 !!BMv1:T?v2;
 !!FU&v2<>34:E;
-!!IF:Q1/21/34/1^Halyna, prosimy o Twe BÅ‚ogosÅ‚awieÅ„stwo, by jeÅ›li zginiemy, byÅ‚o to w chwale.^;
+!!IF:Q1/21/34/1^Halyna, prosimy o Twe B³ogos³awieñstwo, by jeœli zginiemy, by³o to w chwale.^;
 !!IF:V203/0;
 
 !?BG0&1000/204;
@@ -110,7 +110,7 @@ ZVSE
 !!BG:N?v1; stack
 !!BMv1:T?v2;
 !!FU&v2<>6:E;
-!!IF:Q1/21/6/1^Halyna, jeÅ›li moÅ¼esz, prosimy byÅ› uleczyÅ‚a nasze rany, abyÅ›my mogli walczyÄ‡ do ostatniego oddechu.^;
+!!IF:Q1/21/6/1^Halyna, jeœli mo¿esz, prosimy byœ uleczy³a nasze rany, abyœmy mogli walczyæ do ostatniego oddechu.^;
 !!IF:V204/0;
 
 ; casting for each stack per round
@@ -214,29 +214,29 @@ ZVSE
 !!if&y3<5/v1477=>5;
 !!EA34:F76/-1/?v1; v1=line for ability 76/any
 !!EA34&v1>-1:Bv1/1/76/24/30/30/30/30/30/40/40/40/40/40/50;  30/40/50% chance to deflect 25% of damage
-!!IF:Q1/21/34/1^Po wymianie zebranych doÅ›wiadczeÅ„ mÅ‚odsi Magowie zauwaÅ¼ajÄ… sposÃ³b na poprawÄ™ swoich umiejÄ™tnoÅ›ci parowania ciosÃ³w!^;
+!!IF:Q1/21/34/1^Po wymianie zebranych doœwiadczeñ m³odsi Magowie zauwa¿aj¹ sposób na poprawê swoich umiejêtnoœci parowania ciosów!^;
 !!en;
 !!if&y3<10/v1477=>10;
 !!EA6:F76/-1/?v1; v1=line for ability 76/any
 !!EA6&v1>-1:Bv1/1/76/24/30/30/30/30/30/40/40/40/40/40/50;  30/40/50% chance to deflect 25% of damage
-!!IF:Q1/21/6/1^Po wymianie zebranych doÅ›wiadczeÅ„ mÅ‚odsi Wojownicy zauwaÅ¼ajÄ… sposÃ³b na poprawÄ™ swoich umiejÄ™tnoÅ›ci parowania ciosÃ³w!^;
+!!IF:Q1/21/6/1^Po wymianie zebranych doœwiadczeñ m³odsi Wojownicy zauwa¿aj¹ sposób na poprawê swoich umiejêtnoœci parowania ciosów!^;
 !!en;
 !!if&y3<15/v1477=>15;
 !!EA34:F76/-1/?v1; v1=line for ability 76/any
 !!EA34&v1>-1:Bv1/1/76/24/35/35/35/35/35/45/45/45/45/45/55;  35/45/55% chance to deflect 30% of damage
-!!IF:Q1/21/34/1^Po wymianie zebranych doÅ›wiadczeÅ„ mÅ‚odsi Magowie poprawili swoje umiejÄ™tnoÅ›ci parowania ciosÃ³w!^;
+!!IF:Q1/21/34/1^Po wymianie zebranych doœwiadczeñ m³odsi Magowie poprawili swoje umiejêtnoœci parowania ciosów!^;
 !!en;
 !!if&y3<20/v1477=>20;
 !!EA6:F76/-1/?v1; v1=line for ability 76/any
 !!EA6&v1>-1:Bv1/1/76/24/35/35/35/35/35/45/45/45/45/45/55;  35/45/55% chance to deflect 30% of damage
-!!IF:Q1/21/6/1^Po wymianie zebranych doÅ›wiadczeÅ„ mÅ‚odsi Wojownicy poprawili swoje umiejÄ™tnoÅ›ci parowania ciosÃ³w!^;
+!!IF:Q1/21/6/1^Po wymianie zebranych doœwiadczeñ m³odsi Wojownicy poprawili swoje umiejêtnoœci parowania ciosów!^;
 !!en;
 !!if&y3<25/v1477=>25;
 !!DO87/0/6/1:P26/34/35; chk Calladan
 !!DO87/0/6/1:P27/34/35; chk Leora
 !!DO94/0/6/1:P72/72/1/34/35; chk Woodshire
 !!CA72/72/1:B6/41; build upgraded level 5
-!!IF:Q1/21/34/21/35/1^Po wymianie zebranych doÅ›wiadczeÅ„ mÅ‚odsi Magowie zyskali wystarczajÄ…cÄ… mÄ…droÅ›Ä‡ by staÄ‡ siÄ™ Wysokimi Magami!^;
+!!IF:Q1/21/34/21/35/1^Po wymianie zebranych doœwiadczeñ m³odsi Magowie zyskali wystarczaj¹c¹ m¹droœæ by staæ siê Wysokimi Magami!^;
 !!UN:R1;
 !!en;
 !!if&y3<30/v1477=>30;
@@ -244,35 +244,35 @@ ZVSE
 !!DO87/0/6/1:P27/6/7; chk Leora
 !!DO94/0/6/1:P72/72/1/6/7; chk Woodshire
 !!CA72/72/1:B6/40; build upgraded level 5
-!!IF:Q1/21/6/21/7/1^Po wymianie zebranych doÅ›wiadczeÅ„ mÅ‚odsi Wojownicy zyskali wystarczajÄ…cÄ… wiedzÄ™ praktycznÄ… by zostaÄ‡ Starszymi Wojownikami!^;
+!!IF:Q1/21/6/21/7/1^Po wymianie zebranych doœwiadczeñ m³odsi Wojownicy zyskali wystarczaj¹c¹ wiedzê praktyczn¹ by zostaæ Starszymi Wojownikami!^;
 !!UN:R1;
 !!en;
 !!if&y3<35/v1477=>35;
 !!EA35:F112/-1/?v1; v1=line for ability 112/(any)
 !!EA35&v1>-1:Bv1/1/112/19/100/100/100/100/100/100/100/100/100/100/100; Chain Lightning before attack
-!!IF:Q1/21/35/1^Po wymianie zebranych doÅ›wiadczeÅ„ Wysocy Magowie zyskali wystarczajÄ…cÄ… mÄ…droÅ›Ä‡ by nauczyÄ‡ siÄ™ ÅÄ…cza PiorunÃ³w!^;
+!!IF:Q1/21/35/1^Po wymianie zebranych doœwiadczeñ Wysocy Magowie zyskali wystarczaj¹c¹ m¹droœæ by nauczyæ siê £¹cza Piorunów!^;
 !!en;
 !!if&y3<40/v1477=>40;
 !!EA7:F101/-1/?v1; v1=line for ability 101/(any)
 !!EA7&v1>-1:Bv1/1/101/61/5/7/10/12/15/17/20/22/25/27/30; Death Blow 5-30% (each blow)
 !!EA174:F101/-1/?v1; v1=line for ability 101/(any)
 !!EA174&v1>-1:Bv1/1/101/61/5/8/10/13/15/18/20/23/25/28/30; Death Blow 5-30% (each blow)
-!!IF:Q1/21/7/1^Po wymianie zebranych doÅ›wiadczeÅ„ Starsi Wojownicy zauwaÅ¼ajÄ… sposÃ³b na poprawÄ™ swych umiejÄ™tnoÅ›ci zadawania Åšmiertelnych CiosÃ³w!^;
+!!IF:Q1/21/7/1^Po wymianie zebranych doœwiadczeñ Starsi Wojownicy zauwa¿aj¹ sposób na poprawê swych umiejêtnoœci zadawania Œmiertelnych Ciosów!^;
 !!en;
 !!if&y3<45/v1477=>45;
 !!EA35:F76/-1/?v1; v1=line for ability 76/any
 !!EA35&v1>-1:Bv1/1/76/39/45/45/45/45/45/55/55/55/55/55/65;  45/55/65% chance to deflect 40% of damage
-!!IF:Q1/21/35/1^Po wymianie zebranych doÅ›wiadczeÅ„ Wysocy Magowie zauwaÅ¼ajÄ… sposÃ³b na poprawÄ™ swoich umiejÄ™tnoÅ›ci parowania ciosÃ³w!^;
+!!IF:Q1/21/35/1^Po wymianie zebranych doœwiadczeñ Wysocy Magowie zauwa¿aj¹ sposób na poprawê swoich umiejêtnoœci parowania ciosów!^;
 !!en;
 !!if&y3<50/v1477=>50;
 !!EA7:F76/-1/?v1; v1=line for ability 76/any
 !!EA7&v1>-1:Bv1/1/76/39/45/45/45/45/45/55/55/55/55/55/65;  45/55/65% chance to deflect 40% of damage
-!!IF:Q1/21/7/1^Po wymianie zebranych doÅ›wiadczeÅ„ Starsi Wojownicy zauwaÅ¼ajÄ… sposÃ³b na dalszÄ… poprawÄ™ swych umiejÄ™tnoÅ›ci zadawania Åšmiertelnych CiosÃ³w!^;
+!!IF:Q1/21/7/1^Po wymianie zebranych doœwiadczeñ Starsi Wojownicy zauwa¿aj¹ sposób na dalsz¹ poprawê swych umiejêtnoœci zadawania Œmiertelnych Ciosów!^;
 !!en;
 !!if&y3<55/v1477=>55;
 !!EA35:F112/-1/?v1; v1=line for ability 112/(any)
 !!EA35&v1>-1:Bv1/1/112/57/100/100/100/100/100/100/100/100/100/100/100; TTB before attack
-!!IF:Q1/21/35/1^Po wymianie zebranych doÅ›wiadczeÅ„ Wysocy Magowie zyskali wystarczajÄ…cÄ… mÄ…droÅ›Ä‡ by nauczyÄ‡ siÄ™ ciskaÄ‡ Pioruny Tytana!^;
+!!IF:Q1/21/35/1^Po wymianie zebranych doœwiadczeñ Wysocy Magowie zyskali wystarczaj¹c¹ m¹droœæ by nauczyæ siê ciskaæ Pioruny Tytana!^;
 !!en;
 !!if&y3<60/v1477=>60;
 !!EA7:F101/-1/?v1; v1=line for ability 101/(any)
@@ -281,63 +281,63 @@ ZVSE
 !!EA174&v1>-1:Bv1/1/101/61/10/13/15/18/20/23/25/28/30/33/35; Death Blow 10-35% (each blow)
 !!EA174:F115/-1/?v1; v1=line for ability 115/-1, or empty line if none, -1 if no free lines
 !!EA174&v1>-1:Bv1/1/115/53/0/0/1/1/1/2/2/2/3/3/3; Enchant w/Haste (3=expert--match Jalery)
-!!IF:Q1/21/7/1^Po wymianie zebranych doÅ›wiadczeÅ„ Starsi Wojownicy poprawiajÄ… swoje Åšmiertelne Ciosy!^;
+!!IF:Q1/21/7/1^Po wymianie zebranych doœwiadczeñ Starsi Wojownicy poprawiaj¹ swoje Œmiertelne Ciosy!^;
 !!en;
 !!if&y3<65/v1477=>65;
 !!EA35:F76/-1/?v1; v1=line for ability 76/any
 !!EA35&v1>-1:Bv1/1/76/44/50/50/50/50/50/60/60/60/60/60/70;  50/60/70% chance to deflect 45% of damage
-!!IF:Q1/21/35/1^Po wymianie zebranych doÅ›wiadczeÅ„ Wysocy Magowie poprawiajÄ… swoje parowanie ciosÃ³w!^;
+!!IF:Q1/21/35/1^Po wymianie zebranych doœwiadczeñ Wysocy Magowie poprawiaj¹ swoje parowanie ciosów!^;
 !!en;
 !!if&y3<70/v1477=>70;
 !!EA7:F76/-1/?v1; v1=line for ability 76/any
 !!EA7&v1>-1:Bv1/1/76/44/50/50/50/50/50/60/60/60/60/60/70;  50/60/70% chance to deflect 45% of damage
-!!IF:Q1/21/7/1^Po wymianie zebranych doÅ›wiadczeÅ„ Starsi Wojownicy poprawiajÄ… swoje parowanie ciosÃ³w!^;
+!!IF:Q1/21/7/1^Po wymianie zebranych doœwiadczeñ Starsi Wojownicy poprawiaj¹ swoje parowanie ciosów!^;
 !!en;
 !!if&y3<75/v1477=>75;
 !!EA35:F76/-1/?v1; v1=line for ability 76/any
 !!EA35&v1>-1:Bv1/1/76/49/55/55/55/55/55/65/65/65/65/65/75;  55/65/75% chance to deflect 50% of damage
-!!IF:Q1/21/35/1^Po wymianie zebranych doÅ›wiadczeÅ„ Wysocy Magowie jeszcze bardziej poprawiajÄ… swoje parowanie ciosÃ³w!^;
+!!IF:Q1/21/35/1^Po wymianie zebranych doœwiadczeñ Wysocy Magowie jeszcze bardziej poprawiaj¹ swoje parowanie ciosów!^;
 !!en;
 !!if&y3<80/v1477=>80;
 !!EA7:F76/-1/?v1; v1=line for ability 76/any
 !!EA7&v1>-1:Bv1/1/76/49/55/55/55/55/55/65/65/65/65/65/75;  55/65/75% chance to deflect 50% of damage
-!!IF:Q1/21/7/1^Po wymianie zebranych doÅ›wiadczeÅ„ Starsi Wojownicy jeszcze bardziej poprawiajÄ… swoje parowanie ciosÃ³w!^;
+!!IF:Q1/21/7/1^Po wymianie zebranych doœwiadczeñ Starsi Wojownicy jeszcze bardziej poprawiaj¹ swoje parowanie ciosów!^;
 !!en;
 !!if&y3<85/v1477=>85;
 !!EA174:B12/1/103/37/25/25/25/25/25/35/35/35/35/35/45;  resist 20/30/40% of spell damage
-!!IF:Q1/21/174/1^Po wielu Ä‡wiczeniach, Vames poprawiÅ‚ swojÄ… odpornoÅ›Ä‡ na czary obraÅ¼ajÄ…ce!^;
+!!IF:Q1/21/174/1^Po wielu æwiczeniach, Vames poprawi³ swoj¹ odpornoœæ na czary obra¿aj¹ce!^;
 !!en;
 !!if&y3<90/v1477=>90;
 !!EA174:B12/1/103/37/30/30/30/30/30/40/40/40/40/40/50;  resist 20/30/40% of spell damage
-!!IF:Q1/21/174/1^Vames jeszcze bardziej poprawiÅ‚ swojÄ… odpornoÅ›Ä‡ na obraÅ¼anie czarami!^;
+!!IF:Q1/21/174/1^Vames jeszcze bardziej poprawi³ swoj¹ odpornoœæ na obra¿anie czarami!^;
 !!en;
 !!if&y3<95/v1477=>95;
 !!HE27:M48/1;
-!!IF:Q1/21/128/9/48/1^Za wszystkie wysiÅ‚ki, Starsi Bogowie dali Halynie nowÄ… moc!^;
+!!IF:Q1/21/128/9/48/1^Za wszystkie wysi³ki, Starsi Bogowie dali Halynie now¹ moc!^;
 !!en;
 !!if&y3<100/v1477=>100;
 !!HE27:M38/1;
-!!IF:Q1/21/128/9/38/1^W podziwie dla jej determinacji, Starsi Bogowie dali Halynie kolejnÄ… nowÄ… mod!^;
+!!IF:Q1/21/128/9/38/1^W podziwie dla jej determinacji, Starsi Bogowie dali Halynie kolejn¹ now¹ mod!^;
 !!en;
 !!if&y3<110/v1477=>110;
 !!HE27:M9/1;
-!!IF:Q1/21/128/9/9/1^Za jej oddanie, Starsi Bogowie dali Halynie jeszcze jednÄ… nowÄ… moc!^;
+!!IF:Q1/21/128/9/9/1^Za jej oddanie, Starsi Bogowie dali Halynie jeszcze jedn¹ now¹ moc!^;
 !!en;
 !!if&y3<120/v1477=>120;
 !!HE27:S18/3;
-!!IF:Q1/21/128/20/59/1^W uznaniu dla jej mistrzostwa zaklÄ™Ä‡ Å»ycia, Akademie Å»ywioÅ‚Ã³w nadaÅ‚y Halynie uprawnienia Eksperckiego Nauczyciela CzarÃ³w!^;
+!!IF:Q1/21/128/20/59/1^W uznaniu dla jej mistrzostwa zaklêæ ¯ycia, Akademie ¯ywio³ów nada³y Halynie uprawnienia Eksperckiego Nauczyciela Czarów!^;
 !!en;
 !!if&y3<130/v1477=>130;
 !!HE27:S24/3;
-!!IF:Q1/21/128/20/77/1^Za niebywaÅ‚e osiÄ…gniÄ™cia w dziedzinie doskonaÅ‚oÅ›ci, Akademie Å»ywioÅ‚Ã³w nadaÅ‚y Halynie certyfikat Eksperta Inteligencji!^;
+!!IF:Q1/21/128/20/77/1^Za niebywa³e osi¹gniêcia w dziedzinie doskona³oœci, Akademie ¯ywio³ów nada³y Halynie certyfikat Eksperta Inteligencji!^;
 !!en;
 !!if&y3<140/v1477=>140;
 !!HE27:S25/3;
-!!IF:Q1/21/128/20/80/1^W uznaniu szybkoÅ›ci i umiejÄ™tnoÅ›ci z jakimi rzuca ona czary, Akademie Å»ywioÅ‚Ã³w nadaÅ‚y Halynie uprawnienia Eksperta Czaroznawstwa!^;
+!!IF:Q1/21/128/20/80/1^W uznaniu szybkoœci i umiejêtnoœci z jakimi rzuca ona czary, Akademie ¯ywio³ów nada³y Halynie uprawnienia Eksperta Czaroznawstwa!^;
 !!en;
 !!if&y3<150/v1477=>150;
 !!HE27:A4/72;
-!!IF:Q1/21/128/8/72/1^Starsi Bogowie nagrodzili HalynÄ™ ich ostatecznÄ… nagrodÄ…: ZimowÄ… KurtkÄ… Lewitacji!^;
+!!IF:Q1/21/128/8/72/1^Starsi Bogowie nagrodzili Halynê ich ostateczn¹ nagrod¹: Zimow¹ Kurtk¹ Lewitacji!^;
 !!en;
 
 !?FU87; x16=troop, x1=HE#, x2=cr#, x3=new cr#
@@ -354,8 +354,8 @@ ZVSE
 !!VRy4:Sx16+1*-1;
 !!EAy4:E?y5/2/d/d;
 !!HE27:C0/y3/y1/1/y5/2;
-!!IF&y1=174:Q1/21/128/1^{Halyna}:  Vames mocno oberwaÅ‚, ale go uleczyÅ‚am!^;
-!!IF&y1=136:Q1/21/128/1^{Halyna}:  Jalery mocno oberwaÅ‚, ale go uleczyÅ‚am!^;
+!!IF&y1=174:Q1/21/128/1^{Halyna}:  Vames mocno oberwa³, ale go uleczy³am!^;
+!!IF&y1=136:Q1/21/128/1^{Halyna}:  Jalery mocno oberwa³, ale go uleczy³am!^;
 !!UN:R1;
 
 !?HL-1&v2392>1; Hero Level Up (at Tree of K)

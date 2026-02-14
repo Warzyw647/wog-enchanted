@@ -7,43 +7,43 @@ ZVSE
 
 !#VRz231:S^Mistrz Kowalski^;
 !#OB61/36/0:SH231;
-!#VRz232:S^KuÅºnia Mocy^;
+!#VRz232:S^KuŸnia Mocy^;
 !#OB61/37/0:SH232;
 !#OB62/37/0:SH232;
 !#OB63/37/0:SH232;
 !#OB64/37/0:SH232;
-!#VRz233:S^KocioÅ‚ek Magii^;
+!#VRz233:S^Kocio³ek Magii^;
 !#OB72/46/0:SH233;
-!#VRz234:S^RÃ³g WiatrÃ³w^;
-!#VRz235:S^{RÃ³g WiatrÃ³w}
-Bohater dzierÅ¼Ä…cy ten magiczny RÃ³g moÅ¼e zawoÅ‚aÄ‡ Serca by rzuciÄ‡ ukryty czar znany jako Oko Cyklonu.^;
+!#VRz234:S^Róg Wiatrów^;
+!#VRz235:S^{Róg Wiatrów}
+Bohater dzier¿¹cy ten magiczny Róg mo¿e zawo³aæ Serca by rzuciæ ukryty czar znany jako Oko Cyklonu.^;
 !#UN:A48/9/234 A48/10/235;
 !#VRz236:S^Ognista Laska^;
 !#VRz237:S^{Ognista Laska}
-Bohater dzierÅ¼Ä…cy tÄ™ magicznÄ… LaskÄ™ moÅ¼e zawoÅ‚aÄ‡ Thyra by rzuciÄ‡ ukryty czar znany jako ÅÄ…cze Ognia.^;
+Bohater dzier¿¹cy tê magiczn¹ Laskê mo¿e zawo³aæ Thyra by rzuciæ ukryty czar znany jako £¹cze Ognia.^;
 !#UN:A50/9/236 A50/10/237;
 !#VRz238:S^Zbroja Wody^;
 !#VRz239:S^{Zbroja Wody}
-Bohater dzierÅ¼Ä…cy tÄ™ magicznÄ… ZbrojÄ™ moÅ¼e zawoÅ‚aÄ‡ Ruse by rzuciÄ‡ ukryty czar znany jako Fala Furii.^;
+Bohater dzier¿¹cy tê magiczn¹ Zbrojê mo¿e zawo³aæ Ruse by rzuciæ ukryty czar znany jako Fala Furii.^;
 !#UN:A47/9/238 A47/10/239;
 !#VRz240:S^Tarcza Ziemi^;
 !#VRz241:S^{Tarcza Ziemi}
-Bohater dzierÅ¼Ä…cy tÄ™ magicznÄ… TarczÄ™ moÅ¼e zawoÅ‚aÄ‡ Drisa by rzuciÄ‡ ukryty czar znany jako Zagajnik PuszczowcÃ³w.^;
+Bohater dzier¿¹cy tê magiczn¹ Tarczê mo¿e zawo³aæ Drisa by rzuciæ ukryty czar znany jako Zagajnik Puszczowców.^;
 !#UN:A51/9/240 A51/10/241;
 
 !?OB61/36/0&1000; Master Smith
 !!OB62/36/0:T?v1 U?v2;
 !!FU&v1>0:E; exit if something on Forge
-!!VRz4:S^JeÅ›li masz coÅ› do sprzedania, poÅ‚Ã³Å¼ to na mojej kuÅºni,
-a oceniÄ™ to i wymieniÄ™ cenÄ™, ale nie bÄ™dÄ™ siÄ™ targowaÄ‡!
-JeÅ›li potrzebujesz czegoÅ› specjalnego (nie tamtego fabrycznego badziewia)
-to jesteÅ› we wÅ‚aÅ›ciwym miejscu! MojÄ… specjalnoÅ›ciÄ… sÄ…
-StaroÅ¼ytne Artefakty--Å¼adne zadanie nie jest za trudne! Potrzebujesz czegoÅ›?^;
+!!VRz4:S^Jeœli masz coœ do sprzedania, po³ó¿ to na mojej kuŸni,
+a oceniê to i wymieniê cenê, ale nie bêdê siê targowaæ!
+Jeœli potrzebujesz czegoœ specjalnego (nie tamtego fabrycznego badziewia)
+to jesteœ we w³aœciwym miejscu! Moj¹ specjalnoœci¹ s¹
+Staro¿ytne Artefakty--¿adne zadanie nie jest za trudne! Potrzebujesz czegoœ?^;
 !!VRz5:S^The Master Smith^;
 !!VRz6:S^..\Data\ForgeLHS.gif^;
 !!VRz7:S^..\Data\MstSmith.jpg^;
 !!VRz8:S^..\Data\ForgeRHS.gif^;
-!!VRz9:S^KuÅºnia Mocy^;
+!!VRz9:S^KuŸnia Mocy^;
 !!IF:D41/z4/0/z5/z6/z7/z8/0/z9/z9/z9 ;
 !!IF:F41/0/0/0/0/1;
 !!IF:E99/41;
@@ -59,46 +59,46 @@ StaroÅ¼ytne Artefakty--Å¼adne zadanie nie jest za trudne! Potrzebujesz czegoÅ›?^
 !!VRv2&v2=0:Cv3/v4/0;
 !!VRv2&v2=0:Cv3/0/0; v3 is old v4
 !!VRv3&v3=0:Cv4/0;
-!!IF&v1=0:M^Potrzebujesz pozwolenia Starszego Boga bym mÃ³gÅ‚ wykuÄ‡ dla ciebie urzÄ…dzenie uÅ¼ywajÄ…ce StaroÅ¼ytnej Magii! PÅ‚omienie mojej Å›wiÄ™tej kuÅºni mÃ³wiÄ… mi Å¼e takowego nie masz. Musisz porozmawiaÄ‡ ze Starszym Bogiem--jeÅ›li siÄ™ odwaÅ¼ysz!^;
+!!IF&v1=0:M^Potrzebujesz pozwolenia Starszego Boga bym móg³ wykuæ dla ciebie urz¹dzenie u¿ywaj¹ce Staro¿ytnej Magii! P³omienie mojej œwiêtej kuŸni mówi¹ mi ¿e takowego nie masz. Musisz porozmawiaæ ze Starszym Bogiem--jeœli siê odwa¿ysz!^;
 !!SN&v1=0:Q;
-!!VRz1:S^ÅšwiÄ™te pÅ‚omienie mojej kuÅºni mÃ³wiÄ… mi Å¼e
-masz bÅ‚ogosÅ‚awieÅ„stwo Starszego boga, wiÄ™c jeÅ›li masz mojÄ… zapÅ‚atÄ™
-oraz potrzebne materiaÅ‚y, to mogÄ™ zrobiÄ‡ dla ciebie:^;
+!!VRz1:S^Œwiête p³omienie mojej kuŸni mówi¹ mi ¿e
+masz b³ogos³awieñstwo Starszego boga, wiêc jeœli masz moj¹ zap³atê
+oraz potrzebne materia³y, to mogê zrobiæ dla ciebie:^;
 !!VRz2:S^Mistrz Kowalski^;
 !!VRz3:S^..\Data\ForgeLHS.gif^;
 !!VRz4:S^..\Data\MstSmith.jpg^;
 !!VRz5:S^..\Data\ForgeRHS.gif^;
-!!VRz6:S^TarczÄ™ Ziemi!^;
-!!VRz6&v1=4:S^ZbrojÄ™ Wody!^;
-!!VRz6&v1=2:S^OgnistÄ… LaskÄ™!^;
-!!VRz6&v1=1:S^RÃ³g WiatrÃ³w!^;
+!!VRz6:S^Tarczê Ziemi!^;
+!!VRz6&v1=4:S^Zbrojê Wody!^;
+!!VRz6&v1=2:S^Ognist¹ Laskê!^;
+!!VRz6&v1=1:S^Róg Wiatrów!^;
 !!VRz7:S^^;
-!!VRz7&v2=4:S^ZbrojÄ™ Wody!^;
-!!VRz7&v2=2:S^OgnistÄ… LaskÄ™!^;
-!!VRz7&v2=1:S^RÃ³g WiatrÃ³w!^;
+!!VRz7&v2=4:S^Zbrojê Wody!^;
+!!VRz7&v2=2:S^Ognist¹ Laskê!^;
+!!VRz7&v2=1:S^Róg Wiatrów!^;
 !!VRz8:S^^;
-!!VRz8&v3=2:S^OgnistÄ… LaskÄ™!^;
-!!VRz8&v3=1:S^RÃ³g WiatrÃ³w!^;
+!!VRz8&v3=2:S^Ognist¹ Laskê!^;
+!!VRz8&v3=1:S^Róg Wiatrów!^;
 !!VRz9:S^^;
-!!VRz9&v4=1:S^RÃ³g WiatrÃ³w!^;
-!!VRz10:S^KuÅºnia Mocy^;
+!!VRz9&v4=1:S^Róg Wiatrów!^;
+!!VRz10:S^KuŸnia Mocy^;
 !!IF:D37/1/0/2/3/4/5/0/10/10/10/0/6/7/8/9;
 !!VRy7:Sv68+1*20; required resources 20-100 based on difficulty
 !!VRy9:Sv68+1*10; required gold 10k-50k based on difficulty
 !!VRy10:Sy9*1000;
-!!VRz-6:S^20 Mithrilu, Tarcza (zaÅ‚oÅ¼ona), Zielona Mikstura, %Y7 KrysztaÅ‚Ã³w i %Y9K PLN^;
-!!VRz-6&v1=4:S^20 Mithrilu, Zbroja (zaÅ‚oÅ¼ona), niebieska Mikstura, %Y7 RtÄ™ci i %Y9K PLN^;
+!!VRz-6:S^20 Mithrilu, Tarcza (za³o¿ona), Zielona Mikstura, %Y7 Kryszta³ów i %Y9K PLN^;
+!!VRz-6&v1=4:S^20 Mithrilu, Zbroja (za³o¿ona), niebieska Mikstura, %Y7 Rtêci i %Y9K PLN^;
 !!VRz-6&v1=2:S^20 Mithrilu, Krwistodrzew, Czerwona Mikstura, %Y7 Siarki i %Y9K PLN^;
-!!VRz-6&v1=1:S^20 Mithrilu, Elektrum, BiaÅ‚a Mikstura, %Y7 KlejnotÃ³w %Y9K PLN^;
+!!VRz-6&v1=1:S^20 Mithrilu, Elektrum, Bia³a Mikstura, %Y7 Klejnotów %Y9K PLN^;
 !!VRz-7:S^^;
-!!VRz-7&v2=4:S^20 Mithrilu, Zbroja (zaÅ‚oÅ¼ona), niebieska Mikstura, %Y7 RtÄ™ci i %Y9K PLN^;
+!!VRz-7&v2=4:S^20 Mithrilu, Zbroja (za³o¿ona), niebieska Mikstura, %Y7 Rtêci i %Y9K PLN^;
 !!VRz-7&v2=2:S^20 Mithrilu, Krwistodrzew, Czerwona Mikstura, %Y7 Siarki i %Y9K PLN^;
-!!VRz-7&v2=1:S^20 Mithrilu, Elektrum, BiaÅ‚a Mikstura, %Y7 KlejnotÃ³w %Y9K PLN^;
+!!VRz-7&v2=1:S^20 Mithrilu, Elektrum, Bia³a Mikstura, %Y7 Klejnotów %Y9K PLN^;
 !!VRz-8:S^^;
 !!VRz-8&v3=2:S^20 Mithrilu, Krwistodrzew, czerwona Mikstura, %Y7 Siarki i %Y9K PLN^;
-!!VRz-8&v3=1:S^20 Mithrilu, Elektrum, BiaÅ‚a Mikstura, %Y7 KlejnotÃ³w %Y9K PLN^;
+!!VRz-8&v3=1:S^20 Mithrilu, Elektrum, Bia³a Mikstura, %Y7 Klejnotów %Y9K PLN^;
 !!VRz-9:S^^;
-!!VRz-9&v4=1:S^20 Mithrilu, Elektrum, BiaÅ‚a Mikstura, %Y7 KlejnotÃ³w %Y9K PLN^;
+!!VRz-9&v4=1:S^20 Mithrilu, Elektrum, Bia³a Mikstura, %Y7 Klejnotów %Y9K PLN^;
 !!IF:F37/-6/-7/-8/-9/1;
 !!IF:E99/37; v99 1-4 or -1 for Cancel
 !!FU&v99=-1:E;
@@ -106,13 +106,13 @@ oraz potrzebne materiaÅ‚y, to mogÄ™ zrobiÄ‡ dla ciebie:^;
 !!if&v5=1; air
   !!OW:R-1/7/?y1 R-1/6/?y2 R-1/5/?y11;
   !!HE-1:A2/120/?y3/?y4 A2/64/?y5/?y6;
-  !!IF|y1<20/y3<1/y5<1/y11<y7:M^Nie masz wszystkich potrzebnych komponentÃ³w!^;
+  !!IF|y1<20/y3<1/y5<1/y11<y7:M^Nie masz wszystkich potrzebnych komponentów!^;
   !!FU|y1<20/y3<1/y5<1/y11<y7:E;
-  !!IF&y1>=20/y2<y10/y3>0/y5>0/y11>=y7:M^Masz wszystkie potrzebne komponenty, ale nie masz mojej zapÅ‚aty!^;
+  !!IF&y1>=20/y2<y10/y3>0/y5>0/y11>=y7:M^Masz wszystkie potrzebne komponenty, ale nie masz mojej zap³aty!^;
   !!FU&y1>=20/y2<y10/y3>0/y5>0/y11>=y7:E;
   !!VRz1:S^Mods\HiddenSpells\Data\Forge2.wav^;
   !!SN:Ev35/1/z1; call PlayLoop
-  !!IF:M^Bardzo dobrze. BiorÄ™ siÄ™ do roboty.^;
+  !!IF:M^Bardzo dobrze. Biorê siê do roboty.^;
   !!OW:R-1/6/?y11 R-1/5/?y9;
   !!VRy9:-y7;
   !!VRy11:-y10;
@@ -122,19 +122,19 @@ oraz potrzebne materiaÅ‚y, to mogÄ™ zrobiÄ‡ dla ciebie:^;
   !!VRz1:S^Mods\HiddenSpells\Data\Forge2.wav^;
   !!SN:Ev34/1/z1; call PlayOnce to end PlayLoop
   !!SN:Ev36/1; call StopPlay [doesn't work in Era 2.46]
-  !!IF:M^Wykuwanie zakoÅ„czone. Teraz musisz schÅ‚odziÄ‡ Artefakt!^;
+  !!IF:M^Wykuwanie zakoñczone. Teraz musisz sch³odziæ Artefakt!^;
   !!IF:V381/1; 373 reset by Cauldron
 !!en;
 !!if&v5=2; fire
   !!OW:R-1/7/?y1 R-1/6/?y2 R-1/3/?y11;
   !!HE-1:A2/121/?y3/?y4 A2/63/?y5/?y6;
-  !!IF|y1<20/y3<1/y5<1/y11<y7:M^Nie masz wszystkich potrzebnych komponentÃ³w!^;
+  !!IF|y1<20/y3<1/y5<1/y11<y7:M^Nie masz wszystkich potrzebnych komponentów!^;
   !!FU|y1<20/y3<1/y5<1/y11<y7:E;
-  !!IF&y1>=20/y2<y10/y3>0/y5>0/y11>=y7:M^Masz wszystkie potrzebne komponenty, ale nie masz mojej zapÅ‚aty!^;
+  !!IF&y1>=20/y2<y10/y3>0/y5>0/y11>=y7:M^Masz wszystkie potrzebne komponenty, ale nie masz mojej zap³aty!^;
   !!FU&y1>=20/y2<y10/y3>0/y5>0/y11>=y7:E;
   !!VRz1:S^Mods\HiddenSpells\Data\Forge2.wav^;
   !!SN:Ev35/1/z1; call PlayLoop
-  !!IF:M^Bardzo dobrze. BiorÄ™ siÄ™ do roboty.^;
+  !!IF:M^Bardzo dobrze. Biorê siê do roboty.^;
   !!OW:R-1/6/?y11 R-1/3/?y9;
   !!VRy9:-y7;
   !!VRy11:-y10;
@@ -144,7 +144,7 @@ oraz potrzebne materiaÅ‚y, to mogÄ™ zrobiÄ‡ dla ciebie:^;
   !!VRz1:S^Mods\HiddenSpells\Data\Forge2.wav^;
   !!SN:Ev34/1/z1; call PlayOnce to end PlayLoop
   !!SN:Ev36/1; call StopPlay [doesn't work in Era 2.46]
-  !!IF:M^Wykuwanie zakoÅ„czone. Teraz musisz schÅ‚odziÄ‡ Artefakt!^;
+  !!IF:M^Wykuwanie zakoñczone. Teraz musisz sch³odziæ Artefakt!^;
   !!IF:V382/1; 374 reset by Cauldron
 !!en;
 !!if&v5=4; water
@@ -155,13 +155,13 @@ oraz potrzebne materiaÅ‚y, to mogÄ™ zrobiÄ‡ dla ciebie:^;
   !!IF&y3=40:V1/1;
   !!IF&-1:M^Nie masz na sobie odpowiedniej zbroi!^;
   !!FU&-1:E;
-  !!IF|y1<20/y5<1/y11<y7:M^Nie masz wszystkich potrzebnych komponentÃ³w!^;
+  !!IF|y1<20/y5<1/y11<y7:M^Nie masz wszystkich potrzebnych komponentów!^;
   !!FU|y1<20/y3<1/y5<1/y11<y7:E;
-  !!IF&y1>=20/y2<y10/y3>0/y5>0/y11>=y7:M^Masz wszystkie potrzebne komponenty, ale nie masz mojej zapÅ‚aty!^;
+  !!IF&y1>=20/y2<y10/y3>0/y5>0/y11>=y7:M^Masz wszystkie potrzebne komponenty, ale nie masz mojej zap³aty!^;
   !!FU&y1>=20/y2<y10/y3>0/y5>0/y11>=y7:E;
   !!VRz1:S^Mods\HiddenSpells\Data\Forge2.wav^;
   !!SN:Ev35/1/z1; call PlayLoop
-  !!IF:M^Bardzo dobrze. BiorÄ™ siÄ™ do roboty.^;
+  !!IF:M^Bardzo dobrze. Biorê siê do roboty.^;
   !!OW:R-1/6/?y11 R-1/1/?y9;
   !!VRy9:-y7;
   !!VRy11:-y10;
@@ -171,7 +171,7 @@ oraz potrzebne materiaÅ‚y, to mogÄ™ zrobiÄ‡ dla ciebie:^;
   !!VRz1:S^Mods\HiddenSpells\Data\Forge2.wav^;
   !!SN:Ev34/1/z1; call PlayOnce to end PlayLoop
   !!SN:Ev36/1; call StopPlay [doesn't work in Era 2.46]
-  !!IF:M^Wykuwanie zakoÅ„czone. Teraz musisz schÅ‚odziÄ‡ Artefakt!^;
+  !!IF:M^Wykuwanie zakoñczone. Teraz musisz sch³odziæ Artefakt!^;
   !!IF:V383/1; 375 reset by Cauldron
 !!en;
 !!if&v5=8; earth
@@ -180,15 +180,15 @@ oraz potrzebne materiaÅ‚y, to mogÄ™ zrobiÄ‡ dla ciebie:^;
   !!IF:V1/0;
   !!IF&y3>12/y3<19:V1/1;
   !!IF|y3=34/y3=39:V1/1;
-  !!IF&-1:M^Nie masz w rÄ™ce odpowiedniej tarczy!^;
+  !!IF&-1:M^Nie masz w rêce odpowiedniej tarczy!^;
   !!FU&-1:E;
-  !!IF|y1<20/y5<1/y11<y7:M^Nie masz wszystkich potrzebnych komponentÃ³w!^;
+  !!IF|y1<20/y5<1/y11<y7:M^Nie masz wszystkich potrzebnych komponentów!^;
   !!FU|y1<20/y3<1/y5<1/y11<y7:E;
-  !!IF&y1>=20/y2<y10/y3>0/y5>0/y11>=y7:M^Masz wszystkie potrzebne komponenty, ale nie masz mojej zapÅ‚aty!^;
+  !!IF&y1>=20/y2<y10/y3>0/y5>0/y11>=y7:M^Masz wszystkie potrzebne komponenty, ale nie masz mojej zap³aty!^;
   !!FU&y1>=20/y2<y10/y3>0/y5>0/y11>=y7:E;
   !!VRz1:S^Mods\HiddenSpells\Data\Forge2.wav^;
   !!SN:Ev35/1/z1; call PlayLoop
-  !!IF:M^Bardzo dobrze. BiorÄ™ siÄ™ do roboty.^;
+  !!IF:M^Bardzo dobrze. Biorê siê do roboty.^;
   !!OW:R-1/6/?y11 R-1/4/?y9;
   !!VRy9:-y7;
   !!VRy11:-y10;
@@ -198,7 +198,7 @@ oraz potrzebne materiaÅ‚y, to mogÄ™ zrobiÄ‡ dla ciebie:^;
   !!VRz1:S^Mods\HiddenSpells\Data\Forge2.wav^;
   !!SN:Ev34/1/z1; call PlayOnce to end PlayLoop
   !!SN:Ev36/1; call StopPlay [doesn't work in Era 2.46]
-  !!IF:M^Wykuwanie zakoÅ„czone. Teraz musisz schÅ‚odziÄ‡ Artefakt!^;
+  !!IF:M^Wykuwanie zakoñczone. Teraz musisz sch³odziæ Artefakt!^;
   !!IF:V384/1; 376 reset by Cauldron
 !!en;
 
@@ -207,17 +207,17 @@ oraz potrzebne materiaÅ‚y, to mogÄ™ zrobiÄ‡ dla ciebie:^;
 !!FU&v1<>5:E; exit if no artifact on Forge
 !!UN:Av2/1/?v3; full cost
 !!VRv3: :2;
-!!IF:Q1/8/v2/6/v3/2^Hmmm, widzÄ™ Å¼e przynosisz mi uÅ¼ywany Artefakt - fatalne wykonanie, przypuszczam Å¼e byÅ‚ robiony w fabryce - ale mogÄ™ wrzuciÄ‡ go do swojego kosza na zÅ‚om i moÅ¼e pÃ³Åºniej znajdÄ™ dla niego zastosowanie. ZaoferujÄ™ za niego %V3 zÅ‚otych--zgoda?^;
-!!IF&-1:M^Zabierz go wiÄ™c, mam pracÄ™ do zrobienia i nie mam caÅ‚ego dnia na gÅ‚upoty.^;
+!!IF:Q1/8/v2/6/v3/2^Hmmm, widzê ¿e przynosisz mi u¿ywany Artefakt - fatalne wykonanie, przypuszczam ¿e by³ robiony w fabryce - ale mogê wrzuciæ go do swojego kosza na z³om i mo¿e póŸniej znajdê dla niego zastosowanie. Zaoferujê za niego %V3 z³otych--zgoda?^;
+!!IF&-1:M^Zabierz go wiêc, mam pracê do zrobienia i nie mam ca³ego dnia na g³upoty.^;
 !!FU&-1:E;
 !!OW:R-1/6/dv3;
 !!UN:O62/36/0;
 !!OB62/36/0:T0 U-1;
 
 !?OB72/46/0; Cauldron
-!!VRz-1:S^Jestem magicznym KocioÅ‚kiem ze Åšwiebodzina. Ze mÅ›ciwych duchÃ³w
-niespokojnych umarÅ‚ych--ofiar wojen KrÃ³la Lodu--mogÄ™ wskrzesiÄ‡
-Å¼oÅ‚nierzy do walki dla ciebie--za opÅ‚atÄ….^;
+!!VRz-1:S^Jestem magicznym Kocio³kiem ze Œwiebodzina. Ze mœciwych duchów
+niespokojnych umar³ych--ofiar wojen Króla Lodu--mogê wskrzesiæ
+¿o³nierzy do walki dla ciebie--za op³at¹.^;
 !!VRz-2:S^Wojownik--2 Mithril^; 1
 !!VRz-3:S^Mag--3 Mithrilu^; 2
 !!VRz-4:S^Starszy Wojownik--4 Mithrilu^; 4
@@ -227,10 +227,10 @@ niespokojnych umarÅ‚ych--ofiar wojen KrÃ³la Lodu--mogÄ™ wskrzesiÄ‡
 !!VRz-8:S^^; 64
 !!VRz-9:S^^;  128
 !!VRz-10:S^Anuluj^;  256
-!!VRz-6&381/373:S^SchÅ‚Ã³dÅº RÃ³g WiatrÃ³w^; 16
-!!VRz-7&382/374:S^SchÅ‚Ã³dÅº OgnistÄ… LaskÄ™^; 32
-!!VRz-8&383/375:S^SchÅ‚Ã³dÅº ZbrojÄ™ Wody^; 64
-!!VRz-9&384/376:S^SchÅ‚Ã³dÅº TarczÄ™ Ziemi^; 128
+!!VRz-6&381/373:S^Sch³ódŸ Róg Wiatrów^; 16
+!!VRz-7&382/374:S^Sch³ódŸ Ognist¹ Laskê^; 32
+!!VRz-8&383/375:S^Sch³ódŸ Zbrojê Wody^; 64
+!!VRz-9&384/376:S^Sch³ódŸ Tarczê Ziemi^; 128
 !!IF:G1/99/256/-1/-2/-3/-4/-5/-6/-7/-8/-9/-10;
 !!FU&v99=256:E;
 !!if&v99=1;
@@ -269,7 +269,7 @@ niespokojnych umarÅ‚ych--ofiar wojen KrÃ³la Lodu--mogÄ™ wskrzesiÄ‡
   !!HE-1:A2/64/?y1/?y2;
   !!IF&y1<1:Q1/8/64/1^Nie masz odpowiedniej mikstury!^;
   !!FU&y1<1:E;
-  !!IF:Q1/8/64/8/48/1^Wylej miksturÄ™ i schÅ‚Ã³dÅº w niej RÃ³g!^;
+  !!IF:Q1/8/64/8/48/1^Wylej miksturê i sch³ódŸ w niej Róg!^;
   !!VRz2:S^Mods/HiddenSpells/Data/pouring.wav^;
   !!SN:Ev34/1/z2; call PlayOnce
   !!UN:R6/3000;
@@ -285,7 +285,7 @@ niespokojnych umarÅ‚ych--ofiar wojen KrÃ³la Lodu--mogÄ™ wskrzesiÄ‡
   !!HE-1:A2/63/?y1/?y2;
   !!IF&y1<1:Q1/8/63/1^Nie masz odpowiedniej mikstury!^;
   !!FU&y1<1:E;
-  !!IF:Q1/8/63/8/50/1^Wylej miksturÄ™ i schÅ‚Ã³dÅº w niej LaskÄ™!^;
+  !!IF:Q1/8/63/8/50/1^Wylej miksturê i sch³ódŸ w niej Laskê!^;
   !!VRz2:S^Mods/HiddenSpells/Data/pouring.wav^;
   !!SN:Ev34/1/z2; call PlayOnce
   !!UN:R6/3000;
@@ -301,7 +301,7 @@ niespokojnych umarÅ‚ych--ofiar wojen KrÃ³la Lodu--mogÄ™ wskrzesiÄ‡
   !!HE-1:A2/65/?y1/?y2;
   !!IF&y1<1:Q1/8/65/1^Nie masz odpowiedniej mikstury!^;
   !!FU&y1<1:E;
-  !!IF:Q1/8/65/8/47/1^Wylej miksturÄ™ i schÅ‚Ã³dÅº w niej ZbrojÄ™!^;
+  !!IF:Q1/8/65/8/47/1^Wylej miksturê i sch³ódŸ w niej Zbrojê!^;
   !!VRz2:S^Mods/HiddenSpells/Data/pouring.wav^;
   !!SN:Ev34/1/z2; call PlayOnce
   !!UN:R6/3000;
@@ -317,7 +317,7 @@ niespokojnych umarÅ‚ych--ofiar wojen KrÃ³la Lodu--mogÄ™ wskrzesiÄ‡
   !!HE-1:A2/118/?y1/?y2;
   !!IF&y1<1:Q1/8/118/1^Nie masz odpowiedniej mikstury!^;
   !!FU&y1<1:E;
-  !!IF:Q1/8/118/8/51/1^Wylej miksturÄ™ i schÅ‚Ã³dÅº w niej TarczÄ™!^;
+  !!IF:Q1/8/118/8/51/1^Wylej miksturê i sch³ódŸ w niej Tarczê!^;
   !!VRz2:S^Mods/HiddenSpells/Data/pouring.wav^;
   !!SN:Ev34/1/z2; call PlayOnce
   !!UN:R6/3000;

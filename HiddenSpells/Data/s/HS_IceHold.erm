@@ -6,12 +6,12 @@ ZVSE
 
 !#VRz501:S^Bardzo Czerwona Kulka^;
 !#VRz502:S^{Bardzo Czerwona Kulka}
-Blokuje caÅ‚Ä… magiÄ™ poza StaroÅ¼ytnÄ….^;
+Blokuje ca³¹ magiê poza Staro¿ytn¹.^;
 !#UN:A126/9/501;
 !#UN:A126/10/502;
 
 !?OB72/73/0&1000; Ice Hold
-!!IF:Q1/21/152/1^CÃ³Å¼ to? Åšmiertelnicy odwaÅ¼yli siÄ™ wkroczyÄ‡ do mego Dominium? StraÅ¼! ZniszczyÄ‡ ich! DerWollschwein! WspomÃ³Å¼ mnie!^;
+!!IF:Q1/21/152/1^Có¿ to? Œmiertelnicy odwa¿yli siê wkroczyæ do mego Dominium? Stra¿! Zniszczyæ ich! DerWollschwein! Wspomó¿ mnie!^;
 !!IF:V390/1;
 
 !?BA0&390
@@ -50,8 +50,8 @@ Blokuje caÅ‚Ä… magiÄ™ poza StaroÅ¼ytnÄ….^;
 !!BA:H0/?y1; attacker
 !!HEy1:O?y2;
 !!FU&y2<>3:E; lost if not Green
-!!IF:Q1/21/152/1^KrÃ³l Lodu umarÅ‚!^;
-!!IF:Q1/21/136/21/174/1^Niech Å¼yjÄ… nowi krÃ³lowie!^;
+!!IF:Q1/21/152/1^Król Lodu umar³!^;
+!!IF:Q1/21/136/21/174/1^Niech ¿yj¹ nowi królowie!^;
 ; scoring bonus
 !!VRv1:Sc;
 !!VRy1:Sv1:10;

@@ -25,12 +25,12 @@ ZVSE
 !?FU320;
 !!PO998:V3/?y1;
 !!VRy2:Sc0-1:7+1; week # (starts at 1)
-!!IF&y1=y2:M^KtoÅ› juÅ¼ zerwaÅ‚ gruszki w tym tygodniu.^;
+!!IF&y1=y2:M^Ktoœ ju¿ zerwa³ gruszki w tym tygodniu.^;
 !!FU&y1=y2:E;
 !!PO998:V3/y2;
 !!VRz2:S^chime_up.wav^;
 !!SN:Pz2;
-!!IF:M^Po obÅ¼arciu siÄ™ gruszek, czujesz przypÅ‚yw nowej energii, ktÃ³ra pozwoli Ci zajechaÄ‡ dalej w ciÄ…gu dnia!^;
+!!IF:M^Po ob¿arciu siê gruszek, czujesz przyp³yw nowej energii, która pozwoli Ci zajechaæ dalej w ci¹gu dnia!^;
 !!HE-1:Y65/500/7/2; add 500 movement
 
 !#VRz312:S^Gold Bug^;
@@ -70,7 +70,7 @@ ZVSE
 !#OB46/44/0:SH313;
 !#VRz314:S^Krwistodrzew^;
 !#VRz315:S^{Krwistodrzew}
-Ta magiczna szczapa wytrzymuje gorÄ…co i przekierowuje MagiÄ™ Ognia.^;
+Ta magiczna szczapa wytrzymuje gor¹co i przekierowuje Magiê Ognia.^;
 !#UN:A121/9/314;
 !#UN:A121/10/315;
 
@@ -78,7 +78,7 @@ Ta magiczna szczapa wytrzymuje gorÄ…co i przekierowuje MagiÄ™ Ognia.^;
 !!PO998:N?v2;
 !!FU&v2>0:E;
 !!PO998:N1;
-!!IF:Q1/8/121/1^Kolumna i kilka blokÃ³w za niÄ… sÄ… zrobione z czerwonawego drewna ktÃ³re w jakiÅ› sposÃ³b podtrzymuje magiczny pÅ‚omieÅ„ nie spalajÄ…c siÄ™ przy tym.  Bierzesz jednÄ… szczapÄ™ tego drewna do analizy.^;
+!!IF:Q1/8/121/1^Kolumna i kilka bloków za ni¹ s¹ zrobione z czerwonawego drewna które w jakiœ sposób podtrzymuje magiczny p³omieñ nie spalaj¹c siê przy tym.  Bierzesz jedn¹ szczapê tego drewna do analizy.^;
 !!HE-1:A4/121;
 
 !?OB46/44/0&1000;
@@ -86,34 +86,34 @@ Ta magiczna szczapa wytrzymuje gorÄ…co i przekierowuje MagiÄ™ Ognia.^;
 !!FU&v2=0:E;
 !!PO998:V3/?y1;
 !!VRy2:Sc0-1:7+1; week # (starts at 1)
-!!IF&y1=y2:M^Ognisty BÃ³g Thyr przemawia z magicznego pÅ‚omienia:
-"Cofnij siÄ™. Tak wiele mego pÅ‚omienia w tak krÃ³tkim czasie mogÅ‚oby ciÄ™ zniszczyÄ‡!^;
+!!IF&y1=y2:M^Ognisty Bóg Thyr przemawia z magicznego p³omienia:
+"Cofnij siê. Tak wiele mego p³omienia w tak krótkim czasie mog³oby ciê zniszczyæ!^;
 !!FU&y1=y2:E;
-!!IF:Q1^Ognisty BÃ³g Thyr przemawia z magicznego pÅ‚omienia:
-"MogÄ™ wzmocniÄ‡ ogieÅ„ twÃ³j i twoich ludzi, spalajÄ…c czÄ™Å›Ä‡ waszej ziemi: +3 Ataku za -1 Obrony.  Chcesz?^;
+!!IF:Q1^Ognisty Bóg Thyr przemawia z magicznego p³omienia:
+"Mogê wzmocniæ ogieñ twój i twoich ludzi, spalaj¹c czêœæ waszej ziemi: +3 Ataku za -1 Obrony.  Chcesz?^;
 !!FU&-1:E;
 !!PO998:V3/y2;
 !!MA:A6/d3 D6/d-1 A7/d3 D7/d-1 A174/d3 D174/d-1 A34/d3 D34/d-1 A35/d3 D35/d-1 A136/d3 D136/d-1;
 
-!#VRz316:S^OsobliwoÅ›Ä‡ KlejnotÃ³w^;
+!#VRz316:S^Osobliwoœæ Klejnotów^;
 !#OB8/4/0:SH316;
 
 !?OB8/4/0; Whorlstone
 !!PO998:V3/?y1;
 !!VRy2:Sc0-1:7+1; week # (starts at 1)
-!!IF&y1=y2:M^W tym tygodniu wiÄ™cej klejnotÃ³w nie wypadnie z tej osobliwoÅ›ci.^;
+!!IF&y1=y2:M^W tym tygodniu wiêcej klejnotów nie wypadnie z tej osobliwoœci.^;
 !!FU&y1=y2:E;
 !!PO998:V3/y2;
 !!VRz2:S^CrysBell.wav^;
 !!SN:Pz2;
-!!IF:Q1/5/10/1^DotkniÄ™cie osobliwoÅ›ci tworzy 10 klejnotÃ³w!^;
+!!IF:Q1/5/10/1^Dotkniêcie osobliwoœci tworzy 10 klejnotów!^;
 !!OW:R-1/5/d10; +10 gems
 
 !#VRz317:S^Mieszacz Alchemiczny^;
 !#OB83/123/0:SH317;
-!#VRz318:S^BiaÅ‚a Mikstura^;
-!#VRz319:S^{BiaÅ‚a Mikstura}
-Ta magiczna mikstura dodaje 10 HP za 1 SzybkoÅ›ci wybranym jednostkom (Ctrl-LPM).^;
+!#VRz318:S^Bia³a Mikstura^;
+!#VRz319:S^{Bia³a Mikstura}
+Ta magiczna mikstura dodaje 10 HP za 1 Szybkoœci wybranym jednostkom (Ctrl-LPM).^;
 !#UN:A64/9/318 A64/10/319 A64/1/6000;
 !#VRz320:S^Czerwona Mikstura^;
 !#VRz321:S^{Czerwona Mikstura}
@@ -121,15 +121,15 @@ Ta magiczna mikstura dodaje 5 Ataku za 2 Obrony wybranym jednostkom (Ctrl-LPM).^
 !#UN:A63/9/320 A63/10/321 A63/1/6000;
 !#VRz322:S^Niebieska Mikstura^;
 !#VRz323:S^{Niebieska Mikstura}
-Ta magiczna mikstura dodaje 5 Obrony za 2 ObraÅ¼enia wybranym jednostkom (Ctrl-LPM).^;
+Ta magiczna mikstura dodaje 5 Obrony za 2 Obra¿enia wybranym jednostkom (Ctrl-LPM).^;
 !#UN:A65/9/322 A65/10/323 A65/1/6000;
 !#VRz324:S^Zielona Mikstura^;
 !#VRz325:S^{Zielona Mikstura}
-Ta magiczna mikstura dodaje 2 SzybkoÅ›ci za 2 Ataku wybranym jednostkom (Ctrl-LPM).^;
+Ta magiczna mikstura dodaje 2 Szybkoœci za 2 Ataku wybranym jednostkom (Ctrl-LPM).^;
 !#UN:A118/9/324 A118/10/325 A118/1/6000;
 !#VRz326:S^Czarna Mikstura^;
 !#VRz327:S^{Czarna Mikstura}
-Ta magiczna mikstura dodaje 5 ObraÅ¼eÅ„ za 3 HP wybranym jednostkom (Ctrl-LPM).^;
+Ta magiczna mikstura dodaje 5 Obra¿eñ za 3 HP wybranym jednostkom (Ctrl-LPM).^;
 !#UN:A119/9/326 A119/10/327 A119/1/6000;
 !#VRz328:S^Alchemy Distiller^;
 !#OB88/114/0:SH328;
@@ -137,7 +137,7 @@ Ta magiczna mikstura dodaje 5 ObraÅ¼eÅ„ za 3 HP wybranym jednostkom (Ctrl-LPM).^
 !?OB83/123/0; Alchemy Mixer
 !!PO998:V3/?y1;
 !!VRy2:Sc0-1:7+1; week # (starts at 1)
-!!VRz4:S^Wystarczy juÅ¼ alchemii na ten tydzieÅ„.^;
+!!VRz4:S^Wystarczy ju¿ alchemii na ten tydzieñ.^;
 !!VRz5:S^Alchemiczny Destylator^;
 !!VRz6:S^..\Mods\HiddenSpells\Data\Alchemy.gif^;
 !!IF:D19/4/0/5/6 ;
@@ -145,7 +145,7 @@ Ta magiczna mikstura dodaje 5 ObraÅ¼eÅ„ za 3 HP wybranym jednostkom (Ctrl-LPM).^
 !!IF&y1=y2:E2/19;
 !!FU&y1=y2:E;
 !!VRz-1:S^Opcje Alchemicznego Mieszacza:^;
-!!VRz-2:S^BiaÅ‚a Mikstura (HP+10 S-1)^; v99=1
+!!VRz-2:S^Bia³a Mikstura (HP+10 S-1)^; v99=1
 !!VRz-3:S^Czerwona Mikstura (A+5 D-2)^; v99=2
 !!VRz-4:S^Niebieska Mikstura (D+5 Dm-2)^; v99=4
 !!VRz-5:S^Zielona Mikstura (S+2 A-2)^; v99=8
@@ -187,7 +187,7 @@ Ta magiczna mikstura dodaje 5 ObraÅ¼eÅ„ za 3 HP wybranym jednostkom (Ctrl-LPM).^
 !!VRy2&y1=8:S118; Green
 !!VRy2&y1=14:S119; Black
 !!HE-1:A4/y2;
-!!IF:Q1/8/y2/1^Nalewasz z destylatora butelkÄ™ alchemicznej mikstury.^;
+!!IF:Q1/8/y2/1^Nalewasz z destylatora butelkê alchemicznej mikstury.^;
 
 !?CM2; Hero Screen
 !!CM:F?y1 I?y2;
@@ -207,7 +207,7 @@ Ta magiczna mikstura dodaje 5 ObraÅ¼eÅ„ za 3 HP wybranym jednostkom (Ctrl-LPM).^
 !!UN:R3/-1;
 !!FU:E;
 !!en;
-!!VRz-1:S^Wybierz oddziaÅ‚ z armii ktÃ³ry chcesz napoiÄ‡ miksturÄ…:^;
+!!VRz-1:S^Wybierz oddzia³ z armii który chcesz napoiæ mikstur¹:^;
 !!VRz-2:S^^; 1 y5
 !!VRz-3:S^^; 2 y6
 !!VRz-4:S^^; 4 y7
@@ -246,7 +246,7 @@ Ta magiczna mikstura dodaje 5 ObraÅ¼eÅ„ za 3 HP wybranym jednostkom (Ctrl-LPM).^
 !!MA&y4=119/y24<3:Py12/y24;
 !!VRz2:S^chime_up.wav^;
 !!SN:Pz2;
-!!IF:Q1/8/y4/21/y12/1^WidaÄ‡ efekty dziaÅ‚ania Mikstury!^;
+!!IF:Q1/8/y4/21/y12/1^Widaæ efekty dzia³ania Mikstury!^;
 !!HE-1&y2<40:A3/y4/1/1; delete from misc.
 !!HE-1&y2>39:A3/y4/1/0; delete from backpack
 !!UN:R3/-1;
@@ -285,14 +285,14 @@ Ta magiczna mikstura dodaje 5 ObraÅ¼eÅ„ za 3 HP wybranym jednostkom (Ctrl-LPM).^
 !#FU178:P; initialize first random seeds
 
 !?FU870; default horoscope
-!!IF:M^Spotykasz tylko goÅ›cia z miotÅ‚Ä…. Nic nie wie o Å¼adnej astrologii.^;
+!!IF:M^Spotykasz tylko goœcia z miot³¹. Nic nie wie o ¿adnej astrologii.^;
 
 !?FU871; Jupiter
 !!VRy1:Sv797 &1;
 !!FU870&y1<>0:P;
 !!FU&y1<>0:E;
 !!VRv797:|1;
-!!IF:Q1/32/3/11/1/1^Astrologowie beÅ‚kocÄ… coÅ› o Jowiszu i dajÄ… Ci +3 Obrony i +1 SzczÄ™Å›cia!^;
+!!IF:Q1/32/3/11/1/1^Astrologowie be³koc¹ coœ o Jowiszu i daj¹ Ci +3 Obrony i +1 Szczêœcia!^;
 !!HE-1:Fd/d3/d/d;
 !!HE-1:R1/d1;
 
@@ -301,7 +301,7 @@ Ta magiczna mikstura dodaje 5 ObraÅ¼eÅ„ za 3 HP wybranym jednostkom (Ctrl-LPM).^
 !!FU870&y1<>0:P;
 !!FU&y1<>0:E;
 !!VRv797:|2;
-!!IF:Q1/34/3/1^Astrologowie beÅ‚kocÄ… coÅ› o Neptunie i dajÄ… Ci +3 Wiedzy!^;
+!!IF:Q1/34/3/1^Astrologowie be³koc¹ coœ o Neptunie i daj¹ Ci +3 Wiedzy!^;
 !!HE-1:Fd/d/d/d3;
 
 !?FU873; Mars and Jupiter
@@ -309,7 +309,7 @@ Ta magiczna mikstura dodaje 5 ObraÅ¼eÅ„ za 3 HP wybranym jednostkom (Ctrl-LPM).^
 !!FU870&y1<>0:P;
 !!FU&y1<>0:E;
 !!VRv797:|4;
-!!IF:Q1/33/3/14/1/1^Astrologowie beÅ‚kocÄ… coÅ› o Marsie i Jowiszu i dajÄ… Ci +3 Mocy i +1 Morale!^;
+!!IF:Q1/33/3/14/1/1^Astrologowie be³koc¹ coœ o Marsie i Jowiszu i daj¹ Ci +3 Mocy i +1 Morale!^;
 !!HE-1:Fd/d/d3/d;
 !!HE-1:R0/d1;
 
@@ -319,7 +319,7 @@ Ta magiczna mikstura dodaje 5 ObraÅ¼eÅ„ za 3 HP wybranym jednostkom (Ctrl-LPM).^
 !!FU&y1<>0:E;
 !!VRv797:|8;
 !!IF:N31/-1/32/-1/33/-1/34/-1;
-!!IF:N^Astrologowie beÅ‚kocÄ… coÅ› o Saturnie i klnÄ… na Ciebie, bo podobno zasÅ‚aniasz im jakÄ…Å› kometÄ™ (w Å›rodku dnia)!^;
+!!IF:N^Astrologowie be³koc¹ coœ o Saturnie i kln¹ na Ciebie, bo podobno zas³aniasz im jak¹œ kometê (w œrodku dnia)!^;
 !!HE-1:Fd-1/d-1/d-1/d-1;
 
 !?FU875; Mars
@@ -327,7 +327,7 @@ Ta magiczna mikstura dodaje 5 ObraÅ¼eÅ„ za 3 HP wybranym jednostkom (Ctrl-LPM).^
 !!FU870&y1<>0:P;
 !!FU&y1<>0:E;
 !!VRv797:|16;
-!!IF:Q1/31/5/1^Astrologowie beÅ‚kocÄ… coÅ› o Marsie i dajÄ… Ci +5 Ataku!^;
+!!IF:Q1/31/5/1^Astrologowie be³koc¹ coœ o Marsie i daj¹ Ci +5 Ataku!^;
 !!HE-1:Fd5/d/d/d;
 
 !?FU876; Mercury
@@ -336,7 +336,7 @@ Ta magiczna mikstura dodaje 5 ObraÅ¼eÅ„ za 3 HP wybranym jednostkom (Ctrl-LPM).^
 !!FU&y1<>0:E;
 !!VRv797:|32;
 !!IF:N31/2/32/2/33/2/34/2;
-!!IF:N^Astrologowie z wielkim zadowoleniem beÅ‚kocÄ… coÅ› o Merkurym!^;
+!!IF:N^Astrologowie z wielkim zadowoleniem be³koc¹ coœ o Merkurym!^;
 !!HE-1:Fd2/d2/d2/d2;
 
 !?FU877; Mars
@@ -344,7 +344,7 @@ Ta magiczna mikstura dodaje 5 ObraÅ¼eÅ„ za 3 HP wybranym jednostkom (Ctrl-LPM).^
 !!FU870&y1<>0:P;
 !!FU&y1<>0:E;
 !!VRv797:|64;
-!!IF:M^Astrologowie beÅ‚kocÄ… coÅ› o Marsie i KsiÄ™Å¼ycu. MieszkaÅ„cy Zielonej GÃ³ry zyskujÄ… +10 HP (poza Pikinierami, bo oni sÄ… z Gorzowa)!^;
+!!IF:M^Astrologowie be³koc¹ coœ o Marsie i Ksiê¿ycu. Mieszkañcy Zielonej Góry zyskuj¹ +10 HP (poza Pikinierami, bo oni s¹ z Gorzowa)!^;
 !!MA:P6/d10 P7/d10 P174/d10 P34/d10 P35/d10 P136/d10;
 !!HE-1:R0/d1;
 
@@ -358,7 +358,7 @@ Ta magiczna mikstura dodaje 5 ObraÅ¼eÅ„ za 3 HP wybranym jednostkom (Ctrl-LPM).^
 !!FU&y2>1/y4<>27|y2>2:E;
 !!VRy2:+1;
 !!VRy3:S53+y2;
-!!IF:Q1/20/y3/1^Gwiazdy mÃ³wiÄ… Å¼e Twoim przeznaczeniem jest zostaÄ‡ Mistrzem Ziemi!^;
+!!IF:Q1/20/y3/1^Gwiazdy mówi¹ ¿e Twoim przeznaczeniem jest zostaæ Mistrzem Ziemi!^;
 !!HE-1:S17/y2;
 
 !?FU879; Fire
@@ -371,7 +371,7 @@ Ta magiczna mikstura dodaje 5 ObraÅ¼eÅ„ za 3 HP wybranym jednostkom (Ctrl-LPM).^
 !!FU&y2>1/y4<>27|y2>2:E;
 !!VRy2:+1;
 !!VRy3:S44+y2;
-!!IF:Q1/20/y3/1^Gwiazdy mÃ³wiÄ… Å¼e Twoim przeznaczeniem jest zostaÄ‡ Mistrzem Ognia!^;
+!!IF:Q1/20/y3/1^Gwiazdy mówi¹ ¿e Twoim przeznaczeniem jest zostaæ Mistrzem Ognia!^;
 !!HE-1:S14/y2;
 
 !?FU880; Air
@@ -384,7 +384,7 @@ Ta magiczna mikstura dodaje 5 ObraÅ¼eÅ„ za 3 HP wybranym jednostkom (Ctrl-LPM).^
 !!FU&y2>1/y4<>27|y2>2:E;
 !!VRy2:+1;
 !!VRy3:S47+y2;
-!!IF:Q1/20/y3/1^Gwiazdy mÃ³wiÄ… Å¼e Twoim przeznaczeniem jest zostaÄ‡ Mistrzem Powietrza!^;
+!!IF:Q1/20/y3/1^Gwiazdy mówi¹ ¿e Twoim przeznaczeniem jest zostaæ Mistrzem Powietrza!^;
 !!HE-1:S15/y2;
 
 !?FU881; Water
@@ -397,36 +397,36 @@ Ta magiczna mikstura dodaje 5 ObraÅ¼eÅ„ za 3 HP wybranym jednostkom (Ctrl-LPM).^
 !!FU&y2>1/y4<>27|y2>2:E;
 !!VRy2:+1;
 !!VRy3:S50+y2;
-!!IF:Q1/20/y3/1^Gwiazdy mÃ³wiÄ… Å¼e Twoim przeznaczeniem jest zostaÄ‡ Mistrzem Wody!^;
+!!IF:Q1/20/y3/1^Gwiazdy mówi¹ ¿e Twoim przeznaczeniem jest zostaæ Mistrzem Wody!^;
 !!HE-1:S16/y2;
 
 !#VRz330:S^Generator Elektrum^;
 !#OB125/100/0:SH330;
 !#VRz331:S^Elektrum^;
 !#VRz332:S^{Elektrum}
-Ten magiczny pÅ‚yn zawiera bardzo skondensowanÄ… energiÄ™. Podobno Bogowie pijÄ… go dla wz{moc}nienia (Ctrl-LPM).^;
+Ten magiczny p³yn zawiera bardzo skondensowan¹ energiê. Podobno Bogowie pij¹ go dla wz{moc}nienia (Ctrl-LPM).^;
 !#UN:A120/9/331 A120/10/332 A120/1/10000;
 
 !?OB125/100/0; Electrum Generator
 !!PO998:V3/?y1;
 !!VRy2:Sc0-1:7+1; week # (starts at 1)
-!!IF&y1=y2:M^W tym tygodniu nie ma wiÄ™cej Elektrum.^;
+!!IF&y1=y2:M^W tym tygodniu nie ma wiêcej Elektrum.^;
 !!FU&y1=y2:E;
 !!PO998:V3/y2;
 !!VRz2:S^AlchStr2.wav^;
 !!SN:Pz2;
-!!IF:Q1/8/120/1^Generator wyprodukowaÅ‚ Elektrum!^;
+!!IF:Q1/8/120/1^Generator wyprodukowa³ Elektrum!^;
 !!HE-1:A4/120; add 1 Electrum
 
-!#VRz333:S^Lokalizator OsobliwoÅ›ci Czasoprzestrzennych 9B^;
+!#VRz333:S^Lokalizator Osobliwoœci Czasoprzestrzennych 9B^;
 !#OB7/80/0:SH333;
 
 !?OB7/80/0; Locator, N=1
 !!PO998:N?y1;
 !!FU&y1<>1:E;
 !!OB17/88/0:T?y3; check for hole at final site (T124)
-!!VRz4:S^Nie wykryto wiÄ™cej osobliwoÅ›ci.
-Lokalizator 9B wyÅ‚Ä…cza siÄ™.^;
+!!VRz4:S^Nie wykryto wiêcej osobliwoœci.
+Lokalizator 9B wy³¹cza siê.^;
 !!VRz5:Sz333;
 !!VRz6:S^..\Mods\HiddenSpells\Data\MachineU.gif^;
 !!IF:D21/z4/0/z5/z6 ;
@@ -434,29 +434,29 @@ Lokalizator 9B wyÅ‚Ä…cza siÄ™.^;
 !!IF&y3=124:E2/21;
 !!FU&y3=124:E; exit if at max loc.s
 !!OBv311/v312/0:T?y3; check for hole at last site (T124)
-!!VRz4:S^Poprzednia osobliwoÅ›Ä‡ nie zostaÅ‚a usuniÄ™ta.
-Jej silny sygnaÅ‚ przeszkadza w poszukiwaniu kolejnych.
-Lokalizator 9B wyÅ‚Ä…cza siÄ™.^;
+!!VRz4:S^Poprzednia osobliwoœæ nie zosta³a usuniêta.
+Jej silny sygna³ przeszkadza w poszukiwaniu kolejnych.
+Lokalizator 9B wy³¹cza siê.^;
 !!IF:D21/z4/0/z5/z6 ;
 !!IF&y3<>124:E2/21;
 !!FU&y3<>124:E; exit if previous Grail not dug
 !!PO998:V3/?y1;
 !!VRy12:Sc0-1:7+1; week # (starts at 1)
-!!IF&y1=y12:M^Za wczeÅ›nie by zaczÄ…Ä‡ kolejne poszukiwania osobliwoÅ›ci. Kondensatory muszÄ… siÄ™ caÅ‚kiem rozÅ‚adowaÄ‡.^;
+!!IF&y1=y12:M^Za wczeœnie by zacz¹æ kolejne poszukiwania osobliwoœci. Kondensatory musz¹ siê ca³kiem roz³adowaæ.^;
 !!FU&y1=y12:E;
 !!PO998:V3/y12;
 !!OB17/88/0:T?y3; check for hole at last site (T124)
 !!HE-1:A2/120/?y1/?y2;
-!!VRz4:S^Lokalizator 9B wÅ‚Ä…czony --- niski poziom mocy.
-PrzynieÅ› Elektrum by znaleÅºÄ‡ kolejne lokalizacje.
-(Nie wykryto Elektrum, urzÄ…dzenie wyÅ‚Ä…cza siÄ™.)^;
+!!VRz4:S^Lokalizator 9B w³¹czony --- niski poziom mocy.
+Przynieœ Elektrum by znaleŸæ kolejne lokalizacje.
+(Nie wykryto Elektrum, urz¹dzenie wy³¹cza siê.)^;
 !!IF:D21/z4/0/z5/z6 ;
 !!IF:F21/0/0/0/0/0;
 !!IF&y1<1:E2/21;
 !!FU&y1<1:E; exit if no Electrum
-!!VRz4:S^Lokalizator 9B wÅ‚Ä…czony --- niski poziom mocy.
-PrzynieÅ› Elektrum by znaleÅºÄ‡ kolejne lokalizacje.
-Czy chcesz oddaÄ‡ Elektrum za kolejnÄ… lokalizacjÄ™?^;
+!!VRz4:S^Lokalizator 9B w³¹czony --- niski poziom mocy.
+Przynieœ Elektrum by znaleŸæ kolejne lokalizacje.
+Czy chcesz oddaæ Elektrum za kolejn¹ lokalizacjê?^;
 !!IF:D26/z4/0/z5/z6;
 !!IF:F26/0/0/0/0/1;
 !!IF:E2/26;
@@ -473,8 +473,8 @@ Czy chcesz oddaÄ‡ Elektrum za kolejnÄ… lokalizacjÄ™?^;
 !!FU&y1=124:E;
 !!VRv311:C24/121;
 !!UN:I24/121/0/36/0;
-!!VRz4:S^Lokalizator ustaliÅ‚ Å¼e musisz znaleÅºÄ‡ LodowÄ… KoronÄ™ i {kopnÄ…Ä‡}
-miÄ™dzy oczy. Wtedy znajdziesz Graala.^;
+!!VRz4:S^Lokalizator ustali³ ¿e musisz znaleŸæ Lodow¹ Koronê i {kopn¹æ}
+miêdzy oczy. Wtedy znajdziesz Graala.^;
 !!IF:D21/z4/0/z5/z6;
 !!IF:F21/0/0/0/0/0;
 !!IF:E2/21;
@@ -485,8 +485,8 @@ miÄ™dzy oczy. Wtedy znajdziesz Graala.^;
 !!FU&y1=124:E;
 !!VRv311:C85/63;
 !!UN:I85/63/0/36/0;
-!!VRz4:S^Lokalizator ustaliÅ‚ Å¼e musisz znaleÅºÄ‡ miejsce gdzie czarodziej gapi siÄ™ na Å¼abÄ™ i {kopnÄ…Ä‡}
-w Å›rodek niebieskiej tarczy. Wtedy znajdziesz Graala.^;
+!!VRz4:S^Lokalizator ustali³ ¿e musisz znaleŸæ miejsce gdzie czarodziej gapi siê na ¿abê i {kopn¹æ}
+w œrodek niebieskiej tarczy. Wtedy znajdziesz Graala.^;
 !!IF:D21/z4/0/z5/z6 ;
 !!IF:F21/0/0/0/0/0;
 !!IF:E2/21;
@@ -497,7 +497,7 @@ w Å›rodek niebieskiej tarczy. Wtedy znajdziesz Graala.^;
 !!FU&y1=124:E;
 !!VRv311:C59/65;
 !!UN:I59/65/0/36/0;
-!!VRz4:S^Lokalizator ustaliÅ‚ Å¼e musisz znaleÅºÄ‡ twarz przygÅ‚upa w gorÄ…cym miejscu i {kopnÄ…Ä‡}
+!!VRz4:S^Lokalizator ustali³ ¿e musisz znaleŸæ twarz przyg³upa w gor¹cym miejscu i {kopn¹æ}
 go w nos. Wtedy znajdziesz Graala.^;
 !!IF:D21/z4/0/z5/z6 ;
 !!IF:F21/0/0/0/0/0;
@@ -509,8 +509,8 @@ go w nos. Wtedy znajdziesz Graala.^;
 !!FU&y1=124:E;
 !!VRv311:C12/32;
 !!UN:I12/32/0/36/0;
-!!VRz4:S^Lokalizator ustaliÅ‚ Å¼e jeÅ›li {wiesz} gdzie taÅ„czÄ… trzej kozacy, to musisz {kopnÄ…Ä‡}
-ich biaÅ‚y listek. Wtedy znajdziesz Graala.^;
+!!VRz4:S^Lokalizator ustali³ ¿e jeœli {wiesz} gdzie tañcz¹ trzej kozacy, to musisz {kopn¹æ}
+ich bia³y listek. Wtedy znajdziesz Graala.^;
 !!IF:D21/z4/0/z5/z6 ;
 !!IF:F21/0/0/0/0/0;
 !!IF:E2/21;
@@ -521,7 +521,7 @@ ich biaÅ‚y listek. Wtedy znajdziesz Graala.^;
 !!FU&y1=124:E;
 !!VRv311:C72/88;
 !!UN:I72/88/0/36/0;
-!!VRz4:S^Lokalizator ustaliÅ‚ Å¼e musisz znaleÅºÄ‡ kamiennÄ… arenÄ™ bez Krasnali, w pobliÅ¼u gwiazdy, w okolicy gdzie magiÄ™ sprzedaje siÄ™ w butelkach. I {kopnÄ…Ä‡}
+!!VRz4:S^Lokalizator ustali³ ¿e musisz znaleŸæ kamienn¹ arenê bez Krasnali, w pobli¿u gwiazdy, w okolicy gdzie magiê sprzedaje siê w butelkach. I {kopn¹æ}
 w drzwi tej areny. Wtedy znajdziesz Graala.^;
 !!IF:D21/z4/0/z5/z6 ;
 !!IF:F21/0/0/0/0/0;
@@ -533,8 +533,8 @@ w drzwi tej areny. Wtedy znajdziesz Graala.^;
 !!FU&y1=124:E;
 !!VRv311:C41/23;
 !!UN:I41/23/0/36/0;
-!!VRz4:S^Lokalizator ustaliÅ‚ Å¼e musisz znaleÅºÄ‡ dwa ogromne kwiaty na Å‚Ä…ce, blisko Szklarni i {kopnÄ…Ä‡}
-w miejsce gdzie zielony korzeÅ„ jednego z tych kwiatÃ³w wystrzela w dÃ³Å‚. Wtedy znajdziesz Graala.^;
+!!VRz4:S^Lokalizator ustali³ ¿e musisz znaleŸæ dwa ogromne kwiaty na ³¹ce, blisko Szklarni i {kopn¹æ}
+w miejsce gdzie zielony korzeñ jednego z tych kwiatów wystrzela w dó³. Wtedy znajdziesz Graala.^;
 !!IF:D21/z4/0/z5/z6 ;
 !!IF:F21/0/0/0/0/0;
 !!IF:E2/21;
@@ -545,8 +545,8 @@ w miejsce gdzie zielony korzeÅ„ jednego z tych kwiatÃ³w wystrzela w dÃ³Å‚. Wtedy
 !!FU&y1=124:E;
 !!VRv311:C77/31;
 !!UN:I77/31/0/36/0;
-!!VRz4:S^Lokalizator ustaliÅ‚ Å¼e musisz znaleÅºÄ‡ miejsce gdzie {wykuwa} siÄ™ MagiÄ™ i Miecz. I {kopnÄ…Ä‡}
-w korzeÅ„ koniczyny. Wtedy znajdziesz Graala.^;
+!!VRz4:S^Lokalizator ustali³ ¿e musisz znaleŸæ miejsce gdzie {wykuwa} siê Magiê i Miecz. I {kopn¹æ}
+w korzeñ koniczyny. Wtedy znajdziesz Graala.^;
 !!IF:D21/z4/0/z5/z6 ;
 !!IF:F21/0/0/0/0/0;
 !!IF:E2/21;
@@ -556,8 +556,8 @@ w korzeÅ„ koniczyny. Wtedy znajdziesz Graala.^;
 !!FU&y1=124:E;
 !!VRv311:C17/88;
 !!UN:I17/88/0/36/0;
-!!VRz4:S^Lokalizator ustaliÅ‚ Å¼e musisz znaleÅºÄ‡ dÅ‚ugiego wÄ™Å¼a i przy jego ogonie {kopnÄ…Ä‡}
-miejsce gdzie spotykajÄ… siÄ™ strzaÅ‚ki. Wtedy znajdziesz Graala.^;
+!!VRz4:S^Lokalizator ustali³ ¿e musisz znaleŸæ d³ugiego wê¿a i przy jego ogonie {kopn¹æ}
+miejsce gdzie spotykaj¹ siê strza³ki. Wtedy znajdziesz Graala.^;
 !!IF:D21/z4/0/z5/z6 ;
 !!IF:F21/0/0/0/0/0;
 !!IF:E2/21;
@@ -570,9 +570,9 @@ miejsce gdzie spotykajÄ… siÄ™ strzaÅ‚ki. Wtedy znajdziesz Graala.^;
 !!PO998:V3/y2;
 !!VRz2:S^AlchMgic.wav^;
 !!SN:Pz2;
-!!VRz4:S^Lokalizator 9B rozpoczyna poszukiwania osobliwoÅ›ci ...
-Przeszukiwanie 8 wymiarÃ³w czasu i przestrzeni ...
-Wykryto osobliwoÅ›Ä‡!^;
+!!VRz4:S^Lokalizator 9B rozpoczyna poszukiwania osobliwoœci ...
+Przeszukiwanie 8 wymiarów czasu i przestrzeni ...
+Wykryto osobliwoœæ!^;
 !!VRz5:Sz333;
 !!VRz6:S^..\Mods\HiddenSpells\Data\MachineU.gif^;
 !!IF:D22/z4/0/z5/z6 ;
@@ -581,28 +581,28 @@ Wykryto osobliwoÅ›Ä‡!^;
 !!UN:O116/24/0; just in case of premature digging
 !!UN:I116/24/0/36/0; place Grail
 !!VRv311:C116/24;
-!!VRz4:S^Lokalizator ustaliÅ‚ Å¼e musisz {kopnÄ…Ä‡}
-Minotaura w kolano, nad wodÄ….
+!!VRz4:S^Lokalizator ustali³ ¿e musisz {kopn¹æ}
+Minotaura w kolano, nad wod¹.
 I wtedy znajdziesz Graala^;
 !!IF:D22/z4/0/z5/z6 ;
 !!IF:E2/22;
 !!VRz4:S^Niski poziom mocy ... potrzeba Elektrum.
-Wykryto wiÄ™cej osobliwoÅ›ci, ale nie udaje siÄ™ ich namierzyÄ‡.
-Lokalizator 9B wyÅ‚Ä…cza siÄ™.^;
+Wykryto wiêcej osobliwoœci, ale nie udaje siê ich namierzyæ.
+Lokalizator 9B wy³¹cza siê.^;
 !!IF:D22/z4/0/z5/z6 ;
 !!IF:E2/22;
 
-!#VRz334:S^ZgÄ™stniacz Ziemi^;
+!#VRz334:S^Zgêstniacz Ziemi^;
 !#OB18/21/0:SH334;
 
 !?OB18/21/0&1000;
 !!PO998:V3/?y1;
 !!VRy2:Sc0-1:7+1; week # (starts at 1)
-!!IF&y1=y2:M^BÃ³g Ziemi Dris przemawia z miaÅ¼dÅ¼Ä…cych fali gÄ™stoÅ›ci:
-"Cofnij siÄ™. Tak wiele mej siÅ‚y w tak krÃ³tkim czasie mogÅ‚oby CiÄ™ zniszczyÄ‡!^;
+!!IF&y1=y2:M^Bóg Ziemi Dris przemawia z mia¿d¿¹cych fali gêstoœci:
+"Cofnij siê. Tak wiele mej si³y w tak krótkim czasie mog³oby Ciê zniszczyæ!^;
 !!FU&y1=y2:E;
-!!IF:Q1^BÃ³g Ziemi Dris przemawia z miaÅ¼dÅ¼Ä…cych fali gÄ™stoÅ›ci:
-"MogÄ™ zbiÄ‡ i wzmocniÄ‡ ziemiÄ™ w tobie i twoich ludziach, uÅ¼ywajÄ…c nieco waszej siÅ‚y: +3 Obrony za -1 ObraÅ¼eÅ„.  ChÄ™tny?^;
+!!IF:Q1^Bóg Ziemi Dris przemawia z mia¿d¿¹cych fali gêstoœci:
+"Mogê zbiæ i wzmocniæ ziemiê w tobie i twoich ludziach, u¿ywaj¹c nieco waszej si³y: +3 Obrony za -1 Obra¿eñ.  Chêtny?^;
 !!FU&-1:E;
 !!PO998:V3/y2;
 !!DO321/6/11/1:P0/3/-1/0/0/6/7/174/34/35/136;
@@ -617,37 +617,37 @@ Lokalizator 9B wyÅ‚Ä…cza siÄ™.^;
 !!MA&y4<3:Py6/y4;
 !!MA&y5<3:Sy6/y5;
 
-!#VRz335:S^Generator PrzypÅ‚ywÃ³w^;
+!#VRz335:S^Generator Przyp³ywów^;
 !#OB105/20/0:SH335;
 
 !?OB105/20/0&1000;
 !!PO998:V3/?y1;
 !!VRy2:Sc0-1:7+1; week # (starts at 1)
-!!IF&y1=y2:M^BÃ³g Morza Ruse przemawia ze zbierajÄ…cej siÄ™ wody:
-"Cofnij siÄ™. Tak wiele mej energii w tak krÃ³tkim czasie mogÅ‚oby CiÄ™ zniszczyÄ‡!^;
+!!IF&y1=y2:M^Bóg Morza Ruse przemawia ze zbieraj¹cej siê wody:
+"Cofnij siê. Tak wiele mej energii w tak krótkim czasie mog³oby Ciê zniszczyæ!^;
 !!FU&y1=y2:E;
-!!IF:Q1^BÃ³g Morza Ruse przemawia ze zbierajÄ…cej siÄ™ wody:
-"MogÄ™ dodaÄ‡ energii do wody w tobie i twoich ludziach, uÅ¼ywajÄ…c nieco prÄ™dkoÅ›ci waszego powietrza: +5 HP za -1 SzybkoÅ›ci.  ChÄ™tny?^;
+!!IF:Q1^Bóg Morza Ruse przemawia ze zbieraj¹cej siê wody:
+"Mogê dodaæ energii do wody w tobie i twoich ludziach, u¿ywaj¹c nieco prêdkoœci waszego powietrza: +5 HP za -1 Szybkoœci.  Chêtny?^;
 !!FU&-1:E;
 !!PO998:V3/y2;
 !!DO321/6/11/1:P0/0/0/5/-1/6/7/174/34/35/136;
 
-!#VRz336:S^Generator WiatrÃ³w^;
+!#VRz336:S^Generator Wiatrów^;
 !#OB46/103/0:SH336;
 
 !?OB46/103/0&1000;
 !!PO998:V3/?y1;
 !!VRy2:Sc0-1:7+1; week # (starts at 1)
-!!IF&y1=y2:M^BÃ³g Powietrza Serc przemawia z wirujÄ…cych wiatrÃ³w:
-"Cofnij siÄ™. Tak wiele mej szybkoÅ›ci kinetycznej w tak krÃ³tkim czasie mogÅ‚oby rozerwaÄ‡ TwojÄ… materiÄ™ na strzÄ™py!^;
+!!IF&y1=y2:M^Bóg Powietrza Serc przemawia z wiruj¹cych wiatrów:
+"Cofnij siê. Tak wiele mej szybkoœci kinetycznej w tak krótkim czasie mog³oby rozerwaæ Twoj¹ materiê na strzêpy!^;
 !!FU&y1=y2:E;
-!!IF:Q1^BÃ³g Powietrza Serc przemawia z wirujÄ…cych wiatrÃ³w:
-"MogÄ™ zwiÄ™kszyÄ‡ szybkoÅ›Ä‡ kinetycznÄ… w tobie i twoich ludziach, uÅ¼ywajÄ…c nieco waszej energii cieplnej: +2 SzybkoÅ›ci za -1 Ataku.  ChÄ™tny?^;
+!!IF:Q1^Bóg Powietrza Serc przemawia z wiruj¹cych wiatrów:
+"Mogê zwiêkszyæ szybkoœæ kinetyczn¹ w tobie i twoich ludziach, u¿ywaj¹c nieco waszej energii cieplnej: +2 Szybkoœci za -1 Ataku.  Chêtny?^;
 !!FU&-1:E;
 !!PO998:V3/y2;
 !!DO321/6/11/1:P-1/0/0/0/2/6/7/174/34/35/136;
 
-!#VRz337:S^MnoÅ¼nik SiÅ‚y^;
+!#VRz337:S^Mno¿nik Si³y^;
 !#OB32/62/0:SH337;
 !#OB33/62/0:SH337;
 !#OB34/62/0:SH337;
@@ -658,20 +658,20 @@ Lokalizator 9B wyÅ‚Ä…cza siÄ™.^;
 !#OB36/63/0:SH337;
 !#OB37/61/0:SH337;
 !#OB37/63/0:SH337;
-!#VRz338:S^Naczelny SiÅ‚owacz^;
+!#VRz338:S^Naczelny Si³owacz^;
 !#OB38/62/0:SH338;
 !#TR26/62/0:E0;
 
 !?OB38/62/0&1000;
 !!PO998:V3/?y1;
 !!VRy2:Sc0-1:7+1; week # (starts at 1)
-!!IF&y1=y2:M^Naczelny SiÅ‚owacz mÃ³wi:
-"WrÃ³Ä‡ innym razem. Zbyt wiele mnoÅ¼enia nie jest dobre dla ciaÅ‚a!^;
+!!IF&y1=y2:M^Naczelny Si³owacz mówi:
+"Wróæ innym razem. Zbyt wiele mno¿enia nie jest dobre dla cia³a!^;
 !!FU&y1=y2:E;
-!!IF:Q1^Naczelny SiÅ‚owacz mÃ³wi:
-"MÃ³j MnoÅ¼nik SiÅ‚y moÅ¼e dostosowaÄ‡ energiÄ™ prÃ³Å¼ni do aury twojej i twoich ludzi, ale proces zmniejszy waszÄ… energiÄ™ Å¼yciowÄ…: +3 ObraÅ¼enia za -2 HP.  ChÄ™tny?^;
+!!IF:Q1^Naczelny Si³owacz mówi:
+"Mój Mno¿nik Si³y mo¿e dostosowaæ energiê pró¿ni do aury twojej i twoich ludzi, ale proces zmniejszy wasz¹ energiê ¿yciow¹: +3 Obra¿enia za -2 HP.  Chêtny?^;
 !!FU&-1:E;
-!!IF:M^Doskonale. StaÅ„ po drugiej stronie urzÄ…dzenia bym mÃ³gÅ‚ zeskanowaÄ‡ wasze aury.^;
+!!IF:M^Doskonale. Stañ po drugiej stronie urz¹dzenia bym móg³ zeskanowaæ wasze aury.^;
 !!IF:V368/1;
 !!PO998:V3/y2;
 
@@ -694,7 +694,7 @@ Lokalizator 9B wyÅ‚Ä…cza siÄ™.^;
 !#VRv313:S0; bit flags for Air(1), Fire(2), Water(4), & Earth(8)
 !#VRz340:S^{Mistrz} Ziemi^;
 !#VRz341:S^{Mistrz} Ziemi
-Poza umiejÄ™tnoÅ›ciami Eksperta Magii Ziemi, Mistrz Ziemi moÅ¼e podrÃ³Å¼owaÄ‡ miÄ™dzy gwiazdami do Krainy Ziemi, odwiedziÄ‡ ZagubionÄ… ÅšwiÄ…tyniÄ™ i nauczyÄ‡ siÄ™ StaroÅ¼ytnego ZaklÄ™cia.^;
+Poza umiejêtnoœciami Eksperta Magii Ziemi, Mistrz Ziemi mo¿e podró¿owaæ miêdzy gwiazdami do Krainy Ziemi, odwiedziæ Zagubion¹ Œwi¹tyniê i nauczyæ siê Staro¿ytnego Zaklêcia.^;
 !#VRz201:S^Mistrz Powietrza!^;
 !#VRz202:S^Mistrz Ognia!^;
 !#VRz203:S^Mistrz Powietrza i Ognia!^;
@@ -718,24 +718,24 @@ Poza umiejÄ™tnoÅ›ciami Eksperta Magii Ziemi, Mistrz Ziemi moÅ¼e podrÃ³Å¼owaÄ‡ mi
 !!IF&y1<>27/y1<>29/y3>1:V1/1; (use Melodia for test)
 !!IF&y1=27/y2<>0:V2/1;
 !!IF&y1=29/y2<>0:V2/1;
-!!IF|1/2:Q1/27/23/1^Umiesz juÅ¼ wszystko czego mogliÅ›my ciÄ™ nauczyÄ‡, ale zawsze miÅ‚o zobaczyÄ‡ ponownie dobrego studenta. WeÅº sobie krÃ³wkÄ™.^;
+!!IF|1/2:Q1/27/23/1^Umiesz ju¿ wszystko czego mogliœmy ciê nauczyæ, ale zawsze mi³o zobaczyæ ponownie dobrego studenta. WeŸ sobie krówkê.^;
 !!FU|1/2:E;
 !!PO998:V3/?y4;
 !!VRy5:Sc0-1:7+1; week # (starts at 1)
-!!IF&y4=y5:M^Nasi instruktorzy muszÄ… pomedytowaÄ‡ i zregenerowaÄ‡ swojÄ… moc zanim bÄ™dÄ… w stanie wczarowaÄ‡ w ciebie wiÄ™cej Magii Ziemi.^;
+!!IF&y4=y5:M^Nasi instruktorzy musz¹ pomedytowaæ i zregenerowaæ swoj¹ moc zanim bêd¹ w stanie wczarowaæ w ciebie wiêcej Magii Ziemi.^;
 !!FU&y4=y5:E;
-!!IF&y3=0:Q1/27/23/2^Witaj w Akademii Ziemi! Za 1000 zÅ‚otych nauczymy ciÄ™ Podstawowej Magii Ziemi.  Czy chcesz posiÄ…Å›Ä‡ tÄ™ umiejÄ™tnoÅ›Ä‡?^;
+!!IF&y3=0:Q1/27/23/2^Witaj w Akademii Ziemi! Za 1000 z³otych nauczymy ciê Podstawowej Magii Ziemi.  Czy chcesz posi¹œæ tê umiejêtnoœæ?^;
 !!FU&-1/y3=0:E;
-!!IF&y3=1:Q1/27/23/2^Witaj w Akademii Ziemi! Za 2000 zÅ‚otych nauczymy ciÄ™ Zaawansowanej Magii Ziemi.  Czy chcesz posiÄ…Å›Ä‡ tÄ™ umiejÄ™tnoÅ›Ä‡?^;
+!!IF&y3=1:Q1/27/23/2^Witaj w Akademii Ziemi! Za 2000 z³otych nauczymy ciê Zaawansowanej Magii Ziemi.  Czy chcesz posi¹œæ tê umiejêtnoœæ?^;
 !!FU&-1/y3=1:E;
-!!IF&y3=2:Q1/27/23/2^Witaj w Akademii Ziemi! Za 4000 zÅ‚otych nauczymy ciÄ™ Eksperckiej Magii Ziemi.  Czy chcesz posiÄ…Å›Ä‡ tÄ™ umiejÄ™tnoÅ›Ä‡?^;
+!!IF&y3=2:Q1/27/23/2^Witaj w Akademii Ziemi! Za 4000 z³otych nauczymy ciê Eksperckiej Magii Ziemi.  Czy chcesz posi¹œæ tê umiejêtnoœæ?^;
 !!FU&-1/y3=2:E;
-!!IF&y3=3:Q1/27/23/2^Witaj w Akademii Ziemi! Za 6000 zÅ‚otych wezwiemy Drisa by zrobiÅ‚ z ciebie Mistrza Magii Ziemi.  Czy chcesz posiÄ…Å›Ä‡ tÄ™ umiejÄ™tnoÅ›Ä‡?^;
+!!IF&y3=3:Q1/27/23/2^Witaj w Akademii Ziemi! Za 6000 z³otych wezwiemy Drisa by zrobi³ z ciebie Mistrza Magii Ziemi.  Czy chcesz posi¹œæ tê umiejêtnoœæ?^;
 !!FU&-1/y3=3:E;
 !!VRy4:Sy3*2000;
 !!VRy4&y3=0:S1000;
 !!OW:R-1/6/?y5;
-!!IF&y5<y4:Q1/27/23/1^PÅ‚atnoÅ›Ä‡ tylko z gÃ³ry! Twoje studia rozpocznÄ… siÄ™ gdy zapÅ‚acisz.^;
+!!IF&y5<y4:Q1/27/23/1^P³atnoœæ tylko z góry! Twoje studia rozpoczn¹ siê gdy zap³acisz.^;
 !!FU&y5<y4:E;
 !!VRy4:*-1;
 !!OW:R-1/6/dy4;
@@ -743,7 +743,7 @@ Poza umiejÄ™tnoÅ›ciami Eksperta Magii Ziemi, Mistrz Ziemi moÅ¼e podrÃ³Å¼owaÄ‡ mi
 !!VRz2:S^chime_up.wav^;
 !!SN:Pz2;
 !!HE-1&y3<3:S17/d1;
-!!IF&y3<3:Q1/27/23/1^PrzeczytaÅ‚eÅ› Å›wiÄ™te zwoje, a nasi mistrzowie zatwierdzili twoje kwalifikacje. TwÃ³j poziom Magii Ziemi zwiÄ™ksza siÄ™!^;
+!!IF&y3<3:Q1/27/23/1^Przeczyta³eœ œwiête zwoje, a nasi mistrzowie zatwierdzili twoje kwalifikacje. Twój poziom Magii Ziemi zwiêksza siê!^;
 !!FU&y3<3:E;
 !!UN:G0/17/0/340 G0/17/3/341;
 !!VRv313:|8;
@@ -751,7 +751,7 @@ Poza umiejÄ™tnoÅ›ciami Eksperta Magii Ziemi, Mistrz Ziemi moÅ¼e podrÃ³Å¼owaÄ‡ mi
 !!VRy7:S200+v313; spclty text Z #
 !!HE-1:N?y8;
 !!UN:G2/y8/1/y6 G2/y8/2/y7 G2/y8/3/y6;
-!!IF:Q1/27/23/1^Dris zaakceptowaÅ‚ nasze wezwanie i pobÅ‚ogosÅ‚awiÅ‚ ciÄ™! JesteÅ› teraz Mistrzem Magii Ziemi!^;
+!!IF:Q1/27/23/1^Dris zaakceptowa³ nasze wezwanie i pob³ogos³awi³ ciê! Jesteœ teraz Mistrzem Magii Ziemi!^;
 !!FU&v313<15:E;
 !!SN:L^Era.dll^/?v3; v3=handle
 !!SN:Av3/^RedirectFile^/?v4; v4=FU address
@@ -766,7 +766,7 @@ Poza umiejÄ™tnoÅ›ciami Eksperta Magii Ziemi, Mistrz Ziemi moÅ¼e podrÃ³Å¼owaÄ‡ mi
 !#OB51/48/0:SH342;
 !#VRz343:S^{Mistrz} Ognia^;
 !#VRz344:S^{Mistrz} Ognia
-Poza umiejÄ™tnoÅ›ciami Eksperta Magii Ognia, Mistrz Ognia moÅ¼e podrÃ³Å¼owaÄ‡ miÄ™dzy gwiazdami do Krainy Ognia, odwiedziÄ‡ ZagubionÄ… ÅšwiÄ…tyniÄ™ i nauczyÄ‡ siÄ™ StaroÅ¼ytnego ZaklÄ™cia.^;
+Poza umiejêtnoœciami Eksperta Magii Ognia, Mistrz Ognia mo¿e podró¿owaæ miêdzy gwiazdami do Krainy Ognia, odwiedziæ Zagubion¹ Œwi¹tyniê i nauczyæ siê Staro¿ytnego Zaklêcia.^;
 
 !?OB51/48/0&1000;
 !!HE-1:N?y1 S14/?y3; HE#, Fire skill
@@ -775,24 +775,24 @@ Poza umiejÄ™tnoÅ›ciami Eksperta Magii Ognia, Mistrz Ognia moÅ¼e podrÃ³Å¼owaÄ‡ mi
 !!IF&y1<>27/y1<>29/y3>1:V1/1; (use Melodia for testing)
 !!IF&y1=27/y2<>0:V2/1;
 !!IF&y1=29/y2<>0:V2/1;
-!!IF|1/2:Q1/27/23/1^Umiesz juÅ¼ wszystko czego mogliÅ›my ciÄ™ nauczyÄ‡, ale zawsze miÅ‚o zobaczyÄ‡ ponownie dobrego studenta. WeÅº sobie krÃ³wkÄ™.^;
+!!IF|1/2:Q1/27/23/1^Umiesz ju¿ wszystko czego mogliœmy ciê nauczyæ, ale zawsze mi³o zobaczyæ ponownie dobrego studenta. WeŸ sobie krówkê.^;
 !!FU|1/2:E;
 !!PO998:V3/?y4;
 !!VRy5:Sc0-1:7+1; week # (starts at 1)
-!!IF&y4=y5:M^Nasi instruktorzy muszÄ… pomedytowaÄ‡ i zregenerowaÄ‡ swojÄ… moc zanim bÄ™dÄ… w stanie wczarowaÄ‡ w ciebie wiÄ™cej Magii Ognia.^;
+!!IF&y4=y5:M^Nasi instruktorzy musz¹ pomedytowaæ i zregenerowaæ swoj¹ moc zanim bêd¹ w stanie wczarowaæ w ciebie wiêcej Magii Ognia.^;
 !!FU&y4=y5:E;
-!!IF&y3=0:Q1/27/23/2^Witaj w Akademii Ognia! Za 1000 zÅ‚otych nauczymy ciÄ™ Podstawowej Magii Ognia.  Czy chcesz posiÄ…Å›Ä‡ tÄ™ umiejÄ™tnoÅ›Ä‡?^;
+!!IF&y3=0:Q1/27/23/2^Witaj w Akademii Ognia! Za 1000 z³otych nauczymy ciê Podstawowej Magii Ognia.  Czy chcesz posi¹œæ tê umiejêtnoœæ?^;
 !!FU&-1/y3=0:E;
-!!IF&y3=1:Q1/27/23/2^Witaj w Akademii Ognia! Za 2000 zÅ‚otych nauczymy ciÄ™ Zaawansowanej Magii Ognia.  Czy chcesz posiÄ…Å›Ä‡ tÄ™ umiejÄ™tnoÅ›Ä‡?^;
+!!IF&y3=1:Q1/27/23/2^Witaj w Akademii Ognia! Za 2000 z³otych nauczymy ciê Zaawansowanej Magii Ognia.  Czy chcesz posi¹œæ tê umiejêtnoœæ?^;
 !!FU&-1/y3=1:E;
-!!IF&y3=2:Q1/27/23/2^Witaj w Akademii Ognia! Za 4000 zÅ‚otych nauczymy ciÄ™ Eksperckiej Magii Ognia.  Czy chcesz posiÄ…Å›Ä‡ tÄ™ umiejÄ™tnoÅ›Ä‡?^;
+!!IF&y3=2:Q1/27/23/2^Witaj w Akademii Ognia! Za 4000 z³otych nauczymy ciê Eksperckiej Magii Ognia.  Czy chcesz posi¹œæ tê umiejêtnoœæ?^;
 !!FU&-1/y3=2:E;
-!!IF&y3=3:Q1/27/23/2^Witaj w Akademii Ognia! Za 6000 zÅ‚otych wezwiemy Thyra by zrobiÅ‚ z ciebie Mistrza Magii Ognia.  Czy chcesz posiÄ…Å›Ä‡ tÄ™ umiejÄ™tnoÅ›Ä‡?^;
+!!IF&y3=3:Q1/27/23/2^Witaj w Akademii Ognia! Za 6000 z³otych wezwiemy Thyra by zrobi³ z ciebie Mistrza Magii Ognia.  Czy chcesz posi¹œæ tê umiejêtnoœæ?^;
 !!FU&-1/y3=3:E;
 !!VRy4:Sy3*2000;
 !!VRy4&y3=0:S1000;
 !!OW:R-1/6/?y5;
-!!IF&y5<y4:Q1/27/23/1^PÅ‚atnoÅ›Ä‡ tylko z gÃ³ry! Twoje studia rozpocznÄ… siÄ™ gdy zapÅ‚acisz.^;
+!!IF&y5<y4:Q1/27/23/1^P³atnoœæ tylko z góry! Twoje studia rozpoczn¹ siê gdy zap³acisz.^;
 !!FU&y5<y4:E;
 !!VRy4:*-1;
 !!OW:R-1/6/dy4;
@@ -800,7 +800,7 @@ Poza umiejÄ™tnoÅ›ciami Eksperta Magii Ognia, Mistrz Ognia moÅ¼e podrÃ³Å¼owaÄ‡ mi
 !!VRz2:S^chime_up.wav^;
 !!SN:Pz2;
 !!HE-1&y3<3:S14/d1;
-!!IF&y3<3:Q1/27/23/1^PrzeczytaÅ‚eÅ› Å›wiÄ™te zwoje, a nasi mistrzowie zatwierdzili twoje kwalifikacje. TwÃ³j poziom Magii Ognia zwiÄ™ksza siÄ™!^;
+!!IF&y3<3:Q1/27/23/1^Przeczyta³eœ œwiête zwoje, a nasi mistrzowie zatwierdzili twoje kwalifikacje. Twój poziom Magii Ognia zwiêksza siê!^;
 !!FU&y3<3:E;
 !!UN:G0/14/0/343 G0/14/3/344;
 !!VRv313:|2;
@@ -808,7 +808,7 @@ Poza umiejÄ™tnoÅ›ciami Eksperta Magii Ognia, Mistrz Ognia moÅ¼e podrÃ³Å¼owaÄ‡ mi
 !!VRy7:S200+v313; spclty text Z #
 !!HE-1:N?y8;
 !!UN:G2/y8/1/y6 G2/y8/2/y7 G2/y8/3/y6;
-!!IF:Q1/27/23/1^Thyr zaakceptowaÅ‚ nasze wezwanie i pobÅ‚ogosÅ‚awiÅ‚ ciÄ™! JesteÅ› teraz Mistrzem Magii Ognia!^;
+!!IF:Q1/27/23/1^Thyr zaakceptowa³ nasze wezwanie i pob³ogos³awi³ ciê! Jesteœ teraz Mistrzem Magii Ognia!^;
 !!FU&v313<15:E;
 !!SN:L^Era.dll^/?v3; v3=handle
 !!SN:Av3/^RedirectFile^/?v4; v4=FU address
@@ -821,7 +821,7 @@ Poza umiejÄ™tnoÅ›ciami Eksperta Magii Ognia, Mistrz Ognia moÅ¼e podrÃ³Å¼owaÄ‡ mi
 !#OB124/25/0:SH345;
 !#VRz346:S^{Mistrz} Wody^;
 !#VRz347:S^{Mistrz} Wody
-Poza umiejÄ™tnoÅ›ciami Eksperta Magii Wody, Mistrz Wody moÅ¼e podrÃ³Å¼owaÄ‡ miÄ™dzy gwiazdami do Krainy Wody, odwiedziÄ‡ ZagubionÄ… ÅšwiÄ…tyniÄ™ i nauczyÄ‡ siÄ™ StaroÅ¼ytnego ZaklÄ™cia.^;
+Poza umiejêtnoœciami Eksperta Magii Wody, Mistrz Wody mo¿e podró¿owaæ miêdzy gwiazdami do Krainy Wody, odwiedziæ Zagubion¹ Œwi¹tyniê i nauczyæ siê Staro¿ytnego Zaklêcia.^;
 
 !?OB124/25/0&1000;
 !!HE-1:N?y1 S16/?y3; HE#, Wody
@@ -830,24 +830,24 @@ Poza umiejÄ™tnoÅ›ciami Eksperta Magii Wody, Mistrz Wody moÅ¼e podrÃ³Å¼owaÄ‡ miÄ™
 !!IF&y1<>27/y1<>29/y3>1:V1/1; (use Melodia for test)
 !!IF&y1=27/y2<>0:V2/1;
 !!IF&y1=29/y2<>0:V2/1;
-!!IF|1/2:Q1/27/23/1^Umiesz juÅ¼ wszystko czego mogliÅ›my ciÄ™ nauczyÄ‡, ale zawsze miÅ‚o zobaczyÄ‡ ponownie dobrego studenta. WeÅº sobie krÃ³wkÄ™.^;
+!!IF|1/2:Q1/27/23/1^Umiesz ju¿ wszystko czego mogliœmy ciê nauczyæ, ale zawsze mi³o zobaczyæ ponownie dobrego studenta. WeŸ sobie krówkê.^;
 !!FU|1/2:E;
 !!PO998:V3/?y4;
 !!VRy5:Sc0-1:7+1; week # (starts at 1)
-!!IF&y4=y5:M^Nasi instruktorzy muszÄ… pomedytowaÄ‡ i zregenerowaÄ‡ swojÄ… moc zanim bÄ™dÄ… w stanie wczarowaÄ‡ w ciebie wiÄ™cej Magii Wody.^;
+!!IF&y4=y5:M^Nasi instruktorzy musz¹ pomedytowaæ i zregenerowaæ swoj¹ moc zanim bêd¹ w stanie wczarowaæ w ciebie wiêcej Magii Wody.^;
 !!FU&y4=y5:E;
-!!IF&y3=0:Q1/27/23/2^Witaj w Akademii Wody! Za 1000 zÅ‚otych nauczymy ciÄ™ Podstawowej Magii Wody.  Czy chcesz posiÄ…Å›Ä‡ tÄ™ umiejÄ™tnoÅ›Ä‡?^;
+!!IF&y3=0:Q1/27/23/2^Witaj w Akademii Wody! Za 1000 z³otych nauczymy ciê Podstawowej Magii Wody.  Czy chcesz posi¹œæ tê umiejêtnoœæ?^;
 !!FU&-1/y3=0:E;
-!!IF&y3=1:Q1/27/23/2^Witaj w Akademii Wody! Za 2000 zÅ‚otych nauczymy ciÄ™ Zaawansowanej Magii Wody.  Czy chcesz posiÄ…Å›Ä‡ tÄ™ umiejÄ™tnoÅ›Ä‡?^;
+!!IF&y3=1:Q1/27/23/2^Witaj w Akademii Wody! Za 2000 z³otych nauczymy ciê Zaawansowanej Magii Wody.  Czy chcesz posi¹œæ tê umiejêtnoœæ?^;
 !!FU&-1/y3=1:E;
-!!IF&y3=2:Q1/27/23/2^Witaj w Akademii Wody! Za 4000 zÅ‚otych nauczymy ciÄ™ Eksperckiej Magii Wody.  Czy chcesz posiÄ…Å›Ä‡ tÄ™ umiejÄ™tnoÅ›Ä‡?^;
+!!IF&y3=2:Q1/27/23/2^Witaj w Akademii Wody! Za 4000 z³otych nauczymy ciê Eksperckiej Magii Wody.  Czy chcesz posi¹œæ tê umiejêtnoœæ?^;
 !!FU&-1/y3=2:E;
-!!IF&y3=3:Q1/27/23/2^Witaj w Akademii Wody! Za 6000 zÅ‚otych wezwiemy Ruse by zrobiÅ‚ z ciebie Mistrza Magii Wody.  Czy chcesz posiÄ…Å›Ä‡ tÄ™ umiejÄ™tnoÅ›Ä‡?^;
+!!IF&y3=3:Q1/27/23/2^Witaj w Akademii Wody! Za 6000 z³otych wezwiemy Ruse by zrobi³ z ciebie Mistrza Magii Wody.  Czy chcesz posi¹œæ tê umiejêtnoœæ?^;
 !!FU&-1/y3=3:E;
 !!VRy4:Sy3*2000;
 !!VRy4&y3=0:S1000;
 !!OW:R-1/6/?y5;
-!!IF&y5<y4:Q1/27/23/1^PÅ‚atnoÅ›Ä‡ tylko z gÃ³ry! Twoje studia rozpocznÄ… siÄ™ gdy zapÅ‚acisz.^;
+!!IF&y5<y4:Q1/27/23/1^P³atnoœæ tylko z góry! Twoje studia rozpoczn¹ siê gdy zap³acisz.^;
 !!FU&y5<y4:E;
 !!VRy4:*-1;
 !!OW:R-1/6/dy4;
@@ -855,7 +855,7 @@ Poza umiejÄ™tnoÅ›ciami Eksperta Magii Wody, Mistrz Wody moÅ¼e podrÃ³Å¼owaÄ‡ miÄ™
 !!VRz2:S^chime_up.wav^;
 !!SN:Pz2;
 !!HE-1&y3<3:S16/d1;
-!!IF&y3<3:Q1/27/23/1^PrzeczytaÅ‚eÅ› Å›wiÄ™te zwoje, a nasi mistrzowie zatwierdzili twoje kwalifikacje. TwÃ³j poziom Magii Wody zwiÄ™ksza siÄ™!^;
+!!IF&y3<3:Q1/27/23/1^Przeczyta³eœ œwiête zwoje, a nasi mistrzowie zatwierdzili twoje kwalifikacje. Twój poziom Magii Wody zwiêksza siê!^;
 !!FU&y3<3:E;
 !!UN:G0/16/0/346 G0/16/3/347;
 !!VRv313:|4;
@@ -863,7 +863,7 @@ Poza umiejÄ™tnoÅ›ciami Eksperta Magii Wody, Mistrz Wody moÅ¼e podrÃ³Å¼owaÄ‡ miÄ™
 !!VRy7:S200+v313; spclty text Z #
 !!HE-1:N?y8;
 !!UN:G2/y8/1/y6 G2/y8/2/y7 G2/y8/3/y6;
-!!IF:Q1/27/23/1^Ruse zaakceptowaÅ‚ nasze wezwanie i pobÅ‚ogosÅ‚awiÅ‚ ciÄ™! JesteÅ› teraz Mistrzem Magii Wody!^;
+!!IF:Q1/27/23/1^Ruse zaakceptowa³ nasze wezwanie i pob³ogos³awi³ ciê! Jesteœ teraz Mistrzem Magii Wody!^;
 !!FU&v313<15:E;
 !!SN:L^Era.dll^/?v3; v3=handle
 !!SN:Av3/^RedirectFile^/?v4; v4=FU address

@@ -29,19 +29,19 @@ ZVSE
 !!HE84:F40/40/30/30 I600; Set Devoron's stats
 !!IF:M^Dramatis Personae:
 
-{DerWollschwein}, Czerwony BÃ³g Zniszczenia, ktÃ³ry wspomaga KrÃ³la Lodu.
+{DerWollschwein}, Czerwony Bóg Zniszczenia, który wspomaga Króla Lodu.
 
-{KrÃ³l Lodu}, ktÃ³rego chciwoÅ›Ä‡ nie moÅ¼e byÄ‡ zaspokojona dopÃ³ki nie posiÄ…dzie wszystkiego.
+{Król Lodu}, którego chciwoœæ nie mo¿e byæ zaspokojona dopóki nie posi¹dzie wszystkiego.
 
-{Halyna}, Zielona Bogini Å»ycia (przez Å» z kropkÄ…), ktÃ³ra prowadzi i chroni ZielonÄ… GÃ³rÄ™ i jej lud. Halyna moÅ¼e rzucaÄ‡ wiele ochronnych zaklÄ™Ä‡ w jednej rundzie bitwy.
+{Halyna}, Zielona Bogini ¯ycia (przez ¯ z kropk¹), która prowadzi i chroni Zielon¹ Górê i jej lud. Halyna mo¿e rzucaæ wiele ochronnych zaklêæ w jednej rundzie bitwy.
 
-{Jalery}, Wysoki Czarodziej Zielonej GÃ³ry, oraz {Vames}, PrzywÃ³dca Wojenny. (Razem, w minionych czasach, zdobyli Miecze Dnia i Nocy!)
+{Jalery}, Wysoki Czarodziej Zielonej Góry, oraz {Vames}, Przywódca Wojenny. (Razem, w minionych czasach, zdobyli Miecze Dnia i Nocy!)
 
-{Zbyszko}, pomniejszy bÃ³g Å»ycia (przez Å» z kropkÄ…), ktÃ³ry sÅ‚uÅ¼yÅ‚ Gorzowowi Wielkopolskiemu, pÃ³ki nie upadÅ‚.
+{Zbyszko}, pomniejszy bóg ¯ycia (przez ¯ z kropk¹), który s³u¿y³ Gorzowowi Wielkopolskiemu, póki nie upad³.
 
-{Wojownik SÅ‚oÅ„ca}, sÅ‚uÅ¼Ä…cy ZÅ‚otemu Mieczowi Dnia.
+{Wojownik S³oñca}, s³u¿¹cy Z³otemu Mieczowi Dnia.
 
-{StraÅ¼nik KsiÄ™Å¼yca}, sÅ‚uÅ¼Ä…cy Czarnemu Mieczowi Nocy.^;
+{Stra¿nik Ksiê¿yca}, s³u¿¹cy Czarnemu Mieczowi Nocy.^;
 
 !?TM2&v2392>1/v2395=3; Day >1, Green
 !!OW:R3/6/d-3950; reduce 4000/day to 50/day
@@ -51,10 +51,10 @@ ZVSE
 
 !?TM2&v2392=2/v2395=3; Day 2
 !!IF:V201/0 V202/0 V203/0 V204/0; no more battle prayers
-!!IF:Q1/21/128/1^{Halyna}:  PosÅ‚uchajcie, moje dzieci!  PokonaliÅ›cie siÅ‚y KrÃ³la Lodu, lecz przyÅ›le on wiÄ™ksze i wiÄ™ksze armie. On sam nosi Bardzo CzerwonÄ… KulkÄ™, ktÃ³ra zablokuje caÅ‚Ä… mojÄ… ochronnÄ… magiÄ™, gdyby poprowadziÅ‚ armiÄ™ osobiÅ›cie.  Poza tym, zna on StaroÅ¼ytnÄ… MagiÄ™, niewraÅ¼liwÄ… na efekt jego Bardzo Czerwonej Kulki. Odpieranie jego oblÄ™Å¼eÅ„ jedynie odwleka naszÄ… zgubÄ™!^;
-!!IF:Q1/21/136/1^{Jalery}:  MoÅ¼e... GdybyÅ›my podjÄ™li jego wyzwanie i wysÅ‚ali naszych czempionÃ³w przez portal na jego arenÄ™, znaleÅºlibyÅ›my ÅºrÃ³dÅ‚o StaroÅ¼ytnej Magii gdzieÅ› w jego MieÅ›cie DominiÃ³w?^;
-!!IF:Q1/21/174/1^{Vames}:  Twoja magia jest potrzebna tutaj, do obrony zamku.  Ja pÃ³jdÄ™, z paroma mÅ‚odszymi magami.^;
-!!IF:Q1/21/136/1^{Jalery}:  WeÅº oba miecze.  BÄ™dziesz ich potrzebowaÅ‚!^;
-!!IF:Q1/21/128/1^{Halyna}:  BÄ™dÄ™ z Wami by pomagaÄ‡ z caÅ‚ych siÅ‚. MÃ³j siostrzeniec Zbyszko szpieguje teraz w MieÅ›cie DominiÃ³w i powie nam czego siÄ™ dowiedziaÅ‚. Ruszajmy prÄ™dko, nim coraz silniejsze ataki przytÅ‚oczÄ… Jalery'ego!^;
+!!IF:Q1/21/128/1^{Halyna}:  Pos³uchajcie, moje dzieci!  Pokonaliœcie si³y Króla Lodu, lecz przyœle on wiêksze i wiêksze armie. On sam nosi Bardzo Czerwon¹ Kulkê, która zablokuje ca³¹ moj¹ ochronn¹ magiê, gdyby poprowadzi³ armiê osobiœcie.  Poza tym, zna on Staro¿ytn¹ Magiê, niewra¿liw¹ na efekt jego Bardzo Czerwonej Kulki. Odpieranie jego oblê¿eñ jedynie odwleka nasz¹ zgubê!^;
+!!IF:Q1/21/136/1^{Jalery}:  Mo¿e... Gdybyœmy podjêli jego wyzwanie i wys³ali naszych czempionów przez portal na jego arenê, znaleŸlibyœmy Ÿród³o Staro¿ytnej Magii gdzieœ w jego Mieœcie Dominiów?^;
+!!IF:Q1/21/174/1^{Vames}:  Twoja magia jest potrzebna tutaj, do obrony zamku.  Ja pójdê, z paroma m³odszymi magami.^;
+!!IF:Q1/21/136/1^{Jalery}:  WeŸ oba miecze.  Bêdziesz ich potrzebowa³!^;
+!!IF:Q1/21/128/1^{Halyna}:  Bêdê z Wami by pomagaæ z ca³ych si³. Mój siostrzeniec Zbyszko szpieguje teraz w Mieœcie Dominiów i powie nam czego siê dowiedzia³. Ruszajmy prêdko, nim coraz silniejsze ataki przyt³ocz¹ Jalery'ego!^;
 !!IF:V51/1; set flag to display messages randomly on roads
 

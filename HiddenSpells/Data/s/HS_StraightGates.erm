@@ -8,8 +8,8 @@ ZVSE
 !#TR114/128/0:E0;
 !#TR102/128/0:E0;
 !?OB114/128/0&1000;
-!!IF:M^PodÄ…Å¼aj za strzaÅ‚kÄ…, {prosto} i pewnie,
-a do Dominium Alchemii dotrzesz - tam coÅ› ... .^;
+!!IF:M^Pod¹¿aj za strza³k¹, {prosto} i pewnie,
+a do Dominium Alchemii dotrzesz - tam coœ ... .^;
 !!VRv148:C-1/0; step change
 !!IF:V367/1;
 !!HE-1:N?y-1;
@@ -25,8 +25,8 @@ a do Dominium Alchemii dotrzesz - tam coÅ› ... .^;
 
 !?OB102/128/0&1000;
 !!TR114/128/0:E0;
-!!IF&-367:M^Od gwiazdy do gwiazdy ze Å›cieÅ¼ki zboczyÅ‚eÅ›,
-czym do Dominium Alchemii drogÄ™ zmyliÅ‚eÅ›.^;
+!!IF&-367:M^Od gwiazdy do gwiazdy ze œcie¿ki zboczy³eœ,
+czym do Dominium Alchemii drogê zmyli³eœ.^;
 !!FU&-367:E;
 !!HE-1:N?y-1;
 !!FU64:Py-1/85/124/0;
@@ -39,8 +39,8 @@ czym do Dominium Alchemii drogÄ™ zmyliÅ‚eÅ›.^;
 !#HT12/3:T308; delete hint text for blank campfire 12/3
 !#OB122/111/0:S;
 !?OB114/103/0&1000;
-!!IF:M^Od gwiazdy do gwiazdy podÄ…Å¼aj niezachwianie,
-albo droga do Dominium ZÅ‚ota zamkniÄ™tÄ… pozostanie.^;
+!!IF:M^Od gwiazdy do gwiazdy pod¹¿aj niezachwianie,
+albo droga do Dominium Z³ota zamkniêt¹ pozostanie.^;
 !!VRv148:C1/1; step change
 !!IF:V367/1;
 !!HE-1:N?y-1;
@@ -49,8 +49,8 @@ albo droga do Dominium ZÅ‚ota zamkniÄ™tÄ… pozostanie.^;
 
 !?OB122/111/0&1000;
 !!TR114/103/0:E0;
-!!IF&-367:M^Od gwiazdy do gwiazdy na Å›cieÅ¼ce Twej wahanie,
-wiÄ™c droga do ZÅ‚ota otwarta nie zostanie.^;
+!!IF&-367:M^Od gwiazdy do gwiazdy na œcie¿ce Twej wahanie,
+wiêc droga do Z³ota otwarta nie zostanie.^;
 !!FU&-367:E;
 !!HE-1:N?y-1;
 !!FU64:Py-1/48/129/0;
@@ -61,7 +61,7 @@ wiÄ™c droga do ZÅ‚ota otwarta nie zostanie.^;
 !#TR132/93/0:E0;
 !#OB132/93/0:S;
 !?OB127/88/0&1000;
-!!IF:M^Dwukrotnie stuknij obcasami na zÅ‚otej drodze,
+!!IF:M^Dwukrotnie stuknij obcasami na z³otej drodze,
 a do domu trafisz na jednej nodze.^;
 !!VRv148:C1/1; step change
 !!IF:V367/1;
@@ -71,8 +71,8 @@ a do domu trafisz na jednej nodze.^;
 
 !?OB132/93/0&1000;
 !!TR127/88/0:E0;
-!!IF&-367:M^Z punktu A do punktu B poszedÅ‚eÅ› Åºle,
-wiÄ™c w domu dziÅ› nie bÄ™dzie CiÄ™.^;
+!!IF&-367:M^Z punktu A do punktu B poszed³eœ Ÿle,
+wiêc w domu dziœ nie bêdzie Ciê.^;
 !!FU&-367:E;
 !!HE-1:N?y-1;
 !!FU64:Py-1/72/73/1;
@@ -84,7 +84,7 @@ wiÄ™c w domu dziÅ› nie bÄ™dzie CiÄ™.^;
 !!OBx2/x3/x4&y1=34:U?y2;
 !!if&y1=34/y2<>x1:;
  !!HEx1:B0/?z7; name
- !!IF:M^Punkt docelowy jest zajÄ™ty przez innÄ… duszyczkÄ™! %Z7 nie moÅ¼e siÄ™ zmaterializowaÄ‡!^;
+ !!IF:M^Punkt docelowy jest zajêty przez inn¹ duszyczkê! %Z7 nie mo¿e siê zmaterializowaæ!^;
  !!VRz8:S^MEDUKILL.WAV^;
  !!SN:Pz8;
  !!HEx1:K; prevent heroes from banging

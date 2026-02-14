@@ -8,11 +8,11 @@ ZVSE
 ; uses PO3/0/z:N
 ; reuses round counter v27
 
-!#VRz517:S^KrÃ³l LeprekaunÃ³w^;
+!#VRz517:S^Król Leprekaunów^;
 !#HT96/0:T517; (Temple)
 !#VRz518:S^Dzban Bimbru^;
 !#VRz519:S^{Dzban Bimbru}
-Ten mocny alkohol mÄ…drze uÅ¼yty na pewno zwiÄ™kszy morale Å¼oÅ‚nierzy.^;
+Ten mocny alkohol m¹drze u¿yty na pewno zwiêkszy morale ¿o³nierzy.^;
 !#UN:A52/9/518 A52/10/519;
 !#VRz560:S^Bimbrownia^;
 !#HT141/120:T560;
@@ -31,25 +31,25 @@ Ten mocny alkohol mÄ…drze uÅ¼yty na pewno zwiÄ™kszy morale Å¼oÅ‚nierzy.^;
 !!VRy6:&67109120; check for Temple bits
 !!IF&y6>0:M^You have already been blessed with enhanced morale for your next battle. Until the blessing is used it cannot be restored.^;
 !!FU&y6>0:E;
-!!VRz1:S^MyÅ›lisz Å¼e zÅ‚apiesz mnie, Oczymura, KrÃ³la rusaÅ‚ek,
-nimf, leprakaunÃ³w, gnomÃ³w, impÃ³w i nizioÅ‚kÃ³w?!
-ZjeÅ¼dÅ¼aj stÄ…d zanim tak ciÄ™ o....,
-Å¼e dÅ‚ugo tego nie zapomnisz!^;
-!!VRz2:S^KrÃ³l Oczymur^;
+!!VRz1:S^Myœlisz ¿e z³apiesz mnie, Oczymura, Króla rusa³ek,
+nimf, leprakaunów, gnomów, impów i nizio³ków?!
+Zje¿d¿aj st¹d zanim tak ciê o....,
+¿e d³ugo tego nie zapomnisz!^;
+!!VRz2:S^Król Oczymur^;
 !!VRz3:S^../Data/DwrfKing.gif^;
-!!VRz7:S^KrÃ³l Oczymur^;
+!!VRz7:S^Król Oczymur^;
 !!IF:D13/z1/0/z2/z3/0/0/0/z7;
 !!IF:F13/0/0/0/0/0;
 !!IF:E2/13;
 !!HEy1:A2/52/?y7/d;
 !!FU&y7<1:E;
-!!IF:Q1/8/52/14/100/1^Zaczekaj! Czy dobrze widzÄ™ to co widzÄ™? Masz Dzban Bimbru? MogÄ™ dostaÄ‡ Å‚yka lub dwa? Z wiÄ™lkÄ… chÄ™ciÄ…... a w zamian dam Ci moje bÅ‚ogosÅ‚awieÅ„stwo cudownych morali na jednÄ… bitwÄ™!^;
+!!IF:Q1/8/52/14/100/1^Zaczekaj! Czy dobrze widzê to co widzê? Masz Dzban Bimbru? Mogê dostaæ ³yka lub dwa? Z wiêlk¹ chêci¹... a w zamian dam Ci moje b³ogos³awieñstwo cudownych morali na jedn¹ bitwê!^;
 !!HEy1:A-52;
 !!OBv415/v416/v417:M-1/1/0 R; disable next message (there must be a message to disable, none if obj disabled)
 !!IF:V415/0;
 !!PO415:N?y21 N1; description flag
 !!FU&y21>0:E;
-!!IF:M^Wszystkie Twoje jednostki bÄ™dÄ… miaÅ‚y 100% szans na Morale przez pierwsze piÄ™Ä‡ rund walki (nie liczÄ…c fazy Taktyki), potem 50% szans na morale przez kolejne piÄ™Ä‡ tur, a potem zwykÅ‚e szanse na morale. (Ten opis podrasowanych Morali nie bÄ™dzie powtÃ³rzony gdy kolejny raz przyjdziesz do mnie z bimbrem. Wracaj prÄ™dko!)^;
+!!IF:M^Wszystkie Twoje jednostki bêd¹ mia³y 100% szans na Morale przez pierwsze piêæ rund walki (nie licz¹c fazy Taktyki), potem 50% szans na morale przez kolejne piêæ tur, a potem zwyk³e szanse na morale. (Ten opis podrasowanych Morali nie bêdzie powtórzony gdy kolejny raz przyjdziesz do mnie z bimbrem. Wracaj prêdko!)^;
 
 !?HM-1&415;
 !!OBv415/v416/v417:R; re-enable
@@ -107,25 +107,25 @@ ZjeÅ¼dÅ¼aj stÄ…d zanim tak ciÄ™ o....,
 !!UN:C4605372/4/328;
 
 !?OB19/31/0; Knu Knu's Still
-!!VRz4:S^Oto moja destylarnia, gdzie pÄ™dzÄ™ krÃ³lewskÄ… gorzaÅ‚kÄ™.
-"Musisz pÄ™dziÄ‡ moje zÅ‚otko" albo zostanÄ™ przepÄ™dzony bez mojego zÅ‚otka,
-jak mÃ³wi KrÃ³l Lodu. Jak zwykle Å¼Ä…da niebotycznych
-cen--20,000 zÅ‚otych za dzbanek. Nie chciaÅ‚byÅ› przypadkiem
-trochÄ™ kupiÄ‡? PomoÅ¼e mi to wypeÅ‚niÄ‡ plan.^;
+!!VRz4:S^Oto moja destylarnia, gdzie pêdzê królewsk¹ gorza³kê.
+"Musisz pêdziæ moje z³otko" albo zostanê przepêdzony bez mojego z³otka,
+jak mówi Król Lodu. Jak zwykle ¿¹da niebotycznych
+cen--20,000 z³otych za dzbanek. Nie chcia³byœ przypadkiem
+trochê kupiæ? Pomo¿e mi to wype³niæ plan.^;
 !!VRz5:S^Bimbrownia^;
 !!VRz6:S^..\Data\poteen.gif^;
 !!VRz7:S^..\Data\KnuKnu.gif^;
-!!VRz8:S^Dzban GorzaÅ‚ki^;
+!!VRz8:S^Dzban Gorza³ki^;
 !!VRz9:S^Knu Knu, Bimbrownik^;
 !!IF:D15/z4/0/z5/z6/z7/z6/0/z8/z9/z8/0;
 !!IF:F15/0/0/0/0/1;
 !!IF:E99/15;
 !!FU&v99=-1:E;
 !!OW:R-1/6/?y3; gold
-!!IF&y3<20000:Q1/6/20000/8/52/1^JesteÅ› za biedny, niestety. DaÅ‚bym Ci sprÃ³bowaÄ‡, ale on rozlicza mnie z kaÅ¼dej kropli.^;
+!!IF&y3<20000:Q1/6/20000/8/52/1^Jesteœ za biedny, niestety. Da³bym Ci spróbowaæ, ale on rozlicza mnie z ka¿dej kropli.^;
 !!FU&y3<20000:E;
 !!HE-1:A4/52;
 !!OW:R-1/6/d-20000;
 !!UN:R1 R2;
-!!IF:Q1/6/20000/8/52/1^DziÄ™ki za zÅ‚oto, oto twoja gorzaÅ‚ka. Nie wypij caÅ‚ej naraz!^;
+!!IF:Q1/6/20000/8/52/1^Dziêki za z³oto, oto twoja gorza³ka. Nie wypij ca³ej naraz!^;
 

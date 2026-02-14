@@ -4,7 +4,7 @@ ZVSE
 
 ; uses z588-z88, Dialog 16
 
-!#VRz588:S^Generator WirÃ³wek^;
+!#VRz588:S^Generator Wirówek^;
 !#OB125/96/0:SH588;
 
 !?OB125/96/0; WhGn
@@ -20,25 +20,25 @@ ZVSE
 !!VRz-2&y2>0:S^XX^;
 !!VRz-3&y3>0:S^XX^;
 !!VRz-4&y4>0:S^XX^;
-!!VRz4:S^*** System Kontroli WirÃ³wek ***
+!!VRz4:S^*** System Kontroli Wirówek ***
 Status Systemu:Frytek1 Frytek2 Miryd1 Miryd2
 ----------------------- =%Z-1----- =%Z-2---- =%Z-3--- =%Z-4--
-Poziom Paliwa: *Niski* -- Uwaga: UzupeÅ‚nienie Elektrum
-bÄ™dzie konieczne do ponownego zawirowania WirÃ³wek.^;
-!!VRz5:S^Generator WirÃ³wek^;
+Poziom Paliwa: *Niski* -- Uwaga: Uzupe³nienie Elektrum
+bêdzie konieczne do ponownego zawirowania Wirówek.^;
+!!VRz5:S^Generator Wirówek^;
 !!VRz6:S^..\Data\PlasDisc.gif^;
 !!VRz7:S^..\Data\Compute.gif^;
 !!VRz8:S^..\Data\PlasDisc2.gif^;
-!!VRz9:S^Wir do WirÃ³wki^;
+!!VRz9:S^Wir do Wirówki^;
 !!IF:D16/z4/0/z5/z6/z7/z8/0/z9/0/z9 ;
 !!IF:F16/0/0/0/0/0;
 !!IF:E99/16;
 !!FU&y1=0/y2=0/y3=0/y4=0:E;
-!!VRz4:S^*** System Kontroli WirÃ³wek ***
+!!VRz4:S^*** System Kontroli Wirówek ***
 
-Jedna lub wiÄ™cej WirÃ³wek zostaÅ‚a rozwirowana.
-Ponowne zawirowanie wymaga wiÄ™cej mocy niÅ¼ aktualne rezerwy.
-UzupeÅ‚nij Elektrum w miarÄ™ dostÄ™pnoÅ›ci.^;
+Jedna lub wiêcej Wirówek zosta³a rozwirowana.
+Ponowne zawirowanie wymaga wiêcej mocy ni¿ aktualne rezerwy.
+Uzupe³nij Elektrum w miarê dostêpnoœci.^;
 !!IF:D16/z4/0/z5/z6/z7/z8/0/z9/0/z9 ;
 !!IF:F16/0/0/0/0/1;
 !!IF:E99/16;
@@ -52,9 +52,9 @@ UzupeÅ‚nij Elektrum w miarÄ™ dostÄ™pnoÅ›ci.^;
 !!VRz2:S^Mods/HiddenSpells/Data/OpenG.wav^;
 !!SN:Ev34/1/z2; call PlayOnce
 !!UN:R6/4500;
-!!VRz4:S^*** System Kontroli WirÃ³wek ***
+!!VRz4:S^*** System Kontroli Wirówek ***
 
-Wszystkie WirÃ³wki zostaÅ‚y ponownie zawirowane.^;
+Wszystkie Wirówki zosta³y ponownie zawirowane.^;
 !!IF:D16/z4/0/z5/z6/z7/z8/0/z9/0/z9 ;
 !!IF:F16/0/0/0/0/0;
 !!IF:E99/16;

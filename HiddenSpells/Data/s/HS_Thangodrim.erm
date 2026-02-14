@@ -19,21 +19,21 @@ ZVSE
 !#OB65/47/0:SH510;
 !#VRz511:S^Mithrilowa Kula (Lewe Oko Thorrina)^;
 !#OB77/47/0:SH511;
-!#VRz512:S^Adamantowa Spirala (Lewy RÃ³g Thorrina)^;
+!#VRz512:S^Adamantowa Spirala (Lewy Róg Thorrina)^;
 !#OB90/89/0:SH512;
-!#VRz513:S^Mithrilowa Spirala (Prawy RÃ³g Thorrina)^;
+!#VRz513:S^Mithrilowa Spirala (Prawy Róg Thorrina)^;
 !#OB92/97/0:SH513;
 
 !?OB65/47/0; Ad. Orb
 !!PO998:V0/?y1; last day used
-!!IF&v2392=y1:M^DziÅ› nie moÅ¼na wiÄ™cej ostrzyÄ‡.^;
+!!IF&v2392=y1:M^Dziœ nie mo¿na wiêcej ostrzyæ.^;
 !!FU&v2392=y1:E;
 !!IF:W-1;
 !!VRy2:Sw60+5;
 !!OW:R-1/5/?y3; gems
-!!IF&y3<y2:Q1/5/y2/31/2/1^Nie masz wystarczajÄ…co duÅ¼o KlejnotÃ³w by mi zapÅ‚aciÄ‡.^;
+!!IF&y3<y2:Q1/5/y2/31/2/1^Nie masz wystarczaj¹co du¿o Klejnotów by mi zap³aciæ.^;
 !!FU&y3<y2:E;
-!!IF:Q1/5/y2/31/2/2^Za %Y2 KlejnotÃ³w podostrzÄ™ wszystkie twoje bronie. Zgoda?^;
+!!IF:Q1/5/y2/31/2/2^Za %Y2 Klejnotów podostrzê wszystkie twoje bronie. Zgoda?^;
 !!FU&-1:E;
 !!HE-1:Fd2/d/d/d;
 !!VRy4:Sy2*-1;
@@ -44,14 +44,14 @@ ZVSE
 
 !?OB77/47/0; Mithril Orb
 !!PO998:V0/?y1; last day used
-!!IF&v2392=y1:M^DziÅ› nie moÅ¼na wiÄ™cej topiÄ‡.^;
+!!IF&v2392=y1:M^Dziœ nie mo¿na wiêcej topiæ.^;
 !!FU&v2392=y1:E;
 !!IF:W-1;
 !!VRy2:Sw61+5;
 !!OW:R-1/1/?y3; merc
-!!IF&y3<y2:Q1/1/y2/32/2/1^Nie masz wystarczajÄ…co duÅ¼o RtÄ™ci by mi zapÅ‚aciÄ‡.^;
+!!IF&y3<y2:Q1/1/y2/32/2/1^Nie masz wystarczaj¹co du¿o Rtêci by mi zap³aciæ.^;
 !!FU&y3<y2:E;
-!!IF:Q1/1/y2/32/2/2^Za %Y2 RtÄ™ci wzmocniÄ™ twojÄ… zbrojÄ™, powlekajÄ…c jÄ… cienkÄ… warstwÄ… stopu mithrilowo-rtÄ™ciowego. Zgoda?^;
+!!IF:Q1/1/y2/32/2/2^Za %Y2 Rtêci wzmocniê twoj¹ zbrojê, powlekaj¹c j¹ cienk¹ warstw¹ stopu mithrilowo-rtêciowego. Zgoda?^;
 !!FU&-1:E;
 !!HE-1:Fd/d2/d/d;
 !!VRy4:Sy2*-1;
@@ -62,14 +62,14 @@ ZVSE
 
 !?OB90/89/0; Ad. Spire
 !!PO998:V0/?y1; last day used
-!!IF&v2392=y1:M^DziÅ› nie moÅ¼na wiÄ™cej siÄ™ wahaÄ‡.^;
+!!IF&v2392=y1:M^Dziœ nie mo¿na wiêcej siê wahaæ.^;
 !!FU&v2392=y1:E;
 !!IF:W-1;
 !!VRy2:Sw62+5;
 !!OW:R-1/4/?y3; crystal
-!!IF&y3<y2:Q1/4/y2/32/2/1^Nie masz wystarczajÄ…co duÅ¼o KrysztaÅ‚Ã³w by mi zapÅ‚aciÄ‡.^;
+!!IF&y3<y2:Q1/4/y2/32/2/1^Nie masz wystarczaj¹co du¿o Kryszta³ów by mi zap³aciæ.^;
 !!FU&y3<y2:E;
-!!IF:Q1/4/y2/34/2/2^Za %Y2 krysztaÅ‚u pozwolÄ™ ci pogapiÄ‡ siÄ™ na moje wahadeÅ‚ko, co zwiÄ™kszy twojÄ… wiedzÄ™. Zgoda?^;
+!!IF:Q1/4/y2/34/2/2^Za %Y2 kryszta³u pozwolê ci pogapiæ siê na moje wahade³ko, co zwiêkszy twoj¹ wiedzê. Zgoda?^;
 !!FU&-1:E;
 !!HE-1:Fd/d/d/d2;
 !!VRy4:Sy2*-1;
@@ -80,14 +80,14 @@ ZVSE
 
 !?OB92/97/0; Mith. Spire
 !!PO998:V0/?y1; last day used
-!!IF&v2392=y1:M^DziÅ› nie moÅ¼na wiÄ™cej siÄ™ piaszczyÄ‡.^;
+!!IF&v2392=y1:M^Dziœ nie mo¿na wiêcej siê piaszczyæ.^;
 !!FU&v2392=y1:E;
 !!IF:W-1;
 !!VRy2:Sw63+5;
 !!OW:R-1/3/?y3; sulfur
-!!IF&y3<y2:Q1/3/y2/32/2/1^Nie masz wystarczajÄ…co duÅ¼o Siarki by mi zapÅ‚aciÄ‡.^;
+!!IF&y3<y2:Q1/3/y2/32/2/1^Nie masz wystarczaj¹co du¿o Siarki by mi zap³aciæ.^;
 !!FU&y3<y2:E;
-!!IF:Q1/3/y2/33/2/2^Za %Y2 Siarki pozwolÄ™ ci pobiegaÄ‡ po piasku, co naÅ‚aduje twoja moc. Zgoda?^;
+!!IF:Q1/3/y2/33/2/2^Za %Y2 Siarki pozwolê ci pobiegaæ po piasku, co na³aduje twoja moc. Zgoda?^;
 !!FU&-1:E;
 !!HE-1:Fd/d/d2/d;
 !!VRy4:Sy2*-1;

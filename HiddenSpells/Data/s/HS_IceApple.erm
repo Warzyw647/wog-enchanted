@@ -8,11 +8,11 @@ ZVSE
 
 !#VRz584:S^Szara Reneta^;
 !#OB52/82/1:SH584;
-!#VRz585:S^PÃ³Å‚nocna JabÅ‚oÅ„^;
+!#VRz585:S^Pó³nocna Jab³oñ^;
 !#HT141/131:T585;
 
 !?OB52/82/1&1000; Apple of Ice
-!!IF:Q1^Czy odwaÅ¼ysz sie zerwaÄ‡ SzarÄ… RenetÄ™ z PÃ³Å‚nocnej JabÅ‚oni, gdzie krÃ³l Lodu posiadÅ‚ tak wiele ze swej siÅ‚y? Duchy uwiÄ™zione tutaj ostrzegajÄ… CiÄ™: nie budÅº tych ktÃ³rzy strzegÄ… owocÃ³w w imieniu krÃ³la Lodu! TaÅ„czÄ…c i brykajÄ…c, stanÄ… do walki i bÄ™dÄ… rechotaÄ‡ gdy bÄ™dziemy ginÄ…Ä‡ i obracaÄ‡ siÄ™ w lÃ³d by nakarmiÄ‡ JabÅ‚oÅ„. Nie bierz przynÄ™ty - nie wywoÅ‚uj TaÅ„czÄ…cych z Chrisami!^;
+!!IF:Q1^Czy odwa¿ysz sie zerwaæ Szar¹ Renetê z Pó³nocnej Jab³oni, gdzie król Lodu posiad³ tak wiele ze swej si³y? Duchy uwiêzione tutaj ostrzegaj¹ Ciê: nie budŸ tych którzy strzeg¹ owoców w imieniu króla Lodu! Tañcz¹c i brykaj¹c, stan¹ do walki i bêd¹ rechotaæ gdy bêdziemy gin¹æ i obracaæ siê w lód by nakarmiæ Jab³oñ. Nie bierz przynêty - nie wywo³uj Tañcz¹cych z Chrisami!^;
 !!FU&-1:E;
 !!IF:V425/1;
 !!EA173:B9/1/108/170/25/25/25/25/25/25/25/25/25/25/25;  enable summon clone Arctic SS (for Ice Apple)
@@ -35,7 +35,7 @@ ZVSE
 !!VRy4&y6>127:S127-y2;
 !!HE-1:Fdy3/dy4/d/d;
 !!DO625/0/6/1:P;
-!!IF:Q1/31/y3/32/y4/1^Gdy zimna Szara Reneta parzy Twoje usta, Twe umiejÄ™tnoÅ›ci bojowe oraz umiejÄ™tnoÅ›ci bojowe Twojej armii wzrastajÄ…!^;
+!!IF:Q1/31/y3/32/y4/1^Gdy zimna Szara Reneta parzy Twoje usta, Twe umiejêtnoœci bojowe oraz umiejêtnoœci bojowe Twojej armii wzrastaj¹!^;
 
 !?FU625; x16=troop slot
 !!HE-1:C0/x16/?y10/?y11;

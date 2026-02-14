@@ -14,7 +14,7 @@ ZVSE
 !#OB55/77/0:SH216;
 !#VRz217:S^{Mistrz} Powietrza^;
 !#VRz218:S^{Mistrz} Powietrza
-Poza umiejÄ™tnoÅ›ciami Eksperta Magii Powietrza, Mistrz Powietrza moÅ¼e podrÃ³Å¼owaÄ‡ miÄ™dzy gwiazdami do Krainy Powietrza, odwiedziÄ‡ ZagubionÄ… ÅšwiÄ…tyniÄ™ i nauczyÄ‡ siÄ™ StaroÅ¼ytnego ZaklÄ™cia.^;
+Poza umiejêtnoœciami Eksperta Magii Powietrza, Mistrz Powietrza mo¿e podró¿owaæ miêdzy gwiazdami do Krainy Powietrza, odwiedziæ Zagubion¹ Œwi¹tyniê i nauczyæ siê Staro¿ytnego Zaklêcia.^;
 
 !?OB55/77/0&1000;
 !!HE-1:N?y1 S15/?y3; HE#, Air
@@ -23,24 +23,24 @@ Poza umiejÄ™tnoÅ›ciami Eksperta Magii Powietrza, Mistrz Powietrza moÅ¼e podrÃ³Å¼
 !!IF&y1<>27/y1<>29/y3>1:V1/1; (use Melodia for test)
 !!IF&y1=27/y2<>0:V2/1;
 !!IF&y1=29/y2<>0:V2/1;
-!!IF|1/2:Q1/27/23/1^Umiesz juÅ¼ wszystko czego mogliÅ›my ciÄ™ nauczyÄ‡, ale zawsze miÅ‚o zobaczyÄ‡ ponownie dobrego studenta. WeÅº sobie krÃ³wkÄ™^;
+!!IF|1/2:Q1/27/23/1^Umiesz ju¿ wszystko czego mogliœmy ciê nauczyæ, ale zawsze mi³o zobaczyæ ponownie dobrego studenta. WeŸ sobie krówkê^;
 !!FU|1/2:E;
 !!PO998:V3/?y4;
 !!VRy5:Sc0-1:7+1; week # (starts at 1)
-!!IF&y4=y5:M^Nasi instruktorzy muszÄ… pomedytowaÄ‡ i zregenerowaÄ‡ swojÄ… moc zanim bÄ™dÄ… w stanie wczarowaÄ‡ w ciebie wiÄ™cej Magii Powietrza.^;
+!!IF&y4=y5:M^Nasi instruktorzy musz¹ pomedytowaæ i zregenerowaæ swoj¹ moc zanim bêd¹ w stanie wczarowaæ w ciebie wiêcej Magii Powietrza.^;
 !!FU&y4=y5:E;
-!!IF&y3=0:Q1/27/23/2^Witaj w Akademii Powietrza! Za 1000 zÅ‚otych nauczymy ciÄ™ Podstawowej Magii Powietrza.  Czy chcesz posiÄ…Å›Ä‡ tÄ™ umiejÄ™tnoÅ›Ä‡?^;
+!!IF&y3=0:Q1/27/23/2^Witaj w Akademii Powietrza! Za 1000 z³otych nauczymy ciê Podstawowej Magii Powietrza.  Czy chcesz posi¹œæ tê umiejêtnoœæ?^;
 !!FU&-1/y3=0:E;
-!!IF&y3=1:Q1/27/23/2^Witaj w Akademii Powietrza! Za 2000 zÅ‚otych nauczymy ciÄ™ Zaawansowanej Magii Powietrza.  Czy chcesz posiÄ…Å›Ä‡ tÄ™ umiejÄ™tnoÅ›Ä‡?^;
+!!IF&y3=1:Q1/27/23/2^Witaj w Akademii Powietrza! Za 2000 z³otych nauczymy ciê Zaawansowanej Magii Powietrza.  Czy chcesz posi¹œæ tê umiejêtnoœæ?^;
 !!FU&-1/y3=1:E;
-!!IF&y3=2:Q1/27/23/2^Witaj w Akademii Powietrza! Za 4000 zÅ‚otych nauczymy ciÄ™ Eksperckiej Magii Powietrza.  Czy chcesz posiÄ…Å›Ä‡ tÄ™ umiejÄ™tnoÅ›Ä‡?^;
+!!IF&y3=2:Q1/27/23/2^Witaj w Akademii Powietrza! Za 4000 z³otych nauczymy ciê Eksperckiej Magii Powietrza.  Czy chcesz posi¹œæ tê umiejêtnoœæ?^;
 !!FU&-1/y3=2:E;
-!!IF&y3=3:Q1/27/23/2^Witaj w Akademii Powietrza! Za 6000 zÅ‚otych wezwiemy Serca by zrobiÅ‚ z ciebie Mistrza Magii Powietrza.  Czy chcesz posiÄ…Å›Ä‡ tÄ™ umiejÄ™tnoÅ›Ä‡?^;
+!!IF&y3=3:Q1/27/23/2^Witaj w Akademii Powietrza! Za 6000 z³otych wezwiemy Serca by zrobi³ z ciebie Mistrza Magii Powietrza.  Czy chcesz posi¹œæ tê umiejêtnoœæ?^;
 !!FU&-1/y3=3:E;
 !!VRy4:Sy3*2000;
 !!VRy4&y3=0:S1000;
 !!OW:R-1/6/?y5;
-!!IF&y5<y4:Q1/27/23/1^PÅ‚atnoÅ›Ä‡ tylko z gÃ³ry! Twoje studia rozpocznÄ… siÄ™ gdy zapÅ‚acisz.^;
+!!IF&y5<y4:Q1/27/23/1^P³atnoœæ tylko z góry! Twoje studia rozpoczn¹ siê gdy zap³acisz.^;
 !!FU&y5<y4:E;
 !!VRy4:*-1;
 !!OW:R-1/6/dy4;
@@ -48,7 +48,7 @@ Poza umiejÄ™tnoÅ›ciami Eksperta Magii Powietrza, Mistrz Powietrza moÅ¼e podrÃ³Å¼
 !!VRz2:S^chime_up.wav^;
 !!SN:Pz2;
 !!HE-1&y3<3:S15/d1;
-!!IF&y3<3:Q1/27/23/1^PrzeczytaÅ‚eÅ› Å›wiÄ™te zwoje, a nasi mistrzowie zatwierdzili twoje kwalifikacje. TwÃ³j poziom Magii Powietrza zwiÄ™ksza siÄ™!^;
+!!IF&y3<3:Q1/27/23/1^Przeczyta³eœ œwiête zwoje, a nasi mistrzowie zatwierdzili twoje kwalifikacje. Twój poziom Magii Powietrza zwiêksza siê!^;
 !!FU&y3<3:E;
 !!UN:G0/15/0/217 G0/15/3/218;
 !!VRv313:|1;
@@ -56,7 +56,7 @@ Poza umiejÄ™tnoÅ›ciami Eksperta Magii Powietrza, Mistrz Powietrza moÅ¼e podrÃ³Å¼
 !!VRy7:S200+v313; spclty text Z #
 !!HE-1:N?y8;
 !!UN:G2/y8/1/y6 G2/y8/2/y7 G2/y8/3/y6;
-!!IF:Q1/27/23/1^Serc zaakceptowaÅ‚ nasze wezwanie i pobÅ‚ogosÅ‚awiÅ‚ ciÄ™! JesteÅ› teraz Mistrzem Magii Powietrza!^;
+!!IF:Q1/27/23/1^Serc zaakceptowa³ nasze wezwanie i pob³ogos³awi³ ciê! Jesteœ teraz Mistrzem Magii Powietrza!^;
 !!FU&v313<15:E;
 !!SN:L^Era.dll^/?v3; v3=handle
 !!SN:Av3/^RedirectFile^/?v4; v4=FU address
@@ -106,10 +106,10 @@ Poza umiejÄ™tnoÅ›ciami Eksperta Magii Powietrza, Mistrz Powietrza moÅ¼e podrÃ³Å¼
 !!UN&y8=8:G0/17/0/340 G0/17/3/341; earth
 !!en;
 
-!#VRz220:S^GÅ‚Ã³wny InÅ¼ynier^;
+!#VRz220:S^G³ówny In¿ynier^;
 !#UN:G1/17/1/220;
 !#OB92/81/0:SH220;
-!#VRz221:S^Maszyna ktÃ³ra moÅ¼e wszystko na literÄ™ A^;
+!#VRz221:S^Maszyna która mo¿e wszystko na literê A^;
 !#OB85/81/0:SH221;
 !#OB86/81/0:SH221;
 !#OB87/81/0:SH221;
@@ -123,21 +123,21 @@ Poza umiejÄ™tnoÅ›ciami Eksperta Magii Powietrza, Mistrz Powietrza moÅ¼e podrÃ³Å¼
 !!FU&y1<1:E; exit if first visit to this object
 !!PO998:V3/?y1;
 !!VRy2:Sc0-1:7+1; week # (starts at 1)
-!!IF&y1=y2:Q1/21/17/1^Wracasz zbyt wczeÅ›nie! MuszÄ™ powoli obracaÄ‡ szlifierki kÄ…towe pÃ³ki nie wstawiÄ™ im nowych klejnotÃ³w najwyÅ¼szej jakoÅ›ci.^;
+!!IF&y1=y2:Q1/21/17/1^Wracasz zbyt wczeœnie! Muszê powoli obracaæ szlifierki k¹towe póki nie wstawiê im nowych klejnotów najwy¿szej jakoœci.^;
 !!FU&y1=y2:E; exit if player came back same week
 !!VRy1:Sy2;
 !!OW:R-1/5/?y2;
-!!IF&y2<10:Q1/21/17/5/10/1^OstrzegaÅ‚em! StrajkujÄ™ dopÃ³ki nie dostanÄ™ 10 klejnotÃ³w by wstawiÄ‡ je do szlifierek kÄ…towych! Nie zezÅ‚omujÄ™ mojej piÄ™knej maszyny przez mielenie zuÅ¼ytymi klejnotami!^;
+!!IF&y2<10:Q1/21/17/5/10/1^Ostrzega³em! Strajkujê dopóki nie dostanê 10 klejnotów by wstawiæ je do szlifierek k¹towych! Nie zez³omujê mojej piêknej maszyny przez mielenie zu¿ytymi klejnotami!^;
 !!FU&y2<10:E;
-!!IF:Q1/21/17/5/10/2^Masz dla mnie 10 klejnotÃ³w?^;
+!!IF:Q1/21/17/5/10/2^Masz dla mnie 10 klejnotów?^;
 !!FU&-1:E;
 !!OW:R-1/5/d-10;
-!!IF:Q1/21/17/5/10/1^Dobre dzieciaki! PrzynieÅ›liÅ›cie mi klejnoty, wiÄ™c dam wam produkcjÄ™ z tego tygodnia. Lecz kolejne szlifierki i mielarki siÄ™ zuÅ¼ywajÄ…, wiÄ™c przynoÅ›cie kolejne klejnoty! (Jak przekonaliÅ›cie tego durnego zgreda do oddania klejnotÃ³w? ZresztÄ… niewaÅ¼ne, nie powinienem pytaÄ‡.)^;
-!!IF:Q80/8/v87/8/v86/8/v85/10^Ostatnie szlify i Artefakt jest gotowy, a moÅ¼e wolisz Å¼eby go przeciÄ…Ä‡ na dwa mniejsze?
-(1 Artefakt GÅ‚Ã³wny czy 1 Pomniejszy i 1 Skarb?)
-Wybierz mÄ…drze!^;
+!!IF:Q1/21/17/5/10/1^Dobre dzieciaki! Przynieœliœcie mi klejnoty, wiêc dam wam produkcjê z tego tygodnia. Lecz kolejne szlifierki i mielarki siê zu¿ywaj¹, wiêc przynoœcie kolejne klejnoty! (Jak przekonaliœcie tego durnego zgreda do oddania klejnotów? Zreszt¹ niewa¿ne, nie powinienem pytaæ.)^;
+!!IF:Q80/8/v87/8/v86/8/v85/10^Ostatnie szlify i Artefakt jest gotowy, a mo¿e wolisz ¿eby go przeci¹æ na dwa mniejsze?
+(1 Artefakt G³ówny czy 1 Pomniejszy i 1 Skarb?)
+Wybierz m¹drze!^;
 !!PO998:V3/y1;
-!!IF&v80=0:Q1/21/17/5/10/1^W porzÄ…dku, nie chcesz to nie. DziÄ™ki za klejnoty!^;
+!!IF&v80=0:Q1/21/17/5/10/1^W porz¹dku, nie chcesz to nie. Dziêki za klejnoty!^;
 !!HE-1&v80=1:A4/v87;
 !!HE-1&v80=2:A4/v86;
 !!HE-1&v80=2:A4/v85;
@@ -146,7 +146,7 @@ Wybierz mÄ…drze!^;
 !!PO998:N?y1;
 !!FU&y1<>0:E;
 !!PO998:N1;
-!!IF:Q1/21/17/8/54/1^A wy to kto, nowi kurierzy? Mam dla was sÅ‚abej jakoÅ›ci rzeczy do dostarczenia, a w przyszÅ‚ym tygodniu bÄ™dzie jeszcze gorzej, chyba Å¼e dostanÄ™ wiÄ™cej twardych, ostrych klejnotÃ³w do moich szlifierek kÄ…towych! Ostatnio wszystkie sÄ… sprzedawane by opÅ‚acaÄ‡ wojny jego MroÅºnoÅ›ci, ale potrzebujÄ™ trochÄ™ do szlifierek i mielarek ktÃ³ryc moja maszyna uÅ¼ywa do ksztaÅ‚towania czÄ™Å›ci!  PrzynieÅ›cie mi przynajmniej dziesiÄ™Ä‡ w przyszÅ‚ym tygodniu albo bÄ™dÄ™ musiaÅ‚ zamknÄ…Ä‡ maszynÄ™!^;
+!!IF:Q1/21/17/8/54/1^A wy to kto, nowi kurierzy? Mam dla was s³abej jakoœci rzeczy do dostarczenia, a w przysz³ym tygodniu bêdzie jeszcze gorzej, chyba ¿e dostanê wiêcej twardych, ostrych klejnotów do moich szlifierek k¹towych! Ostatnio wszystkie s¹ sprzedawane by op³acaæ wojny jego MroŸnoœci, ale potrzebujê trochê do szlifierek i mielarek któryc moja maszyna u¿ywa do kszta³towania czêœci!  Przynieœcie mi przynajmniej dziesiêæ w przysz³ym tygodniu albo bêdê musia³ zamkn¹æ maszynê!^;
 !!HE-1:A4/54; Amulet of Undertaker
 !!VRy2:Sc0-1:7+1; week # (starts at 1)
 !!PO92/81/0:V3/y2;
@@ -174,15 +174,15 @@ Wybierz mÄ…drze!^;
 !?OB58/23/0&1000; CG1, N=1
 !!PO998:N?y1;
 !!FU&y1<1:E;
-!!IF:Q1/21/9/1^Nadal podziwiasz mojÄ… armatÄ™? Wiem, wiem, trudno oderwaÄ‡ od niej wzrok.^;
+!!IF:Q1/21/9/1^Nadal podziwiasz moj¹ armatê? Wiem, wiem, trudno oderwaæ od niej wzrok.^;
 
 !?OB58/23/0&1000; CG1, N=0
 !!PO998:N?y1;
 !!FU&y1>0:E;
-!!IF:Q1/21/9/1^ImponujÄ…ce, co nie? To jest {40K} hz Armata Plazmowa Mark V, czule zwana "{WARHAMMER}". Tam gdzie strzeli jest {bum} nawet jeÅ›li na drodze stoi tarcza prÃ³Å¼niowa. Wiesz co mÃ³wiÄ… gdy {silnik} Tytana klasy Warlord oberwie z jednego z tych cudeniek? Dwa sÅ‚owa (odpowiedz po Angielsku). JeÅ›li je zgadniesz, porÄ™czÄ™ za ciebie w Gildii StrzelcÃ³w!^;
-!!VRz-1:S^Wpisz co mÃ³wiÄ… gdy Tytan klasy Warlord oberwie
+!!IF:Q1/21/9/1^Imponuj¹ce, co nie? To jest {40K} hz Armata Plazmowa Mark V, czule zwana "{WARHAMMER}". Tam gdzie strzeli jest {bum} nawet jeœli na drodze stoi tarcza pró¿niowa. Wiesz co mówi¹ gdy {silnik} Tytana klasy Warlord oberwie z jednego z tych cudeniek? Dwa s³owa (odpowiedz po Angielsku). Jeœli je zgadniesz, porêczê za ciebie w Gildii Strzelców!^;
+!!VRz-1:S^Wpisz co mówi¹ gdy Tytan klasy Warlord oberwie
 z mojej Armaty Plazmowej Mark V:
-(2 sÅ‚owa, w sumie 10 maÅ‚ych liter, rozdzielone spacjÄ…)^;
+(2 s³owa, w sumie 10 ma³ych liter, rozdzielone spacj¹)^;
 !!VRz-2:S^Jakie to powiedzenie?^;
 !!VRz-3:S^..\Mods\HiddenSpells\Data\PlasmaGn.gif^;
 !!VRz-4:S^Armata Plazmowa^;
@@ -204,22 +204,22 @@ z mojej Armaty Plazmowej Mark V:
 !!VRy6:Sv3%v4;
 !!IF|y5<>14689/y6<>5004:Q1/21/9/1^Sorry, that's not it.^;
 !!FU|y5<>14689/y6<>5004:E;
-!!IF:Q1/21/9/1^Za kaÅ¼dym razem! Powiedziane jak prawdziwy strzelec. ChÄ™tnie za ciebie porÄ™czÄ™.^;
+!!IF:Q1/21/9/1^Za ka¿dym razem! Powiedziane jak prawdziwy strzelec. Chêtnie za ciebie porêczê.^;
 !!PO998:N1;
 
 !?OB77/23/0&1000; CG2, N=1
 !!PO998:N?y1;
 !!FU&y1<1:E;
-!!IF:Q1/21/9/1^ZaÅ‚oÅ¼Ä™ siÄ™ Å¼e teÅ¼ chciaÅ‚byÅ› takÄ… mieÄ‡. I zaÅ‚oÅ¼Ä™ siÄ™ Å¼e wiem w kogo byÅ› wycelowaÅ‚!^;
+!!IF:Q1/21/9/1^Za³o¿ê siê ¿e te¿ chcia³byœ tak¹ mieæ. I za³o¿ê siê ¿e wiem w kogo byœ wycelowa³!^;
 
 !?OB77/23/0&1000; CG2, N=0
 !!PO998:N?y1;
 !!FU&y1>0:E;
-!!IF:Q1/21/9/1^Ja i mÃ³j brat mamy szczÄ™Å›cie Å¼e opiekujemy siÄ™ takimi fajnymi {dziaÅ‚ami}! Powiedz, gdyby zrobili film o nas, jak by go zatytuÅ‚owali? Cztery sÅ‚owa (odpowiedz po Angielsku). JeÅ›li zgadniesz, porÄ™czÄ™ za ciebie w Gildii StrzelcÃ³w!^;
-!!VRz-1:S^Wpisz jak byÅ‚by nazwany film o mnie, moim bracie
+!!IF:Q1/21/9/1^Ja i mój brat mamy szczêœcie ¿e opiekujemy siê takimi fajnymi {dzia³ami}! Powiedz, gdyby zrobili film o nas, jak by go zatytu³owali? Cztery s³owa (odpowiedz po Angielsku). Jeœli zgadniesz, porêczê za ciebie w Gildii Strzelców!^;
+!!VRz-1:S^Wpisz jak by³by nazwany film o mnie, moim bracie
 i naszej Armacie Plazmowej Mark V 40K:
-(Cztery sÅ‚owa, w sumie 17 maÅ‚ych liter z trzema spacjami)^;
-!!VRz-2:S^Jak byÅ‚by zatytuÅ‚owany film?^;
+(Cztery s³owa, w sumie 17 ma³ych liter z trzema spacjami)^;
+!!VRz-2:S^Jak by³by zatytu³owany film?^;
 !!VRz-3:S^..\Mods\HiddenSpells\Data\PlasmaGn.gif^;
 !!VRz-4:S^Plasma Cannon^;
 !!IF:D30/-1/-2/0/-3/0/0/0/-4/0/0/0/0/0/0/0;
@@ -246,10 +246,10 @@ i naszej Armacie Plazmowej Mark V 40K:
 !!VRy7:Sv3%v4;
 !!IF|y5<>19988/y6<>7945/y7<>14080:Q1/21/9/1^Sorry, that's not it.^;
 !!FU|y5<>19988/y6<>7945/y7<>14080:E;
-!!IF:Q1/21/9/1^DokÅ‚adnie! Musisz byÄ‡ fanem filmÃ³w wojennych. ChÄ™tnie za ciebie porÄ™czÄ™.^;
+!!IF:Q1/21/9/1^Dok³adnie! Musisz byæ fanem filmów wojennych. Chêtnie za ciebie porêczê.^;
 !!PO998:N1;
 
-!#VRz226:S^Gildia StrzelcÃ³w^;
+!#VRz226:S^Gildia Strzelców^;
 !#OB75/15/0:SH226;
 !#EA34:B10/0/102/115/1/1/1/1/1/1/1/1/1/1/1; Shoot Adjacent--disabled
 !#EA35:B10/0/102/115/1/1/1/1/1/1/1/1/1/1/1; Shoot Adjacent--disabled
@@ -260,28 +260,28 @@ i naszej Armacie Plazmowej Mark V 40K:
 !?OB75/15/0; Shooters Guild
 !!PO58/23/0:N?y1;
 !!PO77/23/0:N?y2;
-!!IF|y1=0/y2=0:M^Niestety, dwÃ³ch czÅ‚onkÃ³w Gildii musi za ciebie porÄ™czyÄ‡ byÄ‡ mÃ³gÅ‚ do nas doÅ‚Ä…czyÄ‡.^;
+!!IF|y1=0/y2=0:M^Niestety, dwóch cz³onków Gildii musi za ciebie porêczyæ byæ móg³ do nas do³¹czyæ.^;
 !!FU|y1=0/y2=0:E;
 !!EA34:B10/?v3/d/d/d/d/d/d/d/d/d/d/d/d/d; shoot adj chk
 !!EA34:B11/?v4/d/d/d/d/d/d/d/d/d/d/d/d/d; no rng pnlty chk
 !!MA:X34/?v5;
 !!VRv5:&32768; shoot 2x chk
 !!VRz2:S^../Mods/HiddenSpells/Data/archery.gif^;
-!!VRz5:S^Gildia StrzelcÃ³w - Zaawansowany Trening Åuczniczy^;
-!!VRz6:S^StrzaÅ‚ w zwarciu--5000 zÅ‚otych^;
-!!VRz6&v3=1:S^(JuÅ¼ umiesz.)^;
-!!VRz7:S^ZwiÄ™kszony zasiÄ™g--10,000 zÅ‚otych^;
-!!VRz7&v4=1:S^(JuÅ¼ umiesz.)^;
-!!VRz8:S^Szybsze strzelanie--15,000 zÅ‚otych^;
-!!VRz8&v5<>0:S^(JuÅ¼ umiesz.)^;
+!!VRz5:S^Gildia Strzelców - Zaawansowany Trening £uczniczy^;
+!!VRz6:S^Strza³ w zwarciu--5000 z³otych^;
+!!VRz6&v3=1:S^(Ju¿ umiesz.)^;
+!!VRz7:S^Zwiêkszony zasiêg--10,000 z³otych^;
+!!VRz7&v4=1:S^(Ju¿ umiesz.)^;
+!!VRz8:S^Szybsze strzelanie--15,000 z³otych^;
+!!VRz8&v5<>0:S^(Ju¿ umiesz.)^;
 !!VRz9:S^^;
 !!HE-1:S1/?v6; Archery skill
-!!VRz9&v6<3:S^Szkolenie w Åucznictwie--2000 zÅ‚otych^;
-!!VRz10:S^Oto czego moÅ¼emy ciÄ™ nauczyÄ‡ (jeÅ›li czegokolwiek):^;
+!!VRz9&v6<3:S^Szkolenie w £ucznictwie--2000 z³otych^;
+!!VRz10:S^Oto czego mo¿emy ciê nauczyæ (jeœli czegokolwiek):^;
 !!IF:D18/5/0/10/2/0/0/0/0/0/0/0/6/7/8/9;
-!!VRz-6:S^StrzaÅ‚ w zwarciu.^;
+!!VRz-6:S^Strza³ w zwarciu.^;
 !!VRz-7:S^Brak kar za dystans.^;
-!!VRz-8:S^PodwÃ³jny strzaÅ‚.^;
+!!VRz-8:S^Podwójny strza³.^;
 !!VRz-9:S^+1 poziom.^;
 !!IF:F18/-6/-7/-8/-9/1;
 !!IF:E99/18; v99 1-4 or -1 for Cancel
@@ -296,7 +296,7 @@ i naszej Armacie Plazmowej Mark V 40K:
 !!IF&v99=2/y3<10000:V1/1;
 !!IF&v99=3/y3<15000:V1/1;
 !!IF&v99=4/y3<2000:V1/1;
-!!IF&1:M^Niestety, nie staÄ‡ ciÄ™ na to szkolenie.^;
+!!IF&1:M^Niestety, nie staæ ciê na to szkolenie.^;
 !!FU&1:E;
 !!if&v99=1;
  !!EA34:B10/1/102/115/1/1/1/1/1/1/1/1/1/1/1; Shoot Adjacent--enabled
@@ -326,7 +326,7 @@ i naszej Armacie Plazmowej Mark V 40K:
  !!HE-1:S1/d1;
  !!OW:R-1/6/d-2000;
 !!en;
-!!IF:M^Fakturka opÅ‚acona, trening ukoÅ„czony!^;
+!!IF:M^Fakturka op³acona, trening ukoñczony!^;
 
 !#VRz227:S^Makroskop Knu Knu^;
 !#OB15/33/0:H227;
@@ -337,7 +337,7 @@ i naszej Armacie Plazmowej Mark V 40K:
 !#OB17/34/0:H227;
 !#OB18/34/0:H227;
 !#OB19/34/0:H227;
-!#VRz228:S^WieÅ¼a Wiedzy Knu Knu^;
+!#VRz228:S^Wie¿a Wiedzy Knu Knu^;
 !#OB20/36/0:SH228;
 
 !?OB20/36/0; Knuie
@@ -345,51 +345,51 @@ i naszej Armacie Plazmowej Mark V 40K:
 !!FU&v1<>0:E;
 !!PO998:N1;
 !!VRz10:S^Witajcie ponownie, przyjaciele!
-Owszem, jestem teraz wiÄ™Åºniem KrÃ³la Lodu, i zabraÅ‚ Kubita,
-mÃ³j komputer kwantowy, by uÅ¼ywaÄ‡ go jako Wyroczni,
-ale rzadko nas niepokoi--woli dziaÅ‚aÄ‡ instynktownie.^;
-!!VRz12:S^Knu Knu, CzarnoksiÄ™Å¼nik^;
+Owszem, jestem teraz wiêŸniem Króla Lodu, i zabra³ Kubita,
+mój komputer kwantowy, by u¿ywaæ go jako Wyroczni,
+ale rzadko nas niepokoi--woli dzia³aæ instynktownie.^;
+!!VRz12:S^Knu Knu, Czarnoksiê¿nik^;
 !!VRz13:S^..\Mods\HiddenSpells\Data\KnuKnu.gif^;
 !!IF:D34/z10/0/z12/z13 ;
 !!IF:F34/0/0/0/0/0;
 !!IF:E99/34;
-!!VRz10:S^StaroÅ¼ytna Magia? Nie, bez Kubita niewiele
-umiem o tym powiedzieÄ‡. OdwiedÅº Kubita - o ile zdoÅ‚asz
-wejÅ›Ä‡ do jego Dominium. ChÄ™tnie ci pomoÅ¼e, przez wzglÄ…d na dawne czasy.
-Ja natomiast studiowaÅ‚em Mithril i znalazÅ‚em sposÃ³b by
-wÅ‚oÅ¼yÄ‡ go do gÅ‚owy, zwiÄ™kszajÄ…c w ten sposÃ³b magicznÄ… wiedzÄ™ i manÄ™.^;
+!!VRz10:S^Staro¿ytna Magia? Nie, bez Kubita niewiele
+umiem o tym powiedzieæ. OdwiedŸ Kubita - o ile zdo³asz
+wejœæ do jego Dominium. Chêtnie ci pomo¿e, przez wzgl¹d na dawne czasy.
+Ja natomiast studiowa³em Mithril i znalaz³em sposób by
+w³o¿yæ go do g³owy, zwiêkszaj¹c w ten sposób magiczn¹ wiedzê i manê.^;
 !!IF:D34/z10/0/z12/z13 ;
 !!IF:F34/0/0/0/0/0;
 !!IF:E99/34;
 
 !?OB20/36/0; Knuie
 !!VRz2:S^..\Mods\HiddenSpells\Data\KnuKnu.gif^;
-!!VRz5:S^MogÄ™ zamieniÄ‡ twÃ³j Mithrill w WiedzÄ™ i ManÄ™,
-jeÅ›li masz go w nadmiarze.^;
-!!VRz6:S^WÅ‚oÅ¼Ä™ ci 2 sztabki Mithrilu do gÅ‚owy^;
-!!VRz10:S^Knu Knu, CzarnoksiÄ™Å¼nik^;
+!!VRz5:S^Mogê zamieniæ twój Mithrill w Wiedzê i Manê,
+jeœli masz go w nadmiarze.^;
+!!VRz6:S^W³o¿ê ci 2 sztabki Mithrilu do g³owy^;
+!!VRz10:S^Knu Knu, Czarnoksiê¿nik^;
 !!IF:D36/5/0/10/2/0/0/0/0/0/0/0/6;
 !!VRz-6:S^Wymiana 2 Mithrilu na 1 Wiedzy i 10 Many^;
 !!IF:F36/-6/0/0/0/1;
 !!IF:E99/36; v99 1 or -1 for Cancel
 !!FU&v99=-1:E;
 !!OW:R-1/7/?y3; mithril
-!!IF&y3<2:M^Niestety, masz za maÅ‚o Mithrilu bym mÃ³gÅ‚ go zmieÅ›ciÄ‡ w twojej gÅ‚owie.^;
+!!IF&y3<2:M^Niestety, masz za ma³o Mithrilu bym móg³ go zmieœciæ w twojej g³owie.^;
 !!FU&y3<2:E;
 !!OW:R-1/7/d-2;
 !!HE-1:Fd/d/d/d1 Id10;
-!!IF:M^Zrobione! Czy dziÄ™kujesz czasem Starszym Bogom za mojÄ… cudownÄ… demencjÄ™?^;
+!!IF:M^Zrobione! Czy dziêkujesz czasem Starszym Bogom za moj¹ cudown¹ demencjê?^;
 
-!#VRz229:S^KoÅ‚o DuchÃ³w^;
+!#VRz229:S^Ko³o Duchów^;
 !#OB112/81/0:SH229;
 !#MA:D159/d15 A159/d15 M159/d20 E159/d20 P159/20; improve Ghosts
 
 !?OB112/81/0&181/1000; Ghost Wheel
-!!IF:M^Nie mogÄ™ rzuciÄ‡ kolejnej sieci pÃ³ki poprzednie siÄ™ nie rozwieje!^;
+!!IF:M^Nie mogê rzuciæ kolejnej sieci póki poprzednie siê nie rozwieje!^;
 
 !?OB112/81/0&-181/1000; Ghost Wheel
-!!IF:Q1/21/159/2^MogÄ™ rzuciÄ‡ niematerialnÄ… sieÄ‡ by zÅ‚apaÄ‡ potwory z Immaterium! Raz zÅ‚apane w naszej rzeczywistoÅ›ci, bÄ™dÄ… poÅ¼Ä…daÄ‡ twojej krwi, lecz ich wÅ‚asna chaotyczna energia jest ÅºrÃ³dÅ‚em Mithrilu! Mam rzuciÄ‡ swojÄ… sieÄ‡?
-Polecam wziÄ…Ä‡ {przynÄ™tÄ™}!^;
+!!IF:Q1/21/159/2^Mogê rzuciæ niematerialn¹ sieæ by z³apaæ potwory z Immaterium! Raz z³apane w naszej rzeczywistoœci, bêd¹ po¿¹daæ twojej krwi, lecz ich w³asna chaotyczna energia jest Ÿród³em Mithrilu! Mam rzuciæ swoj¹ sieæ?
+Polecam wzi¹æ {przynêtê}!^;
 !!FU&-1:E;
 !!IF:V181/1 V182/1;
 !!HE-1:M8/0 N?v318 Wd2000; remove DD until Ghost defeated, save HE#, add movement to reach Net
@@ -479,7 +479,7 @@ Polecam wziÄ…Ä‡ {przynÄ™tÄ™}!^;
 !!HEv318:M8/1 O?y2; restore DD, get owner
 !!FU&y2<>3:E; exit if not Green
 !!OW:Ry2/7/dv76;
-!!IF:Q1/7/v76/1^Stwory rozmywajÄ… siÄ™, ale pozostawiajÄ… Mithril!^;
+!!IF:Q1/7/v76/1^Stwory rozmywaj¹ siê, ale pozostawiaj¹ Mithril!^;
 
 !?TM2&181; remove net next night
 !!IF:V181/0;
@@ -529,9 +529,9 @@ Polecam wziÄ…Ä‡ {przynÄ™tÄ™}!^;
 !!HE-1:N?y1;
 !!FU&y1=27:E;
 !!VRz10:S^Jam jest Oko Ziemi, Wiatru, Ognia i Wody!
-WidzÄ™ wszystko i wszystko mÃ³wiÄ™, na sÅ‚uÅ¼bie KrÃ³la Lodu!
-Nie jesteÅ› na jego liÅ›cie upowaÅ¼nionych, wiÄ™c nie mogÄ™
-ci odpowiedzieÄ‡. OdejdÅº, nim pojawi siÄ™ w swym gniewie!^;
+Widzê wszystko i wszystko mówiê, na s³u¿bie Króla Lodu!
+Nie jesteœ na jego liœcie upowa¿nionych, wiêc nie mogê
+ci odpowiedzieæ. OdejdŸ, nim pojawi siê w swym gniewie!^;
 !!VRz12:S^Kubit, Kwantowa Wyrocznia^;
 !!VRz13:S^..\Mods\HiddenSpells\Data\Oracle.gif^;
 !!IF:D39/z10/0/z12/z13 ;
@@ -545,7 +545,7 @@ ci odpowiedzieÄ‡. OdejdÅº, nim pojawi siÄ™ w swym gniewie!^;
 !!FU&v1<>1:E;
 !!if&v313=0;
  !!IF:N20/47/20/50/20/53/20/56;
- !!IF:N^Nie jesteÅ› jeszcze Mistrzem Å¼adnego Å»ywioÅ‚u. Nie mogÄ™ ci pomÃ³c pÃ³ki nim nie zostaniesz.^;
+ !!IF:N^Nie jesteœ jeszcze Mistrzem ¿adnego ¯ywio³u. Nie mogê ci pomóc póki nim nie zostaniesz.^;
  !!SN:Q;
 !!en;
 !!VRy1:Sv313&1; air
@@ -559,68 +559,68 @@ ci odpowiedzieÄ‡. OdejdÅº, nim pojawi siÄ™ w swym gniewie!^;
 !!VRv2&v2=0:Cv3/v4/0;
 !!VRv2&v2=0:Cv3/0/0; v3 is old v4
 !!VRv3&v3=0:Cv4/0;
-!!VRz1:S^MogÄ™ powiedzieÄ‡ ci wszystko co wiem o:^;
+!!VRz1:S^Mogê powiedzieæ ci wszystko co wiem o:^;
 !!VRz12:S^Kubit, Kwantowa Wyrocznia^;
 !!VRz13:S^..\Mods\HiddenSpells\Data\Oracle.gif^;
-!!VRz6:S^Zaginiona ÅšwiÄ…tynia Ziemi^;
-!!VRz6&v1=4:S^Zaginiona ÅšwiÄ…tynia Wody^;
-!!VRz6&v1=2:S^Zaginiona ÅšwiÄ…tynia Ognia^;
-!!VRz6&v1=1:S^Zaginiona ÅšwiÄ…tynia Powietrza^;
+!!VRz6:S^Zaginiona Œwi¹tynia Ziemi^;
+!!VRz6&v1=4:S^Zaginiona Œwi¹tynia Wody^;
+!!VRz6&v1=2:S^Zaginiona Œwi¹tynia Ognia^;
+!!VRz6&v1=1:S^Zaginiona Œwi¹tynia Powietrza^;
 !!VRz7:S^^;
-!!VRz7&v2=4:S^Zaginiona ÅšwiÄ…tynia Wody^;
-!!VRz7&v2=2:S^Zaginiona ÅšwiÄ…tynia Ognia^;
-!!VRz7&v2=1:S^Zaginiona ÅšwiÄ…tynia Powietrza^;
+!!VRz7&v2=4:S^Zaginiona Œwi¹tynia Wody^;
+!!VRz7&v2=2:S^Zaginiona Œwi¹tynia Ognia^;
+!!VRz7&v2=1:S^Zaginiona Œwi¹tynia Powietrza^;
 !!VRz8:S^^;
-!!VRz8&v3=2:S^Zaginiona ÅšwiÄ…tynia Ognia^;
-!!VRz8&v3=1:S^Zaginiona ÅšwiÄ…tynia Powietrza^;
+!!VRz8&v3=2:S^Zaginiona Œwi¹tynia Ognia^;
+!!VRz8&v3=1:S^Zaginiona Œwi¹tynia Powietrza^;
 !!VRz9:S^^;
-!!VRz9&v4=1:S^Zaginiona ÅšwiÄ…tynia Powietrza^;
+!!VRz9&v4=1:S^Zaginiona Œwi¹tynia Powietrza^;
 !!IF:D37/1/0/12/13/0/0/0/0/0/0/0/6/7/8/9;
-!!VRz-6:S^Jak znaleÅºÄ‡ ZaginionÄ… ÅšwiÄ…tyniÄ™ Ziemi^;
-!!VRz-6&v1=4:S^Jak znaleÅºÄ‡ ZaginionÄ… ÅšwiÄ…tyniÄ™ Wody^;
-!!VRz-6&v1=2:S^Jak znaleÅºÄ‡ ZaginionÄ… ÅšwiÄ…tyniÄ™ Ognia^;
-!!VRz-6&v1=1:S^Jak znaleÅºÄ‡ ZaginionÄ… ÅšwiÄ…tyniÄ™ Powietrza^;
+!!VRz-6:S^Jak znaleŸæ Zaginion¹ Œwi¹tyniê Ziemi^;
+!!VRz-6&v1=4:S^Jak znaleŸæ Zaginion¹ Œwi¹tyniê Wody^;
+!!VRz-6&v1=2:S^Jak znaleŸæ Zaginion¹ Œwi¹tyniê Ognia^;
+!!VRz-6&v1=1:S^Jak znaleŸæ Zaginion¹ Œwi¹tyniê Powietrza^;
 !!VRz-7:S^^;
-!!VRz-7&v2=4:S^Jak znaleÅºÄ‡ ZaginionÄ… ÅšwiÄ…tyniÄ™ Wody^;
-!!VRz-7&v2=2:S^Jak znaleÅºÄ‡ ZaginionÄ… ÅšwiÄ…tyniÄ™ Ognia^;
-!!VRz-7&v2=1:S^Jak znaleÅºÄ‡ ZaginionÄ… ÅšwiÄ…tyniÄ™ Powietrza^;
+!!VRz-7&v2=4:S^Jak znaleŸæ Zaginion¹ Œwi¹tyniê Wody^;
+!!VRz-7&v2=2:S^Jak znaleŸæ Zaginion¹ Œwi¹tyniê Ognia^;
+!!VRz-7&v2=1:S^Jak znaleŸæ Zaginion¹ Œwi¹tyniê Powietrza^;
 !!VRz-8:S^^;
-!!VRz-8&v3=2:S^Jak znaleÅºÄ‡ ZaginionÄ… ÅšwiÄ…tyniÄ™ Ognia^;
-!!VRz-8&v3=1:S^Jak znaleÅºÄ‡ ZaginionÄ… ÅšwiÄ…tyniÄ™ Powietrza^;
+!!VRz-8&v3=2:S^Jak znaleŸæ Zaginion¹ Œwi¹tyniê Ognia^;
+!!VRz-8&v3=1:S^Jak znaleŸæ Zaginion¹ Œwi¹tyniê Powietrza^;
 !!VRz-9:S^^;
-!!VRz-9&v4=1:S^Jak znaleÅºÄ‡ ZaginionÄ… ÅšwiÄ…tyniÄ™ Powietrza^;
+!!VRz-9&v4=1:S^Jak znaleŸæ Zaginion¹ Œwi¹tyniê Powietrza^;
 !!IF:F37/-6/-7/-8/-9/1;
 !!IF:E99/37; v99 1-4 or -1 for Cancel
 !!FU&v99=-1:E;
 !!VRv5:Svv99;
-!!VRz10&v5=1:S^Musisz znaleÅºÄ‡ GwiazdÄ™ Powietrza i uÅ¼yÄ‡ jej
-by dostaÄ‡ siÄ™ do Krainy Powietrza. Zaginiona ÅšwiÄ…tynia Powietrza
-byÅ‚a znana jako ÅšwiÄ…tynia Zimnych WiatrÃ³w. Jest ukryta
-przez wzrokiem KrÃ³la Lodu, ale pokaÅ¼e siÄ™
-Mistrzowi Powietrza ktÃ³ry podejdzie blisko.^;
-!!VRz10&v5=2:S^Musisz znaleÅºÄ‡ GwiazdÄ™ Ognia i uÅ¼yÄ‡ jej
-by dostaÄ‡ siÄ™ do Krainy Ognia. Zaginiona ÅšwiÄ…tynia Ognia
-byÅ‚a znana jako ÅšwiÄ…tynia PÅ‚onÄ…cych SkaÅ‚. Jest ukryta
-przez wzrokiem KrÃ³la Lodu, ale pokaÅ¼e siÄ™
-Mistrzowi Ognia ktÃ³ry podejdzie blisko.^;
-!!VRz10&v5=4:S^Musisz znaleÅºÄ‡ GwiazdÄ™ Wody i uÅ¼yÄ‡ jej
-by dostaÄ‡ siÄ™ do Krainy Wody. Zaginiona ÅšwiÄ…tynia Wody
-byÅ‚a znana jako ÅšwiÄ…tynia PÅ‚aczÄ…cych SkaÅ‚. Jest ukryta
-przez wzrokiem KrÃ³la Lodu, ale pokaÅ¼e siÄ™
-Mistrzowi Wody ktÃ³ry podejdzie blisko.^;
-!!VRz10&v5=8:S^Musisz znaleÅºÄ‡ GwiazdÄ™ Ziemi i uÅ¼yÄ‡ jej
-by dostaÄ‡ siÄ™ do Krainy Ziemi. Zaginiona ÅšwiÄ…tynia Ziemi
-byÅ‚a znana jako ÅšwiÄ…tynia ZÅ‚otych Kamieni. Jest ukryta
-przez wzrokiem KrÃ³la Lodu, ale pokaÅ¼e siÄ™
-Mistrzowi Ziemi ktÃ³ry podejdzie blisko.^;
+!!VRz10&v5=1:S^Musisz znaleŸæ Gwiazdê Powietrza i u¿yæ jej
+by dostaæ siê do Krainy Powietrza. Zaginiona Œwi¹tynia Powietrza
+by³a znana jako Œwi¹tynia Zimnych Wiatrów. Jest ukryta
+przez wzrokiem Króla Lodu, ale poka¿e siê
+Mistrzowi Powietrza który podejdzie blisko.^;
+!!VRz10&v5=2:S^Musisz znaleŸæ Gwiazdê Ognia i u¿yæ jej
+by dostaæ siê do Krainy Ognia. Zaginiona Œwi¹tynia Ognia
+by³a znana jako Œwi¹tynia P³on¹cych Ska³. Jest ukryta
+przez wzrokiem Króla Lodu, ale poka¿e siê
+Mistrzowi Ognia który podejdzie blisko.^;
+!!VRz10&v5=4:S^Musisz znaleŸæ Gwiazdê Wody i u¿yæ jej
+by dostaæ siê do Krainy Wody. Zaginiona Œwi¹tynia Wody
+by³a znana jako Œwi¹tynia P³acz¹cych Ska³. Jest ukryta
+przez wzrokiem Króla Lodu, ale poka¿e siê
+Mistrzowi Wody który podejdzie blisko.^;
+!!VRz10&v5=8:S^Musisz znaleŸæ Gwiazdê Ziemi i u¿yæ jej
+by dostaæ siê do Krainy Ziemi. Zaginiona Œwi¹tynia Ziemi
+by³a znana jako Œwi¹tynia Z³otych Kamieni. Jest ukryta
+przez wzrokiem Króla Lodu, ale poka¿e siê
+Mistrzowi Ziemi który podejdzie blisko.^;
 !!IF:D39/z10/0/z12/z13 ;
 !!IF:F39/0/0/0/0/0;
 !!IF:E99/39;
-!!VRz10:S^PamiÄ™taj Å¼e Starsi Bogowie majÄ…...
-dziwnÄ… awersjÄ™ do przycisku WyjdÅº w KsiÄ™gi CzarÃ³w w bitwie.
-WiÄ™c lepiej go unikaj jeÅ›li nie chcesz ich wkurzyÄ‡.
-(Wychodzenie z KsiÄ™gi CzarÃ³w przy uÅ¼yciu ESC czy Entera jest OK,
-i zawsze moÅ¼esz wcisnÄ…Ä‡ C na znak przeprosin)^;
+!!VRz10:S^Pamiêtaj ¿e Starsi Bogowie maj¹...
+dziwn¹ awersjê do przycisku WyjdŸ w Ksiêgi Czarów w bitwie.
+Wiêc lepiej go unikaj jeœli nie chcesz ich wkurzyæ.
+(Wychodzenie z Ksiêgi Czarów przy u¿yciu ESC czy Entera jest OK,
+i zawsze mo¿esz wcisn¹æ C na znak przeprosin)^;
 !!IF:D39/z10/0/z12/z13 ;
 !!IF:F39/0/0/0/0/0;
 !!IF:E99/39;
@@ -632,26 +632,26 @@ i zawsze moÅ¼esz wcisnÄ…Ä‡ C na znak przeprosin)^;
 !!FU&y1<>27/y1<>29:E; only Gem known by Qubit (use Melodia for testing)
 !!PO998:N1;
 !!VRz10:S^Jam jest Oko Ziemi, Wiatru, Ognia i Wody!
-WidzÄ™ wszystko i wszystko--ah, to ty! Nadal masz te miecze ktÃ³re
-pomogÅ‚em ci znaleÅºÄ‡, ale one mogÄ… nie wystarczyÄ‡ przeciwko
-StaroÅ¼ytnej Magii KrÃ³la Lodu i jego Bardzo Czerwonej Kulce.
-Moje obliczenia dajÄ… ci tylko 4.6% szans--nie polecane.^;
+Widzê wszystko i wszystko--ah, to ty! Nadal masz te miecze które
+pomog³em ci znaleŸæ, ale one mog¹ nie wystarczyæ przeciwko
+Staro¿ytnej Magii Króla Lodu i jego Bardzo Czerwonej Kulce.
+Moje obliczenia daj¹ ci tylko 4.6% szans--nie polecane.^;
 !!VRz12:S^Qubit the Quantum Oracle^;
 !!VRz13:S^..\Mods\HiddenSpells\Data\Oracle.gif^;
 !!IF:D39/z10/0/z12/z13 ;
 !!IF:F39/0/0/0/0/0;
 !!IF:E99/39;
-!!VRz10:S^TwojÄ… najwiÄ™kszÄ… szansÄ… jest znalezienie Zaginionych ÅšwiÄ…tyÅ„
-i liczenie Å¼e nauczÄ… ciÄ™ nieco Starszej Magii by zrÃ³Å“nowaÅ¼yÄ‡ tÄ™ ktÃ³rÄ… ma KrÃ³l Lodu.
-Starsi Bogowie wymykajÄ… siÄ™ nawet moim predykcjom,
-ale mogÄ™ pomÃ³c ci znaleÅºÄ‡ ich ÅšwiÄ…tynie.^;
+!!VRz10:S^Twoj¹ najwiêksz¹ szans¹ jest znalezienie Zaginionych Œwi¹tyñ
+i liczenie ¿e naucz¹ ciê nieco Starszej Magii by zróoenowa¿yæ tê któr¹ ma Król Lodu.
+Starsi Bogowie wymykaj¹ siê nawet moim predykcjom,
+ale mogê pomóc ci znaleŸæ ich Œwi¹tynie.^;
 !!IF:D39/z10/0/z12/z13 ;
 !!IF:F39/0/0/0/0/0;
 !!IF:E99/39;
-!!VRz10:S^Najpierw, Halyna musi zostaÄ‡ nie tylko Ekspertem,
-lecz prawdziwym Mistrzem magii Å¼ywioÅ‚Ã³w. Akademie
-w Dominiach Å»ywioÅ‚Ã³w wyszkolÄ… jÄ…--za opÅ‚atÄ…. JeÅ›li Halynie
-brak tego treningu teraz, odejdÅº, nim KrÃ³l Lodu ciÄ™
+!!VRz10:S^Najpierw, Halyna musi zostaæ nie tylko Ekspertem,
+lecz prawdziwym Mistrzem magii ¿ywio³ów. Akademie
+w Dominiach ¯ywio³ów wyszkol¹ j¹--za op³at¹. Jeœli Halynie
+brak tego treningu teraz, odejdŸ, nim Król Lodu ciê
 znajdzie--czasami tu przychodzi.^;
 !!IF:D39/z10/0/z12/z13 ;
 !!IF:F39/0/0/0/0/0;
@@ -678,7 +678,7 @@ znajdzie--czasami tu przychodzi.^;
 !?OB49/112/0;
 !!VRy1:Sv313&2;
 !!HE-1:N?y2;
-!!IF&y2<>27/y2<>29|y1=0:M^Jedynie Mistrz Ognia moÅ¼e uÅ¼yÄ‡ bramy miÄ™dzy Gwiazdami Ognia!^;
+!!IF&y2<>27/y2<>29|y1=0:M^Jedynie Mistrz Ognia mo¿e u¿yæ bramy miêdzy Gwiazdami Ognia!^;
 !!FU&y2<>27/y2<>29|y1=0:E;
 !!HE-1:P16/7/1;
 !!IF&-374/-382:V378/1;
@@ -690,7 +690,7 @@ znajdzie--czasami tu przychodzi.^;
 !?OB110/89/0;
 !!VRy1:Sv313&4;
 !!HE-1:N?y2;
-!!IF&y2<>27/y2<>29|y1=0:M^Jedynie Mistrz Wody moÅ¼e uÅ¼yÄ‡ bramy miÄ™dzy Gwiazdami Wody!^;
+!!IF&y2<>27/y2<>29|y1=0:M^Jedynie Mistrz Wody mo¿e u¿yæ bramy miêdzy Gwiazdami Wody!^;
 !!FU&y2<>27/y2<>29|y1=0:E;
 !!HE-1:P126/83/1;
 !!IF&-375/-383:V379/1;
@@ -702,7 +702,7 @@ znajdzie--czasami tu przychodzi.^;
 !?OB72/97/0;
 !!VRy1:Sv313&1;
 !!HE-1:N?y2;
-!!IF&y2<>27/y2<>29|y1=0:M^Jedynie Mistrz Powietrza moÅ¼e uÅ¼yÄ‡ bramy miÄ™dzy Gwiazdami Powietrza!^;
+!!IF&y2<>27/y2<>29|y1=0:M^Jedynie Mistrz Powietrza mo¿e u¿yæ bramy miêdzy Gwiazdami Powietrza!^;
 !!FU&y2<>27/y2<>29|y1=0:E;
 !!HE-1:P17/80/1;
 !!IF&-373/-381:V377/1;
@@ -714,7 +714,7 @@ znajdzie--czasami tu przychodzi.^;
 !?OB37/52/0;
 !!VRy1:Sv313&8;
 !!HE-1:N?y2;
-!!IF&y2<>27/y2<>29|y1=0:M^Jedynie Mistrz Ziemi moÅ¼e uÅ¼yÄ‡ bramy miÄ™dzy Gwiazdami Ziemi!^;
+!!IF&y2<>27/y2<>29|y1=0:M^Jedynie Mistrz Ziemi mo¿e u¿yæ bramy miêdzy Gwiazdami Ziemi!^;
 !!FU&y2<>27/y2<>29|y1=0:E;
 !!HE-1:P126/10/1;
 !!IF&-376/-384:V380/1;
@@ -728,7 +728,7 @@ znajdzie--czasami tu przychodzi.^;
 !!VRz2:S^chime_up.wav^;
 !!SN:Pz2;
 !!UN:I51/127/1/158/0/145/0; (144/2 not found)
-!!VRz478:S^ÅšwiÄ…tynia Zimnych WiatrÃ³w^;
+!!VRz478:S^Œwi¹tynia Zimnych Wiatrów^;
 !!OB51/127/1:SH478;
 ; built-in YS of AirTmpl.def doesn't work (except to distribute H478)
 !!TR48/127/1:E0; so add one manually (48/126 N.G. also)(part of volcano 158/0?)
@@ -738,28 +738,28 @@ znajdzie--czasami tu przychodzi.^;
 !?OB48/127/1; Air
 !!VRz2:S^Mods/HiddenSpells/Data/gong.wav^;
 !!SN:Ev34/1/z2; call PlayOnce
-!!VRz10:S^PÃ³Å‚-bogini Å»ycia przychodzi do mojej ÅšwiÄ…tyni szukaÄ‡ mego wsparcia?
-Tak jak oddech jest sojusznikiem Å»ycia, udzielÄ™ go.
-Niechaj RÃ³g Wiatru zostanie wykuty na nowo! Z nim, podczas bitwy
-moÅ¼esz umieÅ›ciÄ‡ Oko Cyklonu wÅ›rÃ³d swoich wrogÃ³w!^;
-!!VRz12:S^Serc - Starszy BÃ³g Powietrza^;
+!!VRz10:S^Pó³-bogini ¯ycia przychodzi do mojej Œwi¹tyni szukaæ mego wsparcia?
+Tak jak oddech jest sojusznikiem ¯ycia, udzielê go.
+Niechaj Róg Wiatru zostanie wykuty na nowo! Z nim, podczas bitwy
+mo¿esz umieœciæ Oko Cyklonu wœród swoich wrogów!^;
+!!VRz12:S^Serc - Starszy Bóg Powietrza^;
 !!VRz13:S^..\Mods\HiddenSpells\Data\Serc.gif^;
 !!IF:D40/z10/0/z12/z13 ;
 !!IF:F40/0/0/0/0/0;
 !!IF&-373:E99/40;
 !!IF:V373/1;
-!!VRz10:S^By wykuÄ‡ RÃ³g WiatrÃ³w, weÅº 20 Mithrilu oraz
-1 Elektrum do Mistrza Kowalskiego. PÃ³ki Å›wieci z gorÄ…ca
-kuÅºni, schÅ‚Ã³dÅº go BiaÅ‚Ä… MiksturÄ… w KocioÅ‚ku Magii!
-Nie zapomnij paru bÅ‚yskotek dla Å¼ony Kowala!^;
+!!VRz10:S^By wykuæ Róg Wiatrów, weŸ 20 Mithrilu oraz
+1 Elektrum do Mistrza Kowalskiego. Póki œwieci z gor¹ca
+kuŸni, sch³ódŸ go Bia³¹ Mikstur¹ w Kocio³ku Magii!
+Nie zapomnij paru b³yskotek dla ¿ony Kowala!^;
 !!IF:D40/z10/0/z12/z13 ;
 !!IF:F40/0/0/0/0/0;
 !!IF:E99/40;
-!!VRz10:S^By rzuciÄ‡ Oko Cyklonu, kliknij na twarz wiatru
-W twojej KsiÄ™dze CzarÃ³w. Czar jest ukryty, ale bÄ™dziesz wiedzieÄ‡
-Å¼e go znalazÅ‚aÅ› gdy usÅ‚yszysz nastÄ™pujÄ…cy dÅºwiÄ™k.
+!!VRz10:S^By rzuciæ Oko Cyklonu, kliknij na twarz wiatru
+W twojej Ksiêdze Czarów. Czar jest ukryty, ale bêdziesz wiedzieæ
+¿e go znalaz³aœ gdy us³yszysz nastêpuj¹cy dŸwiêk.
 (PPM informacja, LPM rzucanie.) Po rzuceniu
-umieÅ›Ä‡ Oko i pozwÃ³l Cyklonowi zawirowaÄ‡ wokÃ³Å‚ niego.^;
+umieœæ Oko i pozwól Cyklonowi zawirowaæ wokó³ niego.^;
 !!IF:D40/z10/0/z12/z13 ;
 !!IF:F40/0/0/0/0/0;
 !!IF:E99/40;
@@ -774,7 +774,7 @@ umieÅ›Ä‡ Oko i pozwÃ³l Cyklonowi zawirowaÄ‡ wokÃ³Å‚ niego.^;
 !!VRz2:S^chime_up.wav^;
 !!SN:Pz2;
 !!UN:I47/26/1/158/0/142/0;
-!!VRz477:S^ÅšwiÄ…tynia PÅ‚onÄ…cych SkaÅ‚^;
+!!VRz477:S^Œwi¹tynia P³on¹cych Ska³^;
 !!TR44/26/1:E0;
 !!OB44/26/1:SH477;
 !!UN:R1;
@@ -783,31 +783,31 @@ umieÅ›Ä‡ Oko i pozwÃ³l Cyklonowi zawirowaÄ‡ wokÃ³Å‚ niego.^;
 !?OB44/26/1; Fire
 !!VRz2:S^Mods/HiddenSpells/Data/gong.wav^;
 !!SN:Ev34/1/z2; call PlayOnce
-!!VRz10:S^PÃ³Å‚-bogini Å»ycia przychodzi do mojej ÅšwiÄ…tyni szukaÄ‡ mego wsparcia?
-Tak jak OgieÅ„ daje Å»yciu energiÄ™, udzielÄ™ go.
-Niechaj Ognista Laska zostanie wykuta na nowo! Z niÄ…, podczas bitwy
-moÅ¼esz ciskaÄ‡ ÅÄ…cze Ognia na swych wrogÃ³w!^;
-!!VRz12:S^Thyr - Starszy BÃ³g Ognia^;
+!!VRz10:S^Pó³-bogini ¯ycia przychodzi do mojej Œwi¹tyni szukaæ mego wsparcia?
+Tak jak Ogieñ daje ¯yciu energiê, udzielê go.
+Niechaj Ognista Laska zostanie wykuta na nowo! Z ni¹, podczas bitwy
+mo¿esz ciskaæ £¹cze Ognia na swych wrogów!^;
+!!VRz12:S^Thyr - Starszy Bóg Ognia^;
 !!VRz13:S^..\Mods\HiddenSpells\Data\Thyr.gif^;
 !!IF:D40/z10/0/z12/z13 ;
 !!IF:F40/0/0/0/0/0;
 !!IF&-374:E99/40;
 !!IF:V374/1;
-!!VRz10:S^By wykuÄ‡ OgnistÄ… LaskÄ™, zanieÅ› 20 Mithrilu oraz
-Krwistodrzew do Mistrza Kowalskiego. PÃ³ki Å›wieci z gorÄ…ca
-kuÅºni, schÅ‚Ã³dÅº jÄ… CzerwonÄ… MiksturÄ… w KocioÅ‚ku Magii!
-Nie zapomnij zabraÄ‡ worka przypraw dla Kowala!^;
+!!VRz10:S^By wykuæ Ognist¹ Laskê, zanieœ 20 Mithrilu oraz
+Krwistodrzew do Mistrza Kowalskiego. Póki œwieci z gor¹ca
+kuŸni, sch³ódŸ j¹ Czerwon¹ Mikstur¹ w Kocio³ku Magii!
+Nie zapomnij zabraæ worka przypraw dla Kowala!^;
 !!VRz12:S^The Staff of Fire!^;
 !!VRz13:S^..\Mods\HiddenSpells\Data\FireStaf.gif^;
 !!IF:D40/z10/0/z12/z13 ;
 !!IF:F40/0/0/0/0/0;
 !!IF:E99/40;
-!!VRz10:S^By rzuciÄ‡ ÅÄ…cze Ognia, kliknij na mojÄ… ognistÄ… grzywÄ™
-w KsiÄ™dze CzarÃ³w. Czar jest ukryty, ale bÄ™dziesz wiedzieÄ‡
-Å¼e go znalazÅ‚aÅ› gdy usÅ‚yszysz nastÄ™pujÄ…cy dÅºwiÄ™k.
+!!VRz10:S^By rzuciæ £¹cze Ognia, kliknij na moj¹ ognist¹ grzywê
+w Ksiêdze Czarów. Czar jest ukryty, ale bêdziesz wiedzieæ
+¿e go znalaz³aœ gdy us³yszysz nastêpuj¹cy dŸwiêk.
 (PPM informacja, LPM rzucanie.) Po rzuceniu
 wybierz pierwszy cel na polu bitwy.^;
-!!VRz14:S^Thyr - Starszy BÃ³g Ognia^;
+!!VRz14:S^Thyr - Starszy Bóg Ognia^;
 !!VRz15:S^..\Mods\HiddenSpells\Data\Thyr.gif^;
 !!IF:D50/z10/0/0/z15/z13/0/0/z14/z12/0/0 ;
 !!IF:F50/0/0/0/0/0;
@@ -823,7 +823,7 @@ wybierz pierwszy cel na polu bitwy.^;
 !!VRz2:S^chime_up.wav^;
 !!SN:Pz2;
 !!UN:I104/110/1/158/0/144/0;
-!!VRz476:S^ÅšwiÄ…tynia PÅ‚aczÄ…cych SkaÅ‚^;
+!!VRz476:S^Œwi¹tynia P³acz¹cych Ska³^;
 !!OB104/110/1:SH476;
 !!TR102/110/1:E0;
 !!UN:R1;
@@ -832,29 +832,29 @@ wybierz pierwszy cel na polu bitwy.^;
 !?OB102/110/1; Water
 !!VRz2:S^Mods/HiddenSpells/Data/gong.wav^;
 !!SN:Ev34/1/z2; call PlayOnce
-!!VRz10:S^PÃ³Å‚-bogini Å»ycia przychodzi do mojej ÅšwiÄ…tyni szukaÄ‡ mego wsparcia?
-Tak jak Woda daje Å»yciu krew, udzielÄ™ go.
+!!VRz10:S^Pó³-bogini ¯ycia przychodzi do mojej Œwi¹tyni szukaæ mego wsparcia?
+Tak jak Woda daje ¯yciu krew, udzielê go.
 Niechaj Pancerz Wody zostanie wykuty na nowo! Z nim, podczas bitwy
-moÅ¼esz wylaÄ‡ FalÄ™ Furii na swych wrogÃ³w!^;
-!!VRz12:S^Ruse - Starszy BÃ³g Wody^;
+mo¿esz wylaæ Falê Furii na swych wrogów!^;
+!!VRz12:S^Ruse - Starszy Bóg Wody^;
 !!VRz13:S^..\Mods\HiddenSpells\Data\Ruse.gif^;
 !!IF:D40/z10/0/z12/z13 ;
 !!IF:F40/0/0/0/0/0;
 !!IF&-375:E99/40;
 !!IF:V375/1;
-!!VRz10:S^By wykuÄ‡ Pancerz Wody, zanieÅ› 20 Mithrilu oraz
-dowolny pancerz do Mistrza Kowalskiego. PÃ³ki Å›wieci z gorÄ…ca
-kuÅºni, schÅ‚Ã³dÅº go NiebieskÄ… MiksturÄ… w KocioÅ‚ku Magii!
-Nie zapomnij przynieÅ›Ä‡ Kowalowi kilku wiader wody z Odry!^;
+!!VRz10:S^By wykuæ Pancerz Wody, zanieœ 20 Mithrilu oraz
+dowolny pancerz do Mistrza Kowalskiego. Póki œwieci z gor¹ca
+kuŸni, sch³ódŸ go Niebiesk¹ Mikstur¹ w Kocio³ku Magii!
+Nie zapomnij przynieœæ Kowalowi kilku wiader wody z Odry!^;
 !!IF:D40/z10/0/z12/z13 ;
 !!IF:F40/0/0/0/0/0;
 !!IF:E99/40;
-!!VRz10:S^Kliknij mojÄ… bÅ‚yszczÄ…cÄ… falÄ™ w KsiÄ™dze CzarÃ³w.
-Czar jest ukryty, ale bÄ™dziesz wiedzieÄ‡
-Å¼e go znalazÅ‚aÅ› gdy usÅ‚yszysz nastÄ™pujÄ…cy dÅºwiÄ™k.
+!!VRz10:S^Kliknij moj¹ b³yszcz¹c¹ falê w Ksiêdze Czarów.
+Czar jest ukryty, ale bêdziesz wiedzieæ
+¿e go znalaz³aœ gdy us³yszysz nastêpuj¹cy dŸwiêk.
 (PPM informacja, LPM rzucanie.) Po rzuceniu
-wybierz skÄ…d ma wystartowaÄ‡ fala na gÃ³rze lub boku pola bitwy
-a spÅ‚ynie ona, osÅ‚abiajÄ…c wszystko na swej drodze.^;
+wybierz sk¹d ma wystartowaæ fala na górze lub boku pola bitwy
+a sp³ynie ona, os³abiaj¹c wszystko na swej drodze.^;
 !!IF:D40/z10/0/z12/z13 ;
 !!IF:F40/0/0/0/0/0;
 !!IF:E99/40;
@@ -869,7 +869,7 @@ a spÅ‚ynie ona, osÅ‚abiajÄ…c wszystko na swej drodze.^;
 !!VRz2:S^chime_up.wav^;
 !!SN:Pz2;
 !!UN:I102/27/1/158/0/141/0;
-!!VRz479:S^ÅšwiÄ…tynia ZÅ‚otych Kamieni^;
+!!VRz479:S^Œwi¹tynia Z³otych Kamieni^;
 !!OB100/25/1:SH479;
 !!TR100/27/1:E0;
 !!UN:R1;
@@ -878,28 +878,28 @@ a spÅ‚ynie ona, osÅ‚abiajÄ…c wszystko na swej drodze.^;
 !?OB100/27/1; Earth
 !!VRz2:S^Mods/HiddenSpells/Data/gong.wav^;
 !!SN:Ev34/1/z2; call PlayOnce, no SN:P here because it makes the sound unrecognizable
-!!VRz10:S^PÃ³Å‚-bogini Å»ycia przychodzi do mojej ÅšwiÄ…tyni szukaÄ‡ mego wsparcia?
-Tak jak Ziemia daje Å»yciu koÅ›ci, udzielÄ™ go.
-Niechaj Tarcza Ziemi zostanie wykuta na nowo! Z niÄ…, podczas bitwy
-moÅ¼esz zasadziÄ‡ Zagajnik PuszczowcÃ³w dokoÅ‚a twych wrogÃ³w!^;
-!!VRz12:S^Dris - Starszy BÃ³g Ziemi^;
+!!VRz10:S^Pó³-bogini ¯ycia przychodzi do mojej Œwi¹tyni szukaæ mego wsparcia?
+Tak jak Ziemia daje ¯yciu koœci, udzielê go.
+Niechaj Tarcza Ziemi zostanie wykuta na nowo! Z ni¹, podczas bitwy
+mo¿esz zasadziæ Zagajnik Puszczowców doko³a twych wrogów!^;
+!!VRz12:S^Dris - Starszy Bóg Ziemi^;
 !!VRz13:S^..\Mods\HiddenSpells\Data\Dris.gif^;
 !!IF:D40/z10/0/z12/z13 ;
 !!IF:F40/0/0/0/0/0;
 !!IF&-376:E99/40;
 !!IF:V376/1;
-!!VRz10:S^By wykuÄ‡ TarczÄ™ Ziemi, zanieÅ› 20 Mithrilu oraz
-dowolnÄ… tarczÄ™ do Mistrza Kowalskiego. PÃ³ki Å›wieci z gorÄ…ca
-kuÅºni, schÅ‚Ã³dÅº jÄ… ZielonÄ… MiksturÄ… w KocioÅ‚ku Magii!
-Nie zapomnij wziÄ…Ä‡ nieco KrysztaÅ‚Ã³w by utwardziÄ‡ TarczÄ™!^;
+!!VRz10:S^By wykuæ Tarczê Ziemi, zanieœ 20 Mithrilu oraz
+dowoln¹ tarczê do Mistrza Kowalskiego. Póki œwieci z gor¹ca
+kuŸni, sch³ódŸ j¹ Zielon¹ Mikstur¹ w Kocio³ku Magii!
+Nie zapomnij wzi¹æ nieco Kryszta³ów by utwardziæ Tarczê!^;
 !!IF:D40/z10/0/z12/z13 ;
 !!IF:F40/0/0/0/0/0;
 !!IF:E99/40;
-!!VRz10:S^By rzuciÄ‡ Zagajnik PuszczowcÃ³w, kliknij w moje drzewo
-w KsiÄ™dze CzarÃ³w. Czar jest ukryty, ale bÄ™dziesz wiedzieÄ‡
-Å¼e go znalazÅ‚aÅ› gdy usÅ‚yszysz nastÄ™pujÄ…cy dÅºwiÄ™k.
+!!VRz10:S^By rzuciæ Zagajnik Puszczowców, kliknij w moje drzewo
+w Ksiêdze Czarów. Czar jest ukryty, ale bêdziesz wiedzieæ
+¿e go znalaz³aœ gdy us³yszysz nastêpuj¹cy dŸwiêk.
 (PPM informacja, LPM rzucanie.) Po rzuceniu
-wybierz pole ktÃ³re ma zostaÄ‡ Å›rodkiem Zagajnika.^;
+wybierz pole które ma zostaæ œrodkiem Zagajnika.^;
 !!IF:D40/z10/0/z12/z13 ;
 !!IF:F40/0/0/0/0/0;
 !!IF:E99/40;

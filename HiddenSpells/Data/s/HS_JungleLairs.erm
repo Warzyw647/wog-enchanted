@@ -5,13 +5,13 @@ ZVSE
 ** uses v1478-v1479, z309-z310
 
 !#VRv1478:S1; index to DP monster table
-!#VRz309:S^Szczyt SmokÃ³w^;
+!#VRz309:S^Szczyt Smoków^;
 !#OB94/35/0:SHz309;
 
 !?OB94/35/0&1000; Dragon Peak
 !!PO998:V0/?v1;
 !!VRv2:Sc0-1:7+1; game week
-!!IF&v2<=v1:M^LeÅ¼e jest puste w tym tygodniu.^;
+!!IF&v2<=v1:M^Le¿e jest puste w tym tygodniu.^;
 !!FU&v2<=v1:E;
 !!PO998:V0/v2;
 !!VRv1:C108/109/26/82/27/83/168/155/151/135/133/132;
@@ -24,17 +24,17 @@ ZVSE
 !!HE-1:O?v1; get owner (-1 if hero lost battle)
 !!FU&v1=-1:E;
 !!FU86:P1; exp+1 (FU86 in HS_Battles)
-!!IF:M^Znajdujesz mÅ‚odego gadzika ktÃ³rego udaje Ci siÄ™ oswoiÄ‡.^;
+!!IF:M^Znajdujesz m³odego gadzika którego udaje Ci siê oswoiæ.^;
 !!HE-1:C2/y1/1/1; add 1 to army
 
 !#VRv1479:S1; index to Cave monster table
-!#VRz310:S^ZaroÅ›niÄ™ta Jaskinia^;
+!#VRz310:S^Zaroœniêta Jaskinia^;
 !#OB90/25/0:SHz310;
 
 !?OB90/25/0&1000; Jungle Cave
 !!PO998:V0/?v1;
 !!VRv2:Sc0-1:7+1; game week
-!!IF&v2<=v1:M^LeÅ¼e jest puste w tym tygodniu.^;
+!!IF&v2<=v1:M^Le¿e jest puste w tym tygodniu.^;
 !!FU&v2<=v1:E;
 !!PO998:V0/v2;
 !!VRv1:C107/102/80/81/130/96/110/7/111/156/127;
@@ -48,6 +48,6 @@ ZVSE
 !!HE-1:O?v1; get owner (-1 if hero lost battle)
 !!FU&v1=-1:E;
 !!FU86:P1; exp+1 (FU86 in HS_Battles)
-!!IF:M^Wpada Ci w oko mÅ‚ody %Z3 i udaje Ci siÄ™ go oswoiÄ‡.^;
+!!IF:M^Wpada Ci w oko m³ody %Z3 i udaje Ci siê go oswoiæ.^;
 !!HE-1:C2/y1/1/1; add 1 to army
 

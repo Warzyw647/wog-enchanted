@@ -16,12 +16,12 @@ ZVSE
 *'5'-'9' = 53-57, P=80
 
 !?FU77003&v27>-1; keystroke, v27 is round number
-!!SN:X?y1; y1 â€” key code
+!!SN:X?y1; y1 — key code
 !!FU&y1<53:E; exit, if the keycode is <5
 !!FU&y1>57/y1<>80:E; exit if keycode >9 and not P
 !!SN:L^Era.dll^/?y2; get address of Era library in y2
-!!SN:Ay2/^GetGameState^/?y3; y3 â€” address of function GetGameState
-!!SN:Ey3/1/?y4; y4 â€” ID of parent dialog, y5 â€” ID of current dialog
+!!SN:Ay2/^GetGameState^/?y3; y3 — address of function GetGameState
+!!SN:Ey3/1/?y4; y4 — ID of parent dialog, y5 — ID of current dialog
 !!FU&y5<>4662240:E; exit if not in battle screen
 !!BA:Hv2220/?v2222; get active Hero if any
 !!FU&v2222=-2:E; exit if none
@@ -100,28 +100,28 @@ ZVSE
 !!CM:I?v1 F?v2;
 !!FU|v1<>2008/v2<>512:E; exit if not RMB on CS
 !!CM:R0;
-!!IF:M^{SkrÃ³ty Klawiszowe CzarÃ³w:}
+!!IF:M^{Skróty Klawiszowe Czarów:}
 
 5 = Lotne Piaski
 6 = Uleczenie
-7 = BÅ‚ogosÅ‚awieÅ„stwo
+7 = B³ogos³awieñstwo
 8 = Tarcza
 9 = Przyspieszenie
 P = Precyzja
 
-Wymagania: Bohater ma wystarczajÄ…co duÅ¼o many (nie liczÄ…c redukcji MagÃ³w itp.) i zna zaklÄ™cie. JeÅ›li bohater nie ma masowej wersji czaru i rzuci go na niewraÅ¼liwÄ… jednostkÄ™, to czar zostanie odparty, ale (rzeczywisty) koszt rzucenia czaru zostanie poniesiony. Czary nie-masowe sÄ… rzucane na aktywnÄ… jednostkÄ™. Precyzja moÅ¼e byÄ‡ rzucona tylko na oddziaÅ‚ strzelajÄ…cy. No i bohater musi mieÄ‡ moÅ¼liwoÅ›Ä‡ czarowania. (Zbyszko moÅ¼e czarowaÄ‡ raz na turÄ™, Halyna wiele razy ale nie zawsze.) JeÅ›li dowolny z tych warunkÃ³w nie jest speÅ‚niony, klawisze nie zadziaÅ‚ajÄ….^;
+Wymagania: Bohater ma wystarczaj¹co du¿o many (nie licz¹c redukcji Magów itp.) i zna zaklêcie. Jeœli bohater nie ma masowej wersji czaru i rzuci go na niewra¿liw¹ jednostkê, to czar zostanie odparty, ale (rzeczywisty) koszt rzucenia czaru zostanie poniesiony. Czary nie-masowe s¹ rzucane na aktywn¹ jednostkê. Precyzja mo¿e byæ rzucona tylko na oddzia³ strzelaj¹cy. No i bohater musi mieæ mo¿liwoœæ czarowania. (Zbyszko mo¿e czarowaæ raz na turê, Halyna wiele razy ale nie zawsze.) Jeœli dowolny z tych warunków nie jest spe³niony, klawisze nie zadzia³aj¹.^;
 
 !?BA0&1000/-650; first-time hotkey notice
 !!IF:V650/1;
-!!IF:M^Kliknij PPM na przycisk Rzucania Czaru na Ekranie Walki by ponownie przeczytaÄ‡ te informacje.
+!!IF:M^Kliknij PPM na przycisk Rzucania Czaru na Ekranie Walki by ponownie przeczytaæ te informacje.
 
-{SkrÃ³ty Klawiszowe CzarÃ³w::}
+{Skróty Klawiszowe Czarów::}
 5 = Lotne Piaski
 6 = Uleczenie
-7 = BÅ‚ogosÅ‚awieÅ„stwo
+7 = B³ogos³awieñstwo
 8 = Tarcza
 9 = Przyspieszenie
 P = Precyzja
 
-Wymagania: Bohater ma wystarczajÄ…co duÅ¼o many (nie liczÄ…c redukcji MagÃ³w itp.) i zna zaklÄ™cie. JeÅ›li bohater nie ma masowej wersji czaru i rzuci go na niewraÅ¼liwÄ… jednostkÄ™, to czar zostanie odparty, ale (rzeczywisty) koszt rzucenia czaru zostanie poniesiony. Czary nie-masowe sÄ… rzucane na aktywnÄ… jednostkÄ™. Precyzja moÅ¼e byÄ‡ rzucona tylko na oddziaÅ‚ strzelajÄ…cy. No i bohater musi mieÄ‡ moÅ¼liwoÅ›Ä‡ czarowania. (Zbyszko moÅ¼e czarowaÄ‡ raz na turÄ™, Halyna wiele razy ale nie zawsze.) JeÅ›li dowolny z tych warunkÃ³w nie jest speÅ‚niony, klawisze nie zadziaÅ‚ajÄ….^;
+Wymagania: Bohater ma wystarczaj¹co du¿o many (nie licz¹c redukcji Magów itp.) i zna zaklêcie. Jeœli bohater nie ma masowej wersji czaru i rzuci go na niewra¿liw¹ jednostkê, to czar zostanie odparty, ale (rzeczywisty) koszt rzucenia czaru zostanie poniesiony. Czary nie-masowe s¹ rzucane na aktywn¹ jednostkê. Precyzja mo¿e byæ rzucona tylko na oddzia³ strzelaj¹cy. No i bohater musi mieæ mo¿liwoœæ czarowania. (Zbyszko mo¿e czarowaæ raz na turê, Halyna wiele razy ale nie zawsze.) Jeœli dowolny z tych warunków nie jest spe³niony, klawisze nie zadzia³aj¹.^;
 

@@ -24,26 +24,26 @@ ZVSE
 !!VRz1:S^../Mods/HiddenSpells/Data/ArenaSwd.gif^;
 !!VRz2:S^../Mods/HiddenSpells/Data/Arena.jpg^;
 !!VRz3:S^../Mods/HiddenSpells/Data/ArenaSwd.gif^;
-!!VRz5:S^Brama Areny GladiatorÃ³w - To dobry dzieÅ„ by zginÄ…Ä‡!
-Widzisz malutkÄ… skrzynkÄ™ z obrazem monety i trzy z liczbami.
+!!VRz5:S^Brama Areny Gladiatorów - To dobry dzieñ by zgin¹æ!
+Widzisz malutk¹ skrzynkê z obrazem monety i trzy z liczbami.
 Najmniejsza ma numer %V81 i rysunek kilku sztabek Mithrilu.
-Åšrednia ma numer %V82 i 500 rysunkÃ³w monety.
-NajwiÄ™ksza ma numer %V83 oraz symbol '1kPLN'.^;
+Œrednia ma numer %V82 i 500 rysunków monety.
+Najwiêksza ma numer %V83 oraz symbol '1kPLN'.^;
 !!VRz6:S^Egzotyczne dzikie bestie^;
-!!VRz7:S^ZÅ‚ap skaczÄ…ce Gremliny--jeÅ›li potrafisz!^;
-!!VRz8:S^PocaÅ‚uj cÃ³rki KrÃ³la Lodu.^;
-!!VRz9:S^StraÅ¼nicy Lodu^;
-!!VRz10:S^Z kim siÄ™ zmierzysz?^;
+!!VRz7:S^Z³ap skacz¹ce Gremliny--jeœli potrafisz!^;
+!!VRz8:S^Poca³uj córki Króla Lodu.^;
+!!VRz9:S^Stra¿nicy Lodu^;
+!!VRz10:S^Z kim siê zmierzysz?^;
 !!IF:D5/5/0/10/1/2/3/0/0/0/0/0/6/7/8/9;
-!!VRz-6:S^JeÅ›li przetrwasz, oskÃ³ruj i opraw bestie za 1 PLN za kilogram.^;
-!!VRz-7:S^KrÃ³l Lodu Å›mieje siÄ™ z ich radosnych skokÃ³w--a Ty giniesz!^;
-!!VRz-8:S^Ich pocaÅ‚unki sÄ… zimne, mokre i Å›miertelne!^;
-!!VRz-9:S^Najlepsi pracownicy miesiÄ…ca!^;
+!!VRz-6:S^Jeœli przetrwasz, oskóruj i opraw bestie za 1 PLN za kilogram.^;
+!!VRz-7:S^Król Lodu œmieje siê z ich radosnych skoków--a Ty giniesz!^;
+!!VRz-8:S^Ich poca³unki s¹ zimne, mokre i œmiertelne!^;
+!!VRz-9:S^Najlepsi pracownicy miesi¹ca!^;
 !!IF:F5/-6/-7/-8/-9/1;
 !!IF:E99/5; v99 1-4 or -1 for Cancel
 !!FU&v99=-1:E;
 !!PO998:V3/y2;
-!!IF&-275:M^Uwaga: czary obraÅ¼ajÄ…ce sÄ… zabronione na Arenie, z rozkazu KrÃ³la Lodu! (Chyba Å¼e znasz Ukryte Czary, ha ha!)^;
+!!IF&-275:M^Uwaga: czary obra¿aj¹ce s¹ zabronione na Arenie, z rozkazu Króla Lodu! (Chyba ¿e znasz Ukryte Czary, ha ha!)^;
 !!IF:V275/1;
 !!FU330&v99=4:P;
 !!FU7027&v99=3:P;
@@ -57,7 +57,7 @@ NajwiÄ™ksza ma numer %V83 oraz symbol '1kPLN'.^;
 !!IF:V270/0;
 !!HE-1:O?y1;
 !!FU&y1<>3:E;
-!!IF:Q1/8/v83/6/1000/1^Wielki i szczodry krÃ³l Lodu przyznaje Ci zwyciÄ™stwo, nieznajomy. NastÄ™pnym razem moÅ¼esz nie mieÄ‡ tyle szczÄ™Å›cia!^;
+!!IF:Q1/8/v83/6/1000/1^Wielki i szczodry król Lodu przyznaje Ci zwyciêstwo, nieznajomy. Nastêpnym razem mo¿esz nie mieæ tyle szczêœcia!^;
 !!OW:R-1/6/d1000;
 !!HE-1:A4/v83;
 
@@ -151,7 +151,7 @@ NajwiÄ™ksza ma numer %V83 oraz symbol '1kPLN'.^;
 !!HEv156:S19/v158; restore Tactics skill
 !!HEv156&v159>0:A4/6; restore Tent
 !!VRy7:S3 R3; 3-6
-!!IF:Q1/21/173/8/v81/7/y7/1^Gremliny porzuciÅ‚y Artefakt i trochÄ™ Mithrilu!^;
+!!IF:Q1/21/173/8/v81/7/y7/1^Gremliny porzuci³y Artefakt i trochê Mithrilu!^;
 !!OW:R-1/7/dy7;
 !!HE-1:A4/v81;
 
@@ -406,7 +406,7 @@ NajwiÄ™ksza ma numer %V83 oraz symbol '1kPLN'.^;
 !!IF:V274/0;
 !!HE-1:O?y1;
 !!FU&y1<>3:E;
-!!IF:Q1/6/v317/1^MiÄ™so i skÃ³ry przydadzÄ… siÄ™ nam na wojnie, wiÄ™c zapÅ‚acimy za nie %V317 PLN.^;
+!!IF:Q1/6/v317/1^Miêso i skóry przydadz¹ siê nam na wojnie, wiêc zap³acimy za nie %V317 PLN.^;
 !!OW:R-1/6/dv317;
 
 !?BA0&274;
@@ -476,7 +476,7 @@ NajwiÄ™ksza ma numer %V83 oraz symbol '1kPLN'.^;
 !!IF:V609/0;
 !!HE-1:O?y1;
 !!FU&y1<>3:E;
-!!IF:Q1/8/v82/6/500/1^KrÃ³l Lodu mÃ³wi, "ZwyciÄ™Å¼yÅ‚eÅ›? W porzÄ…dku, i tak mam za duÅ¼o cÃ³rek i chÄ™tnie siÄ™ kilku pozbÄ™dÄ™. WeÅº to zÅ‚oto i ten badziew jako nagrodÄ™."^;
+!!IF:Q1/8/v82/6/500/1^Król Lodu mówi, "Zwyciê¿y³eœ? W porz¹dku, i tak mam za du¿o córek i chêtnie siê kilku pozbêdê. WeŸ to z³oto i ten badziew jako nagrodê."^;
 !!OW:R-1/6/d500;
 !!HE-1:A4/v82;
 

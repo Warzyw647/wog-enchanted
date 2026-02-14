@@ -5,29 +5,29 @@ ZVSE
 
 ; uses v30-v65, v98-v99, z191, FU88-FU92, and flags 56-58 (and flag 51 from Messages)
 
-!#VRz191:S^Pyth Åšlimak Teleportacji^;
+!#VRz191:S^Pyth Œlimak Teleportacji^;
 !#OB136/66/0:SH191;
 ; --> Cr 126
 !#UN:G1/126/1/191;
 
 !?OB136/66/0&-56; Snail, first visit
-!!IF:M^Ogromna, Å›limakopodobna istota, bÅ‚yszczÄ…ca magicznymi runami wysyÅ‚a Ci swoje myÅ›li!^;
-!!IF:Q1/21/126/1^Nie krzywdÅº biednego Pytha, nieznajomy! SÅ‚uÅ¼Ä™ KrÃ³lowi Lodu jedynie jako niewolnik i o ile Å›mierÄ‡ uwolniÅ‚aby mnie od niego, to naruszenie jego run sprowadziÅ‚oby na Ciebie jego gniew, a on tylko zniewoliÅ‚by kolejnego z mojego rodzaju by mnie zastÄ…piÄ‡!^;
-!!IF:Q1/21/126/1^Moi pobratymcy Å¼yjÄ… na odlegÅ‚ym Å›wiecie, gdzie, by skompensowaÄ‡ naszÄ… powolnoÅ›Ä‡ i delikatnoÅ›Ä‡, wyewoluowaliÅ›my zdolnoÅ›Ä‡ teleportowania drapieÅ¼nikÃ³w daleko od nas.  KrÃ³l Lodu umieÅ›ciÅ‚ na mnie potÄ™Å¼ne czary, wyryte na mojej skorupie, zmuszajÄ…ce mnie do wykonywania jego rozkazÃ³w.^;
-!!IF:Q1/21/126/1^To jest, by na Å¼Ä…danie teleportowaÄ‡ jego samego lub jego sÅ‚ug znajÄ…cych odpowiednie kody do jednego z jego DominiÃ³w.  Ponadto, za kaÅ¼dym razem muszÄ™ oddaÄ‡ czÄ™Å›Ä‡ mojej mocy transportowanym, by mogli wyteleportowaÄ‡ siÄ™ spowrotem na zewnÄ…trz (na krÃ³tki dystans i tylko jednokrotnego uÅ¼ytku).^;
-!!IF:Q1/21/126/1^Jego czary powstrzymujÄ… mnie przed powiedzeniem komukolwiek numerÃ³w DominiÃ³w, ale podczas swojego uwiÄ™zienia myÅ›laÅ‚em nad numerami i wymyÅ›liÅ‚em wskazÃ³wki ktÃ³rych czary nie zabroniÄ… mi wypowiedzieÄ‡. Dam je kaÅ¼demu kto walczy z tyraniÄ… KrÃ³la Lodu!^;
-!!IF:Q1/21/126/1^Na przykÅ‚ad, mogÄ™ Ci powiedzieÄ‡ to:  poniewaÅ¼ Dominium Ognia jest blisko Dominium Bestii, jego numer rÃ³wnieÅ¼ jest blisko numeru Dominium Bestii, i moÅ¼e byÄ‡ przedstawiony we wzorze ktÃ³ry uÅ¼ywa nastÄ™pujÄ…cych liczb: 6 i 25, oraz w podobnym wzorze z uÅ¼yciem liczb: 6, 15 i 20, a takÅ¼e z tymi: 6, 9, 12, 12 i 16.^;
-!!IF:Q1/21/126/1^Ten wzÃ³r to ... aaAA! ... Nie mogÄ™ powiedzieÄ‡, czary mnie powstrzymujÄ…!  Musisz sam go wykombinowaÄ‡.  SprÃ³buj z innymi Dominiami, a podam Ci inne przykÅ‚ady.  WzÃ³r jest zawsze tego samego typu.^;
+!!IF:M^Ogromna, œlimakopodobna istota, b³yszcz¹ca magicznymi runami wysy³a Ci swoje myœli!^;
+!!IF:Q1/21/126/1^Nie krzywdŸ biednego Pytha, nieznajomy! S³u¿ê Królowi Lodu jedynie jako niewolnik i o ile œmieræ uwolni³aby mnie od niego, to naruszenie jego run sprowadzi³oby na Ciebie jego gniew, a on tylko zniewoli³by kolejnego z mojego rodzaju by mnie zast¹piæ!^;
+!!IF:Q1/21/126/1^Moi pobratymcy ¿yj¹ na odleg³ym œwiecie, gdzie, by skompensowaæ nasz¹ powolnoœæ i delikatnoœæ, wyewoluowaliœmy zdolnoœæ teleportowania drapie¿ników daleko od nas.  Król Lodu umieœci³ na mnie potê¿ne czary, wyryte na mojej skorupie, zmuszaj¹ce mnie do wykonywania jego rozkazów.^;
+!!IF:Q1/21/126/1^To jest, by na ¿¹danie teleportowaæ jego samego lub jego s³ug znaj¹cych odpowiednie kody do jednego z jego Dominiów.  Ponadto, za ka¿dym razem muszê oddaæ czêœæ mojej mocy transportowanym, by mogli wyteleportowaæ siê spowrotem na zewn¹trz (na krótki dystans i tylko jednokrotnego u¿ytku).^;
+!!IF:Q1/21/126/1^Jego czary powstrzymuj¹ mnie przed powiedzeniem komukolwiek numerów Dominiów, ale podczas swojego uwiêzienia myœla³em nad numerami i wymyœli³em wskazówki których czary nie zabroni¹ mi wypowiedzieæ. Dam je ka¿demu kto walczy z tyrani¹ Króla Lodu!^;
+!!IF:Q1/21/126/1^Na przyk³ad, mogê Ci powiedzieæ to:  poniewa¿ Dominium Ognia jest blisko Dominium Bestii, jego numer równie¿ jest blisko numeru Dominium Bestii, i mo¿e byæ przedstawiony we wzorze który u¿ywa nastêpuj¹cych liczb: 6 i 25, oraz w podobnym wzorze z u¿yciem liczb: 6, 15 i 20, a tak¿e z tymi: 6, 9, 12, 12 i 16.^;
+!!IF:Q1/21/126/1^Ten wzór to ... aaAA! ... Nie mogê powiedzieæ, czary mnie powstrzymuj¹!  Musisz sam go wykombinowaæ.  Spróbuj z innymi Dominiami, a podam Ci inne przyk³ady.  Wzór jest zawsze tego samego typu.^;
 !!IF:V56/1;
 
 !?OB136/66/0&56; Snail, after first visit
 ; set up radio-button (G1) dialog box: radio-buttons/use v99 for results/initial state
 ; /z# has header/z# has 1st item description/etc.
-!!VRz-1:S^Pyth, Mistrz dostÄ™pnych, zamkniÄ™tych DominiÃ³w, do usÅ‚ug:
-(NiektÃ³re Dominia sa otwarte, inne sÄ… dostÄ™pne jedynie z innych DominiÃ³w.)^;
-!!VRz-2:S^PodwÃ³zka do Dominium^; v99=1 FU88
-!!VRz-3:S^(Szept) WskazÃ³wki do PÅ‚n. DominiÃ³w^; v99=2  FU90
-!!VRz-4:S^(Szept) WskazÃ³wki do PÅ‚d. DominiÃ³w^; v99=4  FU91
+!!VRz-1:S^Pyth, Mistrz dostêpnych, zamkniêtych Dominiów, do us³ug:
+(Niektóre Dominia sa otwarte, inne s¹ dostêpne jedynie z innych Dominiów.)^;
+!!VRz-2:S^Podwózka do Dominium^; v99=1 FU88
+!!VRz-3:S^(Szept) Wskazówki do P³n. Dominiów^; v99=2  FU90
+!!VRz-4:S^(Szept) Wskazówki do P³d. Dominiów^; v99=4  FU91
 !!VRz-5:S^Anuluj^; v99=8
 !!IF:G1/99/1/-1/-2/-3/-4/-5;
 !!FU&v99=8:E;
@@ -37,10 +37,10 @@ ZVSE
 
 !?FU88; Holds
 !!VRz-1:S^Wpisz numer Dominium dwukrotnie, dla weryfikacji.
-(JeÅ›li kodem jest 123--a nie jest--wpisz 123123)^;
+(Jeœli kodem jest 123--a nie jest--wpisz 123123)^;
 !!VRz-2:S^Podaj kod?^;
 !!VRz-3:S^..\Mods\HiddenSpells\Data\Snail.bmp^;
-!!VRz-4:S^Pyth, Åšlimak Teleportacji^;
+!!VRz-4:S^Pyth, Œlimak Teleportacji^;
 !!IF:D42/-1/-2/0/-3/0/0/0/-4/0/0/0/0/0/0/0;
 !!IF:E1/42;
 ; get address of z1
@@ -54,7 +54,7 @@ ZVSE
 !!VRv1:C7069/9297/12435/7498/12242/2634/5392/0/8842/10970;
 !!VRv11:C4509/983/6780/3666/6421/1845/5232/-1;
 !!DO89/1/17/1:Py5;
-!!IF&v18<1:Q1/21/126/1^Przepraszam, to nie jest poprawny kod. Nie mogÄ™ CiÄ™ przetransportowaÄ‡.^;
+!!IF&v18<1:Q1/21/126/1^Przepraszam, to nie jest poprawny kod. Nie mogê Ciê przetransportowaæ.^;
 !!FU&v18<1:E;
 !!VRv1:C13/35/69/122/26/40/54/87/120/3;
 !!VRv11:C37/54/99/120/130/120/55;
@@ -62,7 +62,7 @@ ZVSE
 !!VRv1:C68/20/59/29/45/67/57/68/50/97;
 !!VRv11:C87/88/104/80/98/126/140;
 !!VRy7:Svv18;
-!!IF:Q1/21/126/1^VoilÃ !  PamiÄ™taj, zaklÄ™cie teleportacji ktÃ³re daÅ‚em Ci byÅ› mÃ³gÅ‚ wyjÅ›Ä‡ zadziaÅ‚a tylko raz i tylko w promieniu 3 krokÃ³w, wiÄ™c uÅ¼yj go dobrze!^;
+!!IF:Q1/21/126/1^Voila!  Pamiêtaj, zaklêcie teleportacji które da³em Ci byœ móg³ wyjœæ zadzia³a tylko raz i tylko w promieniu 3 kroków, wiêc u¿yj go dobrze!^;
 !!OBy6/y7/0:T?y8;
 !!VRy6&y8=34:-1; move destination left if the other Hero is on it
 !!HE-1:Py6/y7/0;
@@ -75,16 +75,16 @@ ZVSE
 !!VRx16:S99; end DO
 
 !?FU90; North Holds clues
-!!VRz-1:S^KtÃ³re dostÄ™pne zamkniÄ™te Dominium?
-(NiektÃ³re Dominia sa otwarte, inne sÄ… dostÄ™pne jedynie z innych DominiÃ³w.)^;
-!!VRz2:S^Dominium KlejnotÃ³w^; v98=1
+!!VRz-1:S^Które dostêpne zamkniête Dominium?
+(Niektóre Dominia sa otwarte, inne s¹ dostêpne jedynie z innych Dominiów.)^;
+!!VRz2:S^Dominium Klejnotów^; v98=1
 !!VRz3:S^Dominium Ziemi^; v98=2
-*!VRz4:S^Dominium KuÅºni^; v98=4
+*!VRz4:S^Dominium KuŸni^; v98=4
 !!VRz4:S^^; v98=4
 !!VRz5:S^Dominium Wody^; v98=8
 *!VRz6:S^Dominium Wiedzy^; v98=16
 !!VRz6:S^^; v98=16
-!!VRz7:S^Dominium SiÅ‚y^; v98=32
+!!VRz7:S^Dominium Si³y^; v98=32
 !!VRz8:S^Dominium Ognia^; v98=64
 !!VRz9:S^Anuluj^; v98=128
 !!IF:G1/98/0/-1/2/3/4/5/6/7/8/9;
@@ -98,17 +98,17 @@ ZVSE
 !!FU92&v98=64:P8/6/25/6/15/20;
 
 !?FU91; South Holds clues
-!!VRz-1:S^KtÃ³re dostÄ™pne zamkniÄ™te Dominium?
-(NiektÃ³re Dominia sa otwarte, inne sÄ… dostÄ™pne jedynie z innych DominiÃ³w.)^;
+!!VRz-1:S^Które dostêpne zamkniête Dominium?
+(Niektóre Dominia sa otwarte, inne s¹ dostêpne jedynie z innych Dominiów.)^;
 *!VRz2:S^Dominium Czasu^; v98=1
 !!VRz2:S^^; v98=1
-!!VRz3:S^Dominium PodrÃ³Å¼y^; v98=2
+!!VRz3:S^Dominium Podró¿y^; v98=2
 !!VRz4:S^Dominium Powietrza^; v98=4
 *!VRz5:S^Dominium Fabryki^; v98=8
 !!VRz5:S^^; v98=8
-*!VRz6:S^Dominium KoÅ‚a DuchÃ³w^; v98=16
+*!VRz6:S^Dominium Ko³a Duchów^; v98=16
 !!VRz6:S^^; v98=16
-!!VRz7:S^Dominium PotÄ™gi^; v98=32
+!!VRz7:S^Dominium Potêgi^; v98=32
 !!VRz8:S^Dominium Astrologii^; v98=64
 !!VRz9:S^Dominium Wyroczni^; v98=128
 !!VRz10:S^Anuluj^; v98=256
@@ -125,9 +125,9 @@ ZVSE
 
 !?FU92; x1=z#, x2 & x3 = 1st pair, x4 & x5 & x6 ... = 2nd set
 !!VRz-1:Szx1;
-!!IF&x7=0:M^Numer %Z-1 moÅ¼e byÄ‡ wyraÅ¼ony wzorem ktÃ³ry uÅ¼ywa tych liczb: %X2 i %X3, oraz podobnym wzorem z tymi liczbami: %X4, %X5 i %X6.^;
-!!IF&x7<>0/x8=0:M^Numer %Z-1 moÅ¼e byÄ‡ wyraÅ¼ony wzorem ktÃ³ry uÅ¼ywa tych liczb: %X2 i %X3, oraz podobnym wzorem z tymi liczbami: %X4, %X5, %X6 i %X7.^;
-!!IF&x8<>0:M^Numer %Z-1 moÅ¼e byÄ‡ wyraÅ¼ony wzorem ktÃ³ry uÅ¼ywa tych liczb: %X2 i %X3, oraz podobnym wzorem z tymi liczbami: %X4, %X5, %X6, %X7 i %X8.^;
+!!IF&x7=0:M^Numer %Z-1 mo¿e byæ wyra¿ony wzorem który u¿ywa tych liczb: %X2 i %X3, oraz podobnym wzorem z tymi liczbami: %X4, %X5 i %X6.^;
+!!IF&x7<>0/x8=0:M^Numer %Z-1 mo¿e byæ wyra¿ony wzorem który u¿ywa tych liczb: %X2 i %X3, oraz podobnym wzorem z tymi liczbami: %X4, %X5, %X6 i %X7.^;
+!!IF&x8<>0:M^Numer %Z-1 mo¿e byæ wyra¿ony wzorem który u¿ywa tych liczb: %X2 i %X3, oraz podobnym wzorem z tymi liczbami: %X4, %X5, %X6, %X7 i %X8.^;
 
 !?MG0; Adv Map Spell Cast (pre-cast)
 !!OW:A-1/?v9; get active Hero # (note HE-1 doesn't always work)--JHV

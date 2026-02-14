@@ -6,11 +6,11 @@ ZVSE
 
 !#VRz586:S^Szampion^;
 !#OB34/45/1:SH586;
-!#VRz587:S^PoÅ‚udniowa JabÅ‚oÅ„^;
+!#VRz587:S^Po³udniowa Jab³oñ^;
 !#HT141/249:T587;
 
-!#VRz381:S^ZapalajÄ…cy Smok^;
-!#VRz382:S^ZapalajÄ…ce Smoki^;
+!#VRz381:S^Zapalaj¹cy Smok^;
+!#VRz382:S^Zapalaj¹ce Smoki^;
 !#VRz383:S^Rzuca Kule Ognia.^;
 !#UN:G1/124/0/381 G1/124/1/382 G1/124/2/383;
 !#MA:A26/?y1 D26/?y2 E26/?y3 L26/?y4 M26/?y5 S26/?y6 X26/?y7 F26/?y8 I26/?y9 P26/?y10 X26/?y11;
@@ -37,9 +37,9 @@ ZVSE
 !!UN:Cv6/1/3;
 
 !?OB34/45/1&1000; Fire Apple
-!!IF:Q1^Szampion na PoÅ‚udniowej JabÅ‚oni zachÄ™cajÄ…co pulsuje mocÄ…, lecz silny miÃ³d moÅ¼e byÄ‡ strzeÅ¼ony przez silne pszczoÅ‚y. SprÃ³bujesz go zerwaÄ‡?^;
+!!IF:Q1^Szampion na Po³udniowej Jab³oni zachêcaj¹co pulsuje moc¹, lecz silny miód mo¿e byæ strze¿ony przez silne pszczo³y. Spróbujesz go zerwaæ?^;
 !!FU&-1:E;
-!!IF:Q1/21/124/1^SÅ‚ynne ostatnie sÅ‚owa: Aha!^;
+!!IF:Q1/21/124/1^S³ynne ostatnie s³owa: Aha!^;
 !!IF:V427/1;
 !!HE-1:Tv998/v999/v1000/124/1;
 !!HE-1:O?y1;
@@ -52,7 +52,7 @@ ZVSE
 !!VRy3&y5>127:S127-y1;
 !!HE-1:Fd/d/dy3/d;
 !!DO527/0/6/1:P;
-!!IF:Q1/33/y3/1^Gdy buzia piecze CiÄ™ od gorÄ…cego JabÅ‚ka, Twoja moc roÅ›nie i moc Twojej armii takÅ¼e!^;
+!!IF:Q1/33/y3/1^Gdy buzia piecze Ciê od gor¹cego Jab³ka, Twoja moc roœnie i moc Twojej armii tak¿e!^;
 
 !?FU527; x16=troop slot
 !!HE-1:C0/x16/?y10/?y11;

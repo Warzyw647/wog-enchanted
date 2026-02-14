@@ -214,22 +214,22 @@ ZVSE
 !!VRv2:Cy1/y2/y3/y4/v325/y8; for debugging
 !!if&y4<>0/y1>1120/y1<1230/y2>438/y2<509/60/383/-375; Mouse on left half of Water picture, RMB click
  !!IF:V59/0; disable FU77 Enter-check
- !!IF:M^{Fala Furii} - wyzwala gniew Ruse w postaci fali lodowatej magii, pÅ‚ynÄ…cej po skosie w dÃ³Å‚ przez pole bitwy, z gÃ³ry lub boku do boku lub doÅ‚u.  Wszystkie statystyki jednostek zmytych FalÄ… spadajÄ… o 15%-30% w zaleÅ¼noÅ›ci od Twojego poziomu Magii Wody.  Kliknij w pole z ktÃ³rego chcesz wystartowaÄ‡ prawy koniec fali (musi byÄ‡ na brzegu pola bitwy).  Dla atakujÄ…cych, Fala spÅ‚ywa w dÃ³Å‚ i w prawo, a dla broniÄ…cych siÄ™ w dÃ³Å‚ i w lewo. Kosztuje 20 Many. MoÅ¼e byÄ‡ rzucona tylko raz na turÄ™ bitwy.^;
+ !!IF:M^{Fala Furii} - wyzwala gniew Ruse w postaci fali lodowatej magii, p³yn¹cej po skosie w dó³ przez pole bitwy, z góry lub boku do boku lub do³u.  Wszystkie statystyki jednostek zmytych Fal¹ spadaj¹ o 15%-30% w zale¿noœci od Twojego poziomu Magii Wody.  Kliknij w pole z którego chcesz wystartowaæ prawy koniec fali (musi byæ na brzegu pola bitwy).  Dla atakuj¹cych, Fala sp³ywa w dó³ i w prawo, a dla broni¹cych siê w dó³ i w lewo. Kosztuje 20 Many. Mo¿e byæ rzucona tylko raz na turê bitwy.^;
  !!IF:V59/1;
 !!en;
 !!if&y4<>0/y1>1120/y1<1230/y2>438/y2<509/63/381/-373; Mouse on left half of Air picture, RMB click
  !!IF:V59/0; disable FU77 Enter-check
- !!IF:M^{Oko Cyklonu} - wyzwala gniew Serca w postaci wiru burzowej magii dookoÅ‚a wskazanego punktu.  Wszystkie oddziaÅ‚y nad ktÃ³rymi powieje Cyklon zostajÄ… zdmuchniÄ™te na zewnÄ…trz i tracÄ… 10%-25% swojej liczebnoÅ›ci w zaleÅ¼noÅ›ci od Twojego poziomu Magii Powietrza.  JeÅ›li przeszkody lub inne oddziaÅ‚y uniemoÅ¼liwiajÄ… ruch, obraÅ¼enia sÄ… zwiÄ™kszone o 10 punktÃ³w procentowych.  TracÄ… takÅ¼e 1-4 SzybkoÅ›ci (minimalnie do 2). Kliknij w miejsce w ktÃ³rym chcesz ustawiÄ‡ Oko Cyklonu (oddziaÅ‚ w tym miejscu bÄ™dzie bezpieczny). Kosztuje 20 Many. MoÅ¼e byÄ‡ rzucone tylko raz na turÄ™ bitwy.^;
+ !!IF:M^{Oko Cyklonu} - wyzwala gniew Serca w postaci wiru burzowej magii dooko³a wskazanego punktu.  Wszystkie oddzia³y nad którymi powieje Cyklon zostaj¹ zdmuchniête na zewn¹trz i trac¹ 10%-25% swojej liczebnoœci w zale¿noœci od Twojego poziomu Magii Powietrza.  Jeœli przeszkody lub inne oddzia³y uniemo¿liwiaj¹ ruch, obra¿enia s¹ zwiêkszone o 10 punktów procentowych.  Trac¹ tak¿e 1-4 Szybkoœci (minimalnie do 2). Kliknij w miejsce w którym chcesz ustawiæ Oko Cyklonu (oddzia³ w tym miejscu bêdzie bezpieczny). Kosztuje 20 Many. Mo¿e byæ rzucone tylko raz na turê bitwy.^;
  !!IF:V59/1;
 !!en;
 !!if&y4<>0/y1>1120/y1<1230/y2>438/y2<509/65/382/-374; Mouse on left half of Fire picture, RMB click
  !!IF:V59/0; disable FU77 Enter-check
- !!IF:M^{ÅÄ…cze Ognia} - wyzwala gniew Thyra w postaci kuli ognistej magii w wybranego przeciwnika.  Po uderzeniu w cel, odbija siÄ™ w nastÄ™pny i w kolejny, podobnie jak standardowe ÅÄ…cze PiorunÃ³w. EfektywnoÅ›Ä‡ czaru zaleÅ¼y od Twojego poziomu Magii Ognia i Mocy.  Kosztuje 20 Many. MoÅ¼e byÄ‡ rzucone tylko raz na turÄ™ bitwy.^;
+ !!IF:M^{£¹cze Ognia} - wyzwala gniew Thyra w postaci kuli ognistej magii w wybranego przeciwnika.  Po uderzeniu w cel, odbija siê w nastêpny i w kolejny, podobnie jak standardowe £¹cze Piorunów. Efektywnoœæ czaru zale¿y od Twojego poziomu Magii Ognia i Mocy.  Kosztuje 20 Many. Mo¿e byæ rzucone tylko raz na turê bitwy.^;
  !!IF:V59/1;
 !!en;
 !!if&y4<>0/y1>1120/y1<1230/y2>438/y2<509/68/384/-376; Mouse on left half of Earth picture, RMB click
  !!IF:V59/0; disable FU77 Enter-check
- !!IF:M^{Zagajnik PuszczowcÃ³w} - wyzwala gniew Drisa w postaci zasadzenia zagajnika PuszczowcÃ³w dookoÅ‚a wskazanego miejsca.  Puszczowcy mogÄ… strzec sojusznika lub wiÄ…zaÄ‡ przeciwnika w miejscu (dopÃ³ki stojÄ…).  Na kaÅ¼dym wolnym polu dookoÅ‚a celu pojawi siÄ™ Moc/6 PuszczowcÃ³w, plus 1 za kaÅ¼dy poziom Magii Ziemi. Kosztuje 20 Many. MoÅ¼e byÄ‡ rzucony tylko raz na turÄ™ bitwy.^;
+ !!IF:M^{Zagajnik Puszczowców} - wyzwala gniew Drisa w postaci zasadzenia zagajnika Puszczowców dooko³a wskazanego miejsca.  Puszczowcy mog¹ strzec sojusznika lub wi¹zaæ przeciwnika w miejscu (dopóki stoj¹).  Na ka¿dym wolnym polu dooko³a celu pojawi siê Moc/6 Puszczowców, plus 1 za ka¿dy poziom Magii Ziemi. Kosztuje 20 Many. Mo¿e byæ rzucony tylko raz na turê bitwy.^;
  !!IF:V59/1;
 !!en;
 !!if&y3=0; get hint just before LMB click if poss.
@@ -253,7 +253,7 @@ ZVSE
  !!SN:Q; exit
 !!el; LMB clicked, check last hint in z10
  !!VRz-1:S^Exit^;
- !!VRz-7:S^WyjÅ›cie^;
+ !!VRz-7:S^Wyjœcie^;
  !!VRz-8:S^Wyjscie^;
  !!if|z10=z-1/z10=z-7/z10=z-8;
   !!UN:C5168326/4/434630; turn off TL triggers
@@ -359,7 +359,7 @@ ZVSE
  !!if|z10=z-5/z10=z-7; click on All tab
   !!IF:V60/0 V61/0 V63/0 V65/0 V68/0;
  !!en;
- !!VRz-7:S^NastÄ™pna strona^;
+ !!VRz-7:S^Nastêpna strona^;
  !!VRz-8:S^Nastepna strona^;
  !!if|z10=z-6/z10=z-7/z10=z-8; click on Next Page tab
   !!IF:V60/0 V61/0 V63/0 V65/0 /V68/0;
@@ -523,7 +523,7 @@ ZVSE
 ; For RHS Hero clicked hex is for RHS of wave and must be along top or RHS of BF
 !!FU&y4=1/j<>0/i<>16:E;
 !!UN:R5/4/88; show Tome of Water
-!!VRz8:S^kliknij by wypuÅ›ciÄ‡ {FalÄ™} stÄ…d.^;
+!!VRz8:S^kliknij by wypuœciæ {Falê} st¹d.^;
 !!MM:Mz8;
 
 ; test Eye of the Whirlwind, JHV, Aug. 23, 2012
@@ -647,7 +647,7 @@ ZVSE
 !!UN:R5/2/0; cancel
 !!FU|i<1/i>15:E;
 !!UN:R5/4/87; show Tome of Air
-!!VRz8:S^Kliknij by umieÅ›ciÄ‡ oko {Cyklonu} tutaj.^;
+!!VRz8:S^Kliknij by umieœciæ oko {Cyklonu} tutaj.^;
 !!MM:Mz8;
 
 !?MM0&66; Chain Fire
@@ -661,7 +661,7 @@ ZVSE
 !!FU&y1=y5:E;
 !!VRi:Sy3%17; i, horizontal, 0-->16
 !!UN:R5/4/86; show Tome of Fire
-!!VRz8:S^Kliknij by rzuciÄ‡ {ÅÄ…cze Ognia} tutaj.^;
+!!VRz8:S^Kliknij by rzuciæ {£¹cze Ognia} tutaj.^;
 !!MM:Mz8;
 !!IF:V67/1;
 
@@ -686,7 +686,7 @@ ZVSE
 !!MM:D?y3; hex
 !!FU|y3<1/y3>185:E; exit if not on valid hex
 !!UN:R5/4/89; show Tome of Earth
-!!VRz8:S^Kliknij by zasadziÄ‡ {Zagajnik PuszczowcÃ³w} tutaj.^;
+!!VRz8:S^Kliknij by zasadziæ {Zagajnik Puszczowców} tutaj.^;
 !!MM:Mz8;
 !!IF:V70/1;
 

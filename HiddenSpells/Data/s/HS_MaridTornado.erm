@@ -6,24 +6,24 @@ ZVSE
 ; uses z566-z569, z589-z593, FU176, FU66, v77 from Settings
 ; implements Blue Pearl & Black Pearl (labels in Setup) for use as bonuses
 
-!#VRz566:S^Czarna PerÅ‚a^;
+!#VRz566:S^Czarna Per³a^;
 !#VRz567:S^{%Z566}
 
-Czarna Kulka, tylko jeszcze daje +2 do statÃ³w.^;
+Czarna Kulka, tylko jeszcze daje +2 do statów.^;
 !#UN:A93/9/566 A93/10/567;
-!#VRz568:S^Niebieska PerÅ‚a^;
+!#VRz568:S^Niebieska Per³a^;
 !#VRz569:S^{%Z568}
 
-Mocno kopie (prÄ…dem) i dodaje +1 do statystyk.^;
+Mocno kopie (pr¹dem) i dodaje +1 do statystyk.^;
 !#UN:A79/9/568 A79/10/569;
 
-!#VRz589:S^Tornado MirydÃ³w^;
+!#VRz589:S^Tornado Mirydów^;
 !#HT16/1:P0/589; (Dwarven Tres.->GrnVortM.def)
 !#VRz590:S^%Z589 (puste)^;
 !#HT16/1:P1/590;
 !#VRz591:S^Miryd^;
 !#VRz592:S^Mirydy^;
-!#VRz593:S^Arcy-DÅ¼iny. 9 czarÃ³w. Menu pod PPM Obrona. DomyÅ›lnie prÄ…d^;
+!#VRz593:S^Arcy-D¿iny. 9 czarów. Menu pod PPM Obrona. Domyœlnie pr¹d^;
 !#UN:G1/182/0/591 G1/182/1/592 G1/182/2/593;
 ; make Marid (Astral Spirit, 182) cast offensive or defensive spell
 !#UN:C7961145/1/8;
@@ -69,11 +69,11 @@ Mocno kopie (prÄ…dem) i dodaje +1 do statystyk.^;
 !!FU|y1<0/y2<>182:E;
 !!CM:R0; disable standard click action
 !!VRz-1:S^Wybierz typ ataku^;
-!!VRz-2:S^WrÄ™cz^; v10=1
-!!VRz-3:S^StrzaÅ‚^; v10=2
+!!VRz-2:S^Wrêcz^; v10=1
+!!VRz-3:S^Strza³^; v10=2
 !!VRz-4:S^Piorun Tytana^; v10=4
 !!VRz-5:S^Meteor^; v10=8
-!!VRz-6:S^ÅÄ…cze PiorunÃ³w^; v10=16
+!!VRz-6:S^£¹cze Piorunów^; v10=16
 !!IF:G1/10/2/-1/-2/-3/-4/-5/-6;
 !!if&v10=1:;
 !!BMy1:F?y2; get "X" flag bits
@@ -118,7 +118,7 @@ Mocno kopie (prÄ…dem) i dodaje +1 do statystyk.^;
 !!IF&y1>0:M^Tornado jest puste.^;
 !!OB998&y1>0:M-1/1/0; eliminate next message (there must be a std message)
 !!FU&y1>0:E;
-!!IF:Q1^Czy chciaÅ‚byÅ› zwyzywaÄ‡ Tornado?^;
+!!IF:Q1^Czy chcia³byœ zwyzywaæ Tornado?^;
 !!OB998&-1:S; disable (w/be no std message)
 !!FU&-1:E;
 !!VRy1:Sv77%23%17+12; instead of S12 T16 take next random number from the sequence, modulo 17, add 12. Okay, maybe not 17, because 647 = 1 mod 17. Take mod 23 first. Lower end more likely, but that's okay.

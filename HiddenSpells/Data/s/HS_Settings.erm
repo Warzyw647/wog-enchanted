@@ -127,7 +127,7 @@ ZVSE
 *!IF:V49/1;
 
 ; Leora--> Cr 128
-!#VRz350:S^Halyna, Bogini ≈ªycia^;
+!#VRz350:S^Halyna, Bogini Øycia^;
 !#UN:G1/128/1/350;
 *; Soldiers and Mages
 !#VRz351:S^Wojownik^;
@@ -154,17 +154,17 @@ ZVSE
 !#VRz358:S^Jalery Wysoki Czarodziej^;
 !#UN:G1/136/0/358;
 !#UN:G1/136/1/358;
-!#VRz359:S^Stra≈ºnik Lodu^;
-!#VRz360:S^Stra≈ºnicy Lodu^;
+!#VRz359:S^Straønik Lodu^;
+!#VRz360:S^Straønicy Lodu^;
 !#UN:G1/40/0/359 G1/40/1/360;
 !#EA40:B12/1/119/87/1/1/1/1/1/1/1/1/1/1/1; Immune to Hostile Water
-!#VRz361:S^Stra≈ºnik Lodu Waniliowego^;
-!#VRz362:S^Stra≈ºnicy Lodu Waniliowego^;
+!#VRz361:S^Straønik Lodu Waniliowego^;
+!#VRz362:S^Straønicy Lodu Waniliowego^;
 !#UN:G1/41/0/361 G1/41/1/362;
 !#EA41:B9/1/119/87/1/1/1/1/1/1/1/1/1/1/1; Immune to Hostile Water
 !#EA41:B12/1/102/114/1/1/1/1/1/1/1/1/1/1/1; Rebirth
 !#EA41:B13/1/80/43/0/0/0/0/1/1/1/1/2/2/3; add castings
-!#VRz363:S^Kr√≥l Lodu^;
+!#VRz363:S^KrÛl Lodu^;
 !#UN:G1/152/0/363 G1/152/1/363;
 !#EA152:B8/1/119/87/1/1/1/1/1/1/1/1/1/1/1; Immune to Hostile Water
 !#EA152:B12/1/102/114/1/1/1/1/1/1/1/1/1/1/1; Rebirth
@@ -174,7 +174,7 @@ ZVSE
 !#MA:B152/1; Ice King gets 1 rebirth cast plus creature experience bonus. 24 default casts can be confusing for players.
 !#VRz364:S^Zimny Kierownik^;
 !#VRz365:S^Zimni Kierownicy^;
-!#VRz366:S^Motywuje. Liczy poleg≈Çych Stra≈ºnik√≥w.^;
+!#VRz366:S^Motywuje. Liczy poleg≥ych StraønikÛw.^;
 !#UN:G1/51/0/364 G1/51/1/365 G1/51/2/366;
 !#EA51:B10/1/80/43/1/1/1/1/2/2/2/2/3/3/3; add castings
 !#UN:C5928811/1/64;  [5A776B] 0xFea (works in Era 2) make Ice Bosses resurrect Liches

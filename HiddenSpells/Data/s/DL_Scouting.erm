@@ -6,15 +6,15 @@ ZVSE
 
 ; uses z273-z276, universal Timer 1, FU97
 
-!#VRz276:S^{PodglÄ…dactwo}^;     [Set yellow skill name]
+!#VRz276:S^{Podgl¹dactwo}^;     [Set yellow skill name]
 
-!#VRz273:S^{Podst.} {PodglÄ…dactwo}
+!#VRz273:S^{Podst.} {Podgl¹dactwo}
 
 Okulary +1 i +10% ruchu.^;
-!#VRz274:S^{Zaawans.} {PodglÄ…dactwo}
+!#VRz274:S^{Zaawans.} {Podgl¹dactwo}
 
 Okulary +2 i +20% ruchu.^;
-!#VRz275:S^{Expert} {PodglÄ…dactwo}
+!#VRz275:S^{Expert} {Podgl¹dactwo}
 
 Okulary +3 i +30% ruchu.^;
 !#UN:G0/3/0/276;     [Set yellow skill name for Scouting]

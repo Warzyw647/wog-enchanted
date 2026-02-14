@@ -3,7 +3,7 @@ ZVSE
 * TestLoTcastIceRain, JHV, Oct. 20, 2012
 *uses v1-v26 temporarily in battles, z500
 
-!#VRz500:S^Guma MiÄ™towa^;
+!#VRz500:S^Guma Miêtowa^;
 !#SS22:A500 N500; change "Inferno" to "Ice Blast"
 !#SS22:S4; change Inferno/Ice Blast Magic to Water (Fire=2)
 !#SN:L^Era.dll^/?y1; y1=handle

@@ -10,9 +10,9 @@ ZVSE
  [Set singular or plural of bar(s)]
 !!VRy3:Sy2%10;
 !!VRy4:Sy2%100:10;
-!!VRz-1:S^bÅ‚yszczÄ…cych sztabek.^;
-!!VRz-1&y3>1/y3<5/y4<>1:S^bÅ‚yszczÄ…ce sztabki.^;
-!!VRz-1&y2=1:S^bÅ‚yszczÄ…ca sztabka.^;
+!!VRz-1:S^b³yszcz¹cych sztabek.^;
+!!VRz-1&y3>1/y3<5/y4<>1:S^b³yszcz¹ce sztabki.^;
+!!VRz-1&y2=1:S^b³yszcz¹ca sztabka.^;
 
  [Display current player's Mithril amount in a text box]
 !!IF&y1=3:Q1/7/y2/1^{Mithril}
@@ -32,14 +32,14 @@ ZVSE
 !!VRy2:+y1; [Add new Mithril to previous Mithril - store in y2]
 
  [Set up strings for use, depending on number of bars picked up (one or several)]
-!!VRz2&y2=1:S^bÅ‚yszczÄ…cÄ… sztabkÄ™^;
-!!VRz2&y2>1:S^bÅ‚yszczÄ…cych sztabek^;
-!!VRz2&y2>1/y3>1/y3<5/y4<>1:S^bÅ‚yszczÄ…ce sztabki^;
+!!VRz2&y2=1:S^b³yszcz¹c¹ sztabkê^;
+!!VRz2&y2>1:S^b³yszcz¹cych sztabek^;
+!!VRz2&y2>1/y3>1/y3<5/y4<>1:S^b³yszcz¹ce sztabki^;
 !!VRy3:Sy1%10;
 !!VRy4:Sy1%100:10;
-!!VRz3&y1=1:S^bÅ‚yszczÄ…cÄ… sztabkÄ™^;
-!!VRz3&y1>1:S^bÅ‚yszczÄ…cych sztabek^;
-!!VRz3&y1>1/y3>1/y3<5/y4<>1:S^bÅ‚yszczÄ…ce sztabki^;
+!!VRz3&y1=1:S^b³yszcz¹c¹ sztabkê^;
+!!VRz3&y1>1:S^b³yszcz¹cych sztabek^;
+!!VRz3&y1>1/y3>1/y3<5/y4<>1:S^b³yszcz¹ce sztabki^;
 !!VRz4:S^%Y1^;
 !!VRz4&y1=1:S^a^;
 
@@ -50,5 +50,5 @@ ZVSE
 
 {Masz teraz w sumie %Y2 %Z2 Mithrilu.}
 
-(Aby sprawdziÄ‡ ile masz Mithrilu, kliknij PPM na przycisk PrzeglÄ…du KrÃ³lestwa.)^;
+(Aby sprawdziæ ile masz Mithrilu, kliknij PPM na przycisk Przegl¹du Królestwa.)^;
 

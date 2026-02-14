@@ -27,6 +27,6 @@ ZVSE
 !!IF:V416/1;
 !!VRz2:S^Mods/HiddenSpells/Data/Interrup.wav^;
 !!SN:Ev34/1/z2; call PlayOnce
-!!IF:M^{Uwaga, uwaga!} {PosÅ‚uchajcie} {OgÅ‚oszenia} {Jego} {MroÅºnoÅ›ci} {KrÃ³la} {Lodu!}^;
-!!IF:M^Doniesiono mi Å¼e siÄ™ obijacie miast strzec mych DominiÃ³w! PrzyzwaÅ‚em wiÄ™c motywatorÃ³w by wybatoÅ¼yli wam gÅ‚upoty ze Å‚bÃ³w. Motywatorzy majÄ… teÅ¼ pozwolenie by sprowadzaÄ‡ wasze duchy spowrotem z Valhalli gdybyÅ›cie siÄ™ wywalili, choÄ‡ w nieco zmienionych formach!^;
+!!IF:M^{Uwaga, uwaga!} {Pos³uchajcie} {Og³oszenia} {Jego} {MroŸnoœci} {Króla} {Lodu!}^;
+!!IF:M^Doniesiono mi ¿e siê obijacie miast strzec mych Dominiów! Przyzwa³em wiêc motywatorów by wybato¿yli wam g³upoty ze ³bów. Motywatorzy maj¹ te¿ pozwolenie by sprowadzaæ wasze duchy spowrotem z Valhalli gdybyœcie siê wywalili, choæ w nieco zmienionych formach!^;
 
