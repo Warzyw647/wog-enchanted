@@ -148,10 +148,10 @@ ZVSE
 !#VRv7104:&-5 &-3 |16 |32768; remove shoot, remove fly, add alive, add attack twice
 !#MA:A174/12 D174/14 E174/12 M174/8 P174/50 S174/7 X174/v7104;
 *; Warrior and Mage/Enchanter at Day 2
-!#VRz357:S^Vames Elitarny Wojownik^;
+!#VRz357:S^Vames, Elitarny Wojownik^;
 !#UN:G1/174/0/357;
 !#UN:G1/174/1/357;
-!#VRz358:S^Jalery Wysoki Czarodziej^;
+!#VRz358:S^Jalery, Wysoki Czarodziej^;
 !#UN:G1/136/0/358;
 !#UN:G1/136/1/358;
 !#VRz359:S^Stra¿nik Lodu^;

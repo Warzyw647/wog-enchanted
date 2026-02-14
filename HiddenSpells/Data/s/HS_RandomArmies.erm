@@ -160,18 +160,18 @@ ZVSE
 !!DO306/0/6/1:Pv6015; fill attacker's troop slots
 !!OB72/73/1:T?y8; chk for blocking Hero
 !!if&y8=34; another Hero blocking
-  !!IF:M^Czerwononosy Wojownik arogancko oznajmia, "Stoisz mi na drodze! Wo³am {DerWollschweina} by zaj¹l sie tym robakiem!^;
+  !!IF:M^Czerwononosy Wojownik arogancko oznajmia, "Stoisz mi na drodze! Wo³am {Derwolla} by zaj¹l sie tym robakiem!^;
   !!HE72/73/1:B0/?z7; name
-  !!IF:M^Z³apany przez Czerwonomagiczn¹ œwiniê DerWollschweina w otwartym terenie, poza zbawczymi murami Zielonej Góry, bohater %Z7 zostaje zmieciony z powierzchni ziemi!^;
+  !!IF:M^Z³apany przez Czerwonomagiczn¹ œwiniê Derwolla w otwartym terenie, poza zbawczymi murami Zielonej Góry, bohater %Z7 zostaje zmieciony z powierzchni ziemi!^;
   !!VRz8:S^Mods/HiddenSpells/Data/MEDUKILL.WAV^;
   !!SN:Ev34/1/z8;
   !!HE72/73/1:K;
 !!en;
 !!CA72/72/1:H0/?y6 H1/?y7; 0/garrison, 1/visiting
 !!if&y7>-1/y6>-1; another Hero blocking
-  !!IF:M^Czerwononosy Wojownik arogancko oznajmia, "Stoisz mi na drodze! Wo³am {DerWollschweina} by zaj¹l sie tym robakiem!^;
+  !!IF:M^Czerwononosy Wojownik arogancko oznajmia, "Stoisz mi na drodze! Wo³am {Derwolla} by zaj¹l sie tym robakiem!^;
   !!HEy7:B0/?z7; name
-  !!IF:M^Z³apany przez Czerwonomagiczn¹ œwiniê DerWollschweina w otwartym terenie, poza zbawczymi murami Zielonej Góry, bohater %Z7 zostaje zmieciony z powierzchni ziemi!^;
+  !!IF:M^Z³apany przez Czerwonomagiczn¹ œwiniê Derwolla w otwartym terenie, poza zbawczymi murami Zielonej Góry, bohater %Z7 zostaje zmieciony z powierzchni ziemi!^;
   !!VRz8:S^Mods/HiddenSpells/Data/MEDUKILL.WAV^;
   !!SN:Ev34/1/z8;
   !!HEy7:K;
