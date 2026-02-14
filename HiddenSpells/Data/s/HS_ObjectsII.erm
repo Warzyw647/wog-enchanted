@@ -785,7 +785,7 @@ umieść Oko i pozwól Cyklonowi zawirować wokół niego.^;
 !!SN:Ev34/1/z2; call PlayOnce
 !!VRz10:S^Pół-bogini Życia przychodzi do mojej Świątyni szukać mego wsparcia?
 Tak jak Ogień daje Życiu energię, udzielę go.
-Niechaj Laska Ognia zostanie wykuta na nowo! Z nią, podczas bitwy
+Niechaj Ognista Laska zostanie wykuta na nowo! Z nią, podczas bitwy
 możesz ciskać Łącze Ognia na swych wrogów!^;
 !!VRz12:S^Thyr - Starszy Bóg Ognia^;
 !!VRz13:S^..\Mods\HiddenSpells\Data\Thyr.gif^;
@@ -793,7 +793,7 @@ możesz ciskać Łącze Ognia na swych wrogów!^;
 !!IF:F40/0/0/0/0/0;
 !!IF&-374:E99/40;
 !!IF:V374/1;
-!!VRz10:S^By wykuć Laskę Ognia, zanieś 20 Mithrilu oraz
+!!VRz10:S^By wykuć Ognistą Laskę, zanieś 20 Mithrilu oraz
 Krwistodrzew do Mistrza Kowalskiego. Póki świeci z gorąca
 kuźni, schłódź ją Czerwoną Miksturą w Kociołku Magii!
 Nie zapomnij zabrać worka przypraw dla Kowala!^;
@@ -802,7 +802,7 @@ Nie zapomnij zabrać worka przypraw dla Kowala!^;
 !!IF:D40/z10/0/z12/z13 ;
 !!IF:F40/0/0/0/0/0;
 !!IF:E99/40;
-!!VRz10:S^By rzucić Łące Ognia, kliknij na moją ognistą grzywę
+!!VRz10:S^By rzucić Łącze Ognia, kliknij na moją ognistą grzywę
 w Księdze Czarów. Czar jest ukryty, ale będziesz wiedzieć
 że go znalazłaś gdy usłyszysz następujący dźwięk.
 (PPM informacja, LPM rzucanie.) Po rzuceniu
