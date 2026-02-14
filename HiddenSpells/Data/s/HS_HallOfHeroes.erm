@@ -22,25 +22,25 @@ ZVSE
 !#VRz534:S^../Hall/H176.gif^;
 !#VRz535:S^../Hall/H171.gif^;
 
-!#VRz539:S^Hall of Heroes^;
+!#VRz539:S^Sala Bohaterów^;
 !#OB35/125/0:SH539;
 
-!#VRz540:S^Ancient Female Samurai Warrior (2 words)^;
-!#VRz541:S^British Navy Vice Admiral (2 words)^;
-!#VRz542:S^USA Basketball Champion (2 words)^;
-!#VRz543:S^Viking Explorer (3 words __ the __)^;
-!#VRz544:S^Mongolian Conquerer (2 words)^;
-!#VRz545:S^Roman Bridge Defender (2 words)^;
-!#VRz546:S^Spartan King and Warrior (1 word)^;
-!#VRz547:S^Russian Cosmonaut (2 words)^;
-!#VRz548:S^Muslim Leader Against the Crusades (1 word)^;
-!#VRz549:S^Zulu War Leader (2 words)^;
-!#VRz550:S^Ancient Chinese General (2 words)^;
-!#VRz551:S^Female French War Leader (3 words __ of __)^;
-!#VRz552:S^USA General and President (2 words)^;
-!#VRz553:S^Hindu Warrior Prince, Great Bowman (1 word)^;
-!#VRz554:S^India Leader (1 word)^;
-!#VRz555:S^Serbian NBA Player (2 words)^;
+!#VRz540:S^Staro¿ytna Samurajska Wojownczka (2 s³owa)^;
+!#VRz541:S^Wiceadmira³ Brytyjskiej Floty (2 s³owa)^;
+!#VRz542:S^USAñski Mistrz Koszykówki (2 s³owa)^;
+!#VRz543:S^Wikiñski Odkrywca (2 s³owa)^;
+!#VRz544:S^Mongolski Zdobywca (2 s³owa z kresk¹ __-__)^;
+!#VRz545:S^Rzymski Obroñca Mostu (2 s³owa)^;
+!#VRz546:S^Spartañski Król i Wojownik (1 s³owo)^;
+!#VRz547:S^Radziecki Kosmonauta (2 s³owa)^;
+!#VRz548:S^Muz³umañski Przywódca walcz¹cy w Krucjatach (1 s³owo)^;
+!#VRz549:S^Zuluski Przywódca Wojenny (2 s³owa)^;
+!#VRz550:S^Staro¿ytny Chiñski Genera³ (2 s³owa)^;
+!#VRz551:S^Francuska Bohaterka Wojenna (2 s³owa __ __)^;
+!#VRz552:S^USAñski Genera³ i Prezydent (2 s³owa)^;
+!#VRz553:S^Hinduski Ksi¹¿ê Wojownik, Œwietny £ucznik (1 s³owo)^;
+!#VRz554:S^Indyjski Przywódca (1 s³owo)^;
+!#VRz555:S^Serbski gracz NBA (2 s³owa)^;
 
 !#SN:M4; delete slot 4
 !#SN:M4/16/0/1; create Era data slot #4, 16 values, numbers not strings, save data in Saved Game
@@ -52,16 +52,16 @@ ZVSE
 !#SN:M5/0/971042960;
 !#SN:M5/1/1165054582;
 !#SN:M5/2/-509009604;
-!#SN:M5/3/-1035362432;
-!#SN:M5/4/-1382700452;
-!#SN:M5/5/-499026894;
+!#SN:M5/3/433804217;
+!#SN:M5/4/-608181604;
+!#SN:M5/5/1921515250;
 !#SN:M5/6/1337062070;
-!#SN:M5/7/1228370664;
-!#SN:M5/8/-712020228;
-!#SN:M5/9/-282391403;
+!#SN:M5/7/916307304;
+!#SN:M5/8/1347417308;
+!#SN:M5/9/1706007183;
 !#SN:M5/10/-1850396385;
-!#SN:M5/11/787067791;
-!#SN:M5/12/1186357632;
+!#SN:M5/11/883285607;
+!#SN:M5/12/2023135232;
 !#SN:M5/13/-237781063;
 !#SN:M5/14/-1760917327;
 !#SN:M5/15/1714808468;
@@ -69,12 +69,12 @@ ZVSE
 
 !?OB35/125/0; HoH
 !!PO998:V0/?y1; last day used (L0)
-!!IF&v2392=y1:M^{Hall of Heroes}
+!!IF&v2392=y1:M^{Sala Bohaterów}
 
-The Hall is closed for the rest of the day.^; L1
+Sala jest zamkniêta do koñca dnia.^; L1
 !!FU&v2392=y1:E; L2
-!!IF:Q1^{Hall of Heroes}
-This device was looted during the ransack of Greenholme, and brought here where only the Ice King and his servants can enjoy its game. Would you like to try?^;
+!!IF:Q1^{Sala Bohaterów}
+Urz¹dzenie zosta³o z³upione podczas pl¹drowania Gorzowa Wielkopolskiego i przywleczone tutaj ku uciesze Króla Lodu i jego s³ug. Chcesz wejœæ?^;
 !!FU&-1:E; L4
 !!PO998:N?y1; L5
 !!VRy2:S0 Ry1; pick #, 0-y1 (L6)
@@ -83,8 +83,8 @@ This device was looted during the ransack of Greenholme, and brought here where 
 !!SN:M5/y4/?y5; answer code #  (L9)
 !!VRy6:Sy4+520; gif z-#  (L10)
 !!VRy7:Sy4+540; clue z-# (L11)
-!!VRz-1:S^Type the name of the Hero shown below, using
-only lower-case letters (example: john smith).^; L12
+!!VRz-1:S^Wpisz imiê Bohatera poni¿ej, bez Polskich znaków
+i wielkich liter (przyk³ad: tadeusz kosciuszko).^; L12
 !!VRz-2:S^Who is it?^; L13
 !!VRz-3:Szy6; L14
 !!VRz-4:Szy7; L14
@@ -97,7 +97,7 @@ only lower-case letters (example: john smith).^; L12
 !!DO12930/v2/v3/1:P1/?v4;
 !!VRz5:S^FORGET.WAV^;
 !!SN&v4<>y5:Pz5;
-!!IF&v4<>y5:Q1^That answer is not acceptable. Do you want to try again?^;
+!!IF&v4<>y5:Q1^To nie jest akceptowalna odpowiedŸ. Chcesz spróbowaæ ponownie?^;
 !!SN&v4<>y5/1:G17;
 !!if&v4=y5:;
 !!VRz5:S^BUILDTWN.WAV^;
@@ -106,7 +106,7 @@ only lower-case letters (example: john smith).^; L12
 !!VRy8&y8=2:S6; ore->gold
 !!VRy9:S10;
 !!VRy9&y8=6:S5000;
-!!IF:Q1/y8/y9/1^Congratulations! You have won a prize!^;
+!!IF:Q1/y8/y9/1^Gratulacje! Wygrywasz nagrodê!^;
 !!OW:R-1/y8/dy9;
 !!UN:R2;
 !!en:;

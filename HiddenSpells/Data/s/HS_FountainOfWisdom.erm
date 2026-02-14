@@ -16,7 +16,7 @@ ZVSE
 !#VRz578:S^../Fount/MudWisdm.gif^;
 !#VRz579:S^../Fount/FtnWisdm.gif^; Lao Tse-Tung
 
-!#VRz562:S^Fountain of Wisdom^;
+!#VRz562:S^Fontanna M¹droœci^;
 !#OB109/28/0:SH562;
 
 !#SN:M6; delete slot 6
@@ -30,37 +30,38 @@ ZVSE
 
 !?OB109/28/0; FoW
 !!PO998:V0/?y1; last day used (L0)
-!!IF&v2392=y1:M^{Fountain of Wisdom}
+!!IF&v2392=y1:M^{Fontanna M¹droœci}
 
-The Fountain is closed for the rest of the day. Meditate on what you have learned.^; L1
+Fontanna jest zamkniêta do koñca dnia. Rozwa¿ to czego siê nauczy³eœ.^; L1
 !!FU&v2392=y1:E; L2
 !!PO998:V1/d1 V1/?y20; Q#, 1-3 (L3)
-!!IF&y20>3:M^{Fountain of Wisdom}
-NOTICE: unauthorized use of this device has been detected, so it is shut down by order of the Ice King!^; L4
+!!IF&y20>3:M^{Fontanna M¹droœci}
+UWAGA: nieuprawnione u¿ycie tego urz¹dzenia zosta³o wykryte, wiêc jego dzia³anie zosta³o zamro¿one na rozkaz Króla Lodu!^; L4
 !!FU&y20>3:E; L5
-!!IF:Q1^{Fountain of Wisdom}
-This device was looted during the ransack of Ocean City, and brought here where only the Ice King and his servants can benefit from its teachings. Would you like to try?^;
+!!IF:Q1^{Fontanna M¹droœci}
+To urz¹dzenie zosta³o z³upione podczas pl¹drowania Miasta Oceanicznego i przyniesione tutaj gdzie Król Lodu i jego s³udzy mog¹ korzystaæ z jego nauk. Chcesz spróbowaæ?^;
 !!FU&-1:E; L7
 !!PO998:N?y1; L8
 !!VRy2:S0 Ry1; pick #, 0-y1 (L9)
 !!SN:M6/y1/?y3 M6/y2/?y4; y4=picked index #, 0-15 (L10)
 !!SN:M6/y1/y4 M6/y2/y3; switch pick w/last (L11)
 !!VRy6:Sy4+570; gif z-#  (L12)
-!!VRv1:C1157605502/-163906468/-413614767; (L13)
+;!VRv1:C1157605502/-163906468/-413614767; (L13)
+!!VRv1:C214852736/230228966/1257219287; (L13)
 !!VRy5:Svy20; (L14)
-!!VRz-1:S^To test your wisdom, please answer this:
-Every prime number which is of the form 4*N+1
-is the sum of two ___ (one word).^; L15
-!!VRz-1&y20=2:S^To test your wisdom, please answer this:
-If N is an integer, N*N+1 is never a multiple of 3,
-but if (P*Q)*(P*Q)+1 is always a multiple of 3 for
-all integers P which are not multiples of 3, then
-Q must be a ___ ___ (two words).^; L16
-!!VRz-1&y20=3:S^To test your wisdom, please answer this:
-The quantity (N-1)!+1 (where (n)! is the factorial
-of n) is divisible by the ineger N if and only if
-N is  ___ (one word).^; L17
-!!VRz-2:S^What is the answer (lower-case letters only)?^; L18
+!!VRz-1:S^By sprawdziæ sw¹ m¹droœæ, odpowiedz proszê na to pytanie:
+Ka¿da liczba pierwsza postaci 4*N+1
+jest sum¹ dwóch ___ (jedno s³owo, wpisz bez Polskich znaków).^; L15
+!!VRz-1&y20=2:S^By sprawdziæ sw¹ m¹droœæ, odpowiedz proszê na to pytanie:
+Jeœli N jest liczb¹ ca³kowit¹, to N*N+1 nigdy nie jest wielokrotnoœci¹ 3,
+lecz jeœli (P*Q)*(P*Q)+1 jest zawsze wielokrotnoœci¹ 3 dla
+wszystkich liczb ca³kowitych P które nie s¹ wielokrotnoœci¹ 3, to
+Q musi byæ ___ (jedno s³owo, wpisz bez polskich znaków).^; L16
+!!VRz-1&y20=3:S^By sprawdziæ sw¹ m¹droœæ, odpowiedz proszê na to pytanie:
+Wartoœæ (N-1)!+1 (gdzie (n)! to n silnia)
+jest podzielna rzez N wtedy i tylko wtedy gdy
+N jest ___ (dwa s³owa, wpisz bez Polskich znaków).^; L17
+!!VRz-2:S^Jaka jest odpowiedŸ (ma³e litery, bez Polskich znaków)?^; L18
 !!VRz-3:Szy6; L19
 !!VRz-4:S^Lao Tze-Tung^; L20
 !!IF:D14/-1/-2/0/-3/579/0/0/0/-4/0/0/0/0/0/0; L21
@@ -72,16 +73,16 @@ N is  ___ (one word).^; L17
 !!DO12930/v2/v3/1:P1/?v4;
 !!VRz5:S^FORGET.WAV^;
 !!SN&v4<>y5:Pz5;
-!!IF&v4<>y5:Q1^That answer is not acceptable. Do you want to try again?^;
+!!IF&v4<>y5:Q1^To nie jest akceptowalna odpowiedŸ. Chcesz spróbowaæ ponownie?^;
 !!SN&v4<>y5/1:G22;
 !!PO998&v4<>y5:V1/d-1;reset for same puzzle
 !!if&v4=y5:;
 !!UN:J6/8/?y8 J6/8/?y9 J6/8/?y10;
 !!VRz5:S^BUILDTWN.WAV^;
 !!SN:Pz5;
-!!IF&y20=1:Q1/8/y8/1^Congratulations! You have won a prize!^;
-!!IF&y20=2:Q1/8/y8/8/y9/1^Congratulations! You have won a big prize!^;
-!!IF&y20=3:Q1/8/y8/8/y9/8/y10/1^Congratulations! You have won a grand prize!^;
+!!IF&y20=1:Q1/8/y8/1^Gratulacje! Wygrywasz talon na... nagrodê!^;
+!!IF&y20=2:Q1/8/y8/8/y9/1^Gratulacje! Wygrywasz talon na... du¿¹ nagrodê!^;
+!!IF&y20=3:Q1/8/y8/8/y9/8/y10/1^Gratulacje! Wygrywasz talon na... g³ówn¹ nagrodê!^;
 !!HE-1:A4/y8;
 !!HE-1&y20=2:A4/y9;
 !!HE-1&y20=3:A4/y9 A4/y10;
