@@ -107,9 +107,9 @@ jak i dodawaæ nowe lokalizacje do listy.^;
 ; z# has header/z# has 1st item description/etc.
 !!VRz-1:S^Menu teleportacyjne Latarni Lloyda:^;
 !!VRz-2:S^(Ustaw now¹ lokalizacjê.)--niestety, obecnie niedostêpne.^; v99=1
-!!VRz-2&v2002>v2003:S^Ustaw aktualn¹ lokalizacjê jako nowy Punkt Teleportacyjny.^; v99=1
-!!VRz-3:S^(Przenieœ siê do istniej¹cego Punktu Teleportacyjnego.)--niestety, ¿adnych nie masz.^; v99=2
-!!VRz-3&v2003>0:S^Przenieœ siê do istniej¹cego Punktu Teleportacyjnego.^; v99=2
+!!VRz-2&v2002>v2003:S^Ustaw nowy Punkt Teleportacyjny.^; v99=1
+!!VRz-3:S^(Skok do Punktu Teleportacyjnego.)--niestety, ¿adnych nie masz.^; v99=2
+!!VRz-3&v2003>0:S^Skok do Punktu Teleportacyjnego.^; v99=2
 !!VRz-4:S^WyjdŸ z menu.^; v99=4
 !!IF:G1/99/2/-1/-2/-3/-4;
 !!FU&v99=4:E;
@@ -157,7 +157,7 @@ jak i dodawaæ nowe lokalizacje do listy.^;
 !!VRv2&v2<0:S27;
 !!HEv2:P?y1/?y2/?y3; get position
 !!VRz-1:S^Menu operacyjne Latarni Lloyda:^;
-!!VRz-2:S^Wpisz opis tego Punktu Teleportacyjnego:^; -->z1
+!!VRz-2:S^Opis tego Punktu Teleportacyjnego:^; -->z1
 !!VRz-3:S^Opcje:^;
 !!VRz-4:S^..\Mods\HiddenSpells\Data\machineB.gif^;
 !!VRz-8:S^Wybieraj Punkty Teleportacyjne m¹drze--nie mo¿na ich zmieniæ.^;

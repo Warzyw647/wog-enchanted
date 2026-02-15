@@ -34,11 +34,11 @@ Bohater dzier¿¹cy tê magiczn¹ Tarczê mo¿e zawo³aæ Drisa by rzuciæ ukryty czar zn
 !?OB61/36/0&1000; Master Smith
 !!OB62/36/0:T?v1 U?v2;
 !!FU&v1>0:E; exit if something on Forge
-!!VRz4:S^Jeœli masz coœ do sprzedania, po³ó¿ to na mojej kuŸni,
-a oceniê to i wymieniê cenê, ale nie bêdê siê targowaæ!
-Jeœli potrzebujesz czegoœ specjalnego (nie tamtego fabrycznego badziewia)
-to jesteœ we w³aœciwym miejscu! Moj¹ specjalnoœci¹ s¹
-Staro¿ytne Artefakty--¿adne zadanie nie jest za trudne! Potrzebujesz czegoœ?^;
+!!VRz4:S^Jeœli masz coœ do sprzedania, po³ó¿ to na mojej kuŸni, a oceniê to
+i wymieniê cenê, ale nie bêdê siê targowaæ! Jeœli potrzebujesz czegoœ
+specjalnego (nie tamtego fabrycznego badziewia) to jesteœ we w³aœciwym
+miejscu! Moj¹ specjalnoœci¹ s¹ Staro¿ytne Artefakty--¿adne zadanie nie
+jest za trudne! Potrzebujesz czegoœ?^;
 !!VRz5:S^The Master Smith^;
 !!VRz6:S^..\Data\ForgeLHS.gif^;
 !!VRz7:S^..\Data\MstSmith.jpg^;

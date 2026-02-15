@@ -25,22 +25,22 @@ ZVSE
 !#VRz539:S^Sala Bohaterów^;
 !#OB35/125/0:SH539;
 
-!#VRz540:S^Staro¿ytna Samurajska Wojownczka (2 s³owa)^;
+!#VRz540:S^Staro¿ytna Samurajska Wojowniczka (2 s³owa)^;
 !#VRz541:S^Wiceadmira³ Brytyjskiej Floty (2 s³owa)^;
 !#VRz542:S^USAñski Mistrz Koszykówki (2 s³owa)^;
 !#VRz543:S^Wikiñski Odkrywca (2 s³owa)^;
-!#VRz544:S^Mongolski Zdobywca (2 s³owa z kresk¹ __-__)^;
+!#VRz544:S^Mongolski Zdobywca (2 s³owa __ __)^;
 !#VRz545:S^Rzymski Obroñca Mostu (2 s³owa)^;
 !#VRz546:S^Spartañski Król i Wojownik (1 s³owo)^;
 !#VRz547:S^Radziecki Kosmonauta (2 s³owa)^;
-!#VRz548:S^Muz³umañski Przywódca walcz¹cy w Krucjatach (1 s³owo)^;
+!#VRz548:S^Muzu³mañski Przywódca przeciwko Krucjatom (1 s³owo)^;
 !#VRz549:S^Zuluski Przywódca Wojenny (2 s³owa)^;
 !#VRz550:S^Staro¿ytny Chiñski Genera³ (2 s³owa)^;
-!#VRz551:S^Francuska Bohaterka Wojenna (2 s³owa __ __)^;
+!#VRz551:S^Francuska Przywódczyni Wojenna (3 s³owa __ _ __)^;
 !#VRz552:S^USAñski Genera³ i Prezydent (2 s³owa)^;
-!#VRz553:S^Hinduski Ksi¹¿ê Wojownik, Œwietny £ucznik (1 s³owo)^;
+!#VRz553:S^Hinduski Ksi¹¿ê-Wojownik, Wielki £ucznik (1 s³owo)^;
 !#VRz554:S^Indyjski Przywódca (1 s³owo)^;
-!#VRz555:S^Serbski gracz NBA (2 s³owa)^;
+!#VRz555:S^Serbski zawodnik NBA (2 s³owa)^;
 
 !#SN:M4; delete slot 4
 !#SN:M4/16/0/1; create Era data slot #4, 16 values, numbers not strings, save data in Saved Game
@@ -53,14 +53,14 @@ ZVSE
 !#SN:M5/1/1165054582;
 !#SN:M5/2/-509009604;
 !#SN:M5/3/433804217;
-!#SN:M5/4/-608181604;
+!#SN:M5/4/-1545748772;
 !#SN:M5/5/1921515250;
 !#SN:M5/6/1337062070;
 !#SN:M5/7/916307304;
 !#SN:M5/8/1347417308;
 !#SN:M5/9/1706007183;
-!#SN:M5/10/-1850396385;
-!#SN:M5/11/883285607;
+!#SN:M5/10/-1045335629;
+!#SN:M5/11/-1798889841;
 !#SN:M5/12/2023135232;
 !#SN:M5/13/-237781063;
 !#SN:M5/14/-1760917327;
@@ -85,7 +85,7 @@ Urz¹dzenie zosta³o z³upione podczas pl¹drowania Gorzowa Wielkopolskiego i przywl
 !!VRy7:Sy4+540; clue z-# (L11)
 !!VRz-1:S^Wpisz imiê Bohatera poni¿ej, bez Polskich znaków
 i wielkich liter (przyk³ad: tadeusz kosciuszko).^; L12
-!!VRz-2:S^Who is it?^; L13
+!!VRz-2:S^Kto to jest?^; L13
 !!VRz-3:Szy6; L14
 !!VRz-4:Szy7; L14
 !!IF:D11/-1/-2/0/-3/0/0/0/-4/0/0/0/0/0/0/0; L16

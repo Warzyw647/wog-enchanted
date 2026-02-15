@@ -146,7 +146,7 @@ Wybierz m¹drze!^;
 !!PO998:N?y1;
 !!FU&y1<>0:E;
 !!PO998:N1;
-!!IF:Q1/21/17/8/54/1^A wy to kto, nowi kurierzy? Mam dla was s³abej jakoœci rzeczy do dostarczenia, a w przysz³ym tygodniu bêdzie jeszcze gorzej, chyba ¿e dostanê wiêcej twardych, ostrych klejnotów do moich szlifierek k¹towych! Ostatnio wszystkie s¹ sprzedawane by op³acaæ wojny jego MroŸnoœci, ale potrzebujê trochê do szlifierek i mielarek któryc moja maszyna u¿ywa do kszta³towania czêœci!  Przynieœcie mi przynajmniej dziesiêæ w przysz³ym tygodniu albo bêdê musia³ zamkn¹æ maszynê!^;
+!!IF:Q1/21/17/8/54/1^A wy to kto, nowi kurierzy? Mam dla was s³abej jakoœci rzeczy do dostarczenia, a w przysz³ym tygodniu bêdzie jeszcze gorzej, chyba ¿e dostanê wiêcej twardych, ostrych klejnotów do moich szlifierek k¹towych! Ostatnio wszystkie s¹ sprzedawane by op³acaæ wojny jego MroŸnoœci, ale potrzebujê trochê do szlifierek i mielarek których moja maszyna u¿ywa do kszta³towania czêœci!  Przynieœcie mi przynajmniej dziesiêæ w przysz³ym tygodniu albo bêdê musia³ zamkn¹æ maszynê!^;
 !!HE-1:A4/54; Amulet of Undertaker
 !!VRy2:Sc0-1:7+1; week # (starts at 1)
 !!PO92/81/0:V3/y2;
@@ -179,7 +179,7 @@ Wybierz m¹drze!^;
 !?OB58/23/0&1000; CG1, N=0
 !!PO998:N?y1;
 !!FU&y1>0:E;
-!!IF:Q1/21/9/1^Imponuj¹ce, co nie? To jest {40K} hz Armata Plazmowa Mark V, czule zwana "{WARHAMMER}". Tam gdzie strzeli jest {bum} nawet jeœli na drodze stoi tarcza pró¿niowa. Wiesz co mówi¹ gdy {silnik} Tytana klasy Warlord oberwie z jednego z tych cudeniek? Dwa s³owa (odpowiedz po Angielsku). Jeœli je zgadniesz, porêczê za ciebie w Gildii Strzelców!^;
+!!IF:Q1/21/9/1^Imponuj¹ce, co nie? To jest Armata Plazmowa Mark V {40K} hz, czule zwana "{WARHAMMER}". Tam gdzie strzeli jest {bum} nawet jeœli na drodze stoi tarcza pró¿niowa. Wiesz co mówi¹ gdy {silnik} Tytana klasy Warlord oberwie z jednego z tych cudeniek? Dwa s³owa (odpowiedz po Angielsku). Jeœli je zgadniesz, porêczê za ciebie w Gildii Strzelców!^;
 !!VRz-1:S^Wpisz co mówi¹ gdy Tytan klasy Warlord oberwie
 z mojej Armaty Plazmowej Mark V:
 (2 s³owa, w sumie 10 ma³ych liter, rozdzielone spacj¹)^;
@@ -221,7 +221,7 @@ i naszej Armacie Plazmowej Mark V 40K:
 (Cztery s³owa, w sumie 17 ma³ych liter z trzema spacjami)^;
 !!VRz-2:S^Jak by³by zatytu³owany film?^;
 !!VRz-3:S^..\Mods\HiddenSpells\Data\PlasmaGn.gif^;
-!!VRz-4:S^Plasma Cannon^;
+!!VRz-4:S^Armata Plazmowa^;
 !!IF:D30/-1/-2/0/-3/0/0/0/-4/0/0/0/0/0/0/0;
 !!IF:E1/30;
 ; get address of z1
@@ -636,23 +636,22 @@ Widzê wszystko i wszystko--ah, to ty! Nadal masz te miecze które
 pomog³em ci znaleŸæ, ale one mog¹ nie wystarczyæ przeciwko
 Staro¿ytnej Magii Króla Lodu i jego Bardzo Czerwonej Kulce.
 Moje obliczenia daj¹ ci tylko 4.6% szans--nie polecane.^;
-!!VRz12:S^Qubit the Quantum Oracle^;
+!!VRz12:S^Kubit, Kwantowa Wyrocznia^;
 !!VRz13:S^..\Mods\HiddenSpells\Data\Oracle.gif^;
 !!IF:D39/z10/0/z12/z13 ;
 !!IF:F39/0/0/0/0/0;
 !!IF:E99/39;
 !!VRz10:S^Twoj¹ najwiêksz¹ szans¹ jest znalezienie Zaginionych Œwi¹tyñ
-i liczenie ¿e naucz¹ ciê nieco Starszej Magii by zróoenowa¿yæ tê któr¹ ma Król Lodu.
-Starsi Bogowie wymykaj¹ siê nawet moim predykcjom,
+i liczenie ¿e naucz¹ ciê nieco Starszej Magii by zrównowa¿yæ tê któr¹ ma
+Król Lodu. Starsi Bogowie wymykaj¹ siê nawet moim predykcjom,
 ale mogê pomóc ci znaleŸæ ich Œwi¹tynie.^;
 !!IF:D39/z10/0/z12/z13 ;
 !!IF:F39/0/0/0/0/0;
 !!IF:E99/39;
-!!VRz10:S^Najpierw, Halyna musi zostaæ nie tylko Ekspertem,
-lecz prawdziwym Mistrzem magii ¿ywio³ów. Akademie
-w Dominiach ¯ywio³ów wyszkol¹ j¹--za op³at¹. Jeœli Halynie
-brak tego treningu teraz, odejdŸ, nim Król Lodu ciê
-znajdzie--czasami tu przychodzi.^;
+!!VRz10:S^Najpierw, Halyna musi zostaæ nie tylko Ekspertem, lecz
+prawdziwym Mistrzem magii ¿ywio³ów. Akademie w Dominiach
+¯ywio³ów wyszkol¹ j¹--za op³at¹. Jeœli Halynie brak tego treningu
+teraz, odejdŸ, nim Król Lodu ciê znajdzie--czasami tu przychodzi.^;
 !!IF:D39/z10/0/z12/z13 ;
 !!IF:F39/0/0/0/0/0;
 !!IF:E99/39;
@@ -797,7 +796,7 @@ mo¿esz ciskaæ £¹cze Ognia na swych wrogów!^;
 Krwistodrzew do Mistrza Kowalskiego. Póki œwieci z gor¹ca
 kuŸni, sch³ódŸ j¹ Czerwon¹ Mikstur¹ w Kocio³ku Magii!
 Nie zapomnij zabraæ worka przypraw dla Kowala!^;
-!!VRz12:S^The Staff of Fire!^;
+!!VRz12:S^Ognista Laska!^;
 !!VRz13:S^..\Mods\HiddenSpells\Data\FireStaf.gif^;
 !!IF:D40/z10/0/z12/z13 ;
 !!IF:F40/0/0/0/0/0;

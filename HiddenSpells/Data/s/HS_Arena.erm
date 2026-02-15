@@ -19,7 +19,7 @@ ZVSE
 !?OB121/48/0; Arena
 !!PO998:V3/?y1;
 !!VRy2:Sc; day # (starts at 1)
-!!IF&y1=y2:M^The Arena games are over for today. The King is angry because some foreign barbarians won for a change!^;
+!!IF&y1=y2:M^Koniec gier na Arenie na dziœ. Król jest z³y, bo jacyœ cudzoziemscy barbarzyñcy wygrali dla odmiany!^;
 !!FU&y1=y2:E;
 !!VRz1:S^../Mods/HiddenSpells/Data/ArenaSwd.gif^;
 !!VRz2:S^../Mods/HiddenSpells/Data/Arena.jpg^;

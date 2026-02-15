@@ -485,8 +485,8 @@ miêdzy oczy. Wtedy znajdziesz Graala.^;
 !!FU&y1=124:E;
 !!VRv311:C85/63;
 !!UN:I85/63/0/36/0;
-!!VRz4:S^Lokalizator ustali³ ¿e musisz znaleŸæ miejsce gdzie czarodziej gapi siê na ¿abê i {kopn¹æ}
-w œrodek niebieskiej tarczy. Wtedy znajdziesz Graala.^;
+!!VRz4:S^Lokalizator ustali³ ¿e musisz znaleŸæ miejsce gdzie czarodziej gapi siê
+na ¿abê i {kopn¹æ} w œrodek niebieskiej tarczy. Wtedy znajdziesz Graala.^;
 !!IF:D21/z4/0/z5/z6 ;
 !!IF:F21/0/0/0/0/0;
 !!IF:E2/21;
@@ -497,8 +497,8 @@ w œrodek niebieskiej tarczy. Wtedy znajdziesz Graala.^;
 !!FU&y1=124:E;
 !!VRv311:C59/65;
 !!UN:I59/65/0/36/0;
-!!VRz4:S^Lokalizator ustali³ ¿e musisz znaleŸæ twarz przyg³upa w gor¹cym miejscu i {kopn¹æ}
-go w nos. Wtedy znajdziesz Graala.^;
+!!VRz4:S^Lokalizator ustali³ ¿e musisz znaleŸæ twarz przyg³upa w gor¹cym
+miejscu i {kopn¹æ} go w nos. Wtedy znajdziesz Graala.^;
 !!IF:D21/z4/0/z5/z6 ;
 !!IF:F21/0/0/0/0/0;
 !!IF:E2/21;
@@ -509,8 +509,8 @@ go w nos. Wtedy znajdziesz Graala.^;
 !!FU&y1=124:E;
 !!VRv311:C12/32;
 !!UN:I12/32/0/36/0;
-!!VRz4:S^Lokalizator ustali³ ¿e jeœli {wiesz} gdzie tañcz¹ trzej kozacy, to musisz {kopn¹æ}
-ich bia³y listek. Wtedy znajdziesz Graala.^;
+!!VRz4:S^Lokalizator ustali³ ¿e jeœli {wiesz} gdzie tañcz¹ trzej kozacy,
+to musisz {kopn¹æ} ich bia³y listek. Wtedy znajdziesz Graala.^;
 !!IF:D21/z4/0/z5/z6 ;
 !!IF:F21/0/0/0/0/0;
 !!IF:E2/21;
@@ -521,8 +521,9 @@ ich bia³y listek. Wtedy znajdziesz Graala.^;
 !!FU&y1=124:E;
 !!VRv311:C72/88;
 !!UN:I72/88/0/36/0;
-!!VRz4:S^Lokalizator ustali³ ¿e musisz znaleŸæ kamienn¹ arenê bez Krasnali, w pobli¿u gwiazdy, w okolicy gdzie magiê sprzedaje siê w butelkach. I {kopn¹æ}
-w drzwi tej areny. Wtedy znajdziesz Graala.^;
+!!VRz4:S^Lokalizator ustali³ ¿e musisz znaleŸæ kamienn¹ arenê bez Krasnali,
+w pobli¿u gwiazdy, w okolicy gdzie magiê sprzedaje siê w butelkach.
+I {kopn¹æ} w drzwi tej areny. Wtedy znajdziesz Graala.^;
 !!IF:D21/z4/0/z5/z6 ;
 !!IF:F21/0/0/0/0/0;
 !!IF:E2/21;
@@ -533,20 +534,21 @@ w drzwi tej areny. Wtedy znajdziesz Graala.^;
 !!FU&y1=124:E;
 !!VRv311:C41/23;
 !!UN:I41/23/0/36/0;
-!!VRz4:S^Lokalizator ustali³ ¿e musisz znaleŸæ dwa ogromne kwiaty na ³¹ce, blisko Szklarni i {kopn¹æ}
-w miejsce gdzie zielony korzeñ jednego z tych kwiatów wystrzela w dó³. Wtedy znajdziesz Graala.^;
+!!VRz4:S^Lokalizator ustali³ ¿e musisz znaleŸæ dwa ogromne kwiaty na ³¹ce,
+blisko Szklarni i {kopn¹æ} w miejsce gdzie zielony korzeñ jednego z tych
+kwiatów wystrzela w dó³. Wtedy znajdziesz Graala.^;
 !!IF:D21/z4/0/z5/z6 ;
 !!IF:F21/0/0/0/0/0;
 !!IF:E2/21;
 
 !?FU317; Grail 8
 !!OB77/31/0:T?y1;
-!!FU318&y1=124:P;
+!!FU319&y1=124:P;
 !!FU&y1=124:E;
 !!VRv311:C77/31;
 !!UN:I77/31/0/36/0;
-!!VRz4:S^Lokalizator ustali³ ¿e musisz znaleŸæ miejsce gdzie {wykuwa} siê Magiê i Miecz. I {kopn¹æ}
-w korzeñ koniczyny. Wtedy znajdziesz Graala.^;
+!!VRz4:S^Lokalizator ustali³ ¿e musisz znaleŸæ miejsce gdzie {wykuwa} siê
+Magiê i Miecz. I {kopn¹æ} w korzeñ koniczyny. Wtedy znajdziesz Graala.^;
 !!IF:D21/z4/0/z5/z6 ;
 !!IF:F21/0/0/0/0/0;
 !!IF:E2/21;
@@ -556,8 +558,8 @@ w korzeñ koniczyny. Wtedy znajdziesz Graala.^;
 !!FU&y1=124:E;
 !!VRv311:C17/88;
 !!UN:I17/88/0/36/0;
-!!VRz4:S^Lokalizator ustali³ ¿e musisz znaleŸæ d³ugiego wê¿a i przy jego ogonie {kopn¹æ}
-miejsce gdzie spotykaj¹ siê strza³ki. Wtedy znajdziesz Graala.^;
+!!VRz4:S^Lokalizator ustali³ ¿e musisz znaleŸæ d³ugiego wê¿a i przy jego
+ogonie {kopn¹æ} miejsce gdzie spotykaj¹ siê strza³ki. Wtedy znajdziesz Graala.^;
 !!IF:D21/z4/0/z5/z6 ;
 !!IF:F21/0/0/0/0/0;
 !!IF:E2/21;
@@ -678,7 +680,7 @@ Lokalizator 9B wy³¹cza siê.^;
 !?OB26/62/0&368;
 !!IF:V368/0;
 !!VRz1:S^Mods/HiddenSpells/Data/ForcerB1.bmp^;
-!!SN:Ev39/1/z1/321/226/280/78/100/0; call DrawBmp(left=321,top=226,width=280,height=78,Delay=0.1s,IfKey=0)
+!!SN:Ev39/1/z1/271/241/280/78/100/0; call DrawBmp(left=321,top=226,width=280,height=78,Delay=0.1s,IfKey=0)
 !!VRz2:S^LaserHit.wav^;
 !!SN:Pz2;
 !!DO322/0/47/1:P;
@@ -687,7 +689,7 @@ Lokalizator 9B wy³¹cza siê.^;
 !?FU322; plot ForcerB[y1]
 !!VRy1:Sx16%3+2; 2-3-4
 !!VRz1:S^Mods/HiddenSpells/Data/ForcerB%Y1.bmp^;
-!!SN:Ev39/1/z1/321/226/280/78/100/0; call DrawBmp(left=321,top=226,width=280,height=78,Delay=0.1s,IfKey=0)
+!!SN:Ev39/1/z1/271/241/280/78/100/0; call DrawBmp(left=321,top=226,width=280,height=78,Delay=0.1s,IfKey=0)
 
 !#VRz339:S^Akademia Ziemi^;
 !#OB19/16/0:SH339;
@@ -702,14 +704,14 @@ Poza umiejêtnoœciami Eksperta Magii Ziemi, Mistrz Ziemi mo¿e podró¿owaæ miêdzy g
 !#VRz205:S^Mistrz Powietrza i Wody!^;
 !#VRz206:S^Mistrz Ognia i Wody!^;
 !#VRz207:S^Mistrz Powietrza, Ognia, i Wody!^;
-!#VRz208:S^Mistrz Earth!^;
-!#VRz209:S^Mistrz Powietrza i Earth!^;
-!#VRz210:S^Mistrz Ognia i Earth!^;
-!#VRz211:S^Mistrz Powietrza, Ognia, i Earth!^;
-!#VRz212:S^Mistrz Wody i Earth!^;
-!#VRz213:S^Mistrz Powietrza, Wody, i Earth!^;
-!#VRz214:S^Mistrz Ognia, Wody i Earth!^;
-!#VRz215:S^Mistrz Powietrza, Ognia, Wody i Earth!^;
+!#VRz208:S^Mistrz Ziemi!^;
+!#VRz209:S^Mistrz Powietrza i Ziemi!^;
+!#VRz210:S^Mistrz Ognia i Ziemi!^;
+!#VRz211:S^Mistrz Powietrza, Ognia, i Ziemi!^;
+!#VRz212:S^Mistrz Wody i Ziemi!^;
+!#VRz213:S^Mistrz Powietrza, Wody, i Ziemi!^;
+!#VRz214:S^Mistrz Ognia, Wody i Ziemi!^;
+!#VRz215:S^Mistrz Powietrza, Ognia, Wody i Ziemi!^;
 
 !?OB19/16/0&1000;
 !!HE-1:N?y1 S17/?y3; HE#, Earth

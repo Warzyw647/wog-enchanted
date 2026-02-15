@@ -15,10 +15,10 @@ Ten bukiet zadowoli piêkn¹ damê i przyniesie Ci du¿o szczêœcia.^;
 !?OB29/20/0; Greenhouse
 !!VRz4:S^Witajcie w Szklarni, gdzie hodujemy piêkne kwiaty.
 Chcesz kupiæ œliczny bukiet by oszo³omiæ dziewczynê?
-Król Lodu wymaga od nas ogomnych zysków, albo
-zetnei nam g³ówki--dos³ownie--wiêc musimy ¿¹daæ
+Król Lodu wymaga od nas ogromnych zysków, albo
+zetnie nam g³ówki--dos³ownie--wiêc musimy ¿¹daæ
 po 10,000 z³otych za nasze produkty.^;
-!!VRz5:S^Bouquet of Flowers^;
+!!VRz5:S^Bukiet Kwiatów^;
 !!VRz6:S^..\Data\Bouquet.gif^;
 !!IF:D12/z4/0/z5/z6/0/0/0;
 !!IF:F12/0/0/0/0/1;

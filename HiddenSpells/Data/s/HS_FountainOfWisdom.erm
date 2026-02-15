@@ -24,8 +24,8 @@ ZVSE
 !#SN:M6/0/0 M6/1/1 M6/2/2 M6/3/3 M6/4/4 M6/5/5 M6/6/6 M6/7/7;
 !#SN:M6/8/8;
 
-!#PO109/28/0:B0/1157605502;
-!#PO109/28/0:B1/-163906468;
+!#PO109/28/0:B0/214852736; PO:B usage is most likely obsolete here, most likely a leftover from earlier versions
+!#PO109/28/0:B1/230228966;
 !#PO109/28/0:N8; last selection no.
 
 !?OB109/28/0; FoW
@@ -58,12 +58,12 @@ lecz jeœli (P*Q)*(P*Q)+1 jest zawsze wielokrotnoœci¹ 3 dla
 wszystkich liczb ca³kowitych P które nie s¹ wielokrotnoœci¹ 3, to
 Q musi byæ ___ (jedno s³owo, wpisz bez polskich znaków).^; L16
 !!VRz-1&y20=3:S^By sprawdziæ sw¹ m¹droœæ, odpowiedz proszê na to pytanie:
-Wartoœæ (N-1)!+1 (gdzie (n)! to n silnia)
-jest podzielna rzez N wtedy i tylko wtedy gdy
+Wartoœæ (N-1)!+1 (gdzie (n)! jest silni¹ n)
+jest podzielna przez liczbê ca³kowit¹ N wtedy i tylko wtedy gdy
 N jest ___ (dwa s³owa, wpisz bez Polskich znaków).^; L17
 !!VRz-2:S^Jaka jest odpowiedŸ (ma³e litery, bez Polskich znaków)?^; L18
 !!VRz-3:Szy6; L19
-!!VRz-4:S^Lao Tze-Tung^; L20
+!!VRz-4:S^Laozi^; L20
 !!IF:D14/-1/-2/0/-3/579/0/0/0/-4/0/0/0/0/0/0; L21
 !!IF:E1/14; L22
 * get address of z1
